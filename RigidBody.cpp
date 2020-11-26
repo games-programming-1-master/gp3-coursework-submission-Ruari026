@@ -36,7 +36,7 @@ void RigidBody::UpdateParent()
 	trans->SetPosition(newPos);
 	btQuaternion bRot = bT.getRotation();
 	glm::quat newRot = glm::quat((float)bRot.getW(), (float)bRot.getX(), (float)bRot.getY(), (float)bRot.getZ());
-	trans->SetGlobalRotationEuler(newRot);
+	trans->SetLocalRotationQuaternion(newRot);
 }
 
 void RigidBody::UpdateRigidBody()

@@ -10,8 +10,8 @@ private:
 	glm::vec3 m_right = glm::vec3(0.f, 0.f, 0.f);
 	glm::vec3 m_up = glm::vec3(0.f, 0.f, 0.f);
 	glm::vec3 m_scale = glm::vec3(1.f, 1.f, 1.f);
-
-	glm::vec3 m_localRotation = glm::vec3(0.0f, 0.0f, 0.0f); // TODO: store rotation as a quaternion
+	
+	glm::vec3 m_localRotation = glm::vec3(0.0f, 0.0f, 0.0f);
 
 	glm::mat4 m_transformMatrix = glm::mat4();
 
@@ -24,7 +24,6 @@ public:
 	Transform(glm::vec3 pos);
 	Transform(glm::vec3 pos, glm::vec3 rot);
 	Transform(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale);
-	Transform(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale, glm::vec3 transXYZ);
 
 	// Position
 	inline glm::vec3 GetLocalPosition() 
@@ -83,7 +82,7 @@ public:
 	inline glm::vec3 GetForward() { if (m_isDirty) { UpdateTransform(); }return m_forward; }
 	inline glm::vec3 GetRight() { if (m_isDirty) { UpdateTransform(); }return m_right; }
 	inline glm::vec3 GetUp() { if (m_isDirty) { UpdateTransform(); }return m_up; }
-
+	
 	// Rotation
 	inline glm::vec3 GetLocalRotationEuler() 
 	{
@@ -103,6 +102,7 @@ public:
 
 		return quaternion;
 	}
+
 	inline glm::vec3 GetGlobalRotationEuler() 
 	{ 
 		// Transformation required if entity has a parent
@@ -118,6 +118,7 @@ public:
 	}
 	inline glm::quat GetGlobalRotationQuaternion() 
 	{
+		// Transforming euler angles into quaternion representation
 		glm::vec3 eulerAngles = GetGlobalRotationEuler();
 
 		glm::quat quaternion = glm::quat();
@@ -132,15 +133,34 @@ public:
 	inline void SetLocalRotationEuler(glm::vec3 newRotation) 
 	{ 
 		m_isDirty = true; 
+
+		// No transformation required, directly setting local position
 		m_localRotation = newRotation; 
 	}
+	inline void SetLocalRotationQuaternion(glm::quat newRotation)
+	{
+		glm::vec3 newEuler = glm::vec3();
+
+		// Heading
+		newEuler.x = atan2(((2 * newRotation.y * newRotation.w) - (2 * newRotation.x * newRotation.z)), ((1) - (2 * newRotation.y * newRotation.y) - (2 * newRotation.z * newRotation.z)));
+		// Attitude
+		newEuler.y = asin((2 * newRotation.x * newRotation.y) + (2 * newRotation.z * newRotation.w));
+		// Bank
+		newEuler.z = atan2(((2 * newRotation.x * newRotation.w) - (2 * newRotation.y * newRotation.z)), ((1) - (2 * newRotation.x * newRotation.x) - (2 * newRotation.z * newRotation.z)));
+
+		this->m_localRotation = newEuler;
+	}
+
 	inline void SetGlobalRotationEuler(glm::vec3 newRotation) 
 	{
 		m_isDirty = true;
+
+		// Transformation required if entity has a parent
 		if (this->m_parentTransform != nullptr)
 		{
 			m_localRotation = (newRotation - this->GetGlobalRotationEuler());
 		}
+		// Otherwise no transformation required, global rotation will be the same as local rotation
 		else
 		{
 			m_localRotation = newRotation;
