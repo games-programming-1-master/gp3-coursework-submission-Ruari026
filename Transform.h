@@ -202,11 +202,11 @@ public:
 		glm::vec3 newEulerAngles = glm::vec3();
 
 		// Heading
-		newEulerAngles.x = atan2(((2 * quaternion.y * quaternion.w) - (2 * quaternion.x * quaternion.z)), ((1) - (2 * quaternion.y * quaternion.y) - (2 * quaternion.z * quaternion.z)));
+		newEulerAngles.x = atan2(((2 * quaternion.x * quaternion.w) - (2 * quaternion.y * quaternion.z)), ((1) - (2 * quaternion.x * quaternion.x) - (2 * quaternion.z * quaternion.z)));
 		// Attitude
 		newEulerAngles.y = asin((2 * quaternion.x * quaternion.y) + (2 * quaternion.z * quaternion.w));
 		// Bank
-		newEulerAngles.z = atan2(((2 * quaternion.x * quaternion.w) - (2 * quaternion.y * quaternion.z)), ((1) - (2 * quaternion.x * quaternion.x) - (2 * quaternion.z * quaternion.z)));
+		newEulerAngles.z = atan2(((2 * quaternion.y * quaternion.w) - (2 * quaternion.x * quaternion.z)), ((1) - (2 * quaternion.y * quaternion.y) - (2 * quaternion.z * quaternion.z)));
 
 		return newEulerAngles;
 	}
