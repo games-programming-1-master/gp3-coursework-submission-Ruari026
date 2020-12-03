@@ -8,16 +8,25 @@ class Entity
 {
 private:
 	std::vector<Component*> m_components;
+
 	std::vector<Entity*> m_children;
+	Entity* m_parent = nullptr;
+
 	Transform* m_transform = nullptr;
 
 public:
 	Entity();
 
+	// Handling Components
 	void AddComponent(Component* c);
-	template<class T> void AddComponent();
+	template<class T> T* AddComponent();
 	template<class T> T* GetComponent();
 
+	// Handling Parent Children Relationships
+	void AddChild(Entity* newChild);
+	inline Entity* GetParent() { return m_parent; };
+
+	// Handling Game Loop
 	void OnUpdate(float deltaTime);
 	void OnRender();
 
@@ -25,7 +34,7 @@ public:
 };
 
 template<class T>
-void Entity::AddComponent()
+T* Entity::AddComponent()
 {
 	T* t = new T();
 	Component* c = dynamic_cast<Component*>(t);
@@ -33,14 +42,15 @@ void Entity::AddComponent()
 	{
 		c->m_entity = this;
 		m_components.push_back(c);
+		return t;
 	}
 	else
 	{
 		LOG_DEBUG("Can't add component, does not inherit from Component");
+		return nullptr;
 	}
 }
 
-//entity GetComponent function template goes HERE!
 template<class T>
 T* Entity::GetComponent()
 {

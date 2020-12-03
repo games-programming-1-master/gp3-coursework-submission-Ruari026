@@ -193,7 +193,9 @@ public:
 	inline glm::vec3 GetScale() { return m_scale; }
 	inline void SetScale(glm::vec3 newScale) { m_isDirty = true; m_scale = newScale; }
 
-	//getters
+	// Other setters
+	inline void SetParentTransform(Transform* newParent) { m_parentTransform = newParent; }
+	// Other getters
 	inline glm::mat4 GetTransformationMatrix() { if (m_isDirty)return UpdateTransform(); else return m_transformMatrix; }
 
 	// Utility

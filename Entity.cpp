@@ -12,6 +12,15 @@ Entity::Entity()
 Handling Children Entitys
 ========================================================================================================================================================================================================
 */
+void Entity::AddChild(Entity* newChild)
+{
+	// Letting the parent know about the new child
+	this->m_children.push_back(newChild);
+
+	// Letting the child know about the new parent
+	newChild->m_parent = this;
+	newChild->GetTransform()->SetParentTransform(this->GetTransform());
+}
 
 
 /*
