@@ -1,14 +1,10 @@
 #include "pch.h"
 #include "Application.h"
 #include "Common.h"
-#include "MeshRenderer.h"
-#include "Quad.h"
-#include "CameraComp.h"
-#include "Input.h"
 #include "Resources.h"
+#include "SceneManager.h"
+#include "Input.h"
 #include "Physics.h"
-#include "BoxShape.h"
-#include "RigidBody.h"
 
 Application *Application::m_application = nullptr;
 
@@ -88,28 +84,8 @@ void Application::GameInit()
 		"simple"
 	);
 
-	Entity* floor = new Entity();
-	m_entities.push_back(floor);
-	floor->AddComponent(
-		new MeshRenderer(
-			Resources::GetInstance()->GetModel("Models/floor.FBX"),
-			Resources::GetInstance()->GetShader("simple"),
-			Resources::GetInstance()->GetTexture("Images/Textures/Tile (Simple).png"))
-	);
-	MeshRenderer* m = floor->GetComponent<MeshRenderer>();
-	floor->GetTransform()->SetGlobalPosition(glm::vec3(0, -10.f, -500.f));
-	floor->GetTransform()->SetLocalRotationEuler(glm::vec3((3.14f / 2), 0.0f, 0.0f));
-	floor->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
-	floor->AddComponent<RigidBody>();
-
-	floor->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(100.f, 1.f, 100.f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-	floor->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
-
-	Entity* camera = new Entity();
-	m_entities.push_back(camera);
-	CameraComp* cc = new CameraComp();
-	camera->AddComponent(cc);
-	cc->Start();
+	// Loading All Scenes
+	SceneManager::GetInstance()->Init("Gameplay");
 
 	Resources::GetInstance()->ReleaseUnusedResources();
 }
@@ -144,15 +120,18 @@ void Application::Loop()
 			}
 		}
 
+		// Updating time between frames
 		auto currentTicks = std::chrono::high_resolution_clock::now();
 		float deltaTime = (float)std::chrono::duration_cast<std::chrono::microseconds>(currentTicks - prevTicks).count() / 100000;
 		m_worldDeltaTime = deltaTime;
 		prevTicks = currentTicks;
-
+		
+		// Updating game physics
 		Physics::GetInstance()->Update(deltaTime);
-		//update and render all entities
-		Update(deltaTime);
-		Render();
+
+		//update and render current scene entities
+		SceneManager::GetInstance()->GetCurrentScene()->Update(deltaTime);
+		SceneManager::GetInstance()->GetCurrentScene()->Render();
 
 		SDL_GL_SwapWindow(m_window);
 	}
@@ -167,28 +146,6 @@ void Application::Quit()
 	SDL_QuitSubSystem(SDL_INIT_EVERYTHING);
 	SDL_Quit();
 }
-
-void Application::Update(float deltaTime)
-{
-	for (auto& a : m_entities)
-	{
-		a->OnUpdate(deltaTime);
-	}
-}
-
-void Application::Render()
-{
-	/* Clear context */
-	glClearColor(0.04f, 0.06f, 0.27f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	m_mainCamera->Recalculate();
-	for (auto& a : m_entities)
-	{
-		a->OnRender();
-	}
-}
-
 
 Application::~Application()
 {
@@ -209,12 +166,4 @@ void Application::Run()
 	Init();
 	Loop();
 	Quit();
-}
-
-void Application::SetCamera(Camera* camera)
-{
-	if (camera != nullptr)
-	{
-		m_mainCamera = camera;
-	}
 }

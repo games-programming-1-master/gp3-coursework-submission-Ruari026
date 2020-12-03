@@ -4,6 +4,9 @@
 #include "Component.h"
 #include "Log.h"
 
+//forward declaring to avoid circular includes
+class Scene;
+
 class Entity
 {
 private:

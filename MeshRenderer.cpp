@@ -2,7 +2,7 @@
 #include "MeshRenderer.h"
 #include "Entity.h"
 #include "Common.h"
-#include "Application.h"
+#include "SceneManager.h"
 #include "Camera.h"
 
 MeshRenderer::MeshRenderer(std::shared_ptr<Model> model, std::shared_ptr<ShaderProgram> program, std::shared_ptr<Texture> texture)
@@ -22,7 +22,7 @@ void MeshRenderer::OnRender()
 
 	//set uniforms here!
 	glm::mat4 model = m_entity->GetTransform()->GetTransformationMatrix();
-	glm::mat4 mvp = Application::GetInstance()->GetCamera()->Get() * model;
+	glm::mat4 mvp = SceneManager::GetInstance()->GetCurrentScene()->GetCamera()->Get() * model;
 
 	GLuint loc = glGetUniformLocation(m_program->Get(), "MVP");
 	glUniformMatrix4fv(loc, 1, false, (const GLfloat*)glm::value_ptr(mvp));
