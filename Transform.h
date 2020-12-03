@@ -77,7 +77,28 @@ public:
 		}
 	}
 
-	inline void SetPosition(glm::vec3 newPos) { m_isDirty = true; m_localPosition = newPos; }
+	inline void SetLocalPosition(glm::vec3 newPosition)
+	{
+		m_isDirty = true;
+
+		// No transformation required
+		m_localPosition = newPosition;
+	}
+	inline void SetGlobalPosition(glm::vec3 newPosition)
+	{
+		m_isDirty = true;
+
+		// Transformation required if entity has a parent
+		if (this->m_parentTransform != nullptr)
+		{
+			m_localPosition = (newPosition - m_parentTransform->GetGlobalPosition());
+		}
+		// Otherwise no transformation required, global rotation will be the same as local rotation
+		else
+		{
+			m_localPosition = newPosition;
+		}
+	}
 
 	inline glm::vec3 GetForward() { if (m_isDirty) { UpdateTransform(); }return m_forward; }
 	inline glm::vec3 GetRight() { if (m_isDirty) { UpdateTransform(); }return m_right; }
@@ -91,16 +112,8 @@ public:
 	}
 	inline glm::quat GetLocalRotationQuaternion() 
 	{
-		// Transforming euler angles into quaternion representation
-		glm::vec3 eulerAngles = GetLocalRotationEuler();
-
-		glm::quat quaternion = glm::quat();
-		quaternion.x = (sin(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * cos(eulerAngles.z / 2)) + (cos(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * sin(eulerAngles.z / 2));
-		quaternion.y = (cos(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * cos(eulerAngles.z / 2)) + (sin(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * sin(eulerAngles.z / 2));
-		quaternion.z = (cos(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * sin(eulerAngles.z / 2)) + (sin(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * cos(eulerAngles.z / 2));
-		quaternion.w = (cos(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * cos(eulerAngles.z / 2)) + (sin(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * sin(eulerAngles.z / 2));
-
-		return quaternion;
+		// Need to transform to quaternion
+		return Transform::ConvertEulerToQuaternion(m_localPosition);
 	}
 
 	inline glm::vec3 GetGlobalRotationEuler() 
@@ -108,7 +121,7 @@ public:
 		// Transformation required if entity has a parent
 		if (this->m_parentTransform != nullptr)
 		{
-			return (this->GetLocalRotationEuler() + this->m_parentTransform->GetGlobalRotationEuler());
+			return (m_localRotation + m_parentTransform->GetGlobalRotationEuler());
 		}
 		// Otherwise no transformation needed, global rotation is the same as local rotation
 		else
@@ -118,37 +131,31 @@ public:
 	}
 	inline glm::quat GetGlobalRotationQuaternion() 
 	{
-		// Transforming euler angles into quaternion representation
-		glm::vec3 eulerAngles = GetGlobalRotationEuler();
-
-		glm::quat quaternion = glm::quat();
-		quaternion.x = (sin(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * cos(eulerAngles.z / 2)) + (cos(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * sin(eulerAngles.z / 2));
-		quaternion.y = (cos(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * cos(eulerAngles.z / 2)) + (sin(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * sin(eulerAngles.z / 2));
-		quaternion.z = (cos(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * sin(eulerAngles.z / 2)) + (sin(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * cos(eulerAngles.z / 2));
-		quaternion.w = (cos(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * cos(eulerAngles.z / 2)) + (sin(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * sin(eulerAngles.z / 2));
-
-		return quaternion;
+		// Transformation required if entity has a parent
+		if (this->m_parentTransform != nullptr)
+		{
+			return Transform::ConvertEulerToQuaternion(m_localRotation + m_parentTransform->GetGlobalRotationEuler());
+		}
+		// Otherwise no transformation needed, global rotation is the same as local rotation
+		else
+		{
+			return Transform::ConvertEulerToQuaternion(m_localRotation);
+		}
 	}
 
 	inline void SetLocalRotationEuler(glm::vec3 newRotation) 
 	{ 
-		m_isDirty = true; 
+		m_isDirty = true;
 
-		// No transformation required, directly setting local position
-		m_localRotation = newRotation; 
+		// No transformation needed
+		m_localRotation = newRotation;
 	}
 	inline void SetLocalRotationQuaternion(glm::quat newRotation)
 	{
-		glm::vec3 newEuler = glm::vec3();
+		m_isDirty = true;
 
-		// Heading
-		newEuler.x = atan2(((2 * newRotation.y * newRotation.w) - (2 * newRotation.x * newRotation.z)), ((1) - (2 * newRotation.y * newRotation.y) - (2 * newRotation.z * newRotation.z)));
-		// Attitude
-		newEuler.y = asin((2 * newRotation.x * newRotation.y) + (2 * newRotation.z * newRotation.w));
-		// Bank
-		newEuler.z = atan2(((2 * newRotation.x * newRotation.w) - (2 * newRotation.y * newRotation.z)), ((1) - (2 * newRotation.x * newRotation.x) - (2 * newRotation.z * newRotation.z)));
-
-		this->m_localRotation = newEuler;
+		// Just need to convert to euler angles
+		m_localRotation = Transform::ConvertQuaternionToEuler(newRotation);
 	}
 
 	inline void SetGlobalRotationEuler(glm::vec3 newRotation) 
@@ -158,12 +165,27 @@ public:
 		// Transformation required if entity has a parent
 		if (this->m_parentTransform != nullptr)
 		{
-			m_localRotation = (newRotation - this->GetGlobalRotationEuler());
+			m_localRotation = (newRotation - m_parentTransform->GetGlobalRotationEuler());
 		}
 		// Otherwise no transformation required, global rotation will be the same as local rotation
 		else
 		{
 			m_localRotation = newRotation;
+		}
+	}
+	inline void SetGlobalRotationQuaternion(glm::quat newRotation)
+	{
+		m_isDirty = true;
+
+		// Transformation required if entity has a parent
+		if (this->m_parentTransform != nullptr)
+		{
+			m_localRotation = (Transform::ConvertQuaternionToEuler(newRotation) - m_parentTransform->GetGlobalRotationEuler());
+		}
+		// Otherwise no transformation required, global rotation will be the same as local rotation
+		else
+		{
+			m_localRotation = Transform::ConvertQuaternionToEuler(newRotation);
 		}
 	}
 
@@ -173,5 +195,29 @@ public:
 
 	//getters
 	inline glm::mat4 GetTransformationMatrix() { if (m_isDirty)return UpdateTransform(); else return m_transformMatrix; }
-};
 
+	// Utility
+	inline static glm::vec3 ConvertQuaternionToEuler(glm::quat quaternion)
+	{
+		glm::vec3 newEulerAngles = glm::vec3();
+
+		// Heading
+		newEulerAngles.x = atan2(((2 * quaternion.y * quaternion.w) - (2 * quaternion.x * quaternion.z)), ((1) - (2 * quaternion.y * quaternion.y) - (2 * quaternion.z * quaternion.z)));
+		// Attitude
+		newEulerAngles.y = asin((2 * quaternion.x * quaternion.y) + (2 * quaternion.z * quaternion.w));
+		// Bank
+		newEulerAngles.z = atan2(((2 * quaternion.x * quaternion.w) - (2 * quaternion.y * quaternion.z)), ((1) - (2 * quaternion.x * quaternion.x) - (2 * quaternion.z * quaternion.z)));
+
+		return newEulerAngles;
+	}
+	inline static glm::quat ConvertEulerToQuaternion(glm::vec3 eulerAngles)
+	{
+		glm::quat newQuaternion = glm::quat();
+		newQuaternion.x = (sin(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * cos(eulerAngles.z / 2)) + (cos(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * sin(eulerAngles.z / 2));
+		newQuaternion.y = (cos(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * cos(eulerAngles.z / 2)) + (sin(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * sin(eulerAngles.z / 2));
+		newQuaternion.z = (cos(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * sin(eulerAngles.z / 2)) + (sin(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * cos(eulerAngles.z / 2));
+		newQuaternion.w = (cos(eulerAngles.x / 2) * cos(eulerAngles.y / 2) * cos(eulerAngles.z / 2)) + (sin(eulerAngles.x / 2) * sin(eulerAngles.y / 2) * sin(eulerAngles.z / 2));
+
+		return newQuaternion;
+	}
+};

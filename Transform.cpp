@@ -34,11 +34,3 @@ Transform::Transform(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale) : Transform(
 {
 	m_scale = scale;
 }
-
-/*void Transform::RotateEulerAxis(float angle, glm::vec3 axis)
-{
-	axis = glm::normalize(axis);
-	glm::quat rot = glm::angleAxis(glm::radians(-angle), axis);
-	m_localRotation = rot * m_localRotation;
-	m_isDirty = true;
-}*/

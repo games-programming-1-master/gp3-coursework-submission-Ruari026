@@ -50,7 +50,7 @@ void Physics::Quit()
 btTransform Physics::ConvertTransformToBtTransform(Transform t)
 {
 	glm::quat rot = t.GetGlobalRotationQuaternion();
-	glm::vec3 pos = t.GetLocalPosition();
+	glm::vec3 pos = t.GetGlobalPosition();
 	return btTransform(btQuaternion(rot.x, rot.y, rot.z, rot.w), btVector3(pos.x, pos.y, pos.z));
 }
 

@@ -81,53 +81,37 @@ void Application::OpenGlInit()
 void Application::GameInit()
 {
 	//loading all resources
-	Resources::GetInstance()->AddModel("Models/cube.obj");
-	Resources::GetInstance()->AddModel("Models/cube2.obj");
-	Resources::GetInstance()->AddTexture("Images/Textures/Wood.jpg");
+	Resources::GetInstance()->AddModel("Models/floor.FBX");
+	Resources::GetInstance()->AddTexture("Images/Textures/Tile (Simple).png");
 	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/simple_VERT.glsl", 
 		ASSET_PATH + "Shaders/simple_FRAG.glsl"), 
 		"simple"
 	);
 
-	Entity* a = new Entity();
-	m_entities.push_back(a);
-	a->AddComponent(
+	Entity* floor = new Entity();
+	m_entities.push_back(floor);
+	floor->AddComponent(
 		new MeshRenderer(
-			Resources::GetInstance()->GetModel("Models/cube2.obj"),
+			Resources::GetInstance()->GetModel("Models/floor.FBX"),
 			Resources::GetInstance()->GetShader("simple"),
-			Resources::GetInstance()->GetTexture("Images/Textures/Wood.jpg"))
+			Resources::GetInstance()->GetTexture("Images/Textures/Tile (Simple).png"))
 	);
-	MeshRenderer* m = a->GetComponent<MeshRenderer>();
-	a->GetTransform()->SetPosition(glm::vec3(0, -10.f, -200.f));
-	a->AddComponent<RigidBody>();
-	a->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(100.f, 1.f, 100.f)));
-	a->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
-	a->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
+	MeshRenderer* m = floor->GetComponent<MeshRenderer>();
+	floor->GetTransform()->SetGlobalPosition(glm::vec3(0, -10.f, -500.f));
+	floor->GetTransform()->SetLocalRotationEuler(glm::vec3((3.14f / 2), 0.0f, 0.0f));
+	floor->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
+	floor->AddComponent<RigidBody>();
 
-	/*for (int i = 0; i < 1; i++)
-	{
-		Entity* a = new Entity();
-		m_entities.push_back(a);
-		a->AddComponent(
-			new MeshRenderer(
-				Resources::GetInstance()->GetModel("Models/cube.obj"),
-				Resources::GetInstance()->GetShader("simple"),
-				Resources::GetInstance()->GetTexture("Images/Textures/Wood.jpg"))
-		);
-		a->GetTransform()->SetPosition(glm::vec3(0, 5.f * i, -200.f));
-		a->AddComponent<RigidBody>();
-		a->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(1.f, 1.f, 1.f)));
-		a->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
-	}*/
+	floor->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(100.f, 1.f, 100.f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+	floor->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 
-	a = new Entity();
-	m_entities.push_back(a);
+	Entity* camera = new Entity();
+	m_entities.push_back(camera);
 	CameraComp* cc = new CameraComp();
-	a->AddComponent(cc);
+	camera->AddComponent(cc);
 	cc->Start();
 
 	Resources::GetInstance()->ReleaseUnusedResources();
-
 }
 
 void Application::Loop()
@@ -195,7 +179,7 @@ void Application::Update(float deltaTime)
 void Application::Render()
 {
 	/* Clear context */
-	glClearColor(0.f, 0.f, 0.f, 1.f);
+	glClearColor(0.04f, 0.06f, 0.27f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	m_mainCamera->Recalculate();

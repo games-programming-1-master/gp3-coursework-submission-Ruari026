@@ -31,12 +31,16 @@ void RigidBody::UpdateParent()
 	Transform* trans = m_entity->GetTransform();
 	btTransform bT;
 	m_rigidBody->getMotionState()->getWorldTransform(bT);
+	
+	// Handling Position
 	btVector3 bPos = bT.getOrigin();
 	glm::vec3 newPos = glm::vec3(bPos.getX(), bPos.getY(), bPos.getZ());
-	trans->SetPosition(newPos);
+	trans->SetGlobalPosition(newPos);
+
+	// Handling Rotation
 	btQuaternion bRot = bT.getRotation();
 	glm::quat newRot = glm::quat((float)bRot.getW(), (float)bRot.getX(), (float)bRot.getY(), (float)bRot.getZ());
-	trans->SetLocalRotationQuaternion(newRot);
+	trans->SetGlobalRotationQuaternion(newRot);
 }
 
 void RigidBody::UpdateRigidBody()
