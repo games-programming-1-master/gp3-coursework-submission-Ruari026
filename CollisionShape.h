@@ -9,7 +9,7 @@ enum CShapeType
 class CollisionShape
 {
 protected:
-	CShapeType type;
+	CShapeType m_type;
 	btCollisionShape* m_shape;
 	CollisionShape();
 public:
