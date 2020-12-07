@@ -54,18 +54,33 @@ std::shared_ptr <Texture> Resources::GetTexture(const std::string& name)
 
 void Resources::ReleaseResources()
 {
-	//using an iterator pattern to iterate through all elements
+	// Using an iterator pattern to iterate through all elements
+
+	// Releasing Models
 	for (auto iter = m_models.begin(); iter != m_models.end();)
 	{
 		iter->second.reset();
 		iter++;
 	}
 
-	//release other resources properly
+	//Releasing Shaders
+	for (auto iter = m_shaderPrograms.begin(); iter != m_shaderPrograms.end();)
+	{
+		iter->second.reset();
+		iter++;
+	}
+
+	// Releasing Textures
+	for (auto iter = m_textures.begin(); iter != m_textures.end();)
+	{
+		iter->second.reset();
+		iter++;
+	}
 }
 
 void Resources::ReleaseUnusedResources()
 {
+	// Checking Models for usage
 	for (auto iter = m_models.begin(); iter != m_models.end();)
 	{
 		if (iter->second.use_count() <= 1)
@@ -75,5 +90,29 @@ void Resources::ReleaseUnusedResources()
 		}
 
 		if (iter != m_models.end()) iter++;
+	}
+
+	// Checking Shaders for usage
+	for (auto iter = m_shaderPrograms.begin(); iter != m_shaderPrograms.end();)
+	{
+		if (iter->second.use_count() <= 1)
+		{
+			iter->second.reset();
+			iter = m_shaderPrograms.erase(iter);
+		}
+
+		if (iter != m_shaderPrograms.end()) iter++;
+	}
+
+	// Checking Textures for usage
+	for (auto iter = m_textures.begin(); iter != m_textures.end();)
+	{
+		if (iter->second.use_count() <= 1)
+		{
+			iter->second.reset();
+			iter = m_textures.erase(iter);
+		}
+
+		if (iter != m_textures.end()) iter++;
 	}
 }

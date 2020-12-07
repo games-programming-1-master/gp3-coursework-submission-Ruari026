@@ -29,10 +29,10 @@ public:
 	std::shared_ptr<Model> GetModel(const std::string& name);
 	std::shared_ptr <Texture> GetTexture(const std::string& name);
 
-	//Deletes all the things!
+	// Deletes all the things!
 	void ReleaseResources();
 
-	//TODO: Release Unused Resources
+	// Releases Unused Resources
 	void ReleaseUnusedResources();
 };
 
