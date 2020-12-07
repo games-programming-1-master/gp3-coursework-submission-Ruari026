@@ -77,8 +77,21 @@ void Application::OpenGlInit()
 void Application::GameInit()
 {
 	//loading all resources
-	Resources::GetInstance()->AddModel("Models/floor.FBX");
+	// Models - Room basics
+	Resources::GetInstance()->AddModel("Models/Floor.FBX");
+	Resources::GetInstance()->AddModel("Models/Walls (2 Door - Corner).FBX");
+	Resources::GetInstance()->AddModel("Models/testCube.FBX");
+
+	// Models - Rooms decorations
+	Resources::GetInstance()->AddModel("Models/Pillar (Single).FBX");
+	Resources::GetInstance()->AddModel("Models/Pillar (Half).FBX");
+	Resources::GetInstance()->AddModel("Models/Pillar (Corner).FBX");
+
+	// Textures
 	Resources::GetInstance()->AddTexture("Images/Textures/Tile (Simple).png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Brick (Simple).png");
+	Resources::GetInstance()->AddTexture("Images/Textures/WoodPlanks (Simple).png");
+	// Shaders
 	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/simple_VERT.glsl", 
 		ASSET_PATH + "Shaders/simple_FRAG.glsl"), 
 		"simple"
