@@ -5,7 +5,7 @@
 class TestComponent : public Component
 {
 private:
-	float rotationSpeed = (3.14f * 0.25f);
+	float rotationSpeed = (3.14f * 0.5f);
 	glm::vec3 rotationDirection = glm::vec3(0.0f, 0.0f, 0.0f);
 
 public:
