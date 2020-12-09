@@ -72,20 +72,22 @@ void Application::OpenGlInit()
 	GL_ATTEMPT(glCullFace(GL_BACK));
 
 	glDisable(GL_CULL_FACE);
+
+	SDL_SetRelativeMouseMode(SDL_TRUE);
 }
 
 void Application::GameInit()
 {
 	//loading all resources
 	// Models - Room basics
-	Resources::GetInstance()->AddModel("Models/Floor.FBX");
-	Resources::GetInstance()->AddModel("Models/Walls (2 Door - Corner).FBX");
-	Resources::GetInstance()->AddModel("Models/testCube.FBX");
+	Resources::GetInstance()->AddModel("Models/Floor.obj");
+	Resources::GetInstance()->AddModel("Models/Roof.obj");
+	Resources::GetInstance()->AddModel("Models/Walls (2 Door - Corner).obj");
 
 	// Models - Rooms decorations
-	Resources::GetInstance()->AddModel("Models/Pillar (Single).FBX");
-	Resources::GetInstance()->AddModel("Models/Pillar (Half).FBX");
-	Resources::GetInstance()->AddModel("Models/Pillar (Corner).FBX");
+	Resources::GetInstance()->AddModel("Models/Pillar (Side).obj");
+	Resources::GetInstance()->AddModel("Models/Pillar (Half).obj");
+	Resources::GetInstance()->AddModel("Models/Pillar (Corner).obj");
 
 	// Textures
 	Resources::GetInstance()->AddTexture("Images/Textures/Tile (Simple).png");
@@ -112,7 +114,7 @@ void Application::Loop()
 
 	while (m_appState != AppState::QUITTING)
 	{
-		//poll SDL events
+		// Handling Input Events
 		while (SDL_PollEvent(&event))
 		{
 			switch (event.type)
@@ -126,7 +128,9 @@ void Application::Loop()
 			case SDL_KEYDOWN:
 				INPUT->SetKey(event.key.keysym.sym, true);
 				break;
-			//record when the user releases a key
+			case SDL_KEYUP:
+				INPUT->SetKey(event.key.keysym.sym, false);
+				break;
 			case SDL_MOUSEMOTION:
 				INPUT->MoveMouse(glm::ivec2(event.motion.xrel, event.motion.yrel));
 				break;
@@ -145,6 +149,9 @@ void Application::Loop()
 		//update and render current scene entities
 		SceneManager::GetInstance()->GetCurrentScene()->Update(deltaTime);
 		SceneManager::GetInstance()->GetCurrentScene()->Render();
+
+		// Resetting Mouse Movement of Input Manager
+		Input::GetInstance()->MoveMouse(glm::ivec2(0, 0));
 
 		SDL_GL_SwapWindow(m_window);
 	}

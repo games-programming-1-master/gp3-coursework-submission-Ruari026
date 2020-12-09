@@ -37,6 +37,15 @@
     <Filter Include="Header Files\Engine">
       <UniqueIdentifier>{edc223b8-64f7-457c-a6ab-845a2e48f45c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Colliders">
+      <UniqueIdentifier>{db71de4b-ca4b-476b-924d-9f30d4b98ad3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Colliders">
+      <UniqueIdentifier>{ff690b34-4d57-4c95-a515-d7744fffd5bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{8a3aa6eb-edc6-48fe-ad9d-98c197a190aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MeshRenderer.cpp">
@@ -51,13 +60,7 @@
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="BoxShape.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionShape.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
@@ -123,14 +126,20 @@
     <ClCompile Include="Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BoxShape.cpp">
+      <Filter>Source Files\Engine\Colliders</Filter>
+    </ClCompile>
     <ClCompile Include="CapsuleShape.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionShape.cpp">
+      <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="CylinderShape.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="SphereShape.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,13 +155,7 @@
     <ClInclude Include="Component.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="BoxShape.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionShape.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
@@ -230,19 +233,33 @@
     <ClInclude Include="Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BoxShape.h">
+      <Filter>Header Files\Engine\Colliders</Filter>
+    </ClInclude>
     <ClInclude Include="CapsuleShape.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Header Files\Engine\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionShape.h">
+      <Filter>Header Files\Engine\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="CylinderShape.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Header Files\Engine\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="SphereShape.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Header Files\Engine\Colliders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GP3_Coursework.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\simple_FRAG.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\simple_VERT.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

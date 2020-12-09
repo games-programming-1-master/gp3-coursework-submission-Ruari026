@@ -296,6 +296,10 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <ResourceCompile Include="GP3_Coursework.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\simple_FRAG.glsl" />
+    <None Include="Assets\Shaders\simple_VERT.glsl" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

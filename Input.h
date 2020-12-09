@@ -16,7 +16,11 @@ public:
 	bool GetKey(SDL_Keycode key); //check if it's currently down or not
 
 	glm::ivec2 GetMousePos() { return m_state.mousePos; }
-	void MoveMouse(glm::ivec2 delta) { m_state.mousePos += delta; }
-
+	glm::ivec2 GetMouseMovement() { return m_state.mouseMovement; }
+	void MoveMouse(glm::ivec2 delta) 
+	{ 
+		m_state.mousePos += delta; 
+		m_state.mouseMovement = delta; 
+	}
 };
 
