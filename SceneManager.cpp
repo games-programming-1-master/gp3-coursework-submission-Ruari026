@@ -40,7 +40,7 @@ void SceneManager::Init(std::string startScene)
 	gameScenes.insert(std::pair<std::string, Scene*>("Game Over", new GameOverScene()));
 
 	// Setting start scene
-	this->currentScene = gameScenes[startScene];
+	this->ChangeScene("Gameplay");
 }
 
 
@@ -62,5 +62,15 @@ Changing Current Game Scene
 */
 void SceneManager::ChangeScene(std::string newScene)
 {
-	this->currentScene = gameScenes[newScene];
+	Scene* nextScene = gameScenes[newScene];
+
+	if (nextScene != nullptr)
+	{
+		this->currentScene = nextScene;
+		this->currentScene->Start();
+	}
+	else
+	{
+		Log::Debug("ERROR: \"" + newScene + "\" Scene Could Not Be Found!", "SceneManager.cpp", 73);
+	}
 }
