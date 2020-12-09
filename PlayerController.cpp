@@ -134,13 +134,15 @@ void PlayerController::AnimatePlayer(glm::vec3 movementDirection, float deltaTim
 	// Animating head bob when walking
 	if (glm::length(movementDirection) != 0)
 	{
-		bobTime += deltaTime;
+		bobTime += (deltaTime * walkSpeed);
 		if (bobTime > (M_PI * 2))
 		{
 			bobTime -= (M_PI * 2);
 		}
 
-		glm::vec3 newOffset = startOffset + glm::vec3(0, std::sin(bobTime) * 0.334f, 0);
+		float bobScale = (std::sin(bobTime) >= 0) ? 0.2f : 0.4f;
+		glm::vec3 newOffset = startOffset + glm::vec3(0, std::sin(bobTime) * bobScale, 0);
+
 		glm::vec3 newPos = Utility::LerpVec3(m_cameraMount->GetTransform()->GetLocalPosition(), newOffset, deltaTime);
 		m_cameraMount->GetTransform()->SetLocalPosition(newPos);
 	}
