@@ -18,9 +18,11 @@ void RigidBody::Init(CollisionShape* shape, float mass, const glm::vec3 localIne
 	btTransform bT = Physics::ConvertTransformToBtTransform(*m_entity->GetTransform());
 	m_mState = new btDefaultMotionState(bT);
 	m_shape = shape;
+
 	btVector3 li = btVector3(localInertia.x, localInertia.y, localInertia.z);
 	m_shape->Get()->calculateLocalInertia(mass, li);
 	m_rigidBody = new btRigidBody(btScalar(mass), m_mState, m_shape->Get(), li);
+
 	Physics::GetInstance()->AddRigidbody(this);
 	m_rigidBody->setSleepingThresholds(0, 0);
 	m_rigidBody->setFriction(1);
