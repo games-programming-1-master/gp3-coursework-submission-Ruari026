@@ -10,6 +10,7 @@ class Scene;
 class Entity
 {
 private:
+	std::string m_name;
 	std::vector<Component*> m_components;
 
 	std::vector<Entity*> m_children;
@@ -18,7 +19,7 @@ private:
 	Transform* m_transform = nullptr;
 
 public:
-	Entity();
+	Entity(std::string name);
 
 	// Handling Components
 	void AddComponent(Component* c);

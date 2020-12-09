@@ -21,8 +21,8 @@ void Camera::Recalculate()
 {
 	if (m_parentTransform != nullptr)
 	{
-		m_viewMatrix = glm::lookAt(m_parentTransform->GetLocalPosition(),
-			m_parentTransform->GetLocalPosition() + m_parentTransform->GetForward(),
+		m_viewMatrix = glm::lookAt(m_parentTransform->GetGlobalPosition(),
+			m_parentTransform->GetGlobalPosition() + m_parentTransform->GetForward(),
 			m_parentTransform->GetUp());
 
 		VP = m_projMatrix * m_viewMatrix;

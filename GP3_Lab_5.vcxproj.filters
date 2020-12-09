@@ -141,6 +141,9 @@
     <ClCompile Include="SphereShape.cpp">
       <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
+    <ClCompile Include="RoomPrefab_Corner.cpp">
+      <Filter>Source Files\Prefabs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MeshRenderer.h">
@@ -247,6 +250,9 @@
     </ClInclude>
     <ClInclude Include="SphereShape.h">
       <Filter>Header Files\Engine\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomPrefab_Corner.h">
+      <Filter>Header Files\Prefabs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

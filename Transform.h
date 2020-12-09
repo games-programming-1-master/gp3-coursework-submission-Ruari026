@@ -4,6 +4,7 @@ class Transform
 {
 private:
 	Transform* m_parentTransform = nullptr;
+	std::vector<Transform*> m_childrenTransform;
 
 	glm::vec3 m_localPosition = glm::vec3(0.f, 0.f, 0.f);
 	glm::vec3 m_forward = glm::vec3(0.f, 0.f, 0.f);
@@ -41,7 +42,12 @@ public:
 
 			// Local Position
 			glm::vec3 localPos = this->GetLocalPosition();
-			return (parentPos + localPos);
+
+			// Taking rotation into account
+			glm::quat rotation = m_parentTransform->GetGlobalRotationQuaternion();
+			glm::vec3 rotatedPos = rotation * localPos;
+
+			return (parentPos + rotatedPos);
 		}
 		// Otherwise no transformation needed, global position is the same as local position
 		else
@@ -52,19 +58,26 @@ public:
 
 	inline void SetLocalPosition(glm::vec3 newPosition)
 	{
-		m_isDirty = true;
+		SetDirty();
 
 		// No transformation required
 		m_localPosition = newPosition;
 	}
 	inline void SetGlobalPosition(glm::vec3 newPosition)
 	{
-		m_isDirty = true;
+		SetDirty();
 
 		// Transformation required if entity has a parent
 		if (this->m_parentTransform != nullptr)
 		{
-			m_localPosition = (newPosition - m_parentTransform->GetGlobalPosition());
+			// Gets parents global position and rotation
+			glm::vec3 parentPos = this->m_parentTransform->GetGlobalPosition();
+			glm::quat parentRot = this->m_parentTransform->GetGlobalRotationQuaternion();
+
+			glm::vec3 newLocalPos = newPosition - parentPos;
+			newLocalPos = glm::inverse(parentRot) * newLocalPos;
+
+			m_localPosition = (newLocalPos);
 		}
 		// Otherwise no transformation required, global rotation will be the same as local rotation
 		else
@@ -88,7 +101,9 @@ public:
 		// Transformation required if entity has a parent
 		if (this->m_parentTransform != nullptr)
 		{
-			return (m_localRotation * this->m_parentTransform->GetGlobalRotationQuaternion());
+			glm::quat totalRotation = (m_localRotation * this->m_parentTransform->GetGlobalRotationQuaternion());
+
+			return totalRotation;
 		}
 		// Otherwise no transformation needed, global rotation is the same as local rotation
 		else
@@ -99,19 +114,22 @@ public:
 
 	inline void SetLocalRotationQuaternion(glm::quat newRotation)
 	{
-		m_isDirty = true;
+		SetDirty();
 
-		// Just need to convert to euler angles
+		// Only setting local rotation, no transformation required
 		m_localRotation = newRotation;
 	}
 	inline void SetGlobalRotationQuaternion(glm::quat newRotation)
 	{
-		m_isDirty = true;
+		SetDirty();
 
 		// Transformation required if entity has a parent
 		if (this->m_parentTransform != nullptr)
 		{
-			m_localRotation = newRotation;
+			glm::quat parentRotation = this->m_parentTransform->GetGlobalRotationQuaternion();
+			glm::quat newLocalRotation = glm::inverse(parentRotation) * newRotation;
+			
+			m_localRotation = newLocalRotation;
 		}
 		// Otherwise no transformation required, global rotation will be the same as local rotation
 		else
@@ -122,10 +140,20 @@ public:
 
 	// Scale
 	inline glm::vec3 GetScale() { return m_scale; }
-	inline void SetScale(glm::vec3 newScale) { m_isDirty = true; m_scale = newScale; }
+	inline void SetScale(glm::vec3 newScale) { SetDirty(); m_scale = newScale; }
 
 	// Other setters
 	inline void SetParentTransform(Transform* newParent) { m_parentTransform = newParent; }
+	inline void AddChildTransform(Transform* newChild) { m_childrenTransform.push_back(newChild); }
+	inline void SetDirty() 
+	{
+		this->m_isDirty = true;
+
+		for (auto& c : m_childrenTransform)
+		{
+			c->SetDirty();
+		}
+	}
 	// Other getters
 	inline glm::mat4 GetTransformationMatrix() { if (m_isDirty)return UpdateTransform(); else return m_transformMatrix; }
 };

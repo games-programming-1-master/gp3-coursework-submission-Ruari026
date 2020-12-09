@@ -11,7 +11,7 @@ glm::quat Utility::GetRotationQuaternion(float angle, glm::vec3 rotationAxis)
 	return glm::quat(w, x, y, z);
 }
 
-float Utility::Lerp(float min, float max, float time)
+float Utility::LerpFloat(float min, float max, float time)
 {
 	if (time < 0)
 		time = 0;
@@ -19,4 +19,15 @@ float Utility::Lerp(float min, float max, float time)
 		time = 1;
 
 	return (min + time * (max - min));
+}
+
+glm::vec3 Utility::LerpVec3(glm::vec3 min, glm::vec3 max, float time)
+{
+	glm::vec3 result = glm::vec3(0, 0, 0);
+
+	result.x = Utility::LerpFloat(min.x, max.x, time);
+	result.y = Utility::LerpFloat(min.y, max.y, time);
+	result.z = Utility::LerpFloat(min.z, max.z, time);
+
+	return result;
 }
