@@ -5,7 +5,6 @@
 
 PlayerController::PlayerController()
 {
-
 }
 
 
@@ -14,6 +13,10 @@ PlayerController::PlayerController()
 Inherited Entity Methods
 ========================================================================================================================================================================================================
 */
+void PlayerController::OnStart()
+{
+}
+
 void PlayerController::OnUpdate(float deltaTime)
 {
 	if (Input::GetInstance()->GetKey(SDLK_r))
@@ -58,7 +61,6 @@ void PlayerController::OnUpdate(float deltaTime)
 
 void PlayerController::OnRender()
 {
-
 }
 
 

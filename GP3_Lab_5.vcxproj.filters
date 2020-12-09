@@ -162,6 +162,9 @@
     <ClCompile Include="RoomPrefab_4Door.cpp">
       <Filter>Source Files\Prefabs\EmptyRooms</Filter>
     </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MeshRenderer.h">
@@ -283,6 +286,9 @@
     </ClInclude>
     <ClInclude Include="RoomPrefab_4Door.h">
       <Filter>Header Files\Prefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

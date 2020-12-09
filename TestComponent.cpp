@@ -5,7 +5,10 @@
 
 TestComponent::TestComponent()
 {
+}
 
+void TestComponent::OnStart()
+{
 }
 
 void TestComponent::OnUpdate(float deltaTime)
@@ -18,5 +21,4 @@ void TestComponent::OnUpdate(float deltaTime)
 
 void TestComponent::OnRender()
 {
-
 }

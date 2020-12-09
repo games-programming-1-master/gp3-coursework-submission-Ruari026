@@ -13,6 +13,7 @@ private:
 public:
 	// Inherited via Component
 	MeshRenderer(std::shared_ptr<Model> model, std::shared_ptr <ShaderProgram> program, std::shared_ptr <Texture> texture);
+	virtual void OnStart() override;
 	virtual void OnUpdate(float deltaTime) override;
 	virtual void OnRender() override;
 };
