@@ -16,6 +16,11 @@ Inherited Entity Methods
 */
 void PlayerController::OnUpdate(float deltaTime)
 {
+	if (Input::GetInstance()->GetKey(SDLK_r))
+	{
+		this->m_entity->GetTransform()->SetGlobalPosition(glm::vec3(0, 3, 0));
+	}
+
 	glm::ivec3 movementDirection = glm::ivec3(0, 0, 0);
 
 	// Handling Forwards and Backwards input

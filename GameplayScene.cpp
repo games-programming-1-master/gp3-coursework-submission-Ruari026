@@ -10,7 +10,11 @@
 #include "BoxShape.h"
 #include "CapsuleShape.h"
 // Required Prefabs
+#include "RoomPrefab_1Door.h"
 #include "RoomPrefab_Corner.h"
+#include "RoomPrefab_Straight.h"
+#include "RoomPrefab_3Door.h"
+#include "RoomPrefab_4Door.h"
 
 GameplayScene::GameplayScene()
 {
@@ -36,8 +40,8 @@ GameplayScene::GameplayScene()
 		player->GetComponent<PlayerController>()->SetCameraMount(camera);
 	}
 
-	// Basic Room Setup
-	Entity* room_2DoorCorner = new RoomPrefab_Corner("Example Room");
+	// Testing individual room prefabs
+	Entity* testRoom = new RoomPrefab_4Door("Example Room");
 	//room_2DoorCorner->AddComponent<TestComponent>();
-	m_entities.push_back(room_2DoorCorner);
+	m_entities.push_back(testRoom);
 }
