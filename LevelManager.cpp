@@ -1,4 +1,6 @@
+#include "pch.h"
 #include "LevelManager.h"
+#include "Entity.h"
 
 LevelManager::LevelManager()
 {
@@ -6,6 +8,7 @@ LevelManager::LevelManager()
 
 void LevelManager::OnStart()
 {
+
 }
 
 void LevelManager::OnUpdate(float deltaTime)

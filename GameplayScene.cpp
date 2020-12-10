@@ -2,10 +2,10 @@
 // General Engine Includes
 #include "Resources.h"
 // Required Components
-#include "MeshRenderer.h"
+#include "LevelGenerator.h"
+#include "LevelManager.h"
 #include "RigidBody.h"
 #include "PlayerController.h"
-#include "TestComponent.h"
 // Required Colliders
 #include "BoxShape.h"
 #include "CapsuleShape.h"
@@ -40,8 +40,9 @@ GameplayScene::GameplayScene()
 		player->GetComponent<PlayerController>()->SetCameraMount(camera);
 	}
 
-	// Testing individual room prefabs
-	Entity* testRoom = new RoomPrefab_4Door("Example Room");
-	//room_2DoorCorner->AddComponent<TestComponent>();
-	m_entities.push_back(testRoom);
+	// Testing out the level generator
+	Entity* levelManager = new Entity("Level Manager");
+	m_entities.push_back(levelManager);
+	levelManager->AddComponent<LevelManager>();
+	levelManager->AddComponent<LevelGenerator>();
 }

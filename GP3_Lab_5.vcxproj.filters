@@ -52,6 +52,12 @@
     <Filter Include="Source Files\Prefabs\DecoratedRooms">
       <UniqueIdentifier>{0e4c15e3-0138-4d02-bced-f5a67a61cda1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Other">
+      <UniqueIdentifier>{81901913-b56d-4c65-aa8b-aa416ba1a3d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Other">
+      <UniqueIdentifier>{b15fd00b-6744-4ddb-9919-b635e1351152}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MeshRenderer.cpp">
@@ -164,6 +170,15 @@
     </ClCompile>
     <ClCompile Include="LevelManager.cpp">
       <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelGenerator.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="GenerationData.cpp">
+      <Filter>Source Files\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Directions.cpp">
+      <Filter>Source Files\Other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +304,15 @@
     </ClInclude>
     <ClInclude Include="LevelManager.h">
       <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelGenerator.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerationData.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Directions.h">
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
