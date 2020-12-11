@@ -22,7 +22,7 @@ GameplayScene::GameplayScene()
 	{
 		Entity* player = new Entity("Main Player");
 		m_entities.push_back(player);
-		player->GetTransform()->SetGlobalPosition(glm::vec3(5.0f, 2.0f, 5.0f));
+		player->GetTransform()->SetGlobalPosition(glm::vec3(0.0f, 3.0f, 0.0f));
 		player->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.25f), glm::vec3(0, 1, 0)));
 
 		player->AddComponent<RigidBody>();

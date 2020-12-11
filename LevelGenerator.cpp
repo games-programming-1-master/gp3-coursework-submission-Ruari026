@@ -10,7 +10,7 @@
 #include "RoomPrefab_4Door.h"
 
 LevelGenerator::LevelGenerator()
-{
+{	
 }
 
 void LevelGenerator::OnStart()
@@ -113,7 +113,7 @@ void LevelGenerator::SpawnRoomPrefabs()
 				{
 					newRoom = new RoomPrefab_Straight("Room_Straight");
 
-					if (connectionDirections[0] != Directions::UP && connectionDirections[1] != Directions::DOWN)
+					if (Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::LEFT, connectionDirections))
 					{
 						int rotationAmount = 1;
 						newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));

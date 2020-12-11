@@ -62,7 +62,9 @@ void LevelLayout::AddRoom(glm::ivec2 newRoomPoint)
 	std::vector<LevelRoom*> connectedRooms = GetConnectedRoomsAtPoint(newRoomPoint);
 	for (auto& a : connectedRooms)
 	{
-		Directions newDirection = DirectionsUtility::ConvertVectorToDirection(newRoomPoint - a->GetRoomPos());
+		glm::ivec2 roomDirection = newRoomPoint - a->GetRoomPos();
+
+		Directions newDirection = DirectionsUtility::ConvertVectorToDirection(roomDirection);
 		newRoom->AddConnection(newDirection);
 
 		// Also add self as connection of other room

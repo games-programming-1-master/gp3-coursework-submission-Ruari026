@@ -109,16 +109,17 @@ void PlayerController::MovePlayer(glm::vec3 movementDirection, float deltaTime)
 
 void PlayerController::RotatePlayer(float deltaTime)
 {
+	//Log::Debug(std::to_string(Input::GetInstance()->GetMouseMovement().x), "TestComponent.cpp", 55);
+
 	// Mouse Rotation
-	glm::ivec2 mouseMovement = Input::GetInstance()->GetMouseMovement();
-	//Log::Debug(std::to_string(glm::sign(mouseMovement.x)), "TestComponent.cpp", 55);
+	glm::vec2 mouseMovement = Input::GetInstance()->GetMouseMovement();
 
 	glm::quat currentRotation = this->m_entity->GetTransform()->GetGlobalRotationQuaternion();
 	glm::quat additionRotation = glm::quat(1, 0, 0, 0);
-	if (mouseMovement.x != 0)
+	if (std::abs(mouseMovement.x) > inputDeadzone)
 	{
 		// Accelerate the rotation
-		currentRotationAccel = Utility::LerpFloat(currentRotationAccel, 1, (deltaTime * rotationAcceleration));
+		currentRotationAccel = Utility::LerpFloat(currentRotationAccel, 1, (deltaTime * rotationAcceleration * mouseMovement.x));
 	}
 	else
 	{
