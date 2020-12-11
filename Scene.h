@@ -13,6 +13,7 @@ public:
 	void SetCamera(Camera* camera);
 
 	// Game Loop
+	void Start();
 	void Update(float deltaTime);
 	void Render();
 };

@@ -2,15 +2,19 @@
 // General Engine Includes
 #include "Resources.h"
 // Required Components
-#include "MeshRenderer.h"
+#include "LevelGenerator.h"
+#include "LevelManager.h"
 #include "RigidBody.h"
 #include "PlayerController.h"
-#include "TestComponent.h"
 // Required Colliders
 #include "BoxShape.h"
 #include "CapsuleShape.h"
 // Required Prefabs
+#include "RoomPrefab_1Door.h"
 #include "RoomPrefab_Corner.h"
+#include "RoomPrefab_Straight.h"
+#include "RoomPrefab_3Door.h"
+#include "RoomPrefab_4Door.h"
 
 GameplayScene::GameplayScene()
 {
@@ -18,7 +22,7 @@ GameplayScene::GameplayScene()
 	{
 		Entity* player = new Entity("Main Player");
 		m_entities.push_back(player);
-		player->GetTransform()->SetGlobalPosition(glm::vec3(5.0f, 2.0f, 5.0f));
+		player->GetTransform()->SetGlobalPosition(glm::vec3(0.0f, 3.0f, 0.0f));
 		player->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.25f), glm::vec3(0, 1, 0)));
 
 		player->AddComponent<RigidBody>();
@@ -36,8 +40,9 @@ GameplayScene::GameplayScene()
 		player->GetComponent<PlayerController>()->SetCameraMount(camera);
 	}
 
-	// Basic Room Setup
-	Entity* room_2DoorCorner = new RoomPrefab_Corner("Example Room");
-	//room_2DoorCorner->AddComponent<TestComponent>();
-	m_entities.push_back(room_2DoorCorner);
+	// Testing out the level generator
+	Entity* levelManager = new Entity("Level Manager");
+	m_entities.push_back(levelManager);
+	levelManager->AddComponent<LevelManager>();
+	levelManager->AddComponent<LevelGenerator>();
 }

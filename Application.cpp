@@ -82,7 +82,11 @@ void Application::GameInit()
 	// Models - Room basics
 	Resources::GetInstance()->AddModel("Models/Floor.obj");
 	Resources::GetInstance()->AddModel("Models/Roof.obj");
+	Resources::GetInstance()->AddModel("Models/Walls (1 Door).obj");
+	Resources::GetInstance()->AddModel("Models/Walls (2 Door - Straight).obj");
 	Resources::GetInstance()->AddModel("Models/Walls (2 Door - Corner).obj");
+	Resources::GetInstance()->AddModel("Models/Walls (3 Door).obj");
+	Resources::GetInstance()->AddModel("Models/Walls (4 Door).obj");
 
 	// Models - Rooms decorations
 	Resources::GetInstance()->AddModel("Models/Pillar (Side).obj");

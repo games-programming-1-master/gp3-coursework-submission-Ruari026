@@ -10,6 +10,7 @@ protected:
 	friend class Entity;
 
 public:
+	virtual void OnStart() = 0;
 	virtual void OnUpdate(float deltaTime) = 0;
 	virtual void OnRender() = 0;
 };

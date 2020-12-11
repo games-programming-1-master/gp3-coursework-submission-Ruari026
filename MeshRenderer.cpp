@@ -12,6 +12,10 @@ MeshRenderer::MeshRenderer(std::shared_ptr<Model> model, std::shared_ptr<ShaderP
 	m_texture = texture;
 }
 
+void MeshRenderer::OnStart()
+{
+}
+
 void MeshRenderer::OnUpdate(float deltaTime)
 {
 }

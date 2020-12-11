@@ -1,4 +1,4 @@
-#include "RoomPrefab_Corner.h"
+#include "RoomPrefab_1Door.h"
 // General Engine Includes
 #include "Resources.h"
 // Required Components
@@ -7,7 +7,7 @@
 // Required Colliders
 #include "BoxShape.h"
 
-RoomPrefab_Corner::RoomPrefab_Corner(std::string name) : Entity(name)
+RoomPrefab_1Door::RoomPrefab_1Door(std::string name) : Entity(name)
 {
 	// Spawning Test Floor
 	{
@@ -37,7 +37,7 @@ RoomPrefab_Corner::RoomPrefab_Corner(std::string name) : Entity(name)
 			this->AddChild(walls);
 			walls->AddComponent(
 				new MeshRenderer(
-					Resources::GetInstance()->GetModel("Models/Walls (2 Door - Corner).obj"),
+					Resources::GetInstance()->GetModel("Models/Walls (1 Door).obj"),
 					Resources::GetInstance()->GetShader("simple"),
 					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 			);
@@ -53,13 +53,22 @@ RoomPrefab_Corner::RoomPrefab_Corner(std::string name) : Entity(name)
 		// Seperate Colliders
 		// Back Wall Collider
 		{
-			Entity* backCollider = new Entity("Back Wall Collider");
-			this->AddChild(backCollider);
-			backCollider->GetTransform()->SetGlobalPosition(glm::vec3(0, 3.0f, 6.875f));
+			Entity* backCollider1 = new Entity("Back Wall Collider");
+			this->AddChild(backCollider1);
+			backCollider1->GetTransform()->SetGlobalPosition(glm::vec3(-4.0f, 3.0f, 6.875f));
 
-			backCollider->AddComponent<RigidBody>();
-			backCollider->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(7.0f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			backCollider->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+			backCollider1->AddComponent<RigidBody>();
+			backCollider1->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(3.0f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			backCollider1->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+
+
+			Entity* backCollider2 = new Entity("Back Wall Collider");
+			this->AddChild(backCollider2);
+			backCollider2->GetTransform()->SetGlobalPosition(glm::vec3(4.0f, 3.0f, 6.875f));
+
+			backCollider2->AddComponent<RigidBody>();
+			backCollider2->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(3.0f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			backCollider2->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 		}
 
 		// Right Wall Collider
@@ -75,43 +84,25 @@ RoomPrefab_Corner::RoomPrefab_Corner(std::string name) : Entity(name)
 
 		// Left Wall Colliders
 		{
-			Entity* leftCollider1 = new Entity("Left Wall Collider 1");
-			this->AddChild(leftCollider1);
-			leftCollider1->GetTransform()->SetGlobalPosition(glm::vec3(-6.875f, 3.0f, 4.0f));
+			Entity* leftCollider = new Entity("Left Wall Collider 1");
+			this->AddChild(leftCollider);
+			leftCollider->GetTransform()->SetGlobalPosition(glm::vec3(-6.875f, 3.0f, 0.0f));
 
-			leftCollider1->AddComponent<RigidBody>();
-			leftCollider1->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 3.0f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			leftCollider1->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
-
-
-			Entity* leftCollider2 = new Entity("Left Wall Collider 2");
-			this->AddChild(leftCollider2);
-			leftCollider2->GetTransform()->SetGlobalPosition(glm::vec3(-6.875f, 3.0f, -4.0f));
-
-			leftCollider2->AddComponent<RigidBody>();
-			leftCollider2->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 3.0f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			leftCollider2->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+			leftCollider->AddComponent<RigidBody>();
+			leftCollider->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 7.0f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			leftCollider->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 		}
 
 
 		// Front Wall Colliders
 		{
-			Entity* frontCollider1 = new Entity("Front Wall Collider 1");
-			this->AddChild(frontCollider1);
-			frontCollider1->GetTransform()->SetGlobalPosition(glm::vec3(4.0f, 3.0f, -7.125f));
+			Entity* frontCollider = new Entity("Front Wall Collider 1");
+			this->AddChild(frontCollider);
+			frontCollider->GetTransform()->SetGlobalPosition(glm::vec3(0.0f, 3.0f, -7.125f));
 
-			frontCollider1->AddComponent<RigidBody>();
-			frontCollider1->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(3.0f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			frontCollider1->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
-
-
-			Entity* frontCollider2 = new Entity("Front Wall Collider 2");
-			this->AddChild(frontCollider2);
-			frontCollider2->GetTransform()->SetGlobalPosition(glm::vec3(-4.0f, 3.0f, -7.125f));
-
-			frontCollider2->AddComponent<RigidBody>();
-			frontCollider2->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(3.0f, 3.0f, 0.25f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			frontCollider2->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+			frontCollider->AddComponent<RigidBody>();
+			frontCollider->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(7.0f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			frontCollider->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 		}
 	}
 
@@ -219,90 +210,130 @@ RoomPrefab_Corner::RoomPrefab_Corner(std::string name) : Entity(name)
 	// Spawning Side Pillars
 	{
 
-		// Back Pillar 1
+		// Front Pillar 1
 		{
-			Entity* backPillar1 = new Entity("Side Pillar 1");
-			this->AddChild(backPillar1);
-			backPillar1->AddComponent(
+			Entity* frontPillar1 = new Entity("Side Pillar 1");
+			this->AddChild(frontPillar1);
+			frontPillar1->AddComponent(
 				new MeshRenderer(
 					Resources::GetInstance()->GetModel("Models/Pillar (Side).obj"),
 					Resources::GetInstance()->GetShader("simple"),
 					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 			);
-			MeshRenderer* m = backPillar1->GetComponent<MeshRenderer>();
-			backPillar1->GetTransform()->SetGlobalPosition(glm::vec3(-2.0f, 3.0f, 6.5f));
-			backPillar1->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.5f), glm::vec3(0, 1, 0)));
-			backPillar1->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
+			MeshRenderer* m = frontPillar1->GetComponent<MeshRenderer>();
+			frontPillar1->GetTransform()->SetGlobalPosition(glm::vec3(-2.0f, 3.0f, -6.5f));
+			frontPillar1->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((-3.14f * 0.5f), glm::vec3(0, 1, 0)));
+			frontPillar1->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
 
-			backPillar1->AddComponent<RigidBody>();
-			backPillar1->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			backPillar1->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+			frontPillar1->AddComponent<RigidBody>();
+			frontPillar1->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			frontPillar1->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 		}
 
-		// Back Pillar 2
+		// Front Pillar 2
 		{
-			Entity* backPillar2 = new Entity("Side Pillar 2");
-			this->AddChild(backPillar2);
-			backPillar2->AddComponent(
+			Entity* frontPillar2 = new Entity("Side Pillar 1");
+			this->AddChild(frontPillar2);
+			frontPillar2->AddComponent(
 				new MeshRenderer(
 					Resources::GetInstance()->GetModel("Models/Pillar (Side).obj"),
 					Resources::GetInstance()->GetShader("simple"),
 					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 			);
-			MeshRenderer* m = backPillar2->GetComponent<MeshRenderer>();
-			backPillar2->GetTransform()->SetGlobalPosition(glm::vec3(2.0f, 3.0f, 6.5f));
-			backPillar2->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.5f), glm::vec3(0, 1, 0)));
-			backPillar2->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
+			MeshRenderer* m = frontPillar2->GetComponent<MeshRenderer>();
+			frontPillar2->GetTransform()->SetGlobalPosition(glm::vec3(2.0f, 3.0f, -6.5f));
+			frontPillar2->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((-3.14f * 0.5f), glm::vec3(0, 1, 0)));
+			frontPillar2->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
 
-			backPillar2->AddComponent<RigidBody>();
-			backPillar2->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			backPillar2->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+			frontPillar2->AddComponent<RigidBody>();
+			frontPillar2->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			frontPillar2->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 		}
 
-		// Side Pillar 1
+		// Right Pillar 1
 		{
-			Entity* sidePillar1 = new Entity("Side Pillar 3");
-			this->AddChild(sidePillar1);
-			sidePillar1->AddComponent(
+			Entity* rightPillar1 = new Entity("Side Pillar 3");
+			this->AddChild(rightPillar1);
+			rightPillar1->AddComponent(
 				new MeshRenderer(
 					Resources::GetInstance()->GetModel("Models/Pillar (Side).obj"),
 					Resources::GetInstance()->GetShader("simple"),
 					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 			);
-			MeshRenderer* m = sidePillar1->GetComponent<MeshRenderer>();
-			sidePillar1->GetTransform()->SetGlobalPosition(glm::vec3(6.5f, 3.0f, 2.0f));
-			sidePillar1->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 1.0f), glm::vec3(0, 1, 0)));
-			sidePillar1->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
+			MeshRenderer* m = rightPillar1->GetComponent<MeshRenderer>();
+			rightPillar1->GetTransform()->SetGlobalPosition(glm::vec3(-6.5f, 3.0f, 2.0f));
+			rightPillar1->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.0f), glm::vec3(0, 1, 0)));
+			rightPillar1->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
 
-			sidePillar1->AddComponent<RigidBody>();
-			sidePillar1->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			sidePillar1->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+			rightPillar1->AddComponent<RigidBody>();
+			rightPillar1->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			rightPillar1->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 		}
 
-		// Side Pillar 2
+		// Right Pillar 2
 		{
-			Entity* sidePillar2 = new Entity("Side Pillar 4");
-			this->AddChild(sidePillar2);
-			sidePillar2->AddComponent(
+			Entity* rightPillar2 = new Entity("Side Pillar 4");
+			this->AddChild(rightPillar2);
+			rightPillar2->AddComponent(
 				new MeshRenderer(
 					Resources::GetInstance()->GetModel("Models/Pillar (Side).obj"),
 					Resources::GetInstance()->GetShader("simple"),
 					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 			);
-			MeshRenderer* m = sidePillar2->GetComponent<MeshRenderer>();
-			sidePillar2->GetTransform()->SetGlobalPosition(glm::vec3(6.5f, 3.0f, -2.0f));
-			sidePillar2->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 1.0f), glm::vec3(0, 1, 0)));
-			sidePillar2->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
+			MeshRenderer* m = rightPillar2->GetComponent<MeshRenderer>();
+			rightPillar2->GetTransform()->SetGlobalPosition(glm::vec3(-6.5f, 3.0f, -2.0f));
+			rightPillar2->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.0f), glm::vec3(0, 1, 0)));
+			rightPillar2->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
 
-			sidePillar2->AddComponent<RigidBody>();
-			sidePillar2->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			sidePillar2->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+			rightPillar2->AddComponent<RigidBody>();
+			rightPillar2->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			rightPillar2->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+		}
+
+		// Left Pillar 1
+		{
+			Entity* leftPillar1 = new Entity("Side Pillar 5");
+			this->AddChild(leftPillar1);
+			leftPillar1->AddComponent(
+				new MeshRenderer(
+					Resources::GetInstance()->GetModel("Models/Pillar (Side).obj"),
+					Resources::GetInstance()->GetShader("simple"),
+					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
+			);
+			MeshRenderer* m = leftPillar1->GetComponent<MeshRenderer>();
+			leftPillar1->GetTransform()->SetGlobalPosition(glm::vec3(6.5f, 3.0f, 2.0f));
+			leftPillar1->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 1.0f), glm::vec3(0, 1, 0)));
+			leftPillar1->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
+
+			leftPillar1->AddComponent<RigidBody>();
+			leftPillar1->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			leftPillar1->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+		}
+
+		// Left Pillar 2
+		{
+			Entity* leftPillar2 = new Entity("Side Pillar 6");
+			this->AddChild(leftPillar2);
+			leftPillar2->AddComponent(
+				new MeshRenderer(
+					Resources::GetInstance()->GetModel("Models/Pillar (Side).obj"),
+					Resources::GetInstance()->GetShader("simple"),
+					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
+			);
+			MeshRenderer* m = leftPillar2->GetComponent<MeshRenderer>();
+			leftPillar2->GetTransform()->SetGlobalPosition(glm::vec3(6.5f, 3.0f, -2.0f));
+			leftPillar2->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 1.0f), glm::vec3(0, 1, 0)));
+			leftPillar2->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
+
+			leftPillar2->AddComponent<RigidBody>();
+			leftPillar2->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			leftPillar2->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 		}
 	}
 
 	// Spawning Door Pillars
 	{
-		// Side Door Pillar 1
+		// Back Door Pillar 1
 		{
 			Entity* doorPillar1 = new Entity("Door Pillar 1");
 			this->AddChild(doorPillar1);
@@ -313,8 +344,8 @@ RoomPrefab_Corner::RoomPrefab_Corner(std::string name) : Entity(name)
 					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 			);
 			MeshRenderer* m = doorPillar1->GetComponent<MeshRenderer>();
-			doorPillar1->GetTransform()->SetGlobalPosition(glm::vec3(-6.5f, 3.0f, 2.0f));
-			doorPillar1->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((-3.14f * 1.0f), glm::vec3(0, 1, 0)));
+			doorPillar1->GetTransform()->SetGlobalPosition(glm::vec3(-2.0f, 3.0f, 6.5f));
+			doorPillar1->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((-3.14f * 0.5f), glm::vec3(0, 1, 0)));
 			doorPillar1->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
 
 			doorPillar1->AddComponent<RigidBody>();
@@ -322,7 +353,7 @@ RoomPrefab_Corner::RoomPrefab_Corner(std::string name) : Entity(name)
 			doorPillar1->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 		}
 
-		// Side Door Pillar 2
+		// Back Door Pillar 2
 		{
 			Entity* doorPillar2 = new Entity("Door Pillar 2");
 			this->AddChild(doorPillar2);
@@ -333,53 +364,13 @@ RoomPrefab_Corner::RoomPrefab_Corner(std::string name) : Entity(name)
 					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 			);
 			MeshRenderer* m = doorPillar2->GetComponent<MeshRenderer>();
-			doorPillar2->GetTransform()->SetGlobalPosition(glm::vec3(-6.5f, 3.0f, -2.0f));
-			doorPillar2->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((-3.14f * 1.0f), glm::vec3(0, 1, 0)));
+			doorPillar2->GetTransform()->SetGlobalPosition(glm::vec3(2.0f, 3.0f, 6.5f));
+			doorPillar2->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((-3.14f * 0.5f), glm::vec3(0, 1, 0)));
 			doorPillar2->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
 
 			doorPillar2->AddComponent<RigidBody>();
 			doorPillar2->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 1.0f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
 			doorPillar2->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
-		}
-
-		// Side Door Pillar 3
-		{
-			Entity* doorPillar3 = new Entity("Door Pillar 3");
-			this->AddChild(doorPillar3);
-			doorPillar3->AddComponent(
-				new MeshRenderer(
-					Resources::GetInstance()->GetModel("Models/Pillar (Half).obj"),
-					Resources::GetInstance()->GetShader("simple"),
-					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
-			);
-			MeshRenderer* m = doorPillar3->GetComponent<MeshRenderer>();
-			doorPillar3->GetTransform()->SetGlobalPosition(glm::vec3(-2.0f, 3.0f, -6.5f));
-			doorPillar3->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.5f), glm::vec3(0, 1, 0)));
-			doorPillar3->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
-
-			doorPillar3->AddComponent<RigidBody>();
-			doorPillar3->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 1.0f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			doorPillar3->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
-		}
-
-		// Side Door Pillar 4
-		{
-			Entity* doorPillar4 = new Entity("Door Pillar 4");
-			this->AddChild(doorPillar4);
-			doorPillar4->AddComponent(
-				new MeshRenderer(
-					Resources::GetInstance()->GetModel("Models/Pillar (Half).obj"),
-					Resources::GetInstance()->GetShader("simple"),
-					Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
-			);
-			MeshRenderer* m = doorPillar4->GetComponent<MeshRenderer>();
-			doorPillar4->GetTransform()->SetGlobalPosition(glm::vec3(2.0f, 3.0f, -6.5f));
-			doorPillar4->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.5f), glm::vec3(0, 1, 0)));
-			doorPillar4->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
-
-			doorPillar4->AddComponent<RigidBody>();
-			doorPillar4->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.50f, 3.0f, 1.0f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			doorPillar4->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 		}
 	}
 }

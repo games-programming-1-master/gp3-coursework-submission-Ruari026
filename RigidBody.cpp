@@ -3,6 +3,10 @@
 #include "Physics.h"
 #include "Entity.h"
 
+void RigidBody::OnStart()
+{
+}
+
 void RigidBody::OnUpdate(float deltaTime)
 {
 }

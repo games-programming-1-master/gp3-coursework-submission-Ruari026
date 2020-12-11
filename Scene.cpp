@@ -1,6 +1,14 @@
 #include "Scene.h"
 #include "Camera.h"
 
+void Scene::Start()
+{
+	for (auto& a : m_entities)
+	{
+		a->OnStart();
+	}
+}
+
 void Scene::Update(float deltaTime)
 {
 	for (auto& a : m_entities)

@@ -31,6 +31,7 @@ public:
 	inline Entity* GetParent() { return m_parent; };
 
 	// Handling Game Loop
+	void OnStart();
 	void OnUpdate(float deltaTime);
 	void OnRender();
 

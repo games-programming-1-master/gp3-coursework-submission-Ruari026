@@ -5,7 +5,6 @@
 
 PlayerController::PlayerController()
 {
-
 }
 
 
@@ -14,8 +13,17 @@ PlayerController::PlayerController()
 Inherited Entity Methods
 ========================================================================================================================================================================================================
 */
+void PlayerController::OnStart()
+{
+}
+
 void PlayerController::OnUpdate(float deltaTime)
 {
+	if (Input::GetInstance()->GetKey(SDLK_r))
+	{
+		this->m_entity->GetTransform()->SetGlobalPosition(glm::vec3(0, 3, 0));
+	}
+
 	glm::ivec3 movementDirection = glm::ivec3(0, 0, 0);
 
 	// Handling Forwards and Backwards input
@@ -53,7 +61,6 @@ void PlayerController::OnUpdate(float deltaTime)
 
 void PlayerController::OnRender()
 {
-
 }
 
 
@@ -102,16 +109,17 @@ void PlayerController::MovePlayer(glm::vec3 movementDirection, float deltaTime)
 
 void PlayerController::RotatePlayer(float deltaTime)
 {
+	//Log::Debug(std::to_string(Input::GetInstance()->GetMouseMovement().x), "TestComponent.cpp", 55);
+
 	// Mouse Rotation
-	glm::ivec2 mouseMovement = Input::GetInstance()->GetMouseMovement();
-	//Log::Debug(std::to_string(glm::sign(mouseMovement.x)), "TestComponent.cpp", 55);
+	glm::vec2 mouseMovement = Input::GetInstance()->GetMouseMovement();
 
 	glm::quat currentRotation = this->m_entity->GetTransform()->GetGlobalRotationQuaternion();
 	glm::quat additionRotation = glm::quat(1, 0, 0, 0);
-	if (mouseMovement.x != 0)
+	if (std::abs(mouseMovement.x) > inputDeadzone)
 	{
 		// Accelerate the rotation
-		currentRotationAccel = Utility::LerpFloat(currentRotationAccel, 1, (deltaTime * rotationAcceleration));
+		currentRotationAccel = Utility::LerpFloat(currentRotationAccel, 1, (deltaTime * rotationAcceleration * mouseMovement.x));
 	}
 	else
 	{
@@ -134,13 +142,15 @@ void PlayerController::AnimatePlayer(glm::vec3 movementDirection, float deltaTim
 	// Animating head bob when walking
 	if (glm::length(movementDirection) != 0)
 	{
-		bobTime += deltaTime;
+		bobTime += (deltaTime * walkSpeed);
 		if (bobTime > (M_PI * 2))
 		{
 			bobTime -= (M_PI * 2);
 		}
 
-		glm::vec3 newOffset = startOffset + glm::vec3(0, std::sin(bobTime) * 0.334f, 0);
+		float bobScale = (std::sin(bobTime) >= 0) ? 0.2f : 0.4f;
+		glm::vec3 newOffset = startOffset + glm::vec3(0, std::sin(bobTime) * bobScale, 0);
+
 		glm::vec3 newPos = Utility::LerpVec3(m_cameraMount->GetTransform()->GetLocalPosition(), newOffset, deltaTime);
 		m_cameraMount->GetTransform()->SetLocalPosition(newPos);
 	}
