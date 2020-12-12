@@ -3,11 +3,11 @@
 #include "Entity.h"
 #include "Utility.h"
 
-#include "RoomPrefab_1Door.h"
-#include "RoomPrefab_Straight.h"
-#include "RoomPrefab_Corner.h"
-#include "RoomPrefab_3Door.h"
-#include "RoomPrefab_4Door.h"
+#include "Room_1Door_Normal.h"
+#include "Room_2DoorCorner_Normal.h"
+#include "Room_2DoorStraight_Normal.h"
+#include "Room_3Door_Normal.h"
+#include "Room_4Door_Normal.h"
 
 LevelGenerator::LevelGenerator()
 {	
@@ -99,7 +99,7 @@ void LevelGenerator::SpawnRoomPrefabs()
 		{
 			case(1):
 			{
-				newRoom = new RoomPrefab_1Door("Room_1Door");
+				newRoom = new Room_1Door_Normal("Room_1Door");
 
 				int rotationAmount = (int)connectionDirections[0] - (int)Directions::DOWN;
 				newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
@@ -111,7 +111,7 @@ void LevelGenerator::SpawnRoomPrefabs()
 				// Special Case for 2 door rooms (connections can be opposite or next to each other)
 				if (connectionDirections[0] == DirectionsUtility::GetOppositeDirection(connectionDirections[1]))
 				{
-					newRoom = new RoomPrefab_Straight("Room_Straight");
+					newRoom = new Room_2DoorStraight_Normal("Room_Straight");
 
 					if (Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::LEFT, connectionDirections))
 					{
@@ -121,7 +121,7 @@ void LevelGenerator::SpawnRoomPrefabs()
 				}
 				else
 				{
-					newRoom = new RoomPrefab_Corner("Room_Corner");
+					newRoom = new Room_2DoorCorner_Normal("Room_Corner");
 					
 					if (Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::DOWN, connectionDirections))
 					{
@@ -144,7 +144,7 @@ void LevelGenerator::SpawnRoomPrefabs()
 
 			case(3):
 			{
-				newRoom = new RoomPrefab_3Door("Room_3Door");
+				newRoom = new Room_3Door_Normal("Room_3Door");
 
 				if (Utility::VectorContains(Directions::LEFT, connectionDirections) && Utility::VectorContains(Directions::UP, connectionDirections) && Utility::VectorContains(Directions::RIGHT, connectionDirections))
 				{
@@ -166,7 +166,7 @@ void LevelGenerator::SpawnRoomPrefabs()
 
 			case(4):
 			{
-				newRoom = new RoomPrefab_4Door("Room_4Door");
+				newRoom = new Room_4Door_Normal("Room_4Door");
 
 				// No specific rotation required for a 4 door room, can give it a random rotation
 			}
