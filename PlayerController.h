@@ -9,10 +9,10 @@ private:
 	float currentXMovementAccel = 0;
 	float currentZMovementAccel = 0;
 
-	float maxRotationSpeed = (-3.14f * 0.15f);
+	float maxRotationSpeed = (-3.14f * 0.05f);
 	int inputDeadzone = 0;
-	float currentRotationAccel = 0;
-	float rotationAcceleration = 0.1f;
+	//float currentRotationAccel = 0;
+	//float rotationAcceleration = 0.1f;
 
 	Entity* m_cameraMount;
 	glm::vec3 startOffset = glm::vec3(0, 0.5f, 0);

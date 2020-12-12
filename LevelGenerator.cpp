@@ -174,7 +174,7 @@ void LevelGenerator::SpawnRoomPrefabs()
 		}
 
 		// Handling room positioning
-		newRoom->GetTransform()->SetGlobalPosition(glm::vec3(r->GetRoomPos().x * 14.5f, 0.0f, r->GetRoomPos().y * 14.5f));
+		newRoom->GetTransform()->SetGlobalPosition(glm::vec3(r->GetRoomPos().x * 18.5f, 0.0f, r->GetRoomPos().y * 18.5f));
 		this->m_entity->AddChild(newRoom);
 	}
 }

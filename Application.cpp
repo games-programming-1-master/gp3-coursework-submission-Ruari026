@@ -73,6 +73,7 @@ void Application::OpenGlInit()
 
 	glDisable(GL_CULL_FACE);
 
+	// Addition to keep the cursor hidden & locked within the game window
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 }
 
@@ -88,10 +89,15 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/Walls (3 Door).obj");
 	Resources::GetInstance()->AddModel("Models/Walls (4 Door).obj");
 
-	// Models - Rooms decorations
-	Resources::GetInstance()->AddModel("Models/Pillar (Side).obj");
-	Resources::GetInstance()->AddModel("Models/Pillar (Half).obj");
-	Resources::GetInstance()->AddModel("Models/Pillar (Corner).obj");
+	// Models - Room decorations
+	Resources::GetInstance()->AddModel("Models/ShortPillar (Full).obj");
+	Resources::GetInstance()->AddModel("Models/ShortPillar (Half).obj");
+	Resources::GetInstance()->AddModel("Models/ShortPillar (Quarter).obj");
+	Resources::GetInstance()->AddModel("Models/ShortPillar (Single).obj");
+	Resources::GetInstance()->AddModel("Models/TallPillar (Full).obj");
+	Resources::GetInstance()->AddModel("Models/TallPillar (Half).obj");
+	Resources::GetInstance()->AddModel("Models/TallPillar (Quarter).obj");
+	Resources::GetInstance()->AddModel("Models/TallPillar (Single).obj");
 
 	// Textures
 	Resources::GetInstance()->AddTexture("Images/Textures/Tile (Simple).png");
