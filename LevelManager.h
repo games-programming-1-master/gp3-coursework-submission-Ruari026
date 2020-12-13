@@ -2,6 +2,8 @@
 #include "Component.h"
 class LevelManager : Component
 {
+private:
+
 public:
 	LevelManager();
 

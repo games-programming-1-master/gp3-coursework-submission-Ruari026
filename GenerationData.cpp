@@ -4,7 +4,7 @@ bool LevelLayout::ProposeNewPoint(glm::ivec2 newPoint)
 {
 	// Point isn't suitable if it already exists in the layout
 	bool samePoint = false;
-	for (auto r : generatedLayout)
+	for (auto r : layoutRooms)
 	{
 		if (r->GetRoomPos() == newPoint)
 		{
@@ -58,21 +58,37 @@ void LevelLayout::AddRoom(glm::ivec2 newRoomPoint)
 	LevelRoom* newRoom = new LevelRoom();
 	newRoom->SetRoomPos(newRoomPoint);
 
-	// Setting own connection data
+	// Getting all the nearby rooms
 	std::vector<LevelRoom*> connectedRooms = GetConnectedRoomsAtPoint(newRoomPoint);
 	for (auto& a : connectedRooms)
 	{
+		// Setting own connection data
 		glm::ivec2 roomDirection = newRoomPoint - a->GetRoomPos();
-
 		Directions newDirection = DirectionsUtility::ConvertVectorToDirection(roomDirection);
 		newRoom->AddConnection(newDirection);
+
 
 		// Also add self as connection of other room
 		Directions oppositeDirection = DirectionsUtility::GetOppositeDirection(newDirection);
 		a->AddConnection(oppositeDirection);
+
+
+		// Connection data to be stored for door generation
+		glm::vec2 doorPosition = (newRoomPoint + a->GetRoomPos());
+		doorPosition /= 2;
+		bool doorToBeRotated = (newDirection == Directions::UP || newDirection == Directions::DOWN) ? true : false;
+		std::tuple<glm::vec2, bool> newDoorData = std::tuple<glm::vec2, bool>
+		{
+			doorPosition,
+			doorToBeRotated
+		};
+		if (!Utility::VectorContains(newDoorData, layoutDoors))
+		{
+			layoutDoors.push_back(newDoorData);
+		}
 	}
 
-	generatedLayout.push_back(newRoom);
+	layoutRooms.push_back(newRoom);
 }
 
 
@@ -85,7 +101,7 @@ std::vector<LevelRoom*> LevelLayout::GetConnectedRoomsAtPoint(glm::ivec2 point)
 {
 	std::vector<LevelRoom*> pointConnections;
 
-	for (auto r : generatedLayout)
+	for (auto r : layoutRooms)
 	{
 		if (IsPointConnected(point, r->GetRoomPos()))
 		{
@@ -101,7 +117,7 @@ std::vector<Directions> LevelLayout::GetConnectionDirectionsAtPoint(glm::ivec2 p
 {
 	std::vector<Directions> pointConnections;
 
-	for (auto r : generatedLayout)
+	for (auto r : layoutRooms)
 	{
 		if (IsPointConnected(point, r->GetRoomPos()))
 		{
@@ -131,7 +147,7 @@ bool LevelLayout::CreatesSquare(glm::ivec2 topLeftPoint, glm::ivec2 newPoint)
 {
 	// Top left
 	bool topLeftFound = false;
-	for (auto r : generatedLayout)
+	for (auto r : layoutRooms)
 	{
 		glm::ivec2 topleft = topLeftPoint + glm::ivec2(0, 0);
 		if (r->GetRoomPos() == (topleft) || newPoint == topleft)
@@ -142,7 +158,7 @@ bool LevelLayout::CreatesSquare(glm::ivec2 topLeftPoint, glm::ivec2 newPoint)
 
 	// Top Right
 	bool topRightFound = false;
-	for (auto r : generatedLayout)
+	for (auto r : layoutRooms)
 	{
 		glm::ivec2 topRight = topLeftPoint + glm::ivec2(1, 0);
 		if (r->GetRoomPos() == (topRight) || newPoint == topRight)
@@ -153,7 +169,7 @@ bool LevelLayout::CreatesSquare(glm::ivec2 topLeftPoint, glm::ivec2 newPoint)
 
 	// Bottom Left
 	bool bottomLeftFound = false;
-	for (auto r : generatedLayout)
+	for (auto r : layoutRooms)
 	{
 		glm::ivec2 bottomLeft = topLeftPoint + glm::ivec2(0, -1);
 		if (r->GetRoomPos() == (bottomLeft) || newPoint == bottomLeft)
@@ -164,7 +180,7 @@ bool LevelLayout::CreatesSquare(glm::ivec2 topLeftPoint, glm::ivec2 newPoint)
 
 	// Bottom Right
 	bool bottomRightFound = false;
-	for (auto r : generatedLayout)
+	for (auto r : layoutRooms)
 	{
 		glm::ivec2 bottomRight = topLeftPoint + glm::ivec2(1, -1);
 		if (r->GetRoomPos() == (bottomRight) || newPoint == bottomRight)

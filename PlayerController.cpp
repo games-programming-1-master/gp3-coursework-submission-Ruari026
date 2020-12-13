@@ -109,7 +109,7 @@ void PlayerController::MovePlayer(glm::vec3 movementDirection, float deltaTime)
 
 void PlayerController::RotatePlayer(float deltaTime)
 {
-	Log::Debug(std::to_string(Input::GetInstance()->GetMouseMovement().x), "TestComponent.cpp", 55);
+	//Log::Debug(std::to_string(Input::GetInstance()->GetMouseMovement().x), "TestComponent.cpp", 55);
 
 	// Mouse Rotation
 	glm::vec2 mouseMovement = Input::GetInstance()->GetMouseMovement();

@@ -1,8 +1,9 @@
 #include "Room_1Door_Normal.h"
 
 #include "RoomPrefab_1Door.h"
-#include "TallPillar_Quarter_Prefab.h"
+#include "TallPillar_Full_Prefab.h"
 #include "TallPillar_Half_Prefab.h"
+#include "TallPillar_Quarter_Prefab.h"
 
 Room_1Door_Normal::Room_1Door_Normal(std::string name) : Entity(name)
 {
@@ -69,4 +70,22 @@ Room_1Door_Normal::Room_1Door_Normal(std::string name) : Entity(name)
 	sidePillar->GetTransform()->SetLocalPosition(glm::vec3(-8.5f, 3.0f, -2.5f));
 	sidePillar->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((-3.14f * 0.5f), glm::vec3(0, 1, 0)));
 	this->AddChild(sidePillar);
+
+
+	// Adding Center Pillars
+	Entity* middlePillar = new TallPillar_Full_Prefab("MiddlePillar (1)");
+	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 3.0f, 2.5f));
+	this->AddChild(middlePillar);
+
+	middlePillar = new TallPillar_Full_Prefab("MiddlePillar (2)");
+	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(-2.5f, 3.0f, 2.5f));
+	this->AddChild(middlePillar);
+
+	middlePillar = new TallPillar_Full_Prefab("MiddlePillar (3)");
+	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(-2.5f, 3.0f, -2.5f));
+	this->AddChild(middlePillar);
+
+	middlePillar = new TallPillar_Full_Prefab("MiddlePillar (4)");
+	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 3.0f, -2.5f));
+	this->AddChild(middlePillar);
 }

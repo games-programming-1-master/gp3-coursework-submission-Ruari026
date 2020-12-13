@@ -99,10 +99,18 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/TallPillar (Quarter).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Single).obj");
 
+	// Models - Other Level Requirements
+	Resources::GetInstance()->AddModel("Models/Door.obj");
+	Resources::GetInstance()->AddModel("Models/DoorFrame.obj");
+	Resources::GetInstance()->AddModel("Models/DecorativeFlashing.obj");
+
+	// Models - Player
+
 	// Textures
 	Resources::GetInstance()->AddTexture("Images/Textures/Tile (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Brick (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/WoodPlanks (Simple).png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
 	// Shaders
 	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/simple_VERT.glsl", 
 		ASSET_PATH + "Shaders/simple_FRAG.glsl"), 
@@ -136,10 +144,12 @@ void Application::Loop()
 				m_appState = AppState::QUITTING;
 				break;
 			case SDL_KEYDOWN:
-				INPUT->SetKey(event.key.keysym.sym, true);
+				INPUT->SetHeldKey(event.key.keysym.sym, true);
+				INPUT->SetDownKey(event.key.keysym.sym);
 				break;
 			case SDL_KEYUP:
-				INPUT->SetKey(event.key.keysym.sym, false);
+				INPUT->SetHeldKey(event.key.keysym.sym, false);
+				INPUT->SetUpKey(event.key.keysym.sym);
 				break;
 			case SDL_MOUSEMOTION:
 				INPUT->MoveMouse(glm::ivec2(event.motion.xrel, event.motion.yrel));
@@ -162,6 +172,8 @@ void Application::Loop()
 
 		// Resetting Mouse Movement of Input Manager
 		Input::GetInstance()->MoveMouse(glm::ivec2(0, 0));
+		// Resetting Up and Down Keys of Input Manager
+		Input::GetInstance()->ResetUpDownKeys();
 
 		SDL_GL_SwapWindow(m_window);
 	}

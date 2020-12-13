@@ -9,6 +9,8 @@
 #include "Room_3Door_Normal.h"
 #include "Room_4Door_Normal.h"
 
+#include "DoorPrefab.h"
+
 LevelGenerator::LevelGenerator()
 {	
 }
@@ -17,12 +19,26 @@ void LevelGenerator::OnStart()
 {
 	PickRoomPoints(10);
 
+	// Debugging generated level
 	for (auto a : generatedLevel.GetRooms())
 	{
 		Log::Debug("(" + std::to_string(a->GetRoomPos().x) + ", " + std::to_string(a->GetRoomPos().y) +") - " + std::to_string(a->GetNumberOfConnections()), "", 0);
 	}
 
 	SpawnRoomPrefabs();
+
+	// Spawning doors between rooms 
+	for (auto [pos, isRotated] : generatedLevel.GetDoors())
+	{
+		Entity* newDoor = new DoorPrefab("TheDoor");
+		this->m_entity->AddChild(newDoor);
+
+		glm::vec3 doorPos = glm::vec3((pos.x * 18.5f), 0, (pos.y * 18.5f));
+		newDoor->GetTransform()->SetGlobalPosition(doorPos);
+
+		float rotationAmount = isRotated ? 0.0f : 0.5f;
+		newDoor->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * rotationAmount), glm::vec3(0, 1, 0)));
+	}
 }
 
 void LevelGenerator::OnUpdate(float deltaTime)

@@ -100,6 +100,18 @@
     <Filter Include="Header Files\Prefabs\Decorations">
       <UniqueIdentifier>{409b5902-ca7e-4ce6-b6dc-5c05c5e867fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Prefabs\Other">
+      <UniqueIdentifier>{07f56e90-d3e5-4cc5-97dc-a829119bf0d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\Other">
+      <UniqueIdentifier>{24d638da-6313-4db9-822e-ab3b2095626b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\Player">
+      <UniqueIdentifier>{e9e11186-68f2-4dad-a0bf-6c57fc236ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\Player">
+      <UniqueIdentifier>{00124236-2fe3-481e-8a65-bd08c64a08fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MeshRenderer.cpp">
@@ -260,6 +272,9 @@
     </ClCompile>
     <ClCompile Include="TallPillar_Single_Prefab.cpp">
       <Filter>Source Files\Prefabs\Decorations</Filter>
+    </ClCompile>
+    <ClCompile Include="DoorPrefab.cpp">
+      <Filter>Source Files\Prefabs\Other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -433,6 +448,9 @@
     </ClInclude>
     <ClInclude Include="TallPillar_Single_Prefab.h">
       <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="DoorPrefab.h">
+      <Filter>Header Files\Prefabs\Other</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
