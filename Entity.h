@@ -22,6 +22,7 @@ private:
 
 public:
 	Entity(std::string name);
+	~Entity();
 
 	// Handling Components
 	void AddComponent(Component* c);
@@ -45,6 +46,7 @@ public:
 	// Other Setters
 	inline void SetEnabled(bool enabled) { isEnabled = enabled; }
 };
+
 
 template<class T>
 T* Entity::AddComponent()

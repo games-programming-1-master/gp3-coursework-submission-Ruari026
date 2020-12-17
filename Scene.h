@@ -23,8 +23,14 @@ public:
 	void AddAndRemoveEntitys();
 
 	// Entity Creation & Destruction
-	void CreateEntity(Entity* newEntity);
-	void DestroyEntity(Entity* entityToBeDestroyed);
+	void CreateEntity(Entity* newEntity) 
+	{ 
+		entitysToAdd.push_back(newEntity); 
+	}
+	void DestroyEntity(Entity* entityToBeDestroyed) 
+	{ 
+		entitysToDestroy.push_back(entityToBeDestroyed); 
+	}
 
 	// Entity Finding
 	Entity* GetEntity(std::string entityName);

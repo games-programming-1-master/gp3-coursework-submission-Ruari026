@@ -12,5 +12,8 @@ protected:
 	virtual void OnInteract() override;
 
 public:
+	InteractableDoor();
+	virtual ~InteractableDoor() override;
+
 	inline void SetDoors(Entity* left, Entity* right) { leftDoor = left; rightDoor = right; }
 };

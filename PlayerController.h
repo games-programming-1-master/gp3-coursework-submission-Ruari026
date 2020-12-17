@@ -29,6 +29,7 @@ private:
 
 public:
 	PlayerController();
+	virtual ~PlayerController() override;
 
 	// Inherited component methods
 	virtual void OnStart() override;

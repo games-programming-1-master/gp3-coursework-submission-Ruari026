@@ -168,8 +168,7 @@ void Application::Loop()
 		Physics::GetInstance()->Update(deltaTime);
 
 		//update and render current scene entities
-		SceneManager::GetInstance()->GetCurrentScene()->Update(deltaTime);
-		SceneManager::GetInstance()->GetCurrentScene()->Render();
+		SceneManager::GetInstance()->GetCurrentScene()->UpdateScene(deltaTime);
 
 		// Resetting Mouse Movement of Input Manager
 		Input::GetInstance()->MoveMouse(glm::ivec2(0, 0));

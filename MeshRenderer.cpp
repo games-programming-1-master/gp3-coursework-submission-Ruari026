@@ -13,6 +13,11 @@ MeshRenderer::MeshRenderer(std::shared_ptr<Model> model, std::shared_ptr<ShaderP
 	m_texture = texture;
 }
 
+MeshRenderer::~MeshRenderer()
+{
+}
+
+
 void MeshRenderer::OnStart()
 {
 	currentMax = beigeMax;

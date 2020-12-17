@@ -15,6 +15,11 @@ LevelGenerator::LevelGenerator()
 {	
 }
 
+LevelGenerator::~LevelGenerator()
+{
+}
+
+
 void LevelGenerator::OnStart()
 {
 	PickRoomPoints(10);

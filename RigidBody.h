@@ -12,6 +12,8 @@ private:
 	float mass;
 
 public:
+	RigidBody();
+	virtual ~RigidBody() override;
 
 	virtual void OnStart() override;
 	virtual void OnUpdate(float deltaTime) override;

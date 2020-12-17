@@ -6,6 +6,10 @@
 TestComponent::TestComponent()
 {
 }
+TestComponent::~TestComponent()
+{
+}
+
 
 void TestComponent::OnStart()
 {

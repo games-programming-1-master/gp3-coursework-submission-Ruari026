@@ -30,6 +30,9 @@ void Scene::UpdateScene(float deltaTime)
 	// Handling Regular game loop
 	Update(deltaTime);
 	Render();
+
+	// Ensuring scene additions and removals are done outside the update loop
+	AddAndRemoveEntitys();
 }
 
 void Scene::Update(float deltaTime)

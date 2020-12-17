@@ -13,6 +13,7 @@ private:
 
 public:
 	LevelGenerator();
+	virtual ~LevelGenerator() override;
 
 	// Inherited component methods
 	virtual void OnStart() override;

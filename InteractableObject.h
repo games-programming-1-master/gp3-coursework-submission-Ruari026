@@ -16,6 +16,7 @@ protected:
 
 public:
 	InteractableObject();
+	virtual ~InteractableObject() override;
 
 	// Inherited component methods
 	virtual void OnStart() override;

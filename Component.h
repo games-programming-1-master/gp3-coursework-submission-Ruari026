@@ -10,6 +10,9 @@ protected:
 	friend class Entity;
 
 public:
+	Component() {};
+	virtual ~Component() {};
+
 	virtual void OnStart() = 0;
 	virtual void OnUpdate(float deltaTime) = 0;
 	virtual void OnRender() = 0;

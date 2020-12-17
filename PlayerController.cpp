@@ -6,6 +6,9 @@
 PlayerController::PlayerController()
 {
 }
+PlayerController::~PlayerController()
+{
+}
 
 
 /*

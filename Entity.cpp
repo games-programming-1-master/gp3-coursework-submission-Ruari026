@@ -7,6 +7,20 @@ Entity::Entity(std::string name)
 
 	m_transform = new Transform();
 }
+Entity::~Entity()
+{
+	// Ensures destruction of any children entitys
+	for (auto& e : m_children)
+	{
+		delete e;
+	}
+
+	// Ensures destuction of entity components
+	for (auto& c : m_components)
+	{
+		delete c;
+	}
+}
 
 
 /*
