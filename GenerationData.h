@@ -22,11 +22,13 @@ public:
 class LevelLayout
 {
 private:
-	std::vector<LevelRoom*> generatedLayout;
+	std::vector<LevelRoom*> layoutRooms;
+	std::vector<std::tuple<glm::vec2, bool>> layoutDoors;
 
 public:
 	bool ProposeNewPoint(glm::ivec2 newPoint);
-	std::vector<LevelRoom*> GetRooms() { return generatedLayout; }
+	std::vector<LevelRoom*> GetRooms() { return layoutRooms; }
+	std::vector<std::tuple<glm::vec2, bool>> GetDoors() { return layoutDoors; }
 	void AddRoom(glm::ivec2 newRoomPoint);
 	
 	std::vector<LevelRoom*> GetConnectedRoomsAtPoint(glm::ivec2 point);

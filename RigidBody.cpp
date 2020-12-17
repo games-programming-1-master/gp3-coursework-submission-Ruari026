@@ -3,8 +3,20 @@
 #include "Physics.h"
 #include "Entity.h"
 
+RigidBody::RigidBody()
+{
+}
+
+RigidBody::~RigidBody()
+{
+	// Ensures that on destruction the rigidbody is removed from the physics engine
+	Physics::GetInstance()->RemoveRigidbody(this);
+}
+
+
 void RigidBody::OnStart()
 {
+
 }
 
 void RigidBody::OnUpdate(float deltaTime)
@@ -14,7 +26,6 @@ void RigidBody::OnUpdate(float deltaTime)
 void RigidBody::OnRender()
 {
 }
-
 
 
 void RigidBody::Init(CollisionShape* shape, float mass, const glm::vec3 localInertia)

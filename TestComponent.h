@@ -10,6 +10,8 @@ private:
 
 public:
 	TestComponent();
+	virtual ~TestComponent() override;
+
 	virtual void OnStart() override;
 	virtual void OnUpdate(float deltaTime) override;
 	virtual void OnRender() override;

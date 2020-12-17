@@ -6,6 +6,9 @@
 PlayerController::PlayerController()
 {
 }
+PlayerController::~PlayerController()
+{
+}
 
 
 /*
@@ -116,18 +119,8 @@ void PlayerController::RotatePlayer(float deltaTime)
 
 	glm::quat currentRotation = this->m_entity->GetTransform()->GetGlobalRotationQuaternion();
 	glm::quat additionRotation = glm::quat(1, 0, 0, 0);
-	if (std::abs(mouseMovement.x) > inputDeadzone)
-	{
-		// Accelerate the rotation
-		currentRotationAccel = Utility::LerpFloat(currentRotationAccel, 1, (deltaTime * rotationAcceleration * mouseMovement.x));
-	}
-	else
-	{
-		// Decelerate the rotation
-		currentRotationAccel = Utility::LerpFloat(currentRotationAccel, 0, (deltaTime * rotationAcceleration));
-	}
 
-	additionRotation = Utility::GetRotationQuaternion((this->maxRotationSpeed * currentRotationAccel * deltaTime * glm::sign(mouseMovement.x)), glm::vec3(0, 1, 0));
+	additionRotation = Utility::GetRotationQuaternion((this->maxRotationSpeed * deltaTime * mouseMovement.x), glm::vec3(0, 1, 0));
 	this->m_entity->GetTransform()->SetGlobalRotationQuaternion(additionRotation * currentRotation);
 }
 

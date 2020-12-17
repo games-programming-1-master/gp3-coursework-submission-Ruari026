@@ -20,6 +20,16 @@ void Physics::AddRigidbody(RigidBody* r)
 	m_world->addRigidBody(r->Get());
 }
 
+void Physics::RemoveRigidbody(RigidBody* r)
+{
+	auto index = std::find_if(m_rbodies.begin(), m_rbodies.end(), [&](const RigidBody* i) {return i == r; });
+	if (index != m_rbodies.end())
+	{
+		m_rbodies.erase(index);
+	}
+	m_world->removeRigidBody(r->Get());
+}
+
 void Physics::PreUpdate()
 {
 	for (auto r : m_rbodies)

@@ -22,6 +22,7 @@ public:
 	static Physics* GetInstance();
 	inline btDynamicsWorld* GetWorld() { return GetInstance()->m_world; };
 	void AddRigidbody(RigidBody* r);
+	void RemoveRigidbody(RigidBody* r);
 	void PreUpdate();
 	void Update(float deltaTime);
 	void Quit();

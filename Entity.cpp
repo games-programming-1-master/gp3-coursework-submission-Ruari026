@@ -7,6 +7,20 @@ Entity::Entity(std::string name)
 
 	m_transform = new Transform();
 }
+Entity::~Entity()
+{
+	// Ensures destruction of any children entitys
+	for (auto& e : m_children)
+	{
+		delete e;
+	}
+
+	// Ensures destuction of entity components
+	for (auto& c : m_components)
+	{
+		delete c;
+	}
+}
 
 
 /*
@@ -23,6 +37,15 @@ void Entity::AddChild(Entity* newChild)
 	// Letting the child know about the new parent
 	newChild->m_parent = this;
 	newChild->GetTransform()->SetParentTransform(this->GetTransform());
+}
+
+void Entity::RemoveChild(Entity* child)
+{
+	auto index = std::find_if(m_children.begin(), m_children.end(), [&](const Entity* e) {return e == child; });
+	if (index != m_children.end())
+	{
+		m_children.erase(index);
+	}
 }
 
 
@@ -60,6 +83,10 @@ void Entity::OnStart()
 
 void Entity::OnUpdate(float deltaTime)
 {
+	// Prevent updating of entity if it is not enabled, also prevents updating of children
+	if (!isEnabled)
+		return;
+
 	// Updating Self
 	for (auto& c : m_components)
 	{
@@ -75,6 +102,10 @@ void Entity::OnUpdate(float deltaTime)
 
 void Entity::OnRender()
 {
+	// Prevent rendering of entity if it is not enabled, also prevents rendering of children
+	if (!isEnabled)
+		return;
+
 	// Rendering Self
 	for (auto& c : m_components)
 	{

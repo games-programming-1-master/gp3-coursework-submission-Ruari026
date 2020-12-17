@@ -6,6 +6,9 @@ class Scene
 {
 protected:
 	std::vector<Entity*> m_entities;
+	std::vector<Entity*> entitysToAdd;
+	std::vector<Entity*> entitysToDestroy;
+
 	Camera* m_mainCamera;
 
 public:
@@ -14,6 +17,21 @@ public:
 
 	// Game Loop
 	void Start();
+	void UpdateScene(float deltaTime);
 	void Update(float deltaTime);
 	void Render();
+	void AddAndRemoveEntitys();
+
+	// Entity Creation & Destruction
+	void CreateEntity(Entity* newEntity) 
+	{ 
+		entitysToAdd.push_back(newEntity); 
+	}
+	void DestroyEntity(Entity* entityToBeDestroyed) 
+	{ 
+		entitysToDestroy.push_back(entityToBeDestroyed); 
+	}
+
+	// Entity Finding
+	Entity* GetEntity(std::string entityName);
 };

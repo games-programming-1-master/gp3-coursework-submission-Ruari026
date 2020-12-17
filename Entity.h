@@ -11,6 +11,8 @@ class Entity
 {
 private:
 	std::string m_name;
+	bool isEnabled = true;
+
 	std::vector<Component*> m_components;
 
 	std::vector<Entity*> m_children;
@@ -20,6 +22,7 @@ private:
 
 public:
 	Entity(std::string name);
+	~Entity();
 
 	// Handling Components
 	void AddComponent(Component* c);
@@ -28,6 +31,7 @@ public:
 
 	// Handling Parent Children Relationships
 	void AddChild(Entity* newChild);
+	void RemoveChild(Entity* child);
 	inline Entity* GetParent() { return m_parent; };
 
 	// Handling Game Loop
@@ -35,8 +39,14 @@ public:
 	void OnUpdate(float deltaTime);
 	void OnRender();
 
+	// Other Getters
 	Transform* GetTransform() { return m_transform; };
+	std::string GetName() { return m_name; }
+
+	// Other Setters
+	inline void SetEnabled(bool enabled) { isEnabled = enabled; }
 };
+
 
 template<class T>
 T* Entity::AddComponent()

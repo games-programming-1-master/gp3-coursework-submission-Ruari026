@@ -12,8 +12,16 @@ private:
 
 public:
 	static Input* GetInstance();
-	void SetKey(SDL_Keycode key, bool state);
-	bool GetKey(SDL_Keycode key); //check if it's currently down or not
+
+	void SetHeldKey(SDL_Keycode key, bool state);
+	void SetUpKey(SDL_Keycode key);
+	void SetDownKey(SDL_Keycode key);
+
+	bool GetKey(SDL_Keycode key); //check if it's currently held down or not
+	bool GetKeyDown(SDL_Keycode key); //check if the key was pressed down this frame
+	bool GetKeyUp(SDL_Keycode key); //check if the key was pressed up this frame
+
+	void ResetUpDownKeys() { m_state.ResetInput(); }
 
 	glm::ivec2 GetMousePos() { return m_state.mousePos; }
 	glm::ivec2 GetMouseMovement() { return m_state.mouseMovement; }
@@ -23,4 +31,3 @@ public:
 		m_state.mouseMovement = delta; 
 	}
 };
-

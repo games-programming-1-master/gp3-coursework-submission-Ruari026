@@ -55,7 +55,6 @@ std::shared_ptr <Texture> Resources::GetTexture(const std::string& name)
 void Resources::ReleaseResources()
 {
 	// Using an iterator pattern to iterate through all elements
-
 	// Releasing Models
 	for (auto iter = m_models.begin(); iter != m_models.end();)
 	{

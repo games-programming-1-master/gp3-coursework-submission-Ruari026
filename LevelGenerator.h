@@ -5,7 +5,7 @@
 class LevelGenerator : public Component
 {	
 private:
-	LevelLayout generatedLevel;
+	LevelLayout generatedLayout;
 
 	// Handling Level Generation
 	void PickRoomPoints(int numberOfRooms);
@@ -13,6 +13,7 @@ private:
 
 public:
 	LevelGenerator();
+	virtual ~LevelGenerator() override;
 
 	// Inherited component methods
 	virtual void OnStart() override;
