@@ -8,8 +8,8 @@ private:
 	Entity* thePlayer;
 
 protected:
-	float interactionDistance = 2.0f;
-	float interactionViewRange = (M_PI * 0.25f);
+	float interactionDistance = 3.0f;
+	float interactionViewRange = 0.5f;
 
 	// Specific Interaction methods (to be extended by subclasses of interactable object)
 	virtual void OnInteract() = 0;

@@ -37,7 +37,7 @@ void InteractableObject::OnUpdate(float deltaTime)
 
 		// Checking that player is facing object
 		float angle = glm::dot(glm::normalize(playerDirection), thePlayer->GetTransform()->GetForward());
-		if (angle < 0.9f)
+		if (angle < interactionViewRange)
 			canInteract = false;
 	}
 	else
