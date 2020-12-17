@@ -5,7 +5,7 @@
 class LevelGenerator : public Component
 {	
 private:
-	LevelLayout generatedLevel;
+	LevelLayout generatedLayout;
 
 	// Handling Level Generation
 	void PickRoomPoints(int numberOfRooms);

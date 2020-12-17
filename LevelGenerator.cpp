@@ -20,7 +20,7 @@ void LevelGenerator::OnStart()
 	PickRoomPoints(10);
 
 	// Debugging generated level
-	for (auto a : generatedLevel.GetRooms())
+	for (auto a : generatedLayout.GetRooms())
 	{
 		Log::Debug("(" + std::to_string(a->GetRoomPos().x) + ", " + std::to_string(a->GetRoomPos().y) +") - " + std::to_string(a->GetNumberOfConnections()), "", 0);
 	}
@@ -28,7 +28,7 @@ void LevelGenerator::OnStart()
 	SpawnRoomPrefabs();
 
 	// Spawning doors between rooms 
-	for (auto [pos, isRotated] : generatedLevel.GetDoors())
+	for (auto [pos, isRotated] : generatedLayout.GetDoors())
 	{
 		Entity* newDoor = new DoorPrefab("TheDoor");
 		this->m_entity->AddChild(newDoor);
@@ -58,7 +58,7 @@ Level Generation Handling
 void LevelGenerator::PickRoomPoints(int numberOfRooms)
 {
 	// Room is always added at origin
-	generatedLevel.AddRoom(glm::ivec2(0, 0));
+	generatedLayout.AddRoom(glm::ivec2(0, 0));
 	numberOfRooms--;
 
 	// Handling rest of rooms
@@ -69,7 +69,7 @@ void LevelGenerator::PickRoomPoints(int numberOfRooms)
 		while (!suitablePointPicked)
 		{
 			// Picks a random point to branch off from
-			LevelRoom* branchRoom = Utility::GetRandomFromVector(generatedLevel.GetRooms());
+			LevelRoom* branchRoom = Utility::GetRandomFromVector(generatedLayout.GetRooms());
 			Directions branchDirection = Utility::GetRandomFromVector(std::vector<Directions> { Directions::UP, Directions::RIGHT, Directions::DOWN, Directions::LEFT });
 
 			// Proposing new point to set room at
@@ -94,9 +94,9 @@ void LevelGenerator::PickRoomPoints(int numberOfRooms)
 			}
 
 			// Checking suitability
-			if (generatedLevel.ProposeNewPoint(newPoint))
+			if (generatedLayout.ProposeNewPoint(newPoint))
 			{
-				generatedLevel.AddRoom(newPoint);
+				generatedLayout.AddRoom(newPoint);
 				suitablePointPicked = true;
 			}
 		}
@@ -105,7 +105,7 @@ void LevelGenerator::PickRoomPoints(int numberOfRooms)
 
 void LevelGenerator::SpawnRoomPrefabs()
 {
-	for (auto r : generatedLevel.GetRooms())
+	for (auto r : generatedLayout.GetRooms())
 	{
 		Entity* newRoom = nullptr;
 

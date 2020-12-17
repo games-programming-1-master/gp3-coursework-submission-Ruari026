@@ -6,6 +6,7 @@
 #include "LevelManager.h"
 #include "RigidBody.h"
 #include "PlayerController.h"
+#include "MeshRenderer.h"
 // Required Colliders
 #include "BoxShape.h"
 #include "CapsuleShape.h"
@@ -23,7 +24,7 @@ GameplayScene::GameplayScene()
 		Entity* player = new Entity("Main Player");
 		m_entities.push_back(player);
 		player->GetTransform()->SetGlobalPosition(glm::vec3(0.0f, 3.0f, 0.0f));
-		player->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.25f), glm::vec3(0, 1, 0)));
+		//player->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((3.14f * 0.25f), glm::vec3(0, 1, 0)));
 
 		player->AddComponent<RigidBody>();
 		player->GetComponent<RigidBody>()->Init(new CapsuleShape(0.5f, 1.0f), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));

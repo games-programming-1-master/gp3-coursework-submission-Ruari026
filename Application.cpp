@@ -98,6 +98,7 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/TallPillar (Half).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Quarter).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Single).obj");
+	Resources::GetInstance()->AddModel("Models/Crate.obj");
 
 	// Models - Other Level Requirements
 	Resources::GetInstance()->AddModel("Models/Door.obj");

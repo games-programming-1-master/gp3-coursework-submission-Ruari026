@@ -25,6 +25,15 @@ void Entity::AddChild(Entity* newChild)
 	newChild->GetTransform()->SetParentTransform(this->GetTransform());
 }
 
+void Entity::RemoveChild(Entity* child)
+{
+	auto index = std::find_if(m_children.begin(), m_children.end(), [&](const Entity* e) {return e == child; });
+	if (index != m_children.end())
+	{
+		m_children.erase(index);
+	}
+}
+
 
 /*
 ========================================================================================================================================================================================================
@@ -60,6 +69,10 @@ void Entity::OnStart()
 
 void Entity::OnUpdate(float deltaTime)
 {
+	// Prevent updating of entity if it is not enabled, also prevents updating of children
+	if (!isEnabled)
+		return;
+
 	// Updating Self
 	for (auto& c : m_components)
 	{
@@ -75,6 +88,10 @@ void Entity::OnUpdate(float deltaTime)
 
 void Entity::OnRender()
 {
+	// Prevent rendering of entity if it is not enabled, also prevents rendering of children
+	if (!isEnabled)
+		return;
+
 	// Rendering Self
 	for (auto& c : m_components)
 	{

@@ -16,6 +16,9 @@ private:
 	glm::vec3 currentMax;
 	glm::vec3 currentMin;
 	// Test color sets
+	glm::vec3 greyscaleMax = glm::vec3((255), (255), (255));
+	glm::vec3 greyscaleMin = glm::vec3((0), (0), (0));
+
 	glm::vec3 beigeMax = glm::vec3((213), (210), (181));
 	glm::vec3 beigeMin = glm::vec3((107), (112), (92));
 

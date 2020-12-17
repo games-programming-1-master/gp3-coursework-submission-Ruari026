@@ -5,6 +5,8 @@
 
 void RigidBody::OnStart()
 {
+	//btTransform bT = Physics::ConvertTransformToBtTransform(*m_entity->GetTransform());
+	//m_mState = new btDefaultMotionState(bT);
 }
 
 void RigidBody::OnUpdate(float deltaTime)

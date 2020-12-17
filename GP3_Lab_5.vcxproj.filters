@@ -276,6 +276,12 @@
     <ClCompile Include="DoorPrefab.cpp">
       <Filter>Source Files\Prefabs\Other</Filter>
     </ClCompile>
+    <ClCompile Include="InteractableObject.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableDoor.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MeshRenderer.h">
@@ -451,6 +457,12 @@
     </ClInclude>
     <ClInclude Include="DoorPrefab.h">
       <Filter>Header Files\Prefabs\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableObject.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableDoor.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

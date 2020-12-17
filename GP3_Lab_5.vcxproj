@@ -238,6 +238,8 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="GenerationData.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="InteractableDoor.cpp" />
+    <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -296,6 +298,8 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="GenerationData.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputState.h" />
+    <ClInclude Include="InteractableDoor.h" />
+    <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="Log.h" />
