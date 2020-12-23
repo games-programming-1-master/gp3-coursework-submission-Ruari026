@@ -21,6 +21,6 @@ TallPillar_Quarter_Prefab::TallPillar_Quarter_Prefab(std::string name) :Entity(n
 
 	// Collider
 	this->AddComponent<RigidBody>();
-	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 3.5f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
 	this->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 }

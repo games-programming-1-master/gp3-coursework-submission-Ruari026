@@ -7,15 +7,15 @@
 #include "RigidBody.h"
 #include "PlayerController.h"
 #include "MeshRenderer.h"
+
 // Required Colliders
 #include "BoxShape.h"
 #include "CapsuleShape.h"
-// Required Prefabs
-#include "RoomPrefab_1Door.h"
-#include "RoomPrefab_Corner.h"
-#include "RoomPrefab_Straight.h"
-#include "RoomPrefab_3Door.h"
-#include "RoomPrefab_4Door.h"
+
+// Testing out prefabs TODO: Remove before final build
+#include "Room_2DoorCorner_TopFloor.h"
+#include "Room_2DoorStraight_TopFloor.h"
+#include "Room_3Door_TopFloor.h"
 
 GameplayScene::GameplayScene()
 {
@@ -41,9 +41,13 @@ GameplayScene::GameplayScene()
 		player->GetComponent<PlayerController>()->SetCameraMount(camera);
 	}
 
-	// Testing out the level generator
+
+	// Level Generator
 	Entity* levelManager = new Entity("Level Manager");
 	m_entities.push_back(levelManager);
 	levelManager->AddComponent<LevelManager>();
 	levelManager->AddComponent<LevelGenerator>();
+
+	//Entity* testRoom = new Room_2DoorStraight_TopFloor("Test");
+	//m_entities.push_back(testRoom);
 }

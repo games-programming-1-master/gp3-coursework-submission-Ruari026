@@ -21,6 +21,6 @@ TallPillar_Full_Prefab::TallPillar_Full_Prefab(std::string name) :Entity(name)
 
 	// Collider
 	this->AddComponent<RigidBody>();
-	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(1.0f, 3.0f, 1.0f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(1.0f, 3.5f, 1.0f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
 	this->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 }

@@ -25,7 +25,7 @@ DoorPrefab::DoorPrefab(std::string name) : Entity(name)
 
 	// Adding Doors
 	Entity* leftDoor = new Entity("Left Door");
-	leftDoor->GetTransform()->SetLocalPosition(glm::vec3(0.5f, 1.25f, 0)); // Closed Position
+	leftDoor->GetTransform()->SetLocalPosition(glm::vec3(0.5f, 1.25f, 0));
 	this->AddChild(leftDoor);
 	leftDoor->AddComponent(
 		new MeshRenderer(
@@ -38,7 +38,7 @@ DoorPrefab::DoorPrefab(std::string name) : Entity(name)
 	leftDoor->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 
 	Entity* rightDoor = new Entity("Right Door");
-	rightDoor->GetTransform()->SetLocalPosition(glm::vec3(-0.5f, 1.25f, 0)); // Closed Position
+	rightDoor->GetTransform()->SetLocalPosition(glm::vec3(-0.5f, 1.25f, 0));
 	rightDoor->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion(M_PI, glm::vec3(0, 1, 0)));
 	this->AddChild(rightDoor);
 	rightDoor->AddComponent(

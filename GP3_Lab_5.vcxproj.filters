@@ -112,6 +112,30 @@
     <Filter Include="Source Files\Prefabs\Player">
       <UniqueIdentifier>{00124236-2fe3-481e-8a65-bd08c64a08fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Prefabs\Decorations\Pillars">
+      <UniqueIdentifier>{8b922dca-f17e-4846-8cee-8a48ae4d7753}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\Decorations\Floors">
+      <UniqueIdentifier>{31fb9ab8-8967-4a5d-bbd2-11d59f1cd235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\Decorations\Pillars">
+      <UniqueIdentifier>{fabc6d80-8234-422d-ac31-9c31bdb3b05b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\Decorations\Floors">
+      <UniqueIdentifier>{e32cde0e-a661-4478-9b62-15e326ead8b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Other\GameData">
+      <UniqueIdentifier>{9b36b85f-856d-43e9-a7b8-26099972f18f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Other\GameData">
+      <UniqueIdentifier>{cbec6280-581e-4fc0-ac6d-13cab29aeee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Other\RoomFactories">
+      <UniqueIdentifier>{75e0ec20-86e5-4e75-9d31-85bce886b59e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Other\RoomFactories">
+      <UniqueIdentifier>{6f531d56-db9e-4129-bcc1-1a4e589040d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MeshRenderer.cpp">
@@ -228,12 +252,6 @@
     <ClCompile Include="LevelGenerator.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="GenerationData.cpp">
-      <Filter>Source Files\Other</Filter>
-    </ClCompile>
-    <ClCompile Include="Directions.cpp">
-      <Filter>Source Files\Other</Filter>
-    </ClCompile>
     <ClCompile Include="Room_1Door_Normal.cpp">
       <Filter>Source Files\Prefabs\DecoratedRooms\1Door</Filter>
     </ClCompile>
@@ -249,30 +267,6 @@
     <ClCompile Include="Room_4Door_Normal.cpp">
       <Filter>Source Files\Prefabs\DecoratedRooms\4Door</Filter>
     </ClCompile>
-    <ClCompile Include="ShortPillar_Full_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations</Filter>
-    </ClCompile>
-    <ClCompile Include="ShortPillar_Half_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations</Filter>
-    </ClCompile>
-    <ClCompile Include="ShortPillar_Quarter_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations</Filter>
-    </ClCompile>
-    <ClCompile Include="ShortPillar_Single_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations</Filter>
-    </ClCompile>
-    <ClCompile Include="TallPillar_Full_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations</Filter>
-    </ClCompile>
-    <ClCompile Include="TallPillar_Half_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations</Filter>
-    </ClCompile>
-    <ClCompile Include="TallPillar_Quarter_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations</Filter>
-    </ClCompile>
-    <ClCompile Include="TallPillar_Single_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations</Filter>
-    </ClCompile>
     <ClCompile Include="DoorPrefab.cpp">
       <Filter>Source Files\Prefabs\Other</Filter>
     </ClCompile>
@@ -281,6 +275,63 @@
     </ClCompile>
     <ClCompile Include="InteractableDoor.cpp">
       <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorCorner_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\DecoratedRooms\2Door-Corner</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorStraight_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\DecoratedRooms\2Door-Straight</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_3Door_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\DecoratedRooms\3Door</Filter>
+    </ClCompile>
+    <ClCompile Include="TallPillar_Single_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Pillars</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortPillar_Full_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Pillars</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortPillar_Half_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Pillars</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortPillar_Quarter_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Pillars</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortPillar_Single_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Pillars</Filter>
+    </ClCompile>
+    <ClCompile Include="TallPillar_Full_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Pillars</Filter>
+    </ClCompile>
+    <ClCompile Include="TallPillar_Half_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Pillars</Filter>
+    </ClCompile>
+    <ClCompile Include="TallPillar_Quarter_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Pillars</Filter>
+    </ClCompile>
+    <ClCompile Include="TopFloor_Corner_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Floors</Filter>
+    </ClCompile>
+    <ClCompile Include="TopFloor_Straight_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Floors</Filter>
+    </ClCompile>
+    <ClCompile Include="GenerationData.cpp">
+      <Filter>Source Files\Other\GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="Directions.cpp">
+      <Filter>Source Files\Other\GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="TopFloorRoomFactory.cpp">
+      <Filter>Source Files\Other\RoomFactories</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalRoomFactory.cpp">
+      <Filter>Source Files\Other\RoomFactories</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomFactory.cpp">
+      <Filter>Source Files\Other\RoomFactories</Filter>
+    </ClCompile>
+    <ClCompile Include="EntranceExitRoomFactory.cpp">
+      <Filter>Source Files\Other\RoomFactories</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -395,12 +446,6 @@
     <ClInclude Include="LevelGenerator.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="GenerationData.h">
-      <Filter>Header Files\Other</Filter>
-    </ClInclude>
-    <ClInclude Include="Directions.h">
-      <Filter>Header Files\Other</Filter>
-    </ClInclude>
     <ClInclude Include="RoomPrefab_1Door.h">
       <Filter>Header Files\Prefabs\EmptyRooms</Filter>
     </ClInclude>
@@ -431,30 +476,6 @@
     <ClInclude Include="Room_4Door_Normal.h">
       <Filter>Header Files\Prefabs\DecoratedRooms\4Door</Filter>
     </ClInclude>
-    <ClInclude Include="ShortPillar_Full_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations</Filter>
-    </ClInclude>
-    <ClInclude Include="ShortPillar_Half_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations</Filter>
-    </ClInclude>
-    <ClInclude Include="ShortPillar_Quarter_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations</Filter>
-    </ClInclude>
-    <ClInclude Include="ShortPillar_Single_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations</Filter>
-    </ClInclude>
-    <ClInclude Include="TallPillar_Full_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations</Filter>
-    </ClInclude>
-    <ClInclude Include="TallPillar_Half_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations</Filter>
-    </ClInclude>
-    <ClInclude Include="TallPillar_Quarter_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations</Filter>
-    </ClInclude>
-    <ClInclude Include="TallPillar_Single_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations</Filter>
-    </ClInclude>
     <ClInclude Include="DoorPrefab.h">
       <Filter>Header Files\Prefabs\Other</Filter>
     </ClInclude>
@@ -463,6 +484,66 @@
     </ClInclude>
     <ClInclude Include="InteractableDoor.h">
       <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorCorner_TopFloor.h">
+      <Filter>Header Files\Prefabs\DecoratedRooms\2Door-Corner</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorStraight_TopFloor.h">
+      <Filter>Header Files\Prefabs\DecoratedRooms\2Door-Straight</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_3Door_TopFloor.h">
+      <Filter>Header Files\Prefabs\DecoratedRooms\3Door</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortPillar_Full_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortPillar_Half_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortPillar_Quarter_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortPillar_Single_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="TallPillar_Full_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="TallPillar_Half_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="TallPillar_Quarter_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="TallPillar_Single_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="TopFloor_Corner_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Floors</Filter>
+    </ClInclude>
+    <ClInclude Include="TopFloor_Straight_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Floors</Filter>
+    </ClInclude>
+    <ClInclude Include="Directions.h">
+      <Filter>Header Files\Other\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerationData.h">
+      <Filter>Header Files\Other\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomTypes.h">
+      <Filter>Header Files\Other\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="TopFloorRoomFactory.h">
+      <Filter>Header Files\Other\RoomFactories</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomFactory.h">
+      <Filter>Header Files\Other\RoomFactories</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalRoomFactory.h">
+      <Filter>Header Files\Other\RoomFactories</Filter>
+    </ClInclude>
+    <ClInclude Include="EntranceExitRoomFactory.h">
+      <Filter>Header Files\Other\RoomFactories</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -8,8 +8,10 @@ private:
 	LevelLayout generatedLayout;
 
 	// Handling Level Generation
-	void PickRoomPoints(int numberOfRooms);
+	void PickRoomPoints(int levelSize);
+	void SetSpecialRooms(int levelSize);
 	void SpawnRoomPrefabs();
+	void SpawnDoorPrefabs();
 
 public:
 	LevelGenerator();

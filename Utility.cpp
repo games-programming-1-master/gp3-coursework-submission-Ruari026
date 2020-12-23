@@ -31,3 +31,33 @@ glm::vec3 Utility::LerpVec3(glm::vec3 min, glm::vec3 max, float time)
 
 	return result;
 }
+
+std::string Utility::EnumToString(RoomTypes roomType)
+{
+	switch (roomType)
+	{
+		case (RoomTypes::ROOMTYPE_ENTRANCE):
+		{
+			return "ROOMTYPE_ENTRANCE";
+		}
+		break;
+
+		case (RoomTypes::ROOMTYPE_EXIT):
+		{
+			return "ROOMTYPE_EXIT";
+		}
+		break;
+
+		case (RoomTypes::ROOMTYPE_NORMAL):
+		{
+			return "ROOMTYPE_NORMAL";
+		}
+		break;
+
+		case (RoomTypes::ROOMTYPE_TOPFLOOR):
+		{
+			return "ROOMTYPE_TOPFLOOR";
+		}
+		break;
+	}
+}
