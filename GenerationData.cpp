@@ -65,12 +65,12 @@ void LevelLayout::AddRoom(glm::ivec2 newRoomPoint)
 		// Setting own connection data
 		glm::ivec2 roomDirection = newRoomPoint - a->GetRoomPos();
 		Directions newDirection = DirectionsUtility::ConvertVectorToDirection(roomDirection);
-		newRoom->AddConnection(newDirection);
+		newRoom->AddConnection(a, newDirection);
 
 
 		// Also add self as connection of other room
 		Directions oppositeDirection = DirectionsUtility::GetOppositeDirection(newDirection);
-		a->AddConnection(oppositeDirection);
+		a->AddConnection(newRoom, oppositeDirection);
 
 
 		// Connection data to be stored for door generation

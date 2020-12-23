@@ -2,12 +2,17 @@
 #include "pch.h"
 #include "Utility.h"
 #include "Directions.h"
+#include "RoomTypes.h"
 
 class LevelRoom
 {
 private:
 	glm::ivec2 roomPos;
+	
 	std::vector<Directions> connectionDirections;
+	std::vector<LevelRoom*> connectedRooms;
+
+	RoomTypes roomType = RoomTypes::ROOMTYPE_NORMAL;
 
 public:
 	inline glm::ivec2 GetRoomPos() { return roomPos; }
@@ -15,7 +20,12 @@ public:
 
 	inline int GetNumberOfConnections() { return connectionDirections.size(); }
 	inline std::vector<Directions> GetConnectionDirections() { return connectionDirections; }
-	inline void AddConnection(Directions newConnectionDirection) { connectionDirections.push_back(newConnectionDirection); }
+	inline std::vector<LevelRoom*> GetConnectedRooms() { return connectedRooms; }
+
+	inline void AddConnection(LevelRoom* connectedRoom, Directions connectionDirection) { connectedRooms.push_back(connectedRoom); connectionDirections.push_back(connectionDirection); }
+
+	void SetRoomType(RoomTypes newRoomType) { roomType = newRoomType; }
+	RoomTypes GetRoomType() { return roomType; }
 };
 
 

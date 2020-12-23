@@ -234,6 +234,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Directions.cpp" />
     <ClCompile Include="DoorPrefab.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="EntranceExitRoomFactory.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="GenerationData.cpp" />
@@ -248,11 +249,13 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="NormalRoomFactory.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="RoomFactory.cpp" />
     <ClCompile Include="RoomPrefab_1Door.cpp" />
     <ClCompile Include="RoomPrefab_3Door.cpp" />
     <ClCompile Include="RoomPrefab_4Door.cpp" />
@@ -260,8 +263,11 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="RoomPrefab_Straight.cpp" />
     <ClCompile Include="Room_1Door_Normal.cpp" />
     <ClCompile Include="Room_2DoorCorner_Normal.cpp" />
+    <ClCompile Include="Room_2DoorCorner_TopFloor.cpp" />
     <ClCompile Include="Room_2DoorStraight_Normal.cpp" />
+    <ClCompile Include="Room_2DoorStraight_TopFloor.cpp" />
     <ClCompile Include="Room_3Door_Normal.cpp" />
+    <ClCompile Include="Room_3Door_TopFloor.cpp" />
     <ClCompile Include="Room_4Door_Normal.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -278,6 +284,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="TallPillar_Single_Prefab.cpp" />
     <ClCompile Include="TestComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TopFloorRoomFactory.cpp" />
+    <ClCompile Include="TopFloor_Corner_Prefab.cpp" />
+    <ClCompile Include="TopFloor_Straight_Prefab.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
@@ -293,6 +302,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="Directions.h" />
     <ClInclude Include="DoorPrefab.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntranceExitRoomFactory.h" />
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="GenerationData.h" />
@@ -307,6 +317,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="NormalRoomFactory.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="PlayerController.h" />
@@ -314,15 +325,20 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="resource.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="RoomFactory.h" />
     <ClInclude Include="RoomPrefab_1Door.h" />
     <ClInclude Include="RoomPrefab_3Door.h" />
     <ClInclude Include="RoomPrefab_4Door.h" />
     <ClInclude Include="RoomPrefab_Corner.h" />
     <ClInclude Include="RoomPrefab_Straight.h" />
+    <ClInclude Include="RoomTypes.h" />
     <ClInclude Include="Room_1Door_Normal.h" />
     <ClInclude Include="Room_2DoorCorner_Normal.h" />
+    <ClInclude Include="Room_2DoorCorner_TopFloor.h" />
     <ClInclude Include="Room_2DoorStraight_Normal.h" />
+    <ClInclude Include="Room_2DoorStraight_TopFloor.h" />
     <ClInclude Include="Room_3Door_Normal.h" />
+    <ClInclude Include="Room_3Door_TopFloor.h" />
     <ClInclude Include="Room_4Door_Normal.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
@@ -339,6 +355,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="TallPillar_Single_Prefab.h" />
     <ClInclude Include="TestComponent.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TopFloorRoomFactory.h" />
+    <ClInclude Include="TopFloor_Corner_Prefab.h" />
+    <ClInclude Include="TopFloor_Straight_Prefab.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="Vertex.h" />

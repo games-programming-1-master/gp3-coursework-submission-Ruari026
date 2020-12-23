@@ -1,5 +1,8 @@
 #pragma once
 #include "pch.h"
+
+#include "RoomTypes.h"
+
 #include <gtx/quaternion.hpp>
 #include <math.h>
 #include <random>
@@ -34,4 +37,6 @@ public:
 
 		return false;
 	}
+
+	static std::string EnumToString(RoomTypes roomType);
 };

@@ -142,11 +142,7 @@ RoomPrefab_4Door::RoomPrefab_4Door(std::string name) : Entity(name)
 				Resources::GetInstance()->GetTexture("Images/Textures/WoodPlanks (Simple).png"))
 		);
 		MeshRenderer* m = theRoof->GetComponent<MeshRenderer>();
-		theRoof->GetTransform()->SetGlobalPosition(glm::vec3(0, 6.25f, 0));
+		theRoof->GetTransform()->SetGlobalPosition(glm::vec3(0, 1.0f, 0));
 		theRoof->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
-
-		theRoof->AddComponent<RigidBody>();
-		theRoof->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(7.25f, 0.125f, 7.25f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-		theRoof->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 	}
 }

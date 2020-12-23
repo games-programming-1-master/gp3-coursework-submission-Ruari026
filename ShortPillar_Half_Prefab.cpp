@@ -21,6 +21,6 @@ ShortPillar_Half_Prefab::ShortPillar_Half_Prefab(std::string name) : Entity(name
 
 	// Collider
 	this->AddComponent<RigidBody>();
-	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(1.0f, 2.0f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(1.0f, 1.75f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
 	this->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 }

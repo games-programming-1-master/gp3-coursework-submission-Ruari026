@@ -90,10 +90,11 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/Walls (4 Door).obj");
 
 	// Models - Room decorations
+	Resources::GetInstance()->AddModel("Models/TopFloor (Straight).obj");
+	Resources::GetInstance()->AddModel("Models/TopFloor (Corner).obj");
+	Resources::GetInstance()->AddModel("Models/Banner (Straight).obj");
+	Resources::GetInstance()->AddModel("Models/Banner (Corner).obj");
 	Resources::GetInstance()->AddModel("Models/ShortPillar (Full).obj");
-	Resources::GetInstance()->AddModel("Models/ShortPillar (Half).obj");
-	Resources::GetInstance()->AddModel("Models/ShortPillar (Quarter).obj");
-	Resources::GetInstance()->AddModel("Models/ShortPillar (Single).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Full).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Half).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Quarter).obj");
