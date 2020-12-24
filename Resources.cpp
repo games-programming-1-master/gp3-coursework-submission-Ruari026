@@ -5,7 +5,11 @@
 
 Resources::Resources()
 {
-
+	// Ensuring that freetype library is initialized properly
+	if (FT_Init_FreeType(&m_ftLibrary))
+	{
+		Log::Error("ERROR: Could not initialize FreeType library", "Resources.cpp", 11);
+	}
 }
 
 Resources* Resources::m_instance = nullptr;
@@ -19,6 +23,12 @@ Resources* Resources::GetInstance()
 	return m_instance;
 }
 
+
+/*
+========================================================================================================================================================================================================
+Model Resources
+========================================================================================================================================================================================================
+*/
 void Resources::AddModel(const std::string& directory)
 {
 	if (m_models.find(directory) == m_models.end())
@@ -28,6 +38,28 @@ void Resources::AddModel(const std::string& directory)
 	}
 }
 
+std::shared_ptr<Model> Resources::GetModel(const std::string& name)
+{
+	return m_models[name];
+}
+
+
+/*
+========================================================================================================================================================================================================
+Shader Resources
+========================================================================================================================================================================================================
+*/
+std::shared_ptr<ShaderProgram> Resources::GetShader(const std::string& name)
+{
+	return m_shaderPrograms[name];
+}
+
+
+/*
+========================================================================================================================================================================================================
+Texture Resources
+========================================================================================================================================================================================================
+*/
 void Resources::AddTexture(const std::string& directory)
 {
 	if (m_textures.find(directory) == m_textures.end())
@@ -37,21 +69,27 @@ void Resources::AddTexture(const std::string& directory)
 	}
 }
 
-std::shared_ptr<ShaderProgram> Resources::GetShader(const std::string& name)
-{
-	return m_shaderPrograms[name];
-}
-
-std::shared_ptr<Model> Resources::GetModel(const std::string& name)
-{
-	return m_models[name];
-}
-
 std::shared_ptr <Texture> Resources::GetTexture(const std::string& name)
 {
 	return m_textures[name];
 }
 
+
+/*
+========================================================================================================================================================================================================
+Font Resources
+========================================================================================================================================================================================================
+*/
+void Resources::AddFont(const std::string& directory)
+{
+}
+
+
+/*
+========================================================================================================================================================================================================
+Resources Releasing
+========================================================================================================================================================================================================
+*/
 void Resources::ReleaseResources()
 {
 	// Using an iterator pattern to iterate through all elements

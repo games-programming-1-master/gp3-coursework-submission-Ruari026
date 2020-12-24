@@ -83,8 +83,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)SDL2\SDL2-2.0.4\include;$(SolutionDir)glew-2.1.0\include\GL;$(SolutionDir)glm;$(SolutionDir)stb\Include;$(SolutionDir)assimp;$(SolutionDir)bullet;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)SDL2\SDL2-2.0.4\lib\x64;$(SolutionDir)glew-2.1.0\lib\Release\x64;$(SolutionDir)assimp\Lib;$(SolutionDir)bullet\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)SDL2\SDL2-2.0.4\include;$(SolutionDir)glew-2.1.0\include\GL;$(SolutionDir)glm;$(SolutionDir)stb\Include;$(SolutionDir)assimp;$(SolutionDir)bullet;$(SolutionDir)freetype\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)SDL2\SDL2-2.0.4\lib\x64;$(SolutionDir)glew-2.1.0\lib\Release\x64;$(SolutionDir)assimp\Lib;$(SolutionDir)bullet\Lib;$(SolutionDir)freetype\objs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -167,7 +167,7 @@ xcopy /Y "assimp\Lib\*.dll" "$(OutDir)"</Command>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;assimp.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;assimp.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;freetype.lib</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PostBuildEvent>
@@ -283,6 +283,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="TallPillar_Quarter_Prefab.cpp" />
     <ClCompile Include="TallPillar_Single_Prefab.cpp" />
     <ClCompile Include="TestComponent.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TopFloorRoomFactory.cpp" />
     <ClCompile Include="TopFloor_Corner_Prefab.cpp" />
@@ -354,6 +355,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="TallPillar_Quarter_Prefab.h" />
     <ClInclude Include="TallPillar_Single_Prefab.h" />
     <ClInclude Include="TestComponent.h" />
+    <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TopFloorRoomFactory.h" />
     <ClInclude Include="TopFloor_Corner_Prefab.h" />

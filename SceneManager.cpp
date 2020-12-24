@@ -40,7 +40,7 @@ void SceneManager::Init(std::string startScene)
 	gameScenes.insert(std::pair<std::string, Scene*>("Game Over", new GameOverScene()));
 
 	// Setting start scene
-	this->ChangeScene("Gameplay");
+	this->ChangeScene("Main Menu");
 }
 
 

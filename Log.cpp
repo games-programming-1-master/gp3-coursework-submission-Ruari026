@@ -6,6 +6,17 @@ void Log::Debug(const std::string & msg, const char * file, int line)
 	std::cout << "LOG DEBUG(" << file << ", " << line << "): " << msg << std::endl;
 }
 
+void Log::Warning(const std::string& msg, const char* file, int line)
+{
+	std::cout << "LOG DEBUG(" << file << ", " << line << "): " << msg << std::endl;
+}
+
+void Log::Error(const std::string& msg, const char* file, int line)
+{
+	std::cout << "LOG DEBUG(" << file << ", " << line << "): " << msg << std::endl;
+	std::cin;
+}
+
 bool Log::CheckGLError(const char *file, int line)
 {
 	GLenum err;

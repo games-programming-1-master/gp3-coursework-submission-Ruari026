@@ -333,6 +333,9 @@
     <ClCompile Include="EntranceExitRoomFactory.cpp">
       <Filter>Source Files\Other\RoomFactories</Filter>
     </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MeshRenderer.h">
@@ -544,6 +547,9 @@
     </ClInclude>
     <ClInclude Include="EntranceExitRoomFactory.h">
       <Filter>Header Files\Other\RoomFactories</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
