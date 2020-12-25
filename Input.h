@@ -8,7 +8,10 @@ class Input
 private:
 	Input();
 	static Input* m_instance;
+
 	InputState m_state;
+
+
 
 public:
 	static Input* GetInstance();
@@ -25,9 +28,7 @@ public:
 
 	glm::ivec2 GetMousePos() { return m_state.mousePos; }
 	glm::ivec2 GetMouseMovement() { return m_state.mouseMovement; }
-	void MoveMouse(glm::ivec2 delta) 
-	{ 
-		m_state.mousePos += delta; 
-		m_state.mouseMovement = delta; 
-	}
+	
+	void MoveMouse(glm::ivec2 delta);
+	void LockAndHideCursor(SDL_bool lockAndHide);
 };

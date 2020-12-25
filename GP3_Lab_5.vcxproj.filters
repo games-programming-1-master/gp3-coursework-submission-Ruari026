@@ -336,6 +336,9 @@
     <ClCompile Include="TextRenderer.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuController.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MeshRenderer.h">
@@ -551,6 +554,9 @@
     <ClInclude Include="TextRenderer.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="MainMenuController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GP3_Coursework.rc">
@@ -562,6 +568,12 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="Assets\Shaders\simple_VERT.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\text_FRAG.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\text_VERT.glsl">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>

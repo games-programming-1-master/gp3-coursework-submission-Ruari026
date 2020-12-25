@@ -82,6 +82,23 @@ Font Resources
 */
 void Resources::AddFont(const std::string& directory)
 {
+	if (m_fontFaces.find(directory) == m_fontFaces.end())
+	{
+		m_fontFaces[directory] = std::make_shared<FT_Face>();
+		if (FT_New_Face(m_ftLibrary, (ASSET_PATH + directory).c_str(), 0, m_fontFaces[directory].get()))
+		{
+			Log::Error("ERROR: Failed to load font", "Resources.cpp", 88);
+		}
+		else
+		{
+			LOG_DEBUG("Font Loaded from " + directory);
+		}
+	}
+}
+
+std::shared_ptr<FT_Face> Resources::GetFont(const std::string& name)
+{
+	return m_fontFaces[name];
 }
 
 
@@ -109,6 +126,13 @@ void Resources::ReleaseResources()
 
 	// Releasing Textures
 	for (auto iter = m_textures.begin(); iter != m_textures.end();)
+	{
+		iter->second.reset();
+		iter++;
+	}
+
+	// Releasing Fonts
+	for (auto iter = m_fontFaces.begin(); iter != m_fontFaces.end();)
 	{
 		iter->second.reset();
 		iter++;
@@ -151,5 +175,17 @@ void Resources::ReleaseUnusedResources()
 		}
 
 		if (iter != m_textures.end()) iter++;
+	}
+
+	// Checking Textures for usage
+	for (auto iter = m_fontFaces.begin(); iter != m_fontFaces.end();)
+	{
+		if (iter->second.use_count() <= 1)
+		{
+			iter->second.reset();
+			iter = m_fontFaces.erase(iter);
+		}
+
+		if (iter != m_fontFaces.end()) iter++;
 	}
 }

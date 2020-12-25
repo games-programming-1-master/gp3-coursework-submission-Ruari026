@@ -72,9 +72,6 @@ void Application::OpenGlInit()
 	GL_ATTEMPT(glCullFace(GL_BACK));
 
 	glDisable(GL_CULL_FACE);
-
-	// Addition to keep the cursor hidden & locked within the game window
-	SDL_SetRelativeMouseMode(SDL_TRUE);
 }
 
 void Application::GameInit()
@@ -107,17 +104,29 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/DecorativeFlashing.obj");
 
 	// Models - Player
+	Log::NewLine();
 
 	// Textures
 	Resources::GetInstance()->AddTexture("Images/Textures/Tile (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Brick (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/WoodPlanks (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
+	Log::NewLine();
+
 	// Shaders
 	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/simple_VERT.glsl", 
 		ASSET_PATH + "Shaders/simple_FRAG.glsl"), 
 		"simple"
 	);
+	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/text_VERT.glsl",
+		ASSET_PATH + "Shaders/text_FRAG.glsl"),
+		"text"
+	);
+	Log::NewLine();
+
+	// Fonts
+	Resources::GetInstance()->AddFont("Fonts/JMH Cthulhumbus Arcade UG.ttf");
+	Log::NewLine();
 
 	// Loading All Scenes
 	SceneManager::GetInstance()->Init("Gameplay");

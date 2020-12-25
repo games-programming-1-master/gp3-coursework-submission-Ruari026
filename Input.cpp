@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "Application.h"
 #include "Input.h"
 
 Input* Input::m_instance = nullptr;
@@ -114,4 +115,30 @@ bool Input::GetKeyDown(SDL_Keycode key)
 		return m_state.downKeys[index];
 	}
 	else return false;
+}
+
+
+/*
+========================================================================================================================================================================================================
+Cursor Handling
+========================================================================================================================================================================================================
+*/
+void Input::MoveMouse(glm::ivec2 delta)
+{
+	if (!SDL_GetRelativeMouseMode())
+	{
+		// Mouse position has no meaning if sdl has the mouse hidden and locked
+		m_state.mousePos += delta;
+	}
+	m_state.mouseMovement = delta;
+}
+
+void Input::LockAndHideCursor(SDL_bool lockAndHide)
+{
+	// No point changing cursor mode if the request is the same as the current state
+	if (SDL_GetRelativeMouseMode() != lockAndHide)
+	{
+		m_state.mousePos = glm::vec2((WINDOW_W / 2), (WINDOW_H / 2));
+		SDL_SetRelativeMouseMode(lockAndHide);
+	}
 }
