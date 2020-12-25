@@ -105,7 +105,7 @@ void TextRenderer::OnRender()
 		Character ch = characterSet[*c];
 
 		float xpos = m_entity->GetTransform()->GetGlobalPosition().x + ch.bearing.x * m_entity->GetTransform()->GetScale().x + startPoint;
-		float ypos = m_entity->GetTransform()->GetGlobalPosition().y - (ch.size.y - ch.bearing.y) * m_entity->GetTransform()->GetScale().y;
+		float ypos = m_entity->GetTransform()->GetGlobalPosition().y + (ch.size.y - ch.bearing.y) * m_entity->GetTransform()->GetScale().y;
 
 		float w = ch.size.x * m_entity->GetTransform()->GetScale().x;
 		float h = ch.size.y * m_entity->GetTransform()->GetScale().y;
