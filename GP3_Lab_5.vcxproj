@@ -229,7 +229,6 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CapsuleShape.cpp" />
-    <ClCompile Include="CollisionShape.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CylinderShape.cpp" />
     <ClCompile Include="Directions.cpp" />
@@ -329,7 +328,6 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="PlayerController.h" />
-    <ClInclude Include="Quad.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="RigidBody.h" />

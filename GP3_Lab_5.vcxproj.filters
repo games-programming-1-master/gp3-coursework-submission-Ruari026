@@ -219,9 +219,6 @@
     <ClCompile Include="CapsuleShape.cpp">
       <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionShape.cpp">
-      <Filter>Source Files\Engine\Colliders</Filter>
-    </ClCompile>
     <ClCompile Include="CylinderShape.cpp">
       <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
@@ -384,9 +381,6 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Physics.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Quad.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Resources.h">

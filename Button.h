@@ -35,6 +35,4 @@ public:
 	void SetButtonRenderer(ImageRenderer* targetRenderer) { buttonRenderer = targetRenderer; }
 
 	void ChangeState(ButtonState newState);
-
-	void SetButtonBehaviour(buttonFunction targetFunction) { m_function = targetFunction; }
 };
