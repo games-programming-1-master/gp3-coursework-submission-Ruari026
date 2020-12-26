@@ -246,7 +246,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Log.cpp" />
-    <ClCompile Include="MainMenuController.cpp" />
+    <ClCompile Include="MainMenuButton.cpp" />
+    <ClCompile Include="MainMenuButton_Prefab.cpp" />
+    <ClCompile Include="MainMenuManager.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
@@ -319,7 +321,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="Log.h" />
-    <ClInclude Include="MainMenuController.h" />
+    <ClInclude Include="MainMenuButton.h" />
+    <ClInclude Include="MainMenuButton_Prefab.h" />
+    <ClInclude Include="MainMenuManager.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshRenderer.h" />

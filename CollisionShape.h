@@ -15,4 +15,3 @@ protected:
 public:
 	btCollisionShape* Get() { return m_shape; };
 };
-

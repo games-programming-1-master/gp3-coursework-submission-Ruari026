@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "ImageRenderer.h"
+#include "TextRenderer.h"
 
 enum class ButtonState
 {
@@ -23,6 +24,9 @@ private:
 	glm::vec4 disabledColor = glm::vec4(0.55f, 0.55f, 0.55f, 1.0f);
 
 	bool IsMouseWithinImageRect();
+
+protected:
+	virtual void OnClick() {};
 
 public:
 	Button();
