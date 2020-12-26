@@ -46,7 +46,7 @@ void Scene::Update(float deltaTime)
 void Scene::Render()
 {
 	/* Clear context */
-	glClearColor(0.04f, 0.06f, 0.27f, 1.0f);
+	glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	m_mainCamera->Recalculate();

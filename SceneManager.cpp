@@ -1,5 +1,6 @@
 #include "SceneManager.h"
 #include "MainMenuScene.h"
+#include "TutorialScene.h"
 #include "GameplayScene.h"
 #include "GameOverScene.h"
 
@@ -34,6 +35,8 @@ void SceneManager::Init(std::string startScene)
 {
 	// Loading Main Menu Scene
 	gameScenes.insert(std::pair<std::string, Scene*>("Main Menu", new MainMenuScene()));
+	// Loading Tutorial Scene
+	gameScenes.insert(std::pair<std::string, Scene*>("Tutorial", new TutorialScene()));
 	// Loading Gameplay Scene
 	gameScenes.insert(std::pair<std::string, Scene*>("Gameplay", new GameplayScene()));
 	// Loading Game Over Scene

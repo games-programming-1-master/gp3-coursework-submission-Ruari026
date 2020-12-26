@@ -1,5 +1,7 @@
 #pragma once
 #include "Component.h"
+#include "Button.h"
+
 class MainMenuController : public Component
 {
 public:

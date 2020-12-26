@@ -11,6 +11,8 @@ protected:
 
 	Camera* m_mainCamera;
 
+	glm::vec4 clearColor = glm::vec4(0.04f, 0.06f, 0.27f, 1.0f);
+
 public:
 	inline Camera* GetCamera() { return m_mainCamera; }
 	void SetCamera(Camera* camera);

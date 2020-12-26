@@ -4,6 +4,8 @@
 #include "Resources.h"
 // Required Components
 #include "TextRenderer.h"
+#include "ImageRenderer.h"
+#include "Button.h"
 #include "MainMenuController.h"
 
 MainMenuScene::MainMenuScene()
@@ -14,7 +16,7 @@ MainMenuScene::MainMenuScene()
 	this->SetCamera(new Camera(camera->GetTransform()));
 	camera->GetTransform()->SetLocalPosition(glm::vec3(0, 0.5f, 0));
 
-	// Manager to control main menu behaviour
+	// Manager to control Main Menu behaviour
 	Entity* menuController = new Entity("The Controller");
 	m_entities.push_back(menuController);
 	menuController->AddComponent<MainMenuController>();
@@ -22,11 +24,13 @@ MainMenuScene::MainMenuScene()
 	// Spawning in the background environment
 
 	// Main Menu UI Elements
+	Entity* mainMenuParent = new Entity("Main Menu");
+	this->m_entities.push_back(mainMenuParent);
 	// Game Title
 	{
 		Entity* gameTitle = new Entity("UI Title");
 		gameTitle->GetTransform()->SetGlobalPosition(glm::vec3(125, 225, 1.0f));
-		m_entities.push_back(gameTitle);
+		mainMenuParent->AddChild(gameTitle);
 
 		gameTitle->AddComponent(
 			new TextRenderer(
@@ -34,12 +38,12 @@ MainMenuScene::MainMenuScene()
 				Resources::GetInstance()->GetShader("text"),
 				100)
 		);
-		gameTitle->GetComponent<TextRenderer>()->SetTextToRender("The Mansion");
-		gameTitle->GetComponent<TextRenderer>()->SetTextColor(glm::vec3(0.0f, 0.0f, 0.0f));
+		gameTitle->GetComponent<TextRenderer>()->SetTextToRender("THE MANSION");
+		gameTitle->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
 
 		gameTitle = new Entity("UI Title");
 		gameTitle->GetTransform()->SetGlobalPosition(glm::vec3(130, 230, 1.0f));
-		m_entities.push_back(gameTitle);
+		mainMenuParent->AddChild(gameTitle);
 
 		gameTitle->AddComponent(
 			new TextRenderer(
@@ -47,101 +51,99 @@ MainMenuScene::MainMenuScene()
 				Resources::GetInstance()->GetShader("text"),
 				100)
 		);
-		gameTitle->GetComponent<TextRenderer>()->SetTextToRender("The Mansion");
-		gameTitle->GetComponent<TextRenderer>()->SetTextColor(glm::vec3(1.0f, 1.0f, 1.0f));
+		gameTitle->GetComponent<TextRenderer>()->SetTextToRender("THE MANSION");
+		gameTitle->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
 	}
 
 	// Start Button
 	{
 		Entity* startButton = new Entity("Start Button");
-		startButton->GetTransform()->SetGlobalPosition(glm::vec3(175, 375, 1.0f));
-		m_entities.push_back(startButton);
-
+		startButton->GetTransform()->SetGlobalPosition(glm::vec3(150, 387.5f, 1.0f));
+		mainMenuParent->AddChild(startButton);
 		startButton->AddComponent(
+			new ImageRenderer(
+				Resources::GetInstance()->GetTexture("Images/Textures/Button Default.png"),
+				Resources::GetInstance()->GetShader("text"))
+		);
+		startButton->GetComponent<ImageRenderer>()->SetImageSize(glm::ivec2((256 * 1.25f), (64 * 1.25f)));
+		startButton->AddComponent<Button>();
+		startButton->GetComponent<Button>()->SetButtonRenderer(startButton->GetComponent<ImageRenderer>());
+
+		Entity* buttonText = new Entity("Button Text");
+		startButton->AddChild(buttonText);
+		buttonText->GetTransform()->SetLocalPosition(glm::vec3(37.5f, -25, 1.0f));
+
+		buttonText->AddComponent(
 			new TextRenderer(
-				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetFont("Fonts/Pixel Musketeer.ttf"),
 				Resources::GetInstance()->GetShader("text"),
 				45)
 		);
-		startButton->GetComponent<TextRenderer>()->SetTextToRender("Start Game");
-		startButton->GetComponent<TextRenderer>()->SetTextColor(glm::vec3(0.0f, 0.0f, 0.0f));
-
-		startButton = new Entity("Start Button");
-		startButton->GetTransform()->SetGlobalPosition(glm::vec3(180, 380, 1.0f));
-		m_entities.push_back(startButton);
-
-		startButton->AddComponent(
-			new TextRenderer(
-				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
-				Resources::GetInstance()->GetShader("text"),
-				45)
-		);
-		startButton->GetComponent<TextRenderer>()->SetTextToRender("Start Game");
-		startButton->GetComponent<TextRenderer>()->SetTextColor(glm::vec3(1.0f, 1.0f, 1.0f));
+		buttonText->GetComponent<TextRenderer>()->SetTextToRender("Start Game");
 	}
 
 	// Options Button
 	{
 		Entity* optionsButton = new Entity("Options Button");
-		optionsButton->GetTransform()->SetGlobalPosition(glm::vec3(175, 475, 1.0f));
-		m_entities.push_back(optionsButton);
-
+		optionsButton->GetTransform()->SetGlobalPosition(glm::vec3(150, 500, 1.0f));
+		mainMenuParent->AddChild(optionsButton);
 		optionsButton->AddComponent(
+			new ImageRenderer(
+				Resources::GetInstance()->GetTexture("Images/Textures/Button Default.png"),
+				Resources::GetInstance()->GetShader("text"))
+		);
+		optionsButton->GetComponent<ImageRenderer>()->SetImageSize(glm::ivec2((256 * 1.25f), (64 * 1.25f)));
+		optionsButton->AddComponent<Button>();
+		optionsButton->GetComponent<Button>()->SetButtonRenderer(optionsButton->GetComponent<ImageRenderer>());
+
+
+		Entity* buttonText = new Entity("Button Text");
+		optionsButton->AddChild(buttonText);
+		buttonText->GetTransform()->SetLocalPosition(glm::vec3(37.5f, -25, 1.0f));
+
+		buttonText->AddComponent(
 			new TextRenderer(
-				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetFont("Fonts/Pixel Musketeer.ttf"),
 				Resources::GetInstance()->GetShader("text"),
 				45)
 		);
-		optionsButton->GetComponent<TextRenderer>()->SetTextToRender("Options");
-		optionsButton->GetComponent<TextRenderer>()->SetTextColor(glm::vec3(0.0f, 0.0f, 0.0f));
-
-		optionsButton = new Entity("Options Button");
-		optionsButton->GetTransform()->SetGlobalPosition(glm::vec3(180, 480, 1.0f));
-		m_entities.push_back(optionsButton);
-
-		optionsButton->AddComponent(
-			new TextRenderer(
-				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
-				Resources::GetInstance()->GetShader("text"),
-				45)
-		);
-		optionsButton->GetComponent<TextRenderer>()->SetTextToRender("Options");
-		optionsButton->GetComponent<TextRenderer>()->SetTextColor(glm::vec3(1.0f, 1.0f, 1.0f));
+		buttonText->GetComponent<TextRenderer>()->SetTextToRender("Options");
+		buttonText->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
 	}
 
 	// Quit Button
 	{
 		Entity* quitButton = new Entity("Quit Button");
-		quitButton->GetTransform()->SetGlobalPosition(glm::vec3(175, 575, 1.0f));
-		m_entities.push_back(quitButton);
-
+		quitButton->GetTransform()->SetGlobalPosition(glm::vec3(150, 612.5f, 1.0f));
+		mainMenuParent->AddChild(quitButton);
 		quitButton->AddComponent(
+			new ImageRenderer(
+				Resources::GetInstance()->GetTexture("Images/Textures/Button Default.png"),
+				Resources::GetInstance()->GetShader("text"))
+		);
+		quitButton->GetComponent<ImageRenderer>()->SetImageSize(glm::ivec2((256 * 1.25f), (64 * 1.25f)));
+		quitButton->AddComponent<Button>();
+		quitButton->GetComponent<Button>()->SetButtonRenderer(quitButton->GetComponent<ImageRenderer>());
+
+
+		Entity* buttonText = new Entity("Button Text");
+		quitButton->AddChild(buttonText);
+		buttonText->GetTransform()->SetLocalPosition(glm::vec3(37.5f, -25, 1.0f));
+
+		buttonText->AddComponent(
 			new TextRenderer(
-				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetFont("Fonts/Pixel Musketeer.ttf"),
 				Resources::GetInstance()->GetShader("text"),
 				45)
 		);
-		quitButton->GetComponent<TextRenderer>()->SetTextToRender("Quit");
-		quitButton->GetComponent<TextRenderer>()->SetTextColor(glm::vec3(0.0f, 0.0f, 0.0f));
-
-		quitButton = new Entity("Quit Button");
-		quitButton->GetTransform()->SetGlobalPosition(glm::vec3(180, 580, 1.0f));
-		m_entities.push_back(quitButton);
-
-		quitButton->AddComponent(
-			new TextRenderer(
-				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
-				Resources::GetInstance()->GetShader("text"),
-				45)
-		);
-		quitButton->GetComponent<TextRenderer>()->SetTextToRender("Quit");
-		quitButton->GetComponent<TextRenderer>()->SetTextColor(glm::vec3(1.0f, 1.0f, 1.0f));
+		buttonText->GetComponent<TextRenderer>()->SetTextToRender("Quit");
+		buttonText->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
 	}
-
 
 	// Options Menu UI Elements
 	Entity* optionsParent = new Entity("Options");
 	this->m_entities.push_back(optionsParent);
+	optionsParent->SetEnabled(false);
 
 	// Options Title
 

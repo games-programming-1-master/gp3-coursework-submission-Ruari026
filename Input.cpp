@@ -66,6 +66,25 @@ void Input::SetDownKey(SDL_Keycode key)
 	}
 }
 
+void Input::SetMouseDown(SDL_MouseButtonEvent event)
+{
+	int index = event.button;
+	if (index <= SDL_BUTTON_X2)
+	{
+		m_state.mouseDown[index] = true;
+		m_state.mouseHeld[index] = true;
+	}
+}
+
+void Input::SetMouseUp(SDL_MouseButtonEvent event)
+{
+	int index = event.button;
+	if (index <= SDL_BUTTON_X2)
+	{
+		m_state.mouseUp[index] = true;
+		m_state.mouseHeld[index] = false;
+	}
+}
 
 /*
 ========================================================================================================================================================================================================

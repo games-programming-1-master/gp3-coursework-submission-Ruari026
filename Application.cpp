@@ -111,6 +111,7 @@ void Application::GameInit()
 	Resources::GetInstance()->AddTexture("Images/Textures/Brick (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/WoodPlanks (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Button Default.png");
 	Log::NewLine();
 
 	// Shaders
@@ -126,6 +127,8 @@ void Application::GameInit()
 
 	// Fonts
 	Resources::GetInstance()->AddFont("Fonts/JMH Cthulhumbus Arcade UG.ttf");
+	Resources::GetInstance()->AddFont("Fonts/Pixel Musketeer.ttf");
+	Resources::GetInstance()->AddFont("Fonts/PixelNoise_erc_2007.ttf");
 	Log::NewLine();
 
 	// Loading All Scenes
@@ -162,6 +165,12 @@ void Application::Loop()
 				INPUT->SetHeldKey(event.key.keysym.sym, false);
 				INPUT->SetUpKey(event.key.keysym.sym);
 				break;
+			case SDL_MOUSEBUTTONDOWN:
+				INPUT->SetMouseDown(event.button);
+				break;
+			case SDL_MOUSEBUTTONUP:
+				INPUT->SetMouseUp(event.button);
+				break;
 			case SDL_MOUSEMOTION:
 				INPUT->MoveMouse(glm::ivec2(event.motion.xrel, event.motion.yrel));
 				break;
@@ -181,7 +190,7 @@ void Application::Loop()
 		SceneManager::GetInstance()->GetCurrentScene()->UpdateScene(deltaTime);
 
 		// Resetting Mouse Movement of Input Manager
-		Input::GetInstance()->MoveMouse(glm::ivec2(0, 0));
+		//Input::GetInstance()->MoveMouse(glm::ivec2(0, 0));
 		// Resetting Up and Down Keys of Input Manager
 		Input::GetInstance()->ResetUpDownKeys();
 

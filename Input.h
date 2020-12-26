@@ -31,4 +31,11 @@ public:
 	
 	void MoveMouse(glm::ivec2 delta);
 	void LockAndHideCursor(SDL_bool lockAndHide);
+
+	void SetMouseDown(SDL_MouseButtonEvent event);
+	void SetMouseUp(SDL_MouseButtonEvent event);
+
+	bool GetMouseDown(Uint8 mouseButton) { return m_state.mouseDown[mouseButton]; }
+	bool GetMouseUp(Uint8 mouseButton) { return m_state.mouseUp[mouseButton]; }
+	bool GetMouseHeld(Uint8 mouseButton) { return m_state.mouseHeld[mouseButton]; }
 };

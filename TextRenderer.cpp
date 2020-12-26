@@ -53,18 +53,18 @@ TextRenderer::TextRenderer(std::shared_ptr<FT_Face> font, std::shared_ptr<Shader
 		characterSet.insert(std::pair<char, Character>(c, newCharacter));
 
 		//glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-
-		// Setting up quad for rendering
-		glGenVertexArrays(1, &VAO);
-		glGenBuffers(1, &VBO);
-		glBindVertexArray(VAO);
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		glBindVertexArray(0);
 	}
+
+	// Setting up quad for rendering
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 }
 
 TextRenderer::~TextRenderer()
@@ -88,7 +88,7 @@ void TextRenderer::OnRender()
 
 	// setting color details
 	GLuint loc = glGetUniformLocation(m_program->Get(), "textColor");
-	glUniform3f(loc, (textColor.x), (textColor.y), (textColor.z));
+	glUniform4f(loc, (textColor.x), (textColor.y), (textColor.z), (textColor.w));
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(VAO);

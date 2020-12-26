@@ -226,6 +226,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BoxShape.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CapsuleShape.cpp" />
     <ClCompile Include="CollisionShape.cpp" />
@@ -238,6 +239,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="GenerationData.cpp" />
+    <ClCompile Include="ImageRenderer.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InteractableDoor.cpp" />
     <ClCompile Include="InteractableObject.cpp" />
@@ -290,11 +292,13 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="TopFloor_Corner_Prefab.cpp" />
     <ClCompile Include="TopFloor_Straight_Prefab.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="TutorialScene.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="BoxShape.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CapsuleShape.h" />
     <ClInclude Include="CollisionShape.h" />
@@ -308,6 +312,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="GenerationData.h" />
+    <ClInclude Include="ImageRenderer.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputState.h" />
     <ClInclude Include="InteractableDoor.h" />
@@ -363,6 +368,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="TopFloor_Corner_Prefab.h" />
     <ClInclude Include="TopFloor_Straight_Prefab.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="TutorialScene.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>

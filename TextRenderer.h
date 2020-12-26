@@ -24,7 +24,7 @@ private:
 	unsigned int VAO, VBO;
 
 	std::string text;
-	glm::vec3 textColor;
+	glm::vec4 textColor = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 
 public:
 	TextRenderer(std::shared_ptr<FT_Face> font, std::shared_ptr <ShaderProgram> program, unsigned int fontSize = 16);
@@ -37,5 +37,5 @@ public:
 
 	// Additional rendering setters
 	void SetTextToRender(std::string newText) { text = newText; }
-	void SetTextColor(glm::vec3 newColor) { textColor = newColor; }
+	void SetTextColor(glm::vec4 newColor) { textColor = newColor; }
 };
