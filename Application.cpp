@@ -112,6 +112,7 @@ void Application::GameInit()
 	Resources::GetInstance()->AddTexture("Images/Textures/WoodPlanks (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Default.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Button Small.png");
 	Log::NewLine();
 
 	// Shaders

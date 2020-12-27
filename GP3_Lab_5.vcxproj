@@ -296,6 +296,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="TopFloor_Corner_Prefab.cpp" />
     <ClCompile Include="TopFloor_Straight_Prefab.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="TutorialButtonPrefab.cpp" />
+    <ClCompile Include="TutorialManager.cpp" />
+    <ClCompile Include="TutorialMenuButton.cpp" />
     <ClCompile Include="TutorialScene.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
@@ -376,6 +379,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="TopFloor_Corner_Prefab.h" />
     <ClInclude Include="TopFloor_Straight_Prefab.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="TutorialButton_Prefab.h" />
+    <ClInclude Include="TutorialManager.h" />
+    <ClInclude Include="TutorialMenuButton.h" />
     <ClInclude Include="TutorialScene.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="Vertex.h" />

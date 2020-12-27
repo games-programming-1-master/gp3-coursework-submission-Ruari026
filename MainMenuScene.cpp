@@ -33,7 +33,7 @@ MainMenuScene::MainMenuScene()
 	optionsController->AddComponent<OptionsMenuManager>();
 
 
-	// Parents to enable hiding many related UI elements at once
+	// Parents to enable hiding/ showing many related UI elements at once
 	Entity* mainMenuParent = new Entity("Main Menu");
 	this->m_entities.push_back(mainMenuParent);
 	mainMenuParent->SetEnabled(true);

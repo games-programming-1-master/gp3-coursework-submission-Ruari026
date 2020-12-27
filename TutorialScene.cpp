@@ -2,11 +2,18 @@
 
 // General Engine Includes
 #include "Resources.h"
+
+// Scene Prefabs
+#include "TutorialButton_Prefab.h"
+
 // Required Components
 #include "TextRenderer.h"
+#include "TutorialManager.h"
+#include "TutorialMenuButton.h"
 
 TutorialScene::TutorialScene()
 {
+	// ----------General Scene Details----------
 	// Every Scene Needs A Camera
 	Entity* camera = new Entity("The Camera");
 	m_entities.push_back(camera);
@@ -16,13 +23,29 @@ TutorialScene::TutorialScene()
 	// Changing Background Color
 	this->clearColor = glm::vec4(0.09f, 0.09f, 0.09f, 1.0f);
 
-	// Tutorial Scene UI
+	// Scene Manager
+	Entity* sceneController = new Entity("Tutorial Manager");
+	sceneController->AddComponent<TutorialManager>();
+	m_entities.push_back(sceneController);
 
-	// Story Text
+	// Parents to enable hiding/ showing many related UI elements at once
+	Entity* controlsParent = new Entity("Controls");
+	this->m_entities.push_back(controlsParent);
+	controlsParent->SetEnabled(false);
+
+	Entity* story1Parent = new Entity("Story (1)");
+	this->m_entities.push_back(story1Parent);
+	story1Parent->SetEnabled(true);
+
+	sceneController->GetComponent<TutorialManager>()->SetSceneParents(controlsParent, story1Parent);
+
+	// ---------- Tutorial UI ----------
+
+	// ---------- Story + Objective UI () ----------
 	{
 		Entity* storyTitle = new Entity("Story Title");
 		storyTitle->GetTransform()->SetGlobalPosition(glm::vec3(125, 100, 1.0f));
-		m_entities.push_back(storyTitle);
+		story1Parent->AddChild(storyTitle);
 
 		storyTitle->AddComponent(
 			new TextRenderer(
@@ -36,7 +59,7 @@ TutorialScene::TutorialScene()
 
 		Entity* storyText = new Entity("Story Text (1)");
 		storyText->GetTransform()->SetGlobalPosition(glm::vec3(175, 170, 1.0f));
-		m_entities.push_back(storyText);
+		story1Parent->AddChild(storyText);
 
 		storyText->AddComponent(
 			new TextRenderer(
@@ -51,7 +74,7 @@ TutorialScene::TutorialScene()
 
 		storyText = new Entity("Story Text (2)");
 		storyText->GetTransform()->SetGlobalPosition(glm::vec3(175, 300, 1.0f));
-		m_entities.push_back(storyText);
+		story1Parent->AddChild(storyText);
 
 		storyText->AddComponent(
 			new TextRenderer(
@@ -68,7 +91,7 @@ TutorialScene::TutorialScene()
 	{
 		Entity* objectiveTitle = new Entity("Objective Title");
 		objectiveTitle->GetTransform()->SetGlobalPosition(glm::vec3(125, 500, 1.0f));
-		m_entities.push_back(objectiveTitle);
+		story1Parent->AddChild(objectiveTitle);
 
 		objectiveTitle->AddComponent(
 			new TextRenderer(
@@ -82,7 +105,7 @@ TutorialScene::TutorialScene()
 
 		Entity* objectiveText = new Entity("Objective Text (1)");
 		objectiveText->GetTransform()->SetGlobalPosition(glm::vec3(175, 570, 1.0f));
-		m_entities.push_back(objectiveText);
+		story1Parent->AddChild(objectiveText);
 
 		objectiveText->AddComponent(
 			new TextRenderer(
@@ -95,7 +118,7 @@ TutorialScene::TutorialScene()
 
 		objectiveText = new Entity("Objective Text (2)");
 		objectiveText->GetTransform()->SetGlobalPosition(glm::vec3(175, 645, 1.0f));
-		m_entities.push_back(objectiveText);
+		story1Parent->AddChild(objectiveText);
 
 		objectiveText->AddComponent(
 			new TextRenderer(
@@ -109,6 +132,11 @@ TutorialScene::TutorialScene()
 
 	// Continue Button
 	{
+		Entity* gameButton = new TutorialButton_Prefab("Button", "->", -15);
+		story1Parent->AddChild(gameButton);
 
+		gameButton->GetTransform()->SetGlobalPosition(glm::vec3(1100, 640, 1.0f));
+
+		gameButton->GetComponent<TutorialMenuButton>()->SetButtonType(TutorialButtonType::BUTTONTYPE_STARTNEXTLEVEL);
 	}
 }
