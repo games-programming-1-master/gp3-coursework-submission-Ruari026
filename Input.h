@@ -24,7 +24,7 @@ public:
 	bool GetKeyDown(SDL_Keycode key); //check if the key was pressed down this frame
 	bool GetKeyUp(SDL_Keycode key); //check if the key was pressed up this frame
 
-	void ResetUpDownKeys() { m_state.ResetInput(); }
+	void Reset() { m_state.ResetInput(); if (SDL_GetRelativeMouseMode()) MoveMouse(glm::ivec2(0, 0)); }
 
 	glm::ivec2 GetMousePos() { return m_state.mousePos; }
 	glm::ivec2 GetMouseMovement() { return m_state.mouseMovement; }

@@ -20,6 +20,8 @@ private:
 	int m_windowHeight = 720;
 	AppState m_appState = AppState::INITILISING;
 	float m_worldDeltaTime = 0.f;
+	float m_updateTimeScale = 1.0f;
+	float m_physicsTimeScale = 1.0f;
 
 	//private functions
 	Application();
@@ -37,6 +39,9 @@ public:
 
 	inline int GetWindowHeight() { return m_windowHeight; }
 	inline int GetWindowWidth() { return m_windowWidth; }
+
+	void SetUpdateTimeScale(float newupdateScale) { m_updateTimeScale = newupdateScale; }
+	void SetPhysicsTimeScale(float newphysicsScale) { m_physicsTimeScale = newphysicsScale; }
 	
 	void ChangeAppState(AppState newState) { m_appState = newState; }
 };

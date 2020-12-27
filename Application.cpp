@@ -133,9 +133,9 @@ void Application::GameInit()
 	Log::NewLine();
 
 	// Loading All Scenes
-	SceneManager::GetInstance()->Init("Gameplay");
+	SceneManager::GetInstance()->Init("Main Menu");
 
-	Resources::GetInstance()->ReleaseUnusedResources();
+	//Resources::GetInstance()->ReleaseUnusedResources();
 }
 
 void Application::Loop()
@@ -181,19 +181,18 @@ void Application::Loop()
 		// Updating time between frames
 		auto currentTicks = std::chrono::high_resolution_clock::now();
 		float deltaTime = (float)std::chrono::duration_cast<std::chrono::microseconds>(currentTicks - prevTicks).count() / 100000;
-		m_worldDeltaTime = deltaTime;
 		prevTicks = currentTicks;
+
+		m_worldDeltaTime = deltaTime;
 		
 		// Updating game physics
-		Physics::GetInstance()->Update(deltaTime);
-
+ 		Physics::GetInstance()->Update(deltaTime * m_physicsTimeScale);
 		//update and render current scene entities
-		SceneManager::GetInstance()->GetCurrentScene()->UpdateScene(deltaTime);
+		SceneManager::GetInstance()->GetCurrentScene()->UpdateScene(deltaTime * m_updateTimeScale);
 
 		// Resetting Mouse Movement of Input Manager
-		//Input::GetInstance()->MoveMouse(glm::ivec2(0, 0));
 		// Resetting Up and Down Keys of Input Manager
-		Input::GetInstance()->ResetUpDownKeys();
+		Input::GetInstance()->Reset();
 
 		SDL_GL_SwapWindow(m_window);
 	}

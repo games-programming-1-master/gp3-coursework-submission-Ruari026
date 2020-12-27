@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "TutorialManager.h"
+#include "Input.h"
+#include "Application.h"
 #include "SceneManager.h"
 
 TutorialManager::TutorialManager()
@@ -18,6 +20,13 @@ Inherited Component Methods
 */
 void TutorialManager::OnStart()
 {
+	// Ensures that the cursor is visible & unlocked
+	Input::GetInstance()->LockAndHideCursor(SDL_FALSE);
+
+	// Ensures that the game only updates for components (prevents physics engine from updating)
+	Application::GetInstance()->SetUpdateTimeScale(1.0f);
+	Application::GetInstance()->SetPhysicsTimeScale(0.0f);
+
 	// Picks what variation of the tutorial scene to show based on the players last level
 
 	// Gets the games persistant data

@@ -2,6 +2,7 @@
 #include "PlayerController.h"
 #include "Entity.h"
 #include "Input.h"
+#include "RigidBody.h"
 
 PlayerController::PlayerController()
 {
@@ -18,10 +19,18 @@ Inherited Entity Methods
 */
 void PlayerController::OnStart()
 {
+	// Resets Player Position to start Pos
+	m_entity->GetTransform()->SetGlobalPosition(glm::vec3(0, 3, 0));
+
+	btRigidBody* theRB = m_entity->GetComponent<RigidBody>()->Get();
+	theRB->setLinearVelocity(btVector3(0, 0, 0));
 }
 
 void PlayerController::OnUpdate(float deltaTime)
 {
+	if (deltaTime > 0.2f)
+		bool b = true;
+
 	if (Input::GetInstance()->GetKey(SDLK_r))
 	{
 		this->m_entity->GetTransform()->SetGlobalPosition(glm::vec3(0, 3, 0));
