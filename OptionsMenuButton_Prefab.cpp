@@ -1,13 +1,13 @@
-#include "MainMenuButton_Prefab.h"
+#include "OptionsMenuButton_Prefab.h"
 
 #include "Resources.h"
 
-#include "MainMenuButton.h"
+#include "OptionsMenuButton.h"
 #include "ImageRenderer.h"
 #include "TextRenderer.h"
 
 
-MainMenuButton_Prefab::MainMenuButton_Prefab(std::string name, std::string text, int textIndent) : Entity(name)
+OptionsMenuButton_Prefab::OptionsMenuButton_Prefab(std::string name, std::string text, int textIndent) : Entity(name)
 {
 	// Main Button
 	this->AddComponent(
@@ -16,8 +16,8 @@ MainMenuButton_Prefab::MainMenuButton_Prefab(std::string name, std::string text,
 			Resources::GetInstance()->GetShader("text"))
 	);
 	this->GetComponent<ImageRenderer>()->SetImageSize(glm::ivec2((256 * 1.25f), (64 * 1.25f)));
-	this->AddComponent<MainMenuButton>();
-	this->GetComponent<MainMenuButton>()->SetButtonRenderer(this->GetComponent<ImageRenderer>());
+	this->AddComponent<OptionsMenuButton>();
+	this->GetComponent<OptionsMenuButton>()->SetButtonRenderer(this->GetComponent<ImageRenderer>());
 
 	// Overlayed Text
 	Entity* buttonText = new Entity("Text");

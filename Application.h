@@ -37,5 +37,7 @@ public:
 
 	inline int GetWindowHeight() { return m_windowHeight; }
 	inline int GetWindowWidth() { return m_windowWidth; }
+	
+	void ChangeAppState(AppState newState) { m_appState = newState; }
 };
 

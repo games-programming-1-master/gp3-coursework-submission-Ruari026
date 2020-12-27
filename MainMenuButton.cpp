@@ -16,7 +16,7 @@ MainMenuButton::~MainMenuButton()
 void MainMenuButton::OnClick()
 {
 	// Gets the main menu controller in the scene
-	MainMenuManager* menuManager = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Main Menu Controller")->GetComponent<MainMenuManager>();
+	MainMenuManager* menuManager = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Main Menu Manager")->GetComponent<MainMenuManager>();
 
 	// Checks that it exists
 	if (menuManager != nullptr)

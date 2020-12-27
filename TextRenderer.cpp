@@ -81,7 +81,8 @@ void TextRenderer::OnUpdate(float deltaTime)
 
 void TextRenderer::OnRender()
 {
-	float startPoint = 0;
+	float xStart = 0;
+	float yStart = 0;
 
 	// activate corresponding shader
 	m_program->Use();
@@ -104,21 +105,33 @@ void TextRenderer::OnRender()
 	{
 		Character ch = characterSet[*c];
 
-		float xpos = m_entity->GetTransform()->GetGlobalPosition().x + ch.bearing.x * m_entity->GetTransform()->GetScale().x + startPoint;
-		float ypos = m_entity->GetTransform()->GetGlobalPosition().y + (ch.size.y - ch.bearing.y) * m_entity->GetTransform()->GetScale().y;
+		// Positions based on size of font character
+		float xPos = ch.bearing.x * m_entity->GetTransform()->GetScale().x + xStart;
+		float yPos = (ch.size.y - ch.bearing.y) * m_entity->GetTransform()->GetScale().y;
+
+		// Wrapping long lines of text
+		while (xPos > maxWidth)
+		{
+			yPos += 55;
+			xPos -= maxWidth;
+		}
+
+		// Adjusting position for entity position
+		xPos += m_entity->GetTransform()->GetGlobalPosition().x;
+		yPos += m_entity->GetTransform()->GetGlobalPosition().y;
 
 		float w = ch.size.x * m_entity->GetTransform()->GetScale().x;
 		float h = ch.size.y * m_entity->GetTransform()->GetScale().y;
 
 		// update VBO for each character
 		float vertices[6][4] = {
-			{ xpos,     ypos - h,   0.0f, 0.0f },
-			{ xpos,     ypos,       0.0f, 1.0f },
-			{ xpos + w, ypos,       1.0f, 1.0f },
+			{ xPos,     yPos - h,   0.0f, 0.0f },
+			{ xPos,     yPos,       0.0f, 1.0f },
+			{ xPos + w, yPos,       1.0f, 1.0f },
 
-			{ xpos,     ypos - h,   0.0f, 0.0f },
-			{ xpos + w, ypos,       1.0f, 1.0f },
-			{ xpos + w, ypos - h,   1.0f, 0.0f }
+			{ xPos,     yPos - h,   0.0f, 0.0f },
+			{ xPos + w, yPos,       1.0f, 1.0f },
+			{ xPos + w, yPos - h,   1.0f, 0.0f }
 		};
 
 		// render glyph texture over quad
@@ -132,7 +145,7 @@ void TextRenderer::OnRender()
 		// render quad
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 		// now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-		startPoint += (ch.advance >> 6) * m_entity->GetTransform()->GetScale().x; // bitshift by 6 to get value in pixels (2^6 = 64)
+		xStart += (ch.advance >> 6) * m_entity->GetTransform()->GetScale().x; // bitshift by 6 to get value in pixels (2^6 = 64)
 	}
 	glBindVertexArray(0);
 	glBindTexture(GL_TEXTURE_2D, 0);

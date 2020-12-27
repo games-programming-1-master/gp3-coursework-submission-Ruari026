@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "ShaderProgram.h"
+#include "Application.h"
 
 #include "freetype/include/ft2build.h"
 #include FT_FREETYPE_H
@@ -25,6 +26,7 @@ private:
 
 	std::string text;
 	glm::vec4 textColor = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+	float maxWidth = WINDOW_W;
 
 public:
 	TextRenderer(std::shared_ptr<FT_Face> font, std::shared_ptr <ShaderProgram> program, unsigned int fontSize = 16);
@@ -38,4 +40,5 @@ public:
 	// Additional rendering setters
 	void SetTextToRender(std::string newText) { text = newText; }
 	void SetTextColor(glm::vec4 newColor) { textColor = newColor; }
+	void SetTextBoxWidth(float newWidth) { maxWidth = newWidth; }
 };

@@ -18,7 +18,7 @@ protected:
 
 public:
 	MainMenuButton();
-	~MainMenuButton();
+	virtual ~MainMenuButton() override;
 
 	void SetButtonType(MainMenuButtonType newType) { buttonType = newType; }
 };

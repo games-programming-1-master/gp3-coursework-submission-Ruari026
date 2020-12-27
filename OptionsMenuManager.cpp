@@ -1,15 +1,13 @@
 #include "pch.h"
-#include "MainMenuManager.h"
+#include "OptionsMenuManager.h"
 #include "Entity.h"
 #include "Input.h"
-#include "Application.h"
-#include "SceneManager.h"
 
-MainMenuManager::MainMenuManager()
+OptionsMenuManager::OptionsMenuManager()
 {
 }
 
-MainMenuManager::~MainMenuManager()
+OptionsMenuManager::~OptionsMenuManager()
 {
 }
 
@@ -19,18 +17,18 @@ MainMenuManager::~MainMenuManager()
 Inherited Component Methods
 ========================================================================================================================================================================================================
 */
-void MainMenuManager::OnStart()
+void OptionsMenuManager::OnStart()
 {
 }
 
-void MainMenuManager::OnUpdate(float deltaTime)
+void OptionsMenuManager::OnUpdate(float deltaTime)
 {
 	//glm::ivec2 mousePos = Input::GetInstance()->GetMousePos();
 	//SDL_GetMouseState(&mousePos.x, &mousePos.y);
 	//Log::Debug(std::to_string(mousePos.x) + ", " + std::to_string(mousePos.y), "", 0);
 }
 
-void MainMenuManager::OnRender()
+void OptionsMenuManager::OnRender()
 {
 
 }
@@ -41,27 +39,18 @@ void MainMenuManager::OnRender()
 Scene Button Methods
 ========================================================================================================================================================================================================
 */
-void MainMenuManager::StartGame()
+void OptionsMenuManager::ReturnToMainMenu(bool saveChanges)
 {
-	Log::Debug("Starting Game", "MainMenuController.cpp", 44);
+	// User may not want to save the changes they made to the options
+	// Persistant data holds the saved options values
+	if (saveChanges)
+	{
 
-	// Changing to tutorial scene
-	SceneManager::GetInstance()->ChangeScene("Tutorial");
-}
+	}
 
-void MainMenuManager::OpenOptions()
-{
-	Log::Debug("Opening Options", "MainMenuController.cpp", 49);
+	// Hiding Options Menu
+	optionsMenuParent->SetEnabled(false);
 
-	// Hiding Main Menu
-	mainMenuParent->SetEnabled(false);
-
-	// Showing Options Menu
-	optionsMenuParent->SetEnabled(true);
-}
-
-void MainMenuManager::QuitGame()
-{
-	Log::Debug("Quitting Game", "MainMenuController.cpp", 54);
-	Application::GetInstance()->ChangeAppState(AppState::QUITTING);
+	// Showing Main Menu
+	mainMenuParent->SetEnabled(true);
 }

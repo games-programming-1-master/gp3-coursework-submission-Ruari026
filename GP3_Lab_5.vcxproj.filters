@@ -381,6 +381,15 @@
     <ClCompile Include="MainMenuManager.cpp">
       <Filter>Source Files\Components\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="OptionsMenuButton_Prefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsMenuManager.cpp">
+      <Filter>Source Files\Components\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsMenuButton.cpp">
+      <Filter>Source Files\Components\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -609,6 +618,15 @@
       <Filter>Header Files\Components\Managers</Filter>
     </ClInclude>
     <ClInclude Include="MainMenuManager.h">
+      <Filter>Header Files\Components\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenuButton.h">
+      <Filter>Header Files\Components\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenuButton_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenuManager.h">
       <Filter>Header Files\Components\Managers</Filter>
     </ClInclude>
   </ItemGroup>

@@ -254,6 +254,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="NormalRoomFactory.cpp" />
+    <ClCompile Include="OptionsMenuButton.cpp" />
+    <ClCompile Include="OptionsMenuButton_Prefab.cpp" />
+    <ClCompile Include="OptionsMenuManager.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlayerController.cpp" />
@@ -329,6 +332,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="NormalRoomFactory.h" />
+    <ClInclude Include="OptionsMenuButton.h" />
+    <ClInclude Include="OptionsMenuButton_Prefab.h" />
+    <ClInclude Include="OptionsMenuManager.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="PlayerController.h" />

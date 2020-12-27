@@ -36,7 +36,7 @@ public:
 	virtual void OnUpdate(float deltaTime) override;
 	virtual void OnRender() override;
 
-	void SetButtonRenderer(ImageRenderer* targetRenderer) { buttonRenderer = targetRenderer; }
+	void SetButtonRenderer(ImageRenderer* theRenderer) { buttonRenderer = theRenderer; }
 
 	void ChangeState(ButtonState newState);
 };

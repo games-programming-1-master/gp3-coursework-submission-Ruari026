@@ -5,32 +5,50 @@
 
 // Scene Prefabs
 #include "MainMenuButton_Prefab.h"
+#include "OptionsMenuButton_Prefab.h"
 
 // Other Required Components
 #include "TextRenderer.h"
-#include "ImageRenderer.h"
-#include "MainMenuButton.h"
 #include "MainMenuManager.h"
+#include "MainMenuButton.h"
+#include "OptionsMenuManager.h"
+#include "OptionsMenuButton.h"
 
 MainMenuScene::MainMenuScene()
 {
+	// ---------- General Scene Details ----------
 	// Every Scene Needs A Camera
 	Entity* camera = new Entity("The Camera");
 	m_entities.push_back(camera);
 	this->SetCamera(new Camera(camera->GetTransform()));
 	camera->GetTransform()->SetLocalPosition(glm::vec3(0, 0.5f, 0));
 
-	// Manager to control Main Menu behaviour
-	Entity* menuController = new Entity("Main Menu Controller");
-	m_entities.push_back(menuController);
-	menuController->AddComponent<MainMenuManager>();
+	// Managers to control Main Menu behaviour
+	Entity* mainController = new Entity("Main Menu Manager");
+	m_entities.push_back(mainController);
+	mainController->AddComponent<MainMenuManager>();
 
-	// Spawning in the background environment
+	Entity* optionsController = new Entity("Options Menu Manager");
+	m_entities.push_back(optionsController);
+	optionsController->AddComponent<OptionsMenuManager>();
 
-	// Main Menu UI Elements
+
+	// Parents to enable hiding many related UI elements at once
 	Entity* mainMenuParent = new Entity("Main Menu");
 	this->m_entities.push_back(mainMenuParent);
-	mainMenuParent->SetEnabled(false);
+	mainMenuParent->SetEnabled(true);
+
+	Entity* optionsParent = new Entity("Options");
+	this->m_entities.push_back(optionsParent);
+	optionsParent->SetEnabled(false);
+
+	mainController->GetComponent<MainMenuManager>()->SetMenuParents(mainMenuParent, optionsParent);
+	optionsController->GetComponent<OptionsMenuManager>()->SetMenuParents(mainMenuParent, optionsParent);
+
+	// ---------- Spawning Background Environment ----------
+
+
+	// ---------- Main Menu Specific UI Entitys ----------
 	// Game Title
 	{
 		Entity* gameTitle = new Entity("UI Title");
@@ -65,7 +83,7 @@ MainMenuScene::MainMenuScene()
 		Entity* startButton = new MainMenuButton_Prefab("Start Button", "Start Game");
 		mainMenuParent->AddChild(startButton);
 
-		startButton->GetTransform()->SetGlobalPosition(glm::vec3(150, 387.5f, 1.0f));
+		startButton->GetTransform()->SetGlobalPosition(glm::vec3(100, 390, 1.0f));
 
 		startButton->GetComponent<MainMenuButton>()->SetButtonType(MainMenuButtonType::BUTTONTYPE_STARTGAME);
 	}
@@ -75,7 +93,7 @@ MainMenuScene::MainMenuScene()
 		Entity* optionsButton = new MainMenuButton_Prefab("Options Button", "Options");
 		mainMenuParent->AddChild(optionsButton);
 
-		optionsButton->GetTransform()->SetGlobalPosition(glm::vec3(150, 500, 1.0f));
+		optionsButton->GetTransform()->SetGlobalPosition(glm::vec3(100, 515, 1.0f));
 
 		optionsButton->GetComponent<MainMenuButton>()->SetButtonType(MainMenuButtonType::BUTTONTYPE_OPENOPTIONS);
 	}
@@ -85,18 +103,14 @@ MainMenuScene::MainMenuScene()
 		Entity* quitButton = new MainMenuButton_Prefab("Quit Button", "Quit");
 		mainMenuParent->AddChild(quitButton);
 
-		quitButton->GetTransform()->SetGlobalPosition(glm::vec3(150, 612.5f, 1.0f));
+		quitButton->GetTransform()->SetGlobalPosition(glm::vec3(100, 640, 1.0f));
 
 		quitButton->GetComponent<MainMenuButton>()->SetButtonType(MainMenuButtonType::BUTTONTYPE_QUITGAME);
 	}
 
-	// Options Menu UI Elements
-	Entity* optionsParent = new Entity("Options");
-	this->m_entities.push_back(optionsParent);
-	optionsParent->SetEnabled(true);
 
-
-	// Game Title
+	// ---------- Options Specific UI Entitys ----------
+	// Options Title
 	{
 		Entity* optionsTitle = new Entity("Options Title");
 		optionsTitle->GetTransform()->SetGlobalPosition(glm::vec3(465, 150, 1.0f));
@@ -129,5 +143,21 @@ MainMenuScene::MainMenuScene()
 
 	// Mouse Sensitivity Options
 
-	// Main Menu Buttons
+	// Return Buttons
+	{
+		Entity* cancelButton = new OptionsMenuButton_Prefab("cancel Button", "Cancel", 50);
+		optionsParent->AddChild(cancelButton);
+
+		cancelButton->GetTransform()->SetGlobalPosition(glm::vec3(260, 675, 1.0f));
+
+		cancelButton->GetComponent<OptionsMenuButton>()->SetButtonType(OptionsMenuButtonType::BUTTONTYPE_CANCELOPTIONS);
+
+
+		Entity* saveButton = new OptionsMenuButton_Prefab("cancel Button", "Save", 75);
+		optionsParent->AddChild(saveButton);
+
+		saveButton->GetTransform()->SetGlobalPosition(glm::vec3(660, 675, 1.0f));
+
+		saveButton->GetComponent<OptionsMenuButton>()->SetButtonType(OptionsMenuButtonType::BUTTONTYPE_SAVEOPTIONS);
+	}
 }
