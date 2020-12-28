@@ -3,6 +3,7 @@
 #include "Common.h"
 #include "Resources.h"
 #include "SceneManager.h"
+#include "PersistantData.h"
 #include "Input.h"
 #include "Physics.h"
 
@@ -135,6 +136,7 @@ void Application::GameInit()
 	// Loading All Scenes
 	SceneManager::GetInstance()->Init("Main Menu");
 
+	// Can't release unused resources due to the main game scene using procedural generation to create levels
 	//Resources::GetInstance()->ReleaseUnusedResources();
 }
 

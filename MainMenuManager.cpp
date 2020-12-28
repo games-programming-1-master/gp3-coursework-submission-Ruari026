@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "MainMenuManager.h"
+#include "OptionsMenuManager.h"
 #include "Entity.h"
 #include "Input.h"
 #include "Application.h"
@@ -64,6 +65,10 @@ void MainMenuManager::OpenOptions()
 
 	// Showing Options Menu
 	optionsMenuParent->SetEnabled(true);
+
+	// Tells the options manager in the scene to get the game's saved options
+	Entity* optionsManager = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Options Menu Manager");
+	optionsManager->GetComponent<OptionsMenuManager>()->GetSavedSettings();
 }
 
 void MainMenuManager::QuitGame()

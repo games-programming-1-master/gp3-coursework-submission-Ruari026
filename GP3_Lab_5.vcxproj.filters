@@ -381,9 +381,6 @@
     <ClCompile Include="MainMenuManager.cpp">
       <Filter>Source Files\Components\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="OptionsMenuButton_Prefab.cpp">
-      <Filter>Source Files\Prefabs\UI</Filter>
-    </ClCompile>
     <ClCompile Include="OptionsMenuManager.cpp">
       <Filter>Source Files\Components\Managers</Filter>
     </ClCompile>
@@ -398,6 +395,15 @@
     </ClCompile>
     <ClCompile Include="TutorialButtonPrefab.cpp">
       <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsMenuButton_Normal_Prefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsMenuButton_Small_Prefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PersistantData.cpp">
+      <Filter>Header Files\Prefabs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -632,9 +638,6 @@
     <ClInclude Include="OptionsMenuButton.h">
       <Filter>Header Files\Components\Buttons</Filter>
     </ClInclude>
-    <ClInclude Include="OptionsMenuButton_Prefab.h">
-      <Filter>Header Files\Prefabs\UI</Filter>
-    </ClInclude>
     <ClInclude Include="OptionsMenuManager.h">
       <Filter>Header Files\Components\Managers</Filter>
     </ClInclude>
@@ -645,6 +648,15 @@
       <Filter>Header Files\Components\Managers</Filter>
     </ClInclude>
     <ClInclude Include="TutorialButton_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PersistantData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenuButton_Normal_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenuButton_Small_Prefab.h">
       <Filter>Header Files\Prefabs\UI</Filter>
     </ClInclude>
   </ItemGroup>

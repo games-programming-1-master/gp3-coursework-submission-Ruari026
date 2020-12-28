@@ -255,9 +255,11 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="NormalRoomFactory.cpp" />
     <ClCompile Include="OptionsMenuButton.cpp" />
-    <ClCompile Include="OptionsMenuButton_Prefab.cpp" />
+    <ClCompile Include="OptionsMenuButton_Normal_Prefab.cpp" />
+    <ClCompile Include="OptionsMenuButton_Small_Prefab.cpp" />
     <ClCompile Include="OptionsMenuManager.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="PersistantData.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="Resources.cpp" />
@@ -336,9 +338,11 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="Model.h" />
     <ClInclude Include="NormalRoomFactory.h" />
     <ClInclude Include="OptionsMenuButton.h" />
-    <ClInclude Include="OptionsMenuButton_Prefab.h" />
+    <ClInclude Include="OptionsMenuButton_Normal_Prefab.h" />
+    <ClInclude Include="OptionsMenuButton_Small_Prefab.h" />
     <ClInclude Include="OptionsMenuManager.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PersistantData.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="PlayerController.h" />
     <ClInclude Include="resource.h" />

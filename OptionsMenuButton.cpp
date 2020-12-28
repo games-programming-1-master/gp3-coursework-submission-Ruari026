@@ -23,6 +23,33 @@ void OptionsMenuButton::OnClick()
 	{
 		switch (buttonType)
 		{
+		// Volume buttons
+		case (OptionsMenuButtonType::BUTTONTYPE_DECREASEVOLUME):
+		{
+			menuManager->ChangeVolume(false);
+		}
+		break;
+
+		case (OptionsMenuButtonType::BUTTONTYPE_INCREASEVOLUME):
+		{
+			menuManager->ChangeVolume(true);
+		}
+		break;
+
+		// Sensitivity buttons
+		case (OptionsMenuButtonType::BUTTONTYPE_DECREASESENSITIVITY):
+		{
+			menuManager->ChangeSensitivity(false);
+		}
+		break;
+
+		case (OptionsMenuButtonType::BUTTONTYPE_INCREASESENSITIVITY):
+		{
+			menuManager->ChangeSensitivity(true);
+		}
+		break;
+
+		// Returning to main menu buttons
 		case (OptionsMenuButtonType::BUTTONTYPE_CANCELOPTIONS):
 		{
 			menuManager->ReturnToMainMenu(false);

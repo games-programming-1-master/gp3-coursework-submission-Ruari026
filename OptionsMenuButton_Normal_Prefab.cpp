@@ -1,4 +1,4 @@
-#include "OptionsMenuButton_Prefab.h"
+#include "OptionsMenuButton_Normal_Prefab.h"
 
 #include "Resources.h"
 
@@ -7,7 +7,7 @@
 #include "TextRenderer.h"
 
 
-OptionsMenuButton_Prefab::OptionsMenuButton_Prefab(std::string name, std::string text, int textIndent) : Entity(name)
+OptionsMenuButton_Normal_Prefab::OptionsMenuButton_Normal_Prefab(std::string name, std::string text, int textIndent) : Entity(name)
 {
 	// Main Button
 	this->AddComponent(

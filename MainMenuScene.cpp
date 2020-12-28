@@ -5,7 +5,9 @@
 
 // Scene Prefabs
 #include "MainMenuButton_Prefab.h"
-#include "OptionsMenuButton_Prefab.h"
+#include "OptionsMenuButton_Normal_Prefab.h"
+#include "OptionsMenuButton_Small_Prefab.h"
+#include "Room_2DoorCorner_TopFloor.h"
 
 // Other Required Components
 #include "TextRenderer.h"
@@ -21,7 +23,8 @@ MainMenuScene::MainMenuScene()
 	Entity* camera = new Entity("The Camera");
 	m_entities.push_back(camera);
 	this->SetCamera(new Camera(camera->GetTransform()));
-	camera->GetTransform()->SetLocalPosition(glm::vec3(0, 0.5f, 0));
+	camera->GetTransform()->SetLocalPosition(glm::vec3(-0.5f, 1.5f, -3.0f));
+	camera->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * -1.167f), glm::vec3(0, 1, 0)));
 
 	// Managers to control Main Menu behaviour
 	Entity* mainController = new Entity("Main Menu Manager");
@@ -46,7 +49,8 @@ MainMenuScene::MainMenuScene()
 	optionsController->GetComponent<OptionsMenuManager>()->SetMenuParents(mainMenuParent, optionsParent);
 
 	// ---------- Spawning Background Environment ----------
-
+	Entity* backgroundRoom = new Room_2DoorCorner_TopFloor("Background Room");
+	m_entities.push_back(backgroundRoom);
 
 	// ---------- Main Menu Specific UI Entitys ----------
 	// Game Title
@@ -113,7 +117,7 @@ MainMenuScene::MainMenuScene()
 	// Options Title
 	{
 		Entity* optionsTitle = new Entity("Options Title");
-		optionsTitle->GetTransform()->SetGlobalPosition(glm::vec3(465, 150, 1.0f));
+		optionsTitle->GetTransform()->SetGlobalPosition(glm::vec3(465, 115, 1.0f));
 		optionsParent->AddChild(optionsTitle);
 
 		optionsTitle->AddComponent(
@@ -125,8 +129,8 @@ MainMenuScene::MainMenuScene()
 		optionsTitle->GetComponent<TextRenderer>()->SetTextToRender("Options");
 		optionsTitle->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
 
-		optionsTitle = new Entity("UI Title");
-		optionsTitle->GetTransform()->SetGlobalPosition(glm::vec3(470, 155, 1.0f));
+		optionsTitle = new Entity("Options Title");
+		optionsTitle->GetTransform()->SetGlobalPosition(glm::vec3(470, 120, 1.0f));
 		optionsParent->AddChild(optionsTitle);
 
 		optionsTitle->AddComponent(
@@ -140,24 +144,166 @@ MainMenuScene::MainMenuScene()
 	}
 
 	// Volume Options
+	{
+		// Subtitle
+		Entity* volumeTitle = new Entity("Volume Subtitle");
+		volumeTitle->GetTransform()->SetGlobalPosition(glm::vec3(505, 225, 1.0f));
+		optionsParent->AddChild(volumeTitle);
+
+		volumeTitle->AddComponent(
+			new TextRenderer(
+				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetShader("text"),
+				55)
+		);
+		volumeTitle->GetComponent<TextRenderer>()->SetTextToRender("Volume");
+		volumeTitle->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+
+		volumeTitle = new Entity("Volume Subtitle");
+		volumeTitle->GetTransform()->SetGlobalPosition(glm::vec3(510, 230, 1.0f));
+		optionsParent->AddChild(volumeTitle);
+
+		volumeTitle->AddComponent(
+			new TextRenderer(
+				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetShader("text"),
+				55)
+		);
+		volumeTitle->GetComponent<TextRenderer>()->SetTextToRender("Volume");
+		volumeTitle->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+
+
+		// Value Representation
+		std::vector<TextRenderer*>  volumeValueTexts;
+
+		Entity* volumeValue = new Entity("Volume Subtitle");
+		volumeValue->GetTransform()->SetGlobalPosition(glm::vec3(585, 305, 1.0f));
+		optionsParent->AddChild(volumeValue);
+
+		volumeValue->AddComponent(
+			new TextRenderer(
+				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetShader("text"),
+				55)
+		);
+		volumeValue->GetComponent<TextRenderer>()->SetTextToRender("X");
+		volumeValue->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+		volumeValueTexts.push_back(volumeValue->GetComponent<TextRenderer>());
+
+		volumeValue = new Entity("Volume Subtitle");
+		volumeValue->GetTransform()->SetGlobalPosition(glm::vec3(590, 310, 1.0f));
+		optionsParent->AddChild(volumeValue);
+
+		volumeValue->AddComponent(
+			new TextRenderer(
+				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetShader("text"),
+				55)
+		);
+		volumeValue->GetComponent<TextRenderer>()->SetTextToRender("X");
+		volumeValue->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+		volumeValueTexts.push_back(volumeValue->GetComponent<TextRenderer>());
+
+		optionsController->GetComponent<OptionsMenuManager>()->SetVolumeUI(volumeValueTexts);
+
+		// Value Changing Buttons
+		Entity* decreaseButton = new OptionsMenuButton_Small_Prefab("Decrease Volume Button", "<-", -15);
+		optionsParent->AddChild(decreaseButton);
+		decreaseButton->GetTransform()->SetGlobalPosition(glm::vec3(310, 285, 1.0f));
+		decreaseButton->GetComponent<OptionsMenuButton>()->SetButtonType(OptionsMenuButtonType::BUTTONTYPE_DECREASEVOLUME);
+
+		Entity* increaseButton = new OptionsMenuButton_Small_Prefab("Increase Volume Button", "->", -15);
+		optionsParent->AddChild(increaseButton);
+		increaseButton->GetTransform()->SetGlobalPosition(glm::vec3(805, 285, 1.0f));
+		increaseButton->GetComponent<OptionsMenuButton>()->SetButtonType(OptionsMenuButtonType::BUTTONTYPE_INCREASEVOLUME);
+	}
 
 	// Mouse Sensitivity Options
+	{
+		Entity* sensitivityTitle = new Entity("Sensitivity Subtitle");
+		sensitivityTitle->GetTransform()->SetGlobalPosition(glm::vec3(455, 425, 1.0f));
+		optionsParent->AddChild(sensitivityTitle);
+
+		sensitivityTitle->AddComponent(
+			new TextRenderer(
+				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetShader("text"),
+				55)
+		);
+		sensitivityTitle->GetComponent<TextRenderer>()->SetTextToRender("Sensitivity");
+		sensitivityTitle->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+
+		sensitivityTitle = new Entity("Sensitivity Subtitle");
+		sensitivityTitle->GetTransform()->SetGlobalPosition(glm::vec3(460, 430, 1.0f));
+		optionsParent->AddChild(sensitivityTitle);
+
+		sensitivityTitle->AddComponent(
+			new TextRenderer(
+				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetShader("text"),
+				55)
+		);
+		sensitivityTitle->GetComponent<TextRenderer>()->SetTextToRender("Sensitivity");
+		sensitivityTitle->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+
+
+		// Value Representation
+		std::vector<TextRenderer*>  sensitivityValueTexts;
+
+		Entity* sensitivityValue = new Entity("Volume Subtitle");
+		sensitivityValue->GetTransform()->SetGlobalPosition(glm::vec3(585, 505, 1.0f));
+		optionsParent->AddChild(sensitivityValue);
+
+		sensitivityValue->AddComponent(
+			new TextRenderer(
+				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetShader("text"),
+				55)
+		);
+		sensitivityValue->GetComponent<TextRenderer>()->SetTextToRender("X");
+		sensitivityValue->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+		sensitivityValueTexts.push_back(sensitivityValue->GetComponent<TextRenderer>());
+
+		sensitivityValue = new Entity("Volume Subtitle");
+		sensitivityValue->GetTransform()->SetGlobalPosition(glm::vec3(590, 510, 1.0f));
+		optionsParent->AddChild(sensitivityValue);
+
+		sensitivityValue->AddComponent(
+			new TextRenderer(
+				Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+				Resources::GetInstance()->GetShader("text"),
+				55)
+		);
+		sensitivityValue->GetComponent<TextRenderer>()->SetTextToRender("X");
+		sensitivityValue->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+		sensitivityValueTexts.push_back(sensitivityValue->GetComponent<TextRenderer>());
+
+		optionsController->GetComponent<OptionsMenuManager>()->SetSensitivityUI(sensitivityValueTexts);
+
+
+		// Value Changing Buttons
+		Entity* decreaseButton = new OptionsMenuButton_Small_Prefab("Decrease Volume Button", "<-", -15);
+		optionsParent->AddChild(decreaseButton);
+		decreaseButton->GetTransform()->SetGlobalPosition(glm::vec3(310, 485, 1.0f));
+		decreaseButton->GetComponent<OptionsMenuButton>()->SetButtonType(OptionsMenuButtonType::BUTTONTYPE_DECREASESENSITIVITY);
+
+		Entity* increaseButton = new OptionsMenuButton_Small_Prefab("Increase Volume Button", "->", -15);
+		optionsParent->AddChild(increaseButton);
+		increaseButton->GetTransform()->SetGlobalPosition(glm::vec3(805, 485, 1.0f));
+		increaseButton->GetComponent<OptionsMenuButton>()->SetButtonType(OptionsMenuButtonType::BUTTONTYPE_INCREASESENSITIVITY);
+	}
 
 	// Return Buttons
 	{
-		Entity* cancelButton = new OptionsMenuButton_Prefab("cancel Button", "Cancel", 50);
+		Entity* cancelButton = new OptionsMenuButton_Normal_Prefab("cancel Button", "Cancel", 50);
 		optionsParent->AddChild(cancelButton);
-
 		cancelButton->GetTransform()->SetGlobalPosition(glm::vec3(260, 675, 1.0f));
-
 		cancelButton->GetComponent<OptionsMenuButton>()->SetButtonType(OptionsMenuButtonType::BUTTONTYPE_CANCELOPTIONS);
 
 
-		Entity* saveButton = new OptionsMenuButton_Prefab("cancel Button", "Save", 75);
+		Entity* saveButton = new OptionsMenuButton_Normal_Prefab("cancel Button", "Save", 75);
 		optionsParent->AddChild(saveButton);
-
 		saveButton->GetTransform()->SetGlobalPosition(glm::vec3(660, 675, 1.0f));
-
 		saveButton->GetComponent<OptionsMenuButton>()->SetButtonType(OptionsMenuButtonType::BUTTONTYPE_SAVEOPTIONS);
 	}
 }
