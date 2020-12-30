@@ -298,6 +298,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="TopFloor_Corner_Prefab.cpp" />
     <ClCompile Include="TopFloor_Straight_Prefab.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="TransitionRenderer.cpp" />
     <ClCompile Include="TutorialButtonPrefab.cpp" />
     <ClCompile Include="TutorialManager.cpp" />
     <ClCompile Include="TutorialMenuButton.cpp" />
@@ -383,6 +384,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="TopFloor_Corner_Prefab.h" />
     <ClInclude Include="TopFloor_Straight_Prefab.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="TransitionRenderer.h" />
     <ClInclude Include="TutorialButton_Prefab.h" />
     <ClInclude Include="TutorialManager.h" />
     <ClInclude Include="TutorialMenuButton.h" />
@@ -394,6 +396,8 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ResourceCompile Include="GP3_Coursework.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Shaders\mask_FRAG.glsl" />
+    <None Include="Assets\Shaders\mask_VERT.glsl" />
     <None Include="Assets\Shaders\simple_FRAG.glsl" />
     <None Include="Assets\Shaders\simple_VERT.glsl" />
     <None Include="Assets\Shaders\text_FRAG.glsl" />

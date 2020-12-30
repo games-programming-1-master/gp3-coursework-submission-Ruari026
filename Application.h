@@ -14,11 +14,15 @@ class Application
 private:
 	//private variables
 	static Application* m_application;
+	AppState m_appState = AppState::INITILISING;
+
+	// Window Details
 	SDL_Window *m_window = nullptr;
 	SDL_GLContext m_glContext = nullptr;
 	int m_windowWidth = 1280;
 	int m_windowHeight = 720;
-	AppState m_appState = AppState::INITILISING;
+
+	// Time Details
 	float m_worldDeltaTime = 0.f;
 	float m_updateTimeScale = 1.0f;
 	float m_physicsTimeScale = 1.0f;

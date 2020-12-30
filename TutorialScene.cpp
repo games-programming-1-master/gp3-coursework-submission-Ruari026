@@ -139,4 +139,15 @@ TutorialScene::TutorialScene()
 
 		gameButton->GetComponent<TutorialMenuButton>()->SetButtonType(TutorialButtonType::BUTTONTYPE_STARTNEXTLEVEL);
 	}
+
+
+	// ---------- Fade In/ Out Controller ----------
+	Entity* transitionController = new Entity("Transition Controller");
+	transitionController->AddComponent(
+		new TransitionRenderer(
+			Resources::GetInstance()->GetTexture("Images/Textures/transition.png"),
+			Resources::GetInstance()->GetShader("mask"))
+	);
+	m_entities.push_back(transitionController);
+	sceneController->GetComponent<TutorialManager>()->SetTransitionController(transitionController->GetComponent<TransitionRenderer>());
 }

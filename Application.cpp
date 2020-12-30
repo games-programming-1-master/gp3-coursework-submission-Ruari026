@@ -114,6 +114,7 @@ void Application::GameInit()
 	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Default.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Small.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/transition.png");
 	Log::NewLine();
 
 	// Shaders
@@ -124,6 +125,10 @@ void Application::GameInit()
 	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/text_VERT.glsl",
 		ASSET_PATH + "Shaders/text_FRAG.glsl"),
 		"text"
+	);
+	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/mask_VERT.glsl",
+		ASSET_PATH + "Shaders/mask_FRAG.glsl"),
+		"mask"
 	);
 	Log::NewLine();
 

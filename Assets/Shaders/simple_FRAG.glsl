@@ -12,7 +12,7 @@ uniform vec4 maxColor;
 uniform vec4 fogColor;
 
 uniform vec3 cameraPos;
-int fogDistance = 30;
+int fogDistance = 25;
 
 void main()
 {

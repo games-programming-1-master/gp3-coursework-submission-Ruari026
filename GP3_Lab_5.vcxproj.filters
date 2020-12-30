@@ -405,6 +405,9 @@
     <ClCompile Include="PersistantData.cpp">
       <Filter>Header Files\Prefabs</Filter>
     </ClCompile>
+    <ClCompile Include="TransitionRenderer.cpp">
+      <Filter>Source Files\Components\Renderers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -659,6 +662,9 @@
     <ClInclude Include="OptionsMenuButton_Small_Prefab.h">
       <Filter>Header Files\Prefabs\UI</Filter>
     </ClInclude>
+    <ClInclude Include="TransitionRenderer.h">
+      <Filter>Header Files\Components\Renderers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GP3_Coursework.rc">
@@ -676,6 +682,12 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="Assets\Shaders\text_VERT.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\mask_FRAG.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\mask_VERT.glsl">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>

@@ -3,6 +3,9 @@
 #include "PersistantData.h"
 #include "Entity.h"
 #include "Input.h"
+#include "SceneManager.h"
+#include "Scene.h"
+#include "MainMenuManager.h"
 
 OptionsMenuManager::OptionsMenuManager()
 {
@@ -137,9 +140,7 @@ void OptionsMenuManager::ReturnToMainMenu(bool saveChanges)
 		// Reset the audio listener to its previous value
 	}
 
-	// Hiding Options Menu
-	optionsMenuParent->SetEnabled(false);
-
-	// Showing Main Menu
-	mainMenuParent->SetEnabled(true);
+	// Gets the main menu manager in the scene and tells it to return to the main menu
+	MainMenuManager* manager = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Main Menu Manager")->GetComponent<MainMenuManager>();
+	manager->ChangeSceneState(MainMenuState::STATE_MAINMENUMOVE);
 }

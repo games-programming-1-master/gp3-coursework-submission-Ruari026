@@ -37,12 +37,97 @@ void TutorialManager::OnStart()
 
 void TutorialManager::OnUpdate(float deltaTime)
 {
-	// Background Ghost Animation
+	switch (currentState)
+	{
+		case (TutorialState::STATE_TRANSITIONIN):
+		{
+			// Increase timer
+			stateTimer += (deltaTime / transitionTime);
+
+			// Fade transition screen in
+			theTransitionController->SetTransitionAlpha(1.0f - (stateTimer * 1.1f));
+
+			// Check if transition is finished
+			if (stateTimer > 1.0f)
+			{
+				ChangeSceneState(TutorialState::STATE_TUTORIALNORMAL);
+			}
+		}
+		break;
+
+		case (TutorialState::STATE_TUTORIALNORMAL):
+		{
+
+		}
+		break;
+
+		case (TutorialState::STATE_TRANSITIONOUT):
+		{
+			// Increase timer
+			stateTimer += (deltaTime / transitionTime);
+
+			// Fade transition screen out
+			theTransitionController->SetTransitionAlpha(stateTimer * 1.1f);
+
+			// Check if transition is finished
+			if (stateTimer > 1.0f)
+			{
+				ChangeSceneState(TutorialState::STATE_STARTGAMEPLAY);
+			}
+		}
+		break;
+
+		case (TutorialState::STATE_STARTGAMEPLAY):
+		{
+
+		}
+		break;
+	}
 }
 
 void TutorialManager::OnRender()
 {
 
+}
+
+
+/*
+========================================================================================================================================================================================================
+Scene state Controlling
+========================================================================================================================================================================================================
+*/
+void TutorialManager::ChangeSceneState(TutorialState newState)
+{
+	currentState = newState;
+
+	switch (currentState)
+	{
+		case (TutorialState::STATE_TRANSITIONIN):
+		{
+			// Reset scene timer
+			stateTimer = 0;
+		}
+		break;
+
+		case (TutorialState::STATE_TUTORIALNORMAL):
+		{
+		
+		}
+		break;
+
+		case (TutorialState::STATE_TRANSITIONOUT):
+		{
+			// Reset timer
+			stateTimer = 0;
+		}
+		break;
+
+		case (TutorialState::STATE_STARTGAMEPLAY):
+		{
+			SceneManager::GetInstance()->ChangeScene("Gameplay");
+		}
+		break;
+	}
 }
 
 
@@ -62,5 +147,5 @@ void TutorialManager::OpenControls()
 
 void TutorialManager::MoveToGame()
 {
-	SceneManager::GetInstance()->ChangeScene("Gameplay");
+	ChangeSceneState(TutorialState::STATE_TRANSITIONOUT);
 }
