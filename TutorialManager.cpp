@@ -33,6 +33,9 @@ void TutorialManager::OnStart()
 	// If current level is 0 then the player has started a new game - show the controls first
 
 	// Otherwise show other story scenes (triggered after level 5 and 10)
+
+	// Scene always starts in fade in state
+	ChangeSceneState(TutorialState::STATE_TRANSITIONIN);
 }
 
 void TutorialManager::OnUpdate(float deltaTime)
@@ -44,11 +47,15 @@ void TutorialManager::OnUpdate(float deltaTime)
 			// Increase timer
 			stateTimer += (deltaTime / transitionTime);
 
-			// Fade transition screen in
-			theTransitionController->SetTransitionAlpha(1.0f - (stateTimer * 1.1f));
+			// Small Delay before actually fading in
+			if (stateTimer > 0.125f)
+			{
+				// Fade transition screen in
+				theTransitionController->SetTransitionAlpha(1.0f - ((stateTimer - 0.125f) * 1.1f));
+			}
 
 			// Check if transition is finished
-			if (stateTimer > 1.0f)
+			if (stateTimer > 1.125f)
 			{
 				ChangeSceneState(TutorialState::STATE_TUTORIALNORMAL);
 			}
@@ -106,6 +113,9 @@ void TutorialManager::ChangeSceneState(TutorialState newState)
 		{
 			// Reset scene timer
 			stateTimer = 0;
+
+			// Set Transition mask to max
+			theTransitionController->SetTransitionAlpha(1.0f);
 		}
 		break;
 
@@ -119,6 +129,9 @@ void TutorialManager::ChangeSceneState(TutorialState newState)
 		{
 			// Reset timer
 			stateTimer = 0;
+
+			// Set Transition mask to min
+			theTransitionController->SetTransitionAlpha(0.0f);
 		}
 		break;
 

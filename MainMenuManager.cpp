@@ -27,7 +27,7 @@ void MainMenuManager::OnStart()
 
 	// Ensures that the game only updates for components (prevents physics engine from updating)
 	Application::GetInstance()->SetUpdateTimeScale(1.0f);
-	Application::GetInstance()->SetPhysicsTimeScale(0.0f);
+	Application::GetInstance()->SetPhysicsTimeScale(1.0f);
 }
 
 void MainMenuManager::OnUpdate(float deltaTime)

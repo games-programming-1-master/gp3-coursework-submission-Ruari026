@@ -1,19 +1,21 @@
 #pragma once
 #include "Component.h"
 #include "Entity.h"
+#include "LevelManager.h"
 
 class PlayerController : public Component
 {
 private:
+	LevelManager* theLevelManager;
+
+	// Movement details
 	float movementSpeed = 1.0f;
 	float currentXMovementAccel = 0;
 	float currentZMovementAccel = 0;
 
 	float maxRotationSpeed = (-3.14f * 0.05f);
-	int inputDeadzone = 0;
-	//float currentRotationAccel = 0;
-	//float rotationAcceleration = 0.1f;
 
+	// Camera Animation Details
 	Entity* m_cameraMount;
 	glm::vec3 startOffset = glm::vec3(0, 0.5f, 0);
 	float bobTime = 0;

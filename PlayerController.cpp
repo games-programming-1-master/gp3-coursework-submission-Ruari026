@@ -3,6 +3,7 @@
 #include "Entity.h"
 #include "Input.h"
 #include "RigidBody.h"
+#include "SceneManager.h"
 
 PlayerController::PlayerController()
 {
@@ -19,56 +20,59 @@ Inherited Entity Methods
 */
 void PlayerController::OnStart()
 {
+	// Finds & stores the level manager in the scene
+	Entity* managerParent = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Level Manager");
+	theLevelManager = managerParent->GetComponent<LevelManager>();
+
 	// Resets Player Position to start Pos
-	m_entity->GetTransform()->SetGlobalPosition(glm::vec3(0, 3, 0));
+	m_entity->GetTransform()->SetGlobalPosition(glm::vec3(0, 1.25f, 0));
 
 	btRigidBody* theRB = m_entity->GetComponent<RigidBody>()->Get();
 	theRB->setLinearVelocity(btVector3(0, 0, 0));
+	theRB->setGravity(btVector3(0, 0, 0));
 }
 
 void PlayerController::OnUpdate(float deltaTime)
 {
-	if (deltaTime > 0.2f)
-		bool b = true;
-
-	if (Input::GetInstance()->GetKey(SDLK_r))
+	// Can only move if the game is in gameplay
+	if (theLevelManager->GetCurrentState() == GameplayState::STATE_GAMEPLAY)
 	{
-		this->m_entity->GetTransform()->SetGlobalPosition(glm::vec3(0, 3, 0));
+		glm::ivec3 movementDirection = glm::ivec3(0, 0, 0);
+
+		// Handling Forwards and Backwards input
+		if (Input::GetInstance()->GetKey(SDLK_w))
+		{
+			movementDirection.z += 1;
+		}
+		if (Input::GetInstance()->GetKey(SDLK_s))
+		{
+			movementDirection.z += -1;
+		}
+
+		// Handling Right and Left input
+		if (Input::GetInstance()->GetKey(SDLK_d))
+		{
+			movementDirection.x += 1;
+		}
+		if (Input::GetInstance()->GetKey(SDLK_a))
+		{
+			movementDirection.x += -1;
+		}
+
+		// Handling player movement & rotation
+		AcceleratePlayer(movementDirection, deltaTime);
+		MovePlayer(movementDirection, deltaTime);
+		RotatePlayer(deltaTime);
+
+		// Handling Animation based on movement
+		AnimatePlayer(movementDirection, deltaTime);
+
+		// Checking for game pausing
+		if (Input::GetInstance()->GetKey(SDLK_ESCAPE))
+		{
+			theLevelManager->ChangeSceneState(GameplayState::STATE_GAMEPAUSED);
+		}
 	}
-
-	glm::ivec3 movementDirection = glm::ivec3(0, 0, 0);
-
-	// Handling Forwards and Backwards input
-	if (Input::GetInstance()->GetKey(SDLK_w))
-	{
-		movementDirection.z += 1;
-	}
-	if (Input::GetInstance()->GetKey(SDLK_s))
-	{
-		movementDirection.z += -1;
-	}
-
-	// Handling Right and Left input
-	if (Input::GetInstance()->GetKey(SDLK_d))
-	{
-		movementDirection.x += 1;
-	}
-	if (Input::GetInstance()->GetKey(SDLK_a))
-	{
-		movementDirection.x += -1;
-	}
-
-	//Log::Debug(std::to_string(movementDirection.x) + ", " + std::to_string(movementDirection.z), "", 0);
-
-	// Handling player movement
-	AcceleratePlayer(movementDirection, deltaTime);
-	MovePlayer(movementDirection, deltaTime);
-
-	// Handling player rotation
-	RotatePlayer(deltaTime);
-
-	// Handling Animation
-	AnimatePlayer(movementDirection, deltaTime);
 }
 
 void PlayerController::OnRender()

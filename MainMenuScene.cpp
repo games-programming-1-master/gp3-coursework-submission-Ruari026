@@ -17,6 +17,10 @@
 #include "OptionsMenuButton.h"
 #include "TransitionRenderer.h"
 
+#include "RigidBody.h"
+#include "BoxShape.h"
+#include "MeshRenderer.h"
+
 MainMenuScene::MainMenuScene()
 {
 	// ---------- General Scene Details ----------
@@ -37,7 +41,7 @@ MainMenuScene::MainMenuScene()
 	optionsController->AddComponent<OptionsMenuManager>();
 
 
-	// Parents to enable hiding/ showing many related UI elements at once
+	// UI Parents to enable hiding/ showing many related UI elements at once
 	Entity* mainMenuParent = new Entity("Main Menu");
 	this->m_entities.push_back(mainMenuParent);
 	mainMenuParent->SetEnabled(true);
@@ -52,6 +56,27 @@ MainMenuScene::MainMenuScene()
 	// ---------- Spawning Background Environment ----------
 	Entity* backgroundRoom = new Room_2DoorCorner_TopFloor("Background Room");
 	m_entities.push_back(backgroundRoom);
+
+
+
+	// Testing collision cube
+	Entity* testCube = new Entity("Cube");
+	testCube->GetTransform()->SetGlobalPosition(glm::vec3(-5.0f, 1.0f, 0.0f));
+
+	testCube->AddComponent(
+		new MeshRenderer(
+			Resources::GetInstance()->GetModel("Models/Crate.obj"),
+			Resources::GetInstance()->GetShader("simple"),
+			Resources::GetInstance()->GetTexture("Images/Textures/Tile (Simple).png"))
+	);
+
+	testCube->AddComponent<RigidBody>();
+	testCube->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 0.5f, 0.5f)), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+	testCube->GetComponent<RigidBody>()->Get()->setMassProps(1, btVector3());
+
+	m_entities.push_back(testCube);
+
+
 
 	// ---------- Main Menu Specific UI Entitys ----------
 	{
