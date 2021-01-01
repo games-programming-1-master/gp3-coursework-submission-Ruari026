@@ -1,0 +1,34 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 31.12.2020 21:37:14
+
+mtllib TopFloor Chains (Straight).mtl
+
+#
+# object BannerChains__Straight_
+#
+
+v  2.4995 1.1250 9.0000
+v  2.4995 0.1250 9.0000
+v  2.4995 1.1250 -9.0000
+v  2.4995 0.1250 -9.0000
+# 4 vertices
+
+vn -1.0000 0.0000 -0.0000
+vn -1.0000 0.0000 -0.0000
+vn -1.0000 0.0000 -0.0000
+vn -1.0000 0.0000 -0.0000
+# 4 vertex normals
+
+vt 6.2500 1.0000 0.4995
+vt 6.2500 0.0000 0.4995
+vt -11.7500 1.0000 0.4995
+vt -11.7500 -0.0000 0.4995
+# 4 texture coords
+
+o BannerChains__Straight_
+g BannerChains__Straight_
+usemtl wire_135006006
+s 64
+f 2/2/1 1/1/2 3/3/3 4/4/4 
+# 1 polygons
+
