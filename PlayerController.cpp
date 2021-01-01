@@ -27,9 +27,9 @@ void PlayerController::OnStart()
 	// Resets Player Position to start Pos
 	m_entity->GetTransform()->SetGlobalPosition(glm::vec3(0, 1.25f, 0));
 
+	// Makes sure to reset the player's velocity every time a new level starts
 	btRigidBody* theRB = m_entity->GetComponent<RigidBody>()->Get();
 	theRB->setLinearVelocity(btVector3(0, 0, 0));
-	theRB->setGravity(btVector3(0, 0, 0));
 }
 
 void PlayerController::OnUpdate(float deltaTime)

@@ -11,7 +11,16 @@ class CollisionShape
 protected:
 	CShapeType m_type;
 	btCollisionShape* m_shape;
-	CollisionShape() {};
+
+	CollisionShape()
+	{
+	};
+
 public:
+	~CollisionShape()
+	{
+		delete m_shape;
+	};
+
 	btCollisionShape* Get() { return m_shape; };
 };

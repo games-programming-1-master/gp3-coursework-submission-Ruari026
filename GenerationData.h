@@ -15,6 +15,7 @@ private:
 	RoomTypes roomType = RoomTypes::ROOMTYPE_NORMAL;
 
 public:
+
 	inline glm::ivec2 GetRoomPos() { return roomPos; }
 	inline void SetRoomPos(glm::ivec2 newPos) { roomPos = newPos; }
 
@@ -36,6 +37,18 @@ private:
 	std::vector<std::tuple<glm::vec2, bool>> layoutDoors;
 
 public:
+	LevelLayout() 
+	{
+	};
+	~LevelLayout()
+	{
+		for (auto a : layoutRooms)
+		{
+			delete a;
+		}
+		layoutRooms.clear();
+	}
+
 	bool ProposeNewPoint(glm::ivec2 newPoint);
 	std::vector<LevelRoom*> GetRooms() { return layoutRooms; }
 	std::vector<std::tuple<glm::vec2, bool>> GetDoors() { return layoutDoors; }

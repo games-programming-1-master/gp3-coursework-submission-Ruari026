@@ -229,8 +229,10 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CapsuleShape.cpp" />
+    <ClCompile Include="Chair_Prefab.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CylinderShape.cpp" />
+    <ClCompile Include="DecorationSpawner.cpp" />
     <ClCompile Include="Directions.cpp" />
     <ClCompile Include="DoorPrefab.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -258,12 +260,15 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="OptionsMenuButton_Normal_Prefab.cpp" />
     <ClCompile Include="OptionsMenuButton_Small_Prefab.cpp" />
     <ClCompile Include="OptionsMenuManager.cpp" />
+    <ClCompile Include="PauseMenuButton.cpp" />
+    <ClCompile Include="PauseMenuButton_Prefab.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="PersistantData.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="RoomController.cpp" />
     <ClCompile Include="RoomFactory.cpp" />
     <ClCompile Include="RoomPrefab_1Door.cpp" />
     <ClCompile Include="RoomPrefab_3Door.cpp" />
@@ -287,6 +292,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="ShortPillar_Quarter_Prefab.cpp" />
     <ClCompile Include="ShortPillar_Single_Prefab.cpp" />
     <ClCompile Include="SphereShape.cpp" />
+    <ClCompile Include="Table_Prefab.cpp" />
     <ClCompile Include="TallPillar_Full_Prefab.cpp" />
     <ClCompile Include="TallPillar_Half_Prefab.cpp" />
     <ClCompile Include="TallPillar_Quarter_Prefab.cpp" />
@@ -311,10 +317,12 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CapsuleShape.h" />
+    <ClInclude Include="Chair_Prefab.h" />
     <ClInclude Include="CollisionShape.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CylinderShape.h" />
+    <ClInclude Include="DecorationSpawner.h" />
     <ClInclude Include="Directions.h" />
     <ClInclude Include="DoorPrefab.h" />
     <ClInclude Include="Entity.h" />
@@ -342,6 +350,8 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="OptionsMenuButton_Normal_Prefab.h" />
     <ClInclude Include="OptionsMenuButton_Small_Prefab.h" />
     <ClInclude Include="OptionsMenuManager.h" />
+    <ClInclude Include="PauseMenuButton.h" />
+    <ClInclude Include="PauseMenuButton_Prefab.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PersistantData.h" />
     <ClInclude Include="Physics.h" />
@@ -349,6 +359,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="resource.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="RoomController.h" />
     <ClInclude Include="RoomFactory.h" />
     <ClInclude Include="RoomPrefab_1Door.h" />
     <ClInclude Include="RoomPrefab_3Door.h" />
@@ -373,6 +384,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="ShortPillar_Quarter_Prefab.h" />
     <ClInclude Include="ShortPillar_Single_Prefab.h" />
     <ClInclude Include="SphereShape.h" />
+    <ClInclude Include="Table_Prefab.h" />
     <ClInclude Include="TallPillar_Full_Prefab.h" />
     <ClInclude Include="TallPillar_Half_Prefab.h" />
     <ClInclude Include="TallPillar_Quarter_Prefab.h" />

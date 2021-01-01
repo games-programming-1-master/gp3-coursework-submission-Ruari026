@@ -25,4 +25,15 @@ TopFloor_Straight_Prefab::TopFloor_Straight_Prefab(std::string name) : Entity(na
 			Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 	);
 	this->AddChild(banner);
+
+	// Chains
+	Entity* chains = new Entity("Chains");
+	chains->GetTransform()->SetLocalPosition(glm::vec3(0, 0, 0));
+	chains->AddComponent(
+		new MeshRenderer(
+			Resources::GetInstance()->GetModel("Models/TopFloor Chains (Straight).obj"),
+			Resources::GetInstance()->GetShader("simple"),
+			Resources::GetInstance()->GetTexture("Images/Textures/Chains.png"))
+	);
+	this->AddChild(chains);
 }

@@ -2,6 +2,7 @@
 #include "LevelGenerator.h"
 #include "Entity.h"
 #include "Utility.h"
+#include "SceneManager.h"
 
 #include "Room_1Door_Normal.h"
 #include "Room_2DoorCorner_Normal.h"
@@ -297,6 +298,7 @@ void LevelGenerator::SpawnRoomPrefabs()
 
 		// Handling room positioning
 		newRoom->GetTransform()->SetGlobalPosition(glm::vec3(r->GetRoomPos().x * 18.5f, 0.0f, r->GetRoomPos().y * 18.5f));
+
 		this->m_entity->AddChild(newRoom);
 	}
 }
@@ -307,12 +309,13 @@ void LevelGenerator::SpawnDoorPrefabs()
 	for (auto [pos, isRotated] : generatedLayout.GetDoors())
 	{
 		Entity* newDoor = new DoorPrefab("TheDoor");
-		this->m_entity->AddChild(newDoor);
 
 		glm::vec3 doorPos = glm::vec3((pos.x * 18.5f), 0, (pos.y * 18.5f));
 		newDoor->GetTransform()->SetGlobalPosition(doorPos);
 
 		float rotationAmount = isRotated ? 0.0f : 0.5f;
 		newDoor->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * rotationAmount), glm::vec3(0, 1, 0)));
+
+		this->m_entity->AddChild(newDoor);
 	}
 }

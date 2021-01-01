@@ -41,6 +41,7 @@ public:
 	static Application* GetInstance();
 	void Run();
 
+	SDL_Window* GetApplicationWindow() { return m_window; }
 	inline int GetWindowHeight() { return m_windowHeight; }
 	inline int GetWindowWidth() { return m_windowWidth; }
 

@@ -16,6 +16,8 @@ protected:
 
 public:
 
+	~Scene();
+
 	inline Camera* GetCamera() { return m_mainCamera; }
 	void SetCamera(Camera* camera);
 

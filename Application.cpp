@@ -92,12 +92,17 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/TopFloor (Corner).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Corner).obj");
+	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Straight).obj");
+	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Corner).obj");
 	Resources::GetInstance()->AddModel("Models/ShortPillar (Full).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Full).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Half).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Quarter).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Single).obj");
 	Resources::GetInstance()->AddModel("Models/Crate.obj");
+	Resources::GetInstance()->AddModel("Models/Table.obj");
+	Resources::GetInstance()->AddModel("Models/Chair.obj");
+	Resources::GetInstance()->AddModel("Models/Cushion.obj");
 
 	// Models - Other Level Requirements
 	Resources::GetInstance()->AddModel("Models/Door.obj");
@@ -111,6 +116,8 @@ void Application::GameInit()
 	Resources::GetInstance()->AddTexture("Images/Textures/Tile (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Brick (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/WoodPlanks (Simple).png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Tartan.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Chains.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Default.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Small.png");
@@ -139,7 +146,7 @@ void Application::GameInit()
 	Log::NewLine();
 
 	// Loading All Scenes
-	SceneManager::GetInstance()->Init("Main Menu");
+	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_GAMEPLAY);
 
 	// Can't release unused resources due to the main game scene using procedural generation to create levels
 	//Resources::GetInstance()->ReleaseUnusedResources();
@@ -189,9 +196,11 @@ void Application::Loop()
 		auto currentTicks = std::chrono::high_resolution_clock::now();
 		float deltaTime = (float)std::chrono::duration_cast<std::chrono::microseconds>(currentTicks - prevTicks).count() / 100000;
 		prevTicks = currentTicks;
-
 		m_worldDeltaTime = deltaTime;
 		
+		// Ensures any scene changing happens outside of the update loops
+		SceneManager::GetInstance()->CheckForSceneChange();
+
 		// Updating game physics
  		Physics::GetInstance()->Update(deltaTime * m_physicsTimeScale);
 		//update and render current scene entities

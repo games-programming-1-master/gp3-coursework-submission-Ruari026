@@ -21,6 +21,8 @@ ImageRenderer::ImageRenderer(std::shared_ptr<Texture> image, std::shared_ptr<Sha
 
 ImageRenderer::~ImageRenderer()
 {
+	glDeleteBuffers(1, &VBO);
+	glDeleteVertexArrays(1, &VAO);
 }
 
 void ImageRenderer::OnStart()

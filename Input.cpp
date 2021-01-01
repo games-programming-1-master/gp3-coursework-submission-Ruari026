@@ -157,7 +157,13 @@ void Input::LockAndHideCursor(SDL_bool lockAndHide)
 	// No point changing cursor mode if the request is the same as the current state
 	if (SDL_GetRelativeMouseMode() != lockAndHide)
 	{
-		m_state.mousePos = glm::vec2((WINDOW_W / 2), (WINDOW_H / 2));
 		SDL_SetRelativeMouseMode(lockAndHide);
+
+		if (!lockAndHide)
+		{
+			// If the cursor is to be shown then make sure the cursor appears in the center of the game's window
+			m_state.mousePos = glm::vec2((WINDOW_W / 2), (WINDOW_H / 2));
+			SDL_WarpMouseInWindow(Application::GetInstance()->GetApplicationWindow(), m_state.mousePos.x, m_state.mousePos.y);
+		}
 	}
 }

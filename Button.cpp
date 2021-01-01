@@ -38,8 +38,9 @@ void Button::OnUpdate(float deltaTime)
 				// Only runs button behaviour if click was still within button rect
 				if (IsMouseWithinImageRect())
 				{
-					OnClick();
 					ChangeState(ButtonState::BUTTONSTATE_HOVERED);
+
+					OnClick();
 				}
 				else
 				{

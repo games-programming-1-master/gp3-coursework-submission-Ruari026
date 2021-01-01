@@ -3,6 +3,19 @@
 
 #include <algorithm>
 
+Scene::~Scene()
+{
+	// Deleting the scene camera
+	delete m_mainCamera;
+
+	// Ensures the proper deletion of all entity's in the scene
+	for (auto a : m_entities)
+	{
+		delete a;
+	}
+	m_entities.clear();
+}
+
 void Scene::SetCamera(Camera* camera)
 {
 	if (camera != nullptr)
@@ -23,6 +36,9 @@ void Scene::Start()
 	{
 		a->OnStart();
 	}
+
+	// scene additions and removals may want to be handled at start
+	AddAndRemoveEntitys();
 }
 
 void Scene::UpdateScene(float deltaTime)

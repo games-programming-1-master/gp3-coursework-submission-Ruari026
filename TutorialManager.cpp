@@ -137,7 +137,7 @@ void TutorialManager::ChangeSceneState(TutorialState newState)
 
 		case (TutorialState::STATE_STARTGAMEPLAY):
 		{
-			SceneManager::GetInstance()->ChangeScene("Gameplay");
+			SceneManager::GetInstance()->QueueSceneChange(GameScenes::GAMESCENE_GAMEPLAY);
 		}
 		break;
 	}

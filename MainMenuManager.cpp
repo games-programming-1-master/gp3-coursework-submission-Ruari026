@@ -187,7 +187,7 @@ void MainMenuManager::ChangeSceneState(MainMenuState newState)
 			// Reset game progress on persistant data
 
 			// Change scene to tutorial scene
-			SceneManager::GetInstance()->ChangeScene("Tutorial");
+			SceneManager::GetInstance()->QueueSceneChange(GameScenes::GAMESCENE_TUTORIAL);
 		}
 		break;
 

@@ -156,6 +156,7 @@ void LevelManager::ChangeSceneState(GameplayState newState)
 			Input::GetInstance()->LockAndHideCursor(SDL_TRUE);
 
 			// Hide Options UI
+			pauseUIParent->SetEnabled(false);
 		}
 		break;
 
@@ -165,6 +166,7 @@ void LevelManager::ChangeSceneState(GameplayState newState)
 			Input::GetInstance()->LockAndHideCursor(SDL_FALSE);
 
 			// Show Options UI
+			pauseUIParent->SetEnabled(true);
 		}
 		break;
 
@@ -193,12 +195,12 @@ void LevelManager::ChangeSceneState(GameplayState newState)
 			// "Story screens are shown after level 5 and 10
 			if (PersistantData::GetInstance()->GetCurrentLevel() == 5 || PersistantData::GetInstance()->GetCurrentLevel() == 10)
 			{
-				SceneManager::GetInstance()->ChangeScene("Tutorial");
+				SceneManager::GetInstance()->QueueSceneChange(GameScenes::GAMESCENE_TUTORIAL);
 			}
 			// Otherwise just progress to the next generated level
 			else
 			{
-				SceneManager::GetInstance()->ChangeScene("Gameplay");
+				SceneManager::GetInstance()->QueueSceneChange(GameScenes::GAMESCENE_GAMEPLAY);
 			}
 		}
 		break;
@@ -221,8 +223,26 @@ void LevelManager::ChangeSceneState(GameplayState newState)
 
 		case (GameplayState::STATE_MOVETOMAINMENU):
 		{
-			SceneManager::GetInstance()->ChangeScene("Main Menu");
+			SceneManager::GetInstance()->QueueSceneChange(GameScenes::GAMESCENE_MAINMENU);
 		}
 		break;
 	}
+}
+
+
+/*
+========================================================================================================================================================================================================
+Scene Button Methods
+========================================================================================================================================================================================================
+*/
+void LevelManager::UnpauseGame()
+{
+	Log::Debug("Unpauseing Game", "LevelManager.cpp", 238);
+	ChangeSceneState(GameplayState::STATE_GAMEPLAY);
+}
+
+void LevelManager::ReturnToMenu()
+{
+	Log::Debug("Returning to Main Menu", "MainMenuController.cpp", 44);
+	ChangeSceneState(GameplayState::STATE_TRANSITIONTOMAINMENU);
 }

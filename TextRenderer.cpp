@@ -51,14 +51,13 @@ TextRenderer::TextRenderer(std::shared_ptr<FT_Face> font, std::shared_ptr<Shader
 			(*m_font)->glyph->advance.x
 		};
 		characterSet.insert(std::pair<char, Character>(c, newCharacter));
-
-		//glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	}
 
 	// Setting up quad for rendering
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	glBindVertexArray(VAO);
+
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
 	glEnableVertexAttribArray(0);
@@ -69,6 +68,8 @@ TextRenderer::TextRenderer(std::shared_ptr<FT_Face> font, std::shared_ptr<Shader
 
 TextRenderer::~TextRenderer()
 {
+	glDeleteBuffers(1, &VBO);
+	glDeleteVertexArrays(1, &VAO);
 }
 
 void TextRenderer::OnStart()
