@@ -1,5 +1,10 @@
 #include "Room_2DoorStraight_TopFloor.h"
 
+// Required Components
+#include "DecorationSpawner.h"
+#include "RoomController.h"
+
+// Required Prefabs
 #include "RoomPrefab_Straight.h"
 #include "TallPillar_Half_Prefab.h"
 #include "TallPillar_Quarter_Prefab.h"
@@ -90,4 +95,11 @@ Room_2DoorStraight_TopFloor::Room_2DoorStraight_TopFloor(std::string name) : Ent
 	topFloor->GetTransform()->SetLocalPosition(glm::vec3(0.0f, 3.0f, 0.0f));
 	topFloor->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
 	this->AddChild(topFloor);
+
+	
+	// Adding Decoration/ Mimic Spawn Points
+	/*Entity* newSpawnPoint = new Entity("Spawn Point (1)");
+	this->AddChild(newSpawnPoint);
+	newSpawnPoint->AddComponent<DecorationSpawner>();*/
+
 }

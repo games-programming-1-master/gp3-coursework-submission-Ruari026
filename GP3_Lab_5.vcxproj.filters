@@ -430,7 +430,7 @@
       <Filter>Source Files\Prefabs\Decorations\Mimics</Filter>
     </ClCompile>
     <ClCompile Include="DecorationSpawner.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -705,7 +705,7 @@
       <Filter>Header Files\Prefabs\Decorations\Mimics</Filter>
     </ClInclude>
     <ClInclude Include="DecorationSpawner.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

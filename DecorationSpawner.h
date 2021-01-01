@@ -1,6 +1,6 @@
 #pragma once
 #include "Component.h"
-enum class DectorationType
+enum class DecorationType
 {
 	DECORATIONTYPE_NONE,
 	DECORATIONTYPE_CHAIR,
@@ -11,27 +11,19 @@ enum class DectorationType
 class DecorationSpawner : public Component
 {	
 private:
-	DectorationType decorationToSpawn;
+	DecorationType decorationToSpawn;
 
 public:
+	DecorationSpawner();
+	virtual ~DecorationSpawner() override;
 
+	// Inherited Component Methods
+	virtual void OnStart() override;
+	virtual void OnUpdate(float deltaTime) override;
+	virtual void OnRender() override;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	// Decoration Spawning
+	void SetDecorationType(DecorationType newType) { decorationToSpawn = newType; }
+	void SpawnDecoration();
+	void SpawnMimic();
 };

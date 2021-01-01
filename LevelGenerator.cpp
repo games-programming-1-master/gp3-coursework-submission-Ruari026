@@ -41,7 +41,13 @@ void LevelGenerator::OnStart()
 	std::cout << "====================================================================================================" << std::endl << std::endl;
 
 	// Spawning level into game scene
+	// First Spawns each room
 	SpawnRoomPrefabs();
+	// Then picks what rooms need to have mimics spawn in them
+	PickMimicRooms();
+	// Then tells each room to spawn their decorations/ any needed mimics
+	SpawnRoomDecorations();
+	// Finally Doors are spawned between each set of rooms
 	SpawnDoorPrefabs();
 }
 
@@ -299,7 +305,21 @@ void LevelGenerator::SpawnRoomPrefabs()
 		// Handling room positioning
 		newRoom->GetTransform()->SetGlobalPosition(glm::vec3(r->GetRoomPos().x * 18.5f, 0.0f, r->GetRoomPos().y * 18.5f));
 
+		spawnedRooms.push_back(std::tuple<RoomTypes, RoomController*>(r->GetRoomType(), newRoom->GetComponent<RoomController>()));
 		this->m_entity->AddChild(newRoom);
+	}
+}
+
+void LevelGenerator::PickMimicRooms()
+{
+	
+}
+
+void LevelGenerator::SpawnRoomDecorations()
+{
+	for (auto [type, controller] : spawnedRooms)
+	{
+		controller->SpawnDecorationsAndMimics();
 	}
 }
 

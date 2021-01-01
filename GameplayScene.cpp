@@ -190,12 +190,14 @@ GameplayScene::GameplayScene()
 
 
 	// ---------- Fade In/ Out Controller ----------
-	Entity* transitionController = new Entity("Transition Controller");
-	transitionController->AddComponent(
-		new TransitionRenderer(
-			Resources::GetInstance()->GetTexture("Images/Textures/transition.png"),
-			Resources::GetInstance()->GetShader("mask"))
-	);
-	m_entities.push_back(transitionController);
-	levelManager->GetComponent<LevelManager>()->SetTransitionController(transitionController->GetComponent<TransitionRenderer>());
+	{
+		Entity* transitionController = new Entity("Transition Controller");
+		transitionController->AddComponent(
+			new TransitionRenderer(
+				Resources::GetInstance()->GetTexture("Images/Textures/transition.png"),
+				Resources::GetInstance()->GetShader("mask"))
+		);
+		m_entities.push_back(transitionController);
+		levelManager->GetComponent<LevelManager>()->SetTransitionController(transitionController->GetComponent<TransitionRenderer>());
+	}
 }
