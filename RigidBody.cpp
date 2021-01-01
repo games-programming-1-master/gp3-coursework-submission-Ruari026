@@ -11,6 +11,10 @@ RigidBody::~RigidBody()
 {
 	// Ensures that on destruction the rigidbody is removed from the physics engine
 	Physics::GetInstance()->RemoveRigidbody(this);
+
+	delete m_shape;
+	delete m_rigidBody;
+	delete m_mState;
 }
 
 

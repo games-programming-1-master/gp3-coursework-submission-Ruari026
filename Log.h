@@ -17,7 +17,11 @@ class Log
 private:
 	Log();
 public:
+	static void NewLine() { std::cout << std::endl; };
 	static void Debug(const std::string & msg, const char* file, int line);
+	static void Warning(const std::string& msg, const char* file, int line);
+	static void Error(const std::string& msg, const char* file, int line);
+
 	static bool CheckGLError(const char* file, int line);
 };
 

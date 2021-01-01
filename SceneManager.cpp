@@ -1,5 +1,6 @@
 #include "SceneManager.h"
 #include "MainMenuScene.h"
+#include "TutorialScene.h"
 #include "GameplayScene.h"
 #include "GameOverScene.h"
 
@@ -27,25 +28,6 @@ SceneManager* SceneManager::GetInstance()
 
 /*
 ====================================================================================================
-Loading Game Scenes
-====================================================================================================
-*/
-void SceneManager::Init(std::string startScene)
-{
-	// Loading Main Menu Scene
-	gameScenes.insert(std::pair<std::string, Scene*>("Main Menu", new MainMenuScene()));
-	// Loading Gameplay Scene
-	gameScenes.insert(std::pair<std::string, Scene*>("Gameplay", new GameplayScene()));
-	// Loading Game Over Scene
-	gameScenes.insert(std::pair<std::string, Scene*>("Game Over", new GameOverScene()));
-
-	// Setting start scene
-	this->ChangeScene("Gameplay");
-}
-
-
-/*
-====================================================================================================
 Running Current Game Scene
 ====================================================================================================
 */
@@ -60,17 +42,79 @@ Scene* SceneManager::GetCurrentScene()
 Changing Current Game Scene
 ====================================================================================================
 */
-void SceneManager::ChangeScene(std::string newScene)
+void SceneManager::SetStartScene(GameScenes startScene)
 {
-	Scene* nextScene = gameScenes[newScene];
+	// Saves the type of the scene
+	newSceneType = startScene;
 
-	if (nextScene != nullptr)
+	// Creates a new scene of the requested type
+	switch (startScene)
 	{
-		this->currentScene = nextScene;
-		this->currentScene->Start();
+		case (GameScenes::GAMESCENE_MAINMENU):
+		{
+			currentScene = new MainMenuScene();
+		}
+		break;
+
+		case (GameScenes::GAMESCENE_TUTORIAL):
+		{
+			currentScene = new TutorialScene();
+		}
+		break;
+
+		case (GameScenes::GAMESCENE_GAMEPLAY):
+		{
+			currentScene = new GameplayScene();
+		}
+		break;
 	}
-	else
+
+	// Ensures the new scene starts all of it's entity's
+	currentScene->Start();
+}
+
+void SceneManager::CheckForSceneChange()
+{
+	if (changeScene)
 	{
-		Log::Debug("ERROR: \"" + newScene + "\" Scene Could Not Be Found!", "SceneManager.cpp", 73);
+		// Ensures the old scene is destroyed properly
+		delete currentScene;
+
+		// Creates a new scene of the requested type
+		if (changeScene)
+		{
+			switch (newSceneType)
+			{
+			case (GameScenes::GAMESCENE_MAINMENU):
+			{
+				currentScene = new MainMenuScene();
+			}
+			break;
+
+			case (GameScenes::GAMESCENE_TUTORIAL):
+			{
+				currentScene = new TutorialScene();
+			}
+			break;
+
+			case (GameScenes::GAMESCENE_GAMEPLAY):
+			{
+				currentScene = new GameplayScene();
+			}
+			break;
+			}
+		}
+
+		// Ensures the new scene starts all of it's entity's
+		currentScene->Start();
+
+		// Prevents operation from happening again until requested
+		changeScene = false;
 	}
+}
+
+void SceneManager::QueueSceneChange(GameScenes newScene)
+{
+	changeScene = true;
+	newSceneType = newScene;
 }

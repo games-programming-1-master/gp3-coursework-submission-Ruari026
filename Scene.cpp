@@ -3,6 +3,19 @@
 
 #include <algorithm>
 
+Scene::~Scene()
+{
+	// Deleting the scene camera
+	delete m_mainCamera;
+
+	// Ensures the proper deletion of all entity's in the scene
+	for (auto a : m_entities)
+	{
+		delete a;
+	}
+	m_entities.clear();
+}
+
 void Scene::SetCamera(Camera* camera)
 {
 	if (camera != nullptr)
@@ -23,6 +36,9 @@ void Scene::Start()
 	{
 		a->OnStart();
 	}
+
+	// scene additions and removals may want to be handled at start
+	AddAndRemoveEntitys();
 }
 
 void Scene::UpdateScene(float deltaTime)
@@ -46,7 +62,7 @@ void Scene::Update(float deltaTime)
 void Scene::Render()
 {
 	/* Clear context */
-	glClearColor(0.04f, 0.06f, 0.27f, 1.0f);
+	glClearColor(clearColor.x, clearColor.y, clearColor.z, clearColor.w);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	m_mainCamera->Recalculate();

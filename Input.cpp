@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "Application.h"
 #include "Input.h"
 
 Input* Input::m_instance = nullptr;
@@ -65,6 +66,25 @@ void Input::SetDownKey(SDL_Keycode key)
 	}
 }
 
+void Input::SetMouseDown(SDL_MouseButtonEvent event)
+{
+	int index = event.button;
+	if (index <= SDL_BUTTON_X2)
+	{
+		m_state.mouseDown[index] = true;
+		m_state.mouseHeld[index] = true;
+	}
+}
+
+void Input::SetMouseUp(SDL_MouseButtonEvent event)
+{
+	int index = event.button;
+	if (index <= SDL_BUTTON_X2)
+	{
+		m_state.mouseUp[index] = true;
+		m_state.mouseHeld[index] = false;
+	}
+}
 
 /*
 ========================================================================================================================================================================================================
@@ -114,4 +134,36 @@ bool Input::GetKeyDown(SDL_Keycode key)
 		return m_state.downKeys[index];
 	}
 	else return false;
+}
+
+
+/*
+========================================================================================================================================================================================================
+Cursor Handling
+========================================================================================================================================================================================================
+*/
+void Input::MoveMouse(glm::ivec2 delta)
+{
+	if (!SDL_GetRelativeMouseMode())
+	{
+		// Mouse position has no meaning if sdl has the mouse hidden and locked
+		m_state.mousePos += delta;
+	}
+	m_state.mouseMovement = delta;
+}
+
+void Input::LockAndHideCursor(SDL_bool lockAndHide)
+{
+	// No point changing cursor mode if the request is the same as the current state
+	if (SDL_GetRelativeMouseMode() != lockAndHide)
+	{
+		SDL_SetRelativeMouseMode(lockAndHide);
+
+		if (!lockAndHide)
+		{
+			// If the cursor is to be shown then make sure the cursor appears in the center of the game's window
+			m_state.mousePos = glm::vec2((WINDOW_W / 2), (WINDOW_H / 2));
+			SDL_WarpMouseInWindow(Application::GetInstance()->GetApplicationWindow(), m_state.mousePos.x, m_state.mousePos.y);
+		}
+	}
 }

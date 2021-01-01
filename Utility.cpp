@@ -23,6 +23,11 @@ float Utility::LerpFloat(float min, float max, float time)
 
 glm::vec3 Utility::LerpVec3(glm::vec3 min, glm::vec3 max, float time)
 {
+	if (time < 0)
+		time = 0;
+	else if (time > 1)
+		time = 1;
+
 	glm::vec3 result = glm::vec3(0, 0, 0);
 
 	result.x = Utility::LerpFloat(min.x, max.x, time);

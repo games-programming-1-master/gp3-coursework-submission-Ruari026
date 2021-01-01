@@ -50,7 +50,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -83,13 +83,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)SDL2\SDL2-2.0.4\include;$(SolutionDir)glew-2.1.0\include\GL;$(SolutionDir)glm;$(SolutionDir)stb\Include;$(SolutionDir)assimp;$(SolutionDir)bullet;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)SDL2\SDL2-2.0.4\lib\x64;$(SolutionDir)glew-2.1.0\lib\Release\x64;$(SolutionDir)assimp\Lib;$(SolutionDir)bullet\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)SDL2\SDL2-2.0.4\include;$(SolutionDir)glew-2.1.0\include\GL;$(SolutionDir)glm;$(SolutionDir)stb\Include;$(SolutionDir)assimp;$(SolutionDir)bullet;$(SolutionDir)freetype\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)SDL2\SDL2-2.0.4\lib\x64;$(SolutionDir)glew-2.1.0\lib\Release\x64;$(SolutionDir)assimp\Lib;$(SolutionDir)bullet\Lib;$(SolutionDir)freetype\objs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)SDL2\SDL2-2.0.4\include;$(SolutionDir)glew-2.1.0\include\GL;$(SolutionDir)glm;$(SolutionDir)stb\Include;$(SolutionDir)assimp;$(SolutionDir)bullet;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)SDL2\SDL2-2.0.4\lib\x64;$(SolutionDir)glew-2.1.0\lib\Release\x64;$(SolutionDir)assimp\Lib;$(SolutionDir)bullet\Lib;$(LibraryPath)</LibraryPath>
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)SDL2\SDL2-2.0.4\include;$(SolutionDir)glew-2.1.0\include\GL;$(SolutionDir)glm;$(SolutionDir)stb\Include;$(SolutionDir)assimp;$(SolutionDir)bullet;$(SolutionDir)freetype\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)SDL2\SDL2-2.0.4\lib\x64;$(SolutionDir)glew-2.1.0\lib\Release\x64;$(SolutionDir)assimp\Lib;$(SolutionDir)bullet\Lib;$(SolutionDir)freetype\objs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -167,7 +167,7 @@ xcopy /Y "assimp\Lib\*.dll" "$(OutDir)"</Command>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;assimp.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;assimp.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;freetype.lib</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PostBuildEvent>
@@ -203,7 +203,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;assimp.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;assimp.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;freetype.lib</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PostBuildEvent>
@@ -226,11 +226,13 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BoxShape.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CapsuleShape.cpp" />
-    <ClCompile Include="CollisionShape.cpp" />
+    <ClCompile Include="Chair_Prefab.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CylinderShape.cpp" />
+    <ClCompile Include="DecorationSpawner.cpp" />
     <ClCompile Include="Directions.cpp" />
     <ClCompile Include="DoorPrefab.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -238,6 +240,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="GenerationData.cpp" />
+    <ClCompile Include="ImageRenderer.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InteractableDoor.cpp" />
     <ClCompile Include="InteractableObject.cpp" />
@@ -245,16 +248,27 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Log.cpp" />
+    <ClCompile Include="MainMenuButton.cpp" />
+    <ClCompile Include="MainMenuButton_Prefab.cpp" />
+    <ClCompile Include="MainMenuManager.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="NormalRoomFactory.cpp" />
+    <ClCompile Include="OptionsMenuButton.cpp" />
+    <ClCompile Include="OptionsMenuButton_Normal_Prefab.cpp" />
+    <ClCompile Include="OptionsMenuButton_Small_Prefab.cpp" />
+    <ClCompile Include="OptionsMenuManager.cpp" />
+    <ClCompile Include="PauseMenuButton.cpp" />
+    <ClCompile Include="PauseMenuButton_Prefab.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="PersistantData.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="RoomController.cpp" />
     <ClCompile Include="RoomFactory.cpp" />
     <ClCompile Include="RoomPrefab_1Door.cpp" />
     <ClCompile Include="RoomPrefab_3Door.cpp" />
@@ -278,27 +292,37 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="ShortPillar_Quarter_Prefab.cpp" />
     <ClCompile Include="ShortPillar_Single_Prefab.cpp" />
     <ClCompile Include="SphereShape.cpp" />
+    <ClCompile Include="Table_Prefab.cpp" />
     <ClCompile Include="TallPillar_Full_Prefab.cpp" />
     <ClCompile Include="TallPillar_Half_Prefab.cpp" />
     <ClCompile Include="TallPillar_Quarter_Prefab.cpp" />
     <ClCompile Include="TallPillar_Single_Prefab.cpp" />
     <ClCompile Include="TestComponent.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TopFloorRoomFactory.cpp" />
     <ClCompile Include="TopFloor_Corner_Prefab.cpp" />
     <ClCompile Include="TopFloor_Straight_Prefab.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="TransitionRenderer.cpp" />
+    <ClCompile Include="TutorialButtonPrefab.cpp" />
+    <ClCompile Include="TutorialManager.cpp" />
+    <ClCompile Include="TutorialMenuButton.cpp" />
+    <ClCompile Include="TutorialScene.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="BoxShape.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CapsuleShape.h" />
+    <ClInclude Include="Chair_Prefab.h" />
     <ClInclude Include="CollisionShape.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CylinderShape.h" />
+    <ClInclude Include="DecorationSpawner.h" />
     <ClInclude Include="Directions.h" />
     <ClInclude Include="DoorPrefab.h" />
     <ClInclude Include="Entity.h" />
@@ -306,6 +330,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="GenerationData.h" />
+    <ClInclude Include="ImageRenderer.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputState.h" />
     <ClInclude Include="InteractableDoor.h" />
@@ -313,18 +338,28 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="Log.h" />
+    <ClInclude Include="MainMenuButton.h" />
+    <ClInclude Include="MainMenuButton_Prefab.h" />
+    <ClInclude Include="MainMenuManager.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="NormalRoomFactory.h" />
+    <ClInclude Include="OptionsMenuButton.h" />
+    <ClInclude Include="OptionsMenuButton_Normal_Prefab.h" />
+    <ClInclude Include="OptionsMenuButton_Small_Prefab.h" />
+    <ClInclude Include="OptionsMenuManager.h" />
+    <ClInclude Include="PauseMenuButton.h" />
+    <ClInclude Include="PauseMenuButton_Prefab.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PersistantData.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="PlayerController.h" />
-    <ClInclude Include="Quad.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="RoomController.h" />
     <ClInclude Include="RoomFactory.h" />
     <ClInclude Include="RoomPrefab_1Door.h" />
     <ClInclude Include="RoomPrefab_3Door.h" />
@@ -349,16 +384,23 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="ShortPillar_Quarter_Prefab.h" />
     <ClInclude Include="ShortPillar_Single_Prefab.h" />
     <ClInclude Include="SphereShape.h" />
+    <ClInclude Include="Table_Prefab.h" />
     <ClInclude Include="TallPillar_Full_Prefab.h" />
     <ClInclude Include="TallPillar_Half_Prefab.h" />
     <ClInclude Include="TallPillar_Quarter_Prefab.h" />
     <ClInclude Include="TallPillar_Single_Prefab.h" />
     <ClInclude Include="TestComponent.h" />
+    <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TopFloorRoomFactory.h" />
     <ClInclude Include="TopFloor_Corner_Prefab.h" />
     <ClInclude Include="TopFloor_Straight_Prefab.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="TransitionRenderer.h" />
+    <ClInclude Include="TutorialButton_Prefab.h" />
+    <ClInclude Include="TutorialManager.h" />
+    <ClInclude Include="TutorialMenuButton.h" />
+    <ClInclude Include="TutorialScene.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
@@ -366,8 +408,12 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ResourceCompile Include="GP3_Coursework.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Shaders\mask_FRAG.glsl" />
+    <None Include="Assets\Shaders\mask_VERT.glsl" />
     <None Include="Assets\Shaders\simple_FRAG.glsl" />
     <None Include="Assets\Shaders\simple_VERT.glsl" />
+    <None Include="Assets\Shaders\text_FRAG.glsl" />
+    <None Include="Assets\Shaders\text_VERT.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

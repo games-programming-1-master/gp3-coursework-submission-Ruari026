@@ -1,19 +1,32 @@
 #pragma once
 #include "Scene.h"
 
+enum class GameScenes
+{
+	GAMESCENE_MAINMENU,
+	GAMESCENE_TUTORIAL,
+	GAMESCENE_GAMEPLAY,
+	GAMESCENE_GAMEOVER
+};
+
 class SceneManager
 {
 private:
 	static SceneManager* m_instance;
 	SceneManager();
 
-	std::unordered_map<std::string, Scene*> gameScenes;
+	bool changeScene = false;
+	GameScenes newSceneType;
+
 	Scene* currentScene = nullptr;
 
 public:
 	static SceneManager* GetInstance();
 
-	void Init(std::string startScene);
+	void SetStartScene(GameScenes startScene);
+
 	Scene* GetCurrentScene();
-	void ChangeScene(std::string newScene);
+
+	void CheckForSceneChange();
+	void QueueSceneChange(GameScenes newScene);
 };

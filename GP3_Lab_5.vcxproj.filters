@@ -136,11 +136,44 @@
     <Filter Include="Header Files\Other\RoomFactories">
       <UniqueIdentifier>{6f531d56-db9e-4129-bcc1-1a4e589040d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\Buttons">
+      <UniqueIdentifier>{32b640e3-1670-4382-880d-af5a7dc2d5ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Renderers">
+      <UniqueIdentifier>{e16a2e64-7b40-4c9b-9fe3-daaeab9a282f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Buttons">
+      <UniqueIdentifier>{84ba53dd-7719-423b-8dde-ffa31586c3cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Renderers">
+      <UniqueIdentifier>{bc7fe9d1-3721-4aac-8a74-29019cb1075a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\UI">
+      <UniqueIdentifier>{dbcf0336-3d2c-4364-8188-26843f86f370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\UI">
+      <UniqueIdentifier>{414c5a73-5f28-49cc-a55e-d0a4b45f862d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Interactables">
+      <UniqueIdentifier>{043a5dca-3f19-4e0a-9415-761fa43987fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Managers">
+      <UniqueIdentifier>{2caf1267-ceb5-4d70-87db-4b9ac421f850}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Interactables">
+      <UniqueIdentifier>{ca1eef48-fb4b-46f9-a2ac-d67ca58c7c2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Managers">
+      <UniqueIdentifier>{86011938-ba7a-4e1f-b8dc-6886dbd50e89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\Decorations\Mimics">
+      <UniqueIdentifier>{1c8eb571-7a15-450a-be83-822ce80b2a0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\Decorations\Mimics">
+      <UniqueIdentifier>{8530d92c-c224-458a-ade0-cf30f2d8728f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MeshRenderer.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="RigidBody.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -160,9 +193,6 @@
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Log.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
@@ -222,9 +252,6 @@
     <ClCompile Include="CapsuleShape.cpp">
       <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionShape.cpp">
-      <Filter>Source Files\Engine\Colliders</Filter>
-    </ClCompile>
     <ClCompile Include="CylinderShape.cpp">
       <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
@@ -246,9 +273,6 @@
     <ClCompile Include="RoomPrefab_4Door.cpp">
       <Filter>Source Files\Prefabs\EmptyRooms</Filter>
     </ClCompile>
-    <ClCompile Include="LevelManager.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="LevelGenerator.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -269,12 +293,6 @@
     </ClCompile>
     <ClCompile Include="DoorPrefab.cpp">
       <Filter>Source Files\Prefabs\Other</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractableObject.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractableDoor.cpp">
-      <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="Room_2DoorCorner_TopFloor.cpp">
       <Filter>Source Files\Prefabs\DecoratedRooms\2Door-Corner</Filter>
@@ -333,11 +351,89 @@
     <ClCompile Include="EntranceExitRoomFactory.cpp">
       <Filter>Source Files\Other\RoomFactories</Filter>
     </ClCompile>
+    <ClCompile Include="TutorialScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Components\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuButton.cpp">
+      <Filter>Source Files\Components\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Source Files\Components\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageRenderer.cpp">
+      <Filter>Source Files\Components\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshRenderer.cpp">
+      <Filter>Source Files\Components\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuButton_Prefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableDoor.cpp">
+      <Filter>Source Files\Components\Interactables</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableObject.cpp">
+      <Filter>Source Files\Components\Interactables</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Source Files\Components\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuManager.cpp">
+      <Filter>Source Files\Components\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsMenuManager.cpp">
+      <Filter>Source Files\Components\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsMenuButton.cpp">
+      <Filter>Source Files\Components\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialMenuButton.cpp">
+      <Filter>Source Files\Components\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialManager.cpp">
+      <Filter>Source Files\Components\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialButtonPrefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsMenuButton_Normal_Prefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsMenuButton_Small_Prefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PersistantData.cpp">
+      <Filter>Header Files\Prefabs</Filter>
+    </ClCompile>
+    <ClCompile Include="TransitionRenderer.cpp">
+      <Filter>Source Files\Components\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseMenuButton.cpp">
+      <Filter>Source Files\Components\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseMenuButton_Prefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomController.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Chair_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Mimics</Filter>
+    </ClCompile>
+    <ClCompile Include="Table_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Mimics</Filter>
+    </ClCompile>
+    <ClCompile Include="DecorationSpawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MeshRenderer.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="RigidBody.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
@@ -369,9 +465,6 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Physics.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Quad.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Resources.h">
@@ -440,9 +533,6 @@
     <ClInclude Include="SphereShape.h">
       <Filter>Header Files\Engine\Colliders</Filter>
     </ClInclude>
-    <ClInclude Include="LevelManager.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="LevelGenerator.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
@@ -478,12 +568,6 @@
     </ClInclude>
     <ClInclude Include="DoorPrefab.h">
       <Filter>Header Files\Prefabs\Other</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractableObject.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractableDoor.h">
-      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="Room_2DoorCorner_TopFloor.h">
       <Filter>Header Files\Prefabs\DecoratedRooms\2Door-Corner</Filter>
@@ -545,6 +629,84 @@
     <ClInclude Include="EntranceExitRoomFactory.h">
       <Filter>Header Files\Other\RoomFactories</Filter>
     </ClInclude>
+    <ClInclude Include="TutorialScene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Components\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuButton.h">
+      <Filter>Header Files\Components\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshRenderer.h">
+      <Filter>Header Files\Components\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageRenderer.h">
+      <Filter>Header Files\Components\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Header Files\Components\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuButton_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableDoor.h">
+      <Filter>Header Files\Components\Interactables</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableObject.h">
+      <Filter>Header Files\Components\Interactables</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Header Files\Components\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuManager.h">
+      <Filter>Header Files\Components\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenuButton.h">
+      <Filter>Header Files\Components\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenuManager.h">
+      <Filter>Header Files\Components\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialMenuButton.h">
+      <Filter>Header Files\Components\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialManager.h">
+      <Filter>Header Files\Components\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialButton_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PersistantData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenuButton_Normal_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsMenuButton_Small_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TransitionRenderer.h">
+      <Filter>Header Files\Components\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseMenuButton.h">
+      <Filter>Header Files\Components\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseMenuButton_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomController.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Table_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="Chair_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="DecorationSpawner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GP3_Coursework.rc">
@@ -556,6 +718,18 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="Assets\Shaders\simple_VERT.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\text_FRAG.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\text_VERT.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\mask_FRAG.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\mask_VERT.glsl">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>

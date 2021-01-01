@@ -5,7 +5,11 @@
 
 Resources::Resources()
 {
-
+	// Ensuring that freetype library is initialized properly
+	if (FT_Init_FreeType(&m_ftLibrary))
+	{
+		Log::Error("ERROR: Could not initialize FreeType library", "Resources.cpp", 11);
+	}
 }
 
 Resources* Resources::m_instance = nullptr;
@@ -19,6 +23,12 @@ Resources* Resources::GetInstance()
 	return m_instance;
 }
 
+
+/*
+========================================================================================================================================================================================================
+Model Resources
+========================================================================================================================================================================================================
+*/
 void Resources::AddModel(const std::string& directory)
 {
 	if (m_models.find(directory) == m_models.end())
@@ -28,6 +38,28 @@ void Resources::AddModel(const std::string& directory)
 	}
 }
 
+std::shared_ptr<Model> Resources::GetModel(const std::string& name)
+{
+	return m_models[name];
+}
+
+
+/*
+========================================================================================================================================================================================================
+Shader Resources
+========================================================================================================================================================================================================
+*/
+std::shared_ptr<ShaderProgram> Resources::GetShader(const std::string& name)
+{
+	return m_shaderPrograms[name];
+}
+
+
+/*
+========================================================================================================================================================================================================
+Texture Resources
+========================================================================================================================================================================================================
+*/
 void Resources::AddTexture(const std::string& directory)
 {
 	if (m_textures.find(directory) == m_textures.end())
@@ -37,21 +69,44 @@ void Resources::AddTexture(const std::string& directory)
 	}
 }
 
-std::shared_ptr<ShaderProgram> Resources::GetShader(const std::string& name)
-{
-	return m_shaderPrograms[name];
-}
-
-std::shared_ptr<Model> Resources::GetModel(const std::string& name)
-{
-	return m_models[name];
-}
-
 std::shared_ptr <Texture> Resources::GetTexture(const std::string& name)
 {
 	return m_textures[name];
 }
 
+
+/*
+========================================================================================================================================================================================================
+Font Resources
+========================================================================================================================================================================================================
+*/
+void Resources::AddFont(const std::string& directory)
+{
+	if (m_fontFaces.find(directory) == m_fontFaces.end())
+	{
+		m_fontFaces[directory] = std::make_shared<FT_Face>();
+		if (FT_New_Face(m_ftLibrary, (ASSET_PATH + directory).c_str(), 0, m_fontFaces[directory].get()))
+		{
+			Log::Error("ERROR: Failed to load font", "Resources.cpp", 88);
+		}
+		else
+		{
+			LOG_DEBUG("Font Loaded from " + directory);
+		}
+	}
+}
+
+std::shared_ptr<FT_Face> Resources::GetFont(const std::string& name)
+{
+	return m_fontFaces[name];
+}
+
+
+/*
+========================================================================================================================================================================================================
+Resources Releasing
+========================================================================================================================================================================================================
+*/
 void Resources::ReleaseResources()
 {
 	// Using an iterator pattern to iterate through all elements
@@ -71,6 +126,13 @@ void Resources::ReleaseResources()
 
 	// Releasing Textures
 	for (auto iter = m_textures.begin(); iter != m_textures.end();)
+	{
+		iter->second.reset();
+		iter++;
+	}
+
+	// Releasing Fonts
+	for (auto iter = m_fontFaces.begin(); iter != m_fontFaces.end();)
 	{
 		iter->second.reset();
 		iter++;
@@ -113,5 +175,17 @@ void Resources::ReleaseUnusedResources()
 		}
 
 		if (iter != m_textures.end()) iter++;
+	}
+
+	// Checking Textures for usage
+	for (auto iter = m_fontFaces.begin(); iter != m_fontFaces.end();)
+	{
+		if (iter->second.use_count() <= 1)
+		{
+			iter->second.reset();
+			iter = m_fontFaces.erase(iter);
+		}
+
+		if (iter != m_fontFaces.end()) iter++;
 	}
 }

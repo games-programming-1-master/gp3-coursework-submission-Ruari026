@@ -10,16 +10,22 @@ Entity::Entity(std::string name)
 Entity::~Entity()
 {
 	// Ensures destruction of any children entitys
-	for (auto& e : m_children)
+	for (auto e : m_children)
 	{
 		delete e;
 	}
+	m_children.clear();
+
 
 	// Ensures destuction of entity components
-	for (auto& c : m_components)
+	for (auto c : m_components)
 	{
 		delete c;
 	}
+	m_components.clear();
+
+	// Deleting own transform data
+	delete m_transform;
 }
 
 

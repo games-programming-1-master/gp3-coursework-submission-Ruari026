@@ -3,6 +3,7 @@
 #include "Common.h"
 #include "Resources.h"
 #include "SceneManager.h"
+#include "PersistantData.h"
 #include "Input.h"
 #include "Physics.h"
 
@@ -72,9 +73,6 @@ void Application::OpenGlInit()
 	GL_ATTEMPT(glCullFace(GL_BACK));
 
 	glDisable(GL_CULL_FACE);
-
-	// Addition to keep the cursor hidden & locked within the game window
-	SDL_SetRelativeMouseMode(SDL_TRUE);
 }
 
 void Application::GameInit()
@@ -94,12 +92,17 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/TopFloor (Corner).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Corner).obj");
+	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Straight).obj");
+	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Corner).obj");
 	Resources::GetInstance()->AddModel("Models/ShortPillar (Full).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Full).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Half).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Quarter).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Single).obj");
 	Resources::GetInstance()->AddModel("Models/Crate.obj");
+	Resources::GetInstance()->AddModel("Models/Table.obj");
+	Resources::GetInstance()->AddModel("Models/Chair.obj");
+	Resources::GetInstance()->AddModel("Models/Cushion.obj");
 
 	// Models - Other Level Requirements
 	Resources::GetInstance()->AddModel("Models/Door.obj");
@@ -107,22 +110,46 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/DecorativeFlashing.obj");
 
 	// Models - Player
+	Log::NewLine();
 
 	// Textures
 	Resources::GetInstance()->AddTexture("Images/Textures/Tile (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Brick (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/WoodPlanks (Simple).png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Tartan.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Chains.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Button Default.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Button Small.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/transition.png");
+	Log::NewLine();
+
 	// Shaders
 	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/simple_VERT.glsl", 
 		ASSET_PATH + "Shaders/simple_FRAG.glsl"), 
 		"simple"
 	);
+	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/text_VERT.glsl",
+		ASSET_PATH + "Shaders/text_FRAG.glsl"),
+		"text"
+	);
+	Resources::GetInstance()->AddShader(std::make_shared<ShaderProgram>(ASSET_PATH + "Shaders/mask_VERT.glsl",
+		ASSET_PATH + "Shaders/mask_FRAG.glsl"),
+		"mask"
+	);
+	Log::NewLine();
+
+	// Fonts
+	Resources::GetInstance()->AddFont("Fonts/JMH Cthulhumbus Arcade UG.ttf");
+	Resources::GetInstance()->AddFont("Fonts/Pixel Musketeer.ttf");
+	Resources::GetInstance()->AddFont("Fonts/PixelNoise_erc_2007.ttf");
+	Log::NewLine();
 
 	// Loading All Scenes
-	SceneManager::GetInstance()->Init("Gameplay");
+	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_GAMEPLAY);
 
-	Resources::GetInstance()->ReleaseUnusedResources();
+	// Can't release unused resources due to the main game scene using procedural generation to create levels
+	//Resources::GetInstance()->ReleaseUnusedResources();
 }
 
 void Application::Loop()
@@ -153,6 +180,12 @@ void Application::Loop()
 				INPUT->SetHeldKey(event.key.keysym.sym, false);
 				INPUT->SetUpKey(event.key.keysym.sym);
 				break;
+			case SDL_MOUSEBUTTONDOWN:
+				INPUT->SetMouseDown(event.button);
+				break;
+			case SDL_MOUSEBUTTONUP:
+				INPUT->SetMouseUp(event.button);
+				break;
 			case SDL_MOUSEMOTION:
 				INPUT->MoveMouse(glm::ivec2(event.motion.xrel, event.motion.yrel));
 				break;
@@ -162,19 +195,20 @@ void Application::Loop()
 		// Updating time between frames
 		auto currentTicks = std::chrono::high_resolution_clock::now();
 		float deltaTime = (float)std::chrono::duration_cast<std::chrono::microseconds>(currentTicks - prevTicks).count() / 100000;
-		m_worldDeltaTime = deltaTime;
 		prevTicks = currentTicks;
+		m_worldDeltaTime = deltaTime;
 		
-		// Updating game physics
-		Physics::GetInstance()->Update(deltaTime);
+		// Ensures any scene changing happens outside of the update loops
+		SceneManager::GetInstance()->CheckForSceneChange();
 
+		// Updating game physics
+ 		Physics::GetInstance()->Update(deltaTime * m_physicsTimeScale);
 		//update and render current scene entities
-		SceneManager::GetInstance()->GetCurrentScene()->UpdateScene(deltaTime);
+		SceneManager::GetInstance()->GetCurrentScene()->UpdateScene(deltaTime * m_updateTimeScale);
 
 		// Resetting Mouse Movement of Input Manager
-		Input::GetInstance()->MoveMouse(glm::ivec2(0, 0));
 		// Resetting Up and Down Keys of Input Manager
-		Input::GetInstance()->ResetUpDownKeys();
+		Input::GetInstance()->Reset();
 
 		SDL_GL_SwapWindow(m_window);
 	}
