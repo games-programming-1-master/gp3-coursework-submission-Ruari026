@@ -1,5 +1,10 @@
 #include "Room_1Door_Normal.h"
 
+// Required Components
+#include "DecorationSpawner.h"
+#include "RoomController.h"
+
+// Required Prefabs
 #include "RoomPrefab_1Door.h"
 #include "TallPillar_Full_Prefab.h"
 #include "TallPillar_Half_Prefab.h"
@@ -7,6 +12,10 @@
 
 Room_1Door_Normal::Room_1Door_Normal(std::string name) : Entity(name)
 {
+	// All Decorated Rooms Require a Controller
+	this->AddComponent<RoomController>();
+
+
 	// Parent Prefab to build off from
 	Entity* parentPrefab = new RoomPrefab_1Door("1Door_Base");
 	this->AddChild(parentPrefab);

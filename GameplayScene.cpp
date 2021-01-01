@@ -39,7 +39,7 @@ GameplayScene::GameplayScene()
 		Entity* camera = new Entity("The Camera");
 		player->AddChild(camera);
 		this->SetCamera(new Camera(camera->GetTransform()));
-		camera->GetTransform()->SetLocalPosition(glm::vec3(0, 0.5f, 0));
+		camera->GetTransform()->SetLocalPosition(glm::vec3(0, 0.75f, 0));
 
 		// Setting up the controller for the player
 		player->AddComponent<PlayerController>();
@@ -70,6 +70,8 @@ GameplayScene::GameplayScene()
 		Entity* testRoom = new Room_2DoorStraight_TopFloor("Test Room");
 		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 0));
 		m_entities.push_back(testRoom);
+
+		testRoom->GetComponent<RoomController>()->IncreaseMimicsToSpawn();
 
 		/*testRoom = new Room_3Door_TopFloor("Test Room");
 		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 18.5f));

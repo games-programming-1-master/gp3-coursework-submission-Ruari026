@@ -1,5 +1,10 @@
 #include "Room_2DoorCorner_TopFloor.h"
 
+// Required Components
+#include "DecorationSpawner.h"
+#include "RoomController.h"
+
+// Required Prefabs
 #include "RoomPrefab_Corner.h"
 #include "TallPillar_Half_Prefab.h"
 #include "TallPillar_Quarter_Prefab.h"
@@ -10,6 +15,10 @@
 
 Room_2DoorCorner_TopFloor::Room_2DoorCorner_TopFloor(std::string name) : Entity(name)
 {
+	// All Decorated Rooms Require a Controller
+	this->AddComponent<RoomController>();
+
+
 	// Parent Prefab to build off from
 	Entity* parentPrefab = new RoomPrefab_Corner("2DoorCorner_Base");
 	this->AddChild(parentPrefab);

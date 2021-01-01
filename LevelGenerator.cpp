@@ -45,8 +45,6 @@ void LevelGenerator::OnStart()
 	SpawnRoomPrefabs();
 	// Then picks what rooms need to have mimics spawn in them
 	PickMimicRooms();
-	// Then tells each room to spawn their decorations/ any needed mimics
-	SpawnRoomDecorations();
 	// Finally Doors are spawned between each set of rooms
 	SpawnDoorPrefabs();
 }

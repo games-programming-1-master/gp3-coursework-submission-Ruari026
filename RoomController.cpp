@@ -17,6 +17,7 @@ Inherited Entity Methods
 */
 void RoomController::OnStart()
 {
+	SpawnDecorationsAndMimics();
 }
 
 void RoomController::OnUpdate(float deltaTime)
