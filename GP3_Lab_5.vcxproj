@@ -229,6 +229,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CapsuleShape.cpp" />
+    <ClCompile Include="ChairMimic_Prefab.cpp" />
     <ClCompile Include="Chair_Prefab.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CylinderShape.cpp" />
@@ -254,6 +255,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
+    <ClCompile Include="MimicController.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="NormalRoomFactory.cpp" />
     <ClCompile Include="OptionsMenuButton.cpp" />
@@ -292,6 +294,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="ShortPillar_Quarter_Prefab.cpp" />
     <ClCompile Include="ShortPillar_Single_Prefab.cpp" />
     <ClCompile Include="SphereShape.cpp" />
+    <ClCompile Include="TableMimic_Prefab.cpp" />
     <ClCompile Include="Table_Prefab.cpp" />
     <ClCompile Include="TallPillar_Full_Prefab.cpp" />
     <ClCompile Include="TallPillar_Half_Prefab.cpp" />
@@ -317,6 +320,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CapsuleShape.h" />
+    <ClInclude Include="ChairMimic_Prefab.h" />
     <ClInclude Include="Chair_Prefab.h" />
     <ClInclude Include="CollisionShape.h" />
     <ClInclude Include="Common.h" />
@@ -344,6 +348,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshRenderer.h" />
+    <ClInclude Include="MimicController.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="NormalRoomFactory.h" />
     <ClInclude Include="OptionsMenuButton.h" />
@@ -384,6 +389,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="ShortPillar_Quarter_Prefab.h" />
     <ClInclude Include="ShortPillar_Single_Prefab.h" />
     <ClInclude Include="SphereShape.h" />
+    <ClInclude Include="TableMimic_Prefab.h" />
     <ClInclude Include="Table_Prefab.h" />
     <ClInclude Include="TallPillar_Full_Prefab.h" />
     <ClInclude Include="TallPillar_Half_Prefab.h" />
@@ -408,6 +414,8 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ResourceCompile Include="GP3_Coursework.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Shaders\glitch_FRAG.glsl" />
+    <None Include="Assets\Shaders\glitch_VERT.glsl" />
     <None Include="Assets\Shaders\mask_FRAG.glsl" />
     <None Include="Assets\Shaders\mask_VERT.glsl" />
     <None Include="Assets\Shaders\simple_FRAG.glsl" />

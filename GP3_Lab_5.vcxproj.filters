@@ -166,11 +166,11 @@
     <Filter Include="Source Files\Components\Managers">
       <UniqueIdentifier>{86011938-ba7a-4e1f-b8dc-6886dbd50e89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Prefabs\Decorations\Mimics">
-      <UniqueIdentifier>{1c8eb571-7a15-450a-be83-822ce80b2a0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Prefabs\Decorations\Mimics">
+    <Filter Include="Header Files\Prefabs\Mimics">
       <UniqueIdentifier>{8530d92c-c224-458a-ade0-cf30f2d8728f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\Mimics">
+      <UniqueIdentifier>{1c8eb571-7a15-450a-be83-822ce80b2a0a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -423,13 +423,22 @@
     <ClCompile Include="RoomController.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="DecorationSpawner.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
     <ClCompile Include="Chair_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations\Mimics</Filter>
+      <Filter>Source Files\Prefabs\Decorations</Filter>
     </ClCompile>
     <ClCompile Include="Table_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations\Mimics</Filter>
+      <Filter>Source Files\Prefabs\Decorations</Filter>
     </ClCompile>
-    <ClCompile Include="DecorationSpawner.cpp">
+    <ClCompile Include="TableMimic_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Mimics</Filter>
+    </ClCompile>
+    <ClCompile Include="ChairMimic_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Mimics</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicController.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -698,13 +707,22 @@
     <ClInclude Include="RoomController.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Table_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations\Mimics</Filter>
+    <ClInclude Include="DecorationSpawner.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="Chair_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations\Mimics</Filter>
+      <Filter>Header Files\Prefabs\Decorations</Filter>
     </ClInclude>
-    <ClInclude Include="DecorationSpawner.h">
+    <ClInclude Include="Table_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="TableMimic_Prefab.h">
+      <Filter>Header Files\Prefabs\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="ChairMimic_Prefab.h">
+      <Filter>Header Files\Prefabs\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicController.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
@@ -730,6 +748,12 @@
       <Filter>Resource Files\Shaders</Filter>
     </None>
     <None Include="Assets\Shaders\mask_VERT.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\glitch_FRAG.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\glitch_VERT.glsl">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>

@@ -31,8 +31,7 @@ void RigidBody::OnRender()
 {
 }
 
-
-void RigidBody::Init(CollisionShape* shape, float mass, const glm::vec3 localInertia)
+void RigidBody::Init(CollisionShape* shape, float mass, const glm::vec3 localInertia, RigidBodyLayer layer)
 {
 	btTransform bT = Physics::ConvertTransformToBtTransform(*m_entity->GetTransform());
 	m_mState = new btDefaultMotionState(bT);
@@ -45,6 +44,8 @@ void RigidBody::Init(CollisionShape* shape, float mass, const glm::vec3 localIne
 	Physics::GetInstance()->AddRigidbody(this);
 	m_rigidBody->setSleepingThresholds(0, 0);
 	m_rigidBody->setFriction(1);
+
+	rbLayer = layer;
 }
 
 void RigidBody::UpdateParent()

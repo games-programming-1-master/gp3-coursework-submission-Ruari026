@@ -4,6 +4,12 @@
 
 class RigidBody;
 
+struct GameFilterCallback : public btOverlapFilterCallback
+{
+	// return true when pairs need collision
+	virtual bool needBroadphaseCollision(btBroadphaseProxy* proxy0, btBroadphaseProxy* proxy1) const;
+};
+
 class Physics
 {
 private:
@@ -23,7 +29,6 @@ public:
 	inline btDynamicsWorld* GetWorld() { return GetInstance()->m_world; };
 	void AddRigidbody(RigidBody* r);
 	void RemoveRigidbody(RigidBody* r);
-	void SetRigidbodys(std::vector<RigidBody*> r);
 	void PreUpdate();
 	void Update(float deltaTime);
 	void Quit();

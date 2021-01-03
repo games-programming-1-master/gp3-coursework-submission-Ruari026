@@ -115,7 +115,7 @@ Room_2DoorStraight_TopFloor::Room_2DoorStraight_TopFloor(std::string name) : Ent
 		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
 
 		// Chairs
-		newSpawnPoint = new Entity("Spawn Point (2)");
+		/*newSpawnPoint = new Entity("Spawn Point (2)");
 		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(-5.667f, 0, 2.5f));
 		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 1.5f), glm::vec3(0, 1, 0)));
 		this->AddChild(newSpawnPoint);
@@ -149,11 +149,11 @@ Room_2DoorStraight_TopFloor::Room_2DoorStraight_TopFloor(std::string name) : Ent
 
 		newSpawnPoint->AddComponent<DecorationSpawner>();
 		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_CHAIR);
-		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());*/
 	}
 
 	// Table Set 2
-	{
+	/*{
 		// Main Table
 		Entity* newSpawnPoint = new Entity("Spawn Point (6)");
 		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(-4.5f, 0, -4.0f));
@@ -200,5 +200,5 @@ Room_2DoorStraight_TopFloor::Room_2DoorStraight_TopFloor(std::string name) : Ent
 		newSpawnPoint->AddComponent<DecorationSpawner>();
 		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_CHAIR);
 		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
-	}
+	}*/
 }

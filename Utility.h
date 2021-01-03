@@ -14,6 +14,15 @@ public:
 	static float LerpFloat(float min, float max, float time);
 	static glm::vec3 LerpVec3(glm::vec3 min, glm::vec3 max, float time);
 	
+	static float GetRandomFloat(float min, float max)
+	{
+		std::random_device device;
+		std::mt19937 engine{ device() };
+		std::uniform_real_distribution<float> dist(min, max);
+
+		return dist(engine);
+	}
+
 	template<class T>
 	static T GetRandomFromVector(std::vector<T> vector)
 	{

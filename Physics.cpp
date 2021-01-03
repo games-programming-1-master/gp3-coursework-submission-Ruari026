@@ -2,6 +2,13 @@
 #include "Physics.h"
 #include "RigidBody.h"
 
+
+
+/*
+========================================================================================================================================================================================================
+Base Physics Engine Handling
+========================================================================================================================================================================================================
+*/
 Physics* Physics::m_instance = nullptr;
 
 Physics::Physics()
@@ -11,12 +18,18 @@ Physics::Physics()
 
 void Physics::Init()
 {
-	m_world->setGravity(btVector3(0, -9.8, 0));
+	btOverlapFilterCallback* filterCallback = new GameFilterCallback();
+	m_world->getPairCache()->setOverlapFilterCallback(filterCallback);
+
+	m_world->setGravity(btVector3(0, -9.8, 0));	
 }
 
 void Physics::AddRigidbody(RigidBody* r)
 {
 	m_rbodies.push_back(r);
+
+	r->Get()->setUserPointer(r);
+
 	m_world->addRigidBody(r->Get());
 }
 
@@ -71,4 +84,35 @@ Physics* Physics::GetInstance()
 		m_instance = new Physics();
 	}
 	return m_instance;
+}
+
+
+/*
+========================================================================================================================================================================================================
+Game Specific Collision Callback Functions
+========================================================================================================================================================================================================
+*/
+bool GameFilterCallback::needBroadphaseCollision(btBroadphaseProxy* proxy0, btBroadphaseProxy* proxy1) const
+{
+	// General collision check
+	bool collides = (proxy0->m_collisionFilterGroup & proxy1->m_collisionFilterMask) != 0;
+	collides = collides && (proxy1->m_collisionFilterGroup & proxy0->m_collisionFilterMask);
+
+	//add some additional logic here that modified 'collides'
+	btCollisionObject* client0 = (btCollisionObject*)proxy0->m_clientObject;
+	RigidBody* r0 = (RigidBody*)client0->getUserPointer();
+
+	btCollisionObject* client1 = (btCollisionObject*)proxy1->m_clientObject;
+	RigidBody* r1 = (RigidBody*)client1->getUserPointer();
+
+	// Prevents decorations colliding with other decorations
+	if (r0 != nullptr && r1 != nullptr)
+	{
+		if ((r0->GetRigidBodyLayer() == RigidBodyLayer::RB_LAYER_DECORATION) && (r1->GetRigidBodyLayer() == RigidBodyLayer::RB_LAYER_DECORATION))
+		{
+			return false;
+		}
+	}
+
+	return collides;
 }

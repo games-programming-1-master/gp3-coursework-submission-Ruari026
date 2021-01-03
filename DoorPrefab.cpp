@@ -22,7 +22,6 @@ DoorPrefab::DoorPrefab(std::string name) : Entity(name)
 			Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 	);
 
-
 	// Adding Doors
 	Entity* leftDoor = new Entity("Left Door");
 	leftDoor->GetTransform()->SetLocalPosition(glm::vec3(0.5f, 1.25f, 0));
@@ -34,8 +33,10 @@ DoorPrefab::DoorPrefab(std::string name) : Entity(name)
 			Resources::GetInstance()->GetTexture("Images/Textures/WoodPlanks (Simple).png"))
 	);
 	leftDoor->AddComponent<RigidBody>();
-	leftDoor->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 1.25f, 0.125f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-	leftDoor->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+	leftDoor->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 1.25f, 0.125f)), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+	leftDoor->GetComponent<RigidBody>()->Get()->setMassProps(1, btVector3(1.0f, 1.0f, 1.0f));
+	leftDoor->GetComponent<RigidBody>()->Get()->setLinearFactor(btVector3(0, 0, 0));
+	leftDoor->GetComponent<RigidBody>()->Get()->setAngularFactor(btVector3(0, 0, 0));
 
 	Entity* rightDoor = new Entity("Right Door");
 	rightDoor->GetTransform()->SetLocalPosition(glm::vec3(-0.5f, 1.25f, 0));
@@ -48,8 +49,10 @@ DoorPrefab::DoorPrefab(std::string name) : Entity(name)
 			Resources::GetInstance()->GetTexture("Images/Textures/WoodPlanks (Simple).png"))
 	);
 	rightDoor->AddComponent<RigidBody>();
-	rightDoor->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 1.25f, 0.125f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-	rightDoor->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+	rightDoor->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 1.25f, 0.125f)), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+	rightDoor->GetComponent<RigidBody>()->Get()->setMassProps(1, btVector3(1.0f, 1.0f, 1.0f));
+	rightDoor->GetComponent<RigidBody>()->Get()->setLinearFactor(btVector3(0, 0, 0));
+	rightDoor->GetComponent<RigidBody>()->Get()->setAngularFactor(btVector3(0, 0, 0));
 
 
 	// Adding Decoration

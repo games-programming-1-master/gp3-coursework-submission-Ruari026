@@ -4,10 +4,9 @@
 
 class InteractableObject : public Component
 {
-private:
+protected:
 	Entity* thePlayer;
 
-protected:
 	float interactionDistance = 3.0f;
 	float interactionViewRange = 0.5f;
 
