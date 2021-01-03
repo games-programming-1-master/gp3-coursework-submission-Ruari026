@@ -146,7 +146,7 @@ void Application::GameInit()
 	Log::NewLine();
 
 	// Loading All Scenes
-	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_GAMEPLAY);
+	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_MAINMENU);
 
 	// Can't release unused resources due to the main game scene using procedural generation to create levels
 	//Resources::GetInstance()->ReleaseUnusedResources();

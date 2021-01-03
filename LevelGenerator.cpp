@@ -4,12 +4,6 @@
 #include "Utility.h"
 #include "SceneManager.h"
 
-#include "Room_1Door_Normal.h"
-#include "Room_2DoorCorner_Normal.h"
-#include "Room_2DoorStraight_Normal.h"
-#include "Room_3Door_Normal.h"
-#include "Room_4Door_Normal.h"
-
 #include "DoorPrefab.h"
 
 LevelGenerator::LevelGenerator()
@@ -216,95 +210,41 @@ void LevelGenerator::SpawnRoomPrefabs()
 		// Delegating room spawning behaviour to individual factorys based on roomtype (rooms with top floors have very specific behaviour)
 		switch (r->GetRoomType())
 		{
+			case (RoomTypes::ROOMTYPE_NORMAL):
+			{
+				newRoom = normalFactory.CreateRoom(r);
+			}
+			break;
 
+			case (RoomTypes::ROOMTYPE_TOPFLOOR):
+			{
+				newRoom = topFloorFactory.CreateRoom(r);
+			}
+			break;
+
+			case (RoomTypes::ROOMTYPE_ENTRANCE):
+			{
+				newRoom = entranceExitFactory.CreateRoom(r);
+			}
+			break;
+
+			case (RoomTypes::ROOMTYPE_EXIT):
+			{
+				newRoom = entranceExitFactory.CreateRoom(r);
+			}
+			break;
 		}
 
-
-		// Determining what room to spawn & orientation
-		std::vector<Directions> connectionDirections = r->GetConnectionDirections();
-		switch (connectionDirections.size())
+		// Checking if any rooms weren't spawned properly
+		if (newRoom == nullptr)
 		{
-			case(1):
-			{
-				newRoom = new Room_1Door_Normal("Room_1Door");
-
-				int rotationAmount = (int)connectionDirections[0] - (int)Directions::DOWN;
-				newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-			}
-			break;
-
-			case(2):
-			{
-				// Special Case for 2 door rooms (connections can be opposite or next to each other)
-				if (connectionDirections[0] == DirectionsUtility::GetOppositeDirection(connectionDirections[1]))
-				{
-					newRoom = new Room_2DoorStraight_Normal("Room_Straight");
-
-					if (Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::LEFT, connectionDirections))
-					{
-						int rotationAmount = 1;
-						newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-					}
-				}
-				else
-				{
-					newRoom = new Room_2DoorCorner_Normal("Room_Corner");
-					
-					if (Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::DOWN, connectionDirections))
-					{
-						int rotationAmount = 1;
-						newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-					}
-					else if (Utility::VectorContains(Directions::DOWN, connectionDirections) && Utility::VectorContains(Directions::LEFT, connectionDirections))
-					{
-						int rotationAmount = 2;
-						newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-					}
-					else if (Utility::VectorContains(Directions::LEFT, connectionDirections) && Utility::VectorContains(Directions::UP, connectionDirections))
-					{
-						int rotationAmount = 3;
-						newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-					}
-				}
-			}
-			break;
-
-			case(3):
-			{
-				newRoom = new Room_3Door_Normal("Room_3Door");
-
-				if (Utility::VectorContains(Directions::LEFT, connectionDirections) && Utility::VectorContains(Directions::UP, connectionDirections) && Utility::VectorContains(Directions::RIGHT, connectionDirections))
-				{
-					int rotationAmount = 1;
-					newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-				}
-				else if (Utility::VectorContains(Directions::UP, connectionDirections) && Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::DOWN, connectionDirections))
-				{
-					int rotationAmount = 2;
-					newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-				}
-				else if (Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::DOWN, connectionDirections) && Utility::VectorContains(Directions::LEFT, connectionDirections))
-				{
-					int rotationAmount = 3;
-					newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-				}
-			}
-			break;
-
-			case(4):
-			{
-				newRoom = new Room_4Door_Normal("Room_4Door");
-
-				// No specific rotation required for a 4 door room, can give it a random rotation
-			}
-			break;
+			
 		}
-
-		// Handling room positioning
-		newRoom->GetTransform()->SetGlobalPosition(glm::vec3(r->GetRoomPos().x * 18.5f, 0.0f, r->GetRoomPos().y * 18.5f));
-
-		spawnedRooms.push_back(std::tuple<RoomTypes, RoomController*>(r->GetRoomType(), newRoom->GetComponent<RoomController>()));
-		this->m_entity->AddChild(newRoom);
+		else
+		{
+			spawnedRooms.push_back(std::tuple<RoomTypes, RoomController*>(r->GetRoomType(), newRoom->GetComponent<RoomController>()));
+			this->m_entity->AddChild(newRoom);
+		}
 	}
 }
 

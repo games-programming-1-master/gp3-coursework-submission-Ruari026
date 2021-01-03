@@ -39,12 +39,12 @@ void InteractableDoor::OnUpdate(float deltaTime)
 
 		// Handling Left Door
 		glm::vec3 newLeftPos = leftDoor->GetTransform()->GetLocalPosition();
-		newLeftPos.x = Utility::LerpFloat(0.5f, 1.45f, time);
+		newLeftPos.x = Utility::LerpFloat(0.5f, 1.4f, time);
 		leftDoor->GetTransform()->SetLocalPosition(newLeftPos);
 
 		// Handling Right Door
 		glm::vec3 newRightPos = rightDoor->GetTransform()->GetLocalPosition();
-		newRightPos.x = Utility::LerpFloat(-0.5f, -1.45f, time);
+		newRightPos.x = Utility::LerpFloat(-0.5f, -1.4f, time);
 		rightDoor->GetTransform()->SetLocalPosition(newRightPos);
 	}
 }

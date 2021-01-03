@@ -3,6 +3,10 @@
 #include "GenerationData.h"
 #include "RoomController.h"
 
+#include "NormalRoomFactory.h"
+#include "TopFloorRoomFactory.h"
+#include "EntranceExitRoomFactory.h"
+
 class LevelGenerator : public Component
 {	
 private:
@@ -18,6 +22,11 @@ private:
 	void PickMimicRooms();
 	void SpawnRoomDecorations();
 	void SpawnDoorPrefabs();
+
+	// Individual factorys to delegate room spawning types
+	NormalRoomFactory normalFactory;
+	TopFloorRoomFactory topFloorFactory;
+	EntranceExitRoomFactory entranceExitFactory;
 
 public:
 	LevelGenerator();

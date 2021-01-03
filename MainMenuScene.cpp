@@ -8,6 +8,7 @@
 #include "OptionsMenuButton_Normal_Prefab.h"
 #include "OptionsMenuButton_Small_Prefab.h"
 #include "Room_2DoorCorner_TopFloor.h"
+#include "DoorPrefab.h"
 
 // Other Required Components
 #include "TextRenderer.h"
@@ -58,7 +59,10 @@ MainMenuScene::MainMenuScene()
 	Entity* backgroundRoom = new Room_2DoorCorner_TopFloor("Background Room");
 	m_entities.push_back(backgroundRoom);
 
-
+	Entity* backgroundDoor = new DoorPrefab("Background Door");
+	backgroundDoor->GetTransform()->SetGlobalPosition(glm::vec3(-9.25f, 0, 0));
+	backgroundDoor->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+	m_entities.push_back(backgroundDoor);
 
 	// ---------- Main Menu Specific UI Entitys ----------
 	{

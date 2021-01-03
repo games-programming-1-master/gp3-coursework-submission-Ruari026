@@ -15,50 +15,45 @@
 // 4 Door Room Prefabs
 #include "RoomPrefab_4Door.h"
 
-Entity* NormalRoomFactory::CreateRoom(LevelRoom* roomData)
+
+/*
+============================================================================================================================================================================================================================================================================================================
+Specific Room Spawning
+============================================================================================================================================================================================================================================================================================================
+*/
+Entity* NormalRoomFactory::Spawn1DoorRoom(LevelRoom* roomData)
 {
-	Entity* newRoom = nullptr;
+	return new Room_1Door_Normal("");
+}
 
-	switch (roomData->GetNumberOfConnections())
-	{
-		case (1):
-		{
-			// 1 Door Room
-			newRoom = new Room_1Door_Normal("Room 1 Door");
-		}
-		break;
+Entity* NormalRoomFactory::Spawn2DoorStraightRoom(LevelRoom* roomData)
+{
+	return new Room_2DoorStraight_Normal("");
+}
 
-		case (2):
-		{
-			// Checking if room is a straight room or corner room
-			std::vector<Directions> connectionDirections = roomData->GetConnectionDirections();
-			if (connectionDirections[0] == DirectionsUtility::GetOppositeDirection(connectionDirections[1]))
-			{
-				// 2 Door - Straight Room
-			}
-			else
-			{
-				// 2 Door - Corner Room
-			}
-		}
-		break;
+Entity* NormalRoomFactory::Spawn2DoorCornerRoom(LevelRoom* roomData)
+{
+	return new Room_2DoorCorner_Normal("");
+}
 
-		case (3):
-		{
-			// 3 Door Room
-		}
-		break;
+Entity* NormalRoomFactory::Spawn3DoorRoom(LevelRoom* roomData)
+{
+	return new Room_3Door_Normal("");
+}
 
-		default:
-		{
-			// Defaults to spawning a basic 4 door room (it shouldn't happen so also throws error)
-			newRoom = new RoomPrefab_4Door("Error");
-			Log::Debug("ERROR: 4 Door Room Spawned", "NormalRoomFactory.cpp", 33);
-		}
-		break;
-	}
+Entity* NormalRoomFactory::Spawn4DoorRoom(LevelRoom* roomData)
+{
+	return new RoomPrefab_4Door("");
+}
 
-	// Ensure that room is properly rotated
-	RotateRoom(roomData, newRoom);
-	return newRoom;
+
+
+/*
+============================================================================================================================================================================================================================================================================================================
+Other spawning requirements
+============================================================================================================================================================================================================================================================================================================
+*/
+void NormalRoomFactory::HandleSpecificDecoration(Entity* newRoom)
+{
+
 }
