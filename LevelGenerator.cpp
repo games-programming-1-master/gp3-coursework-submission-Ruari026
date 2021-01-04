@@ -20,10 +20,25 @@ void LevelGenerator::OnStart()
 	// Gets the level size based on level number in persistant data
 	int levelSize = 12;
 
+	generatedLayout.AddRoom(glm::ivec2(0, 0));
+
+	generatedLayout.AddRoom(glm::ivec2(1, 0));
+	generatedLayout.AddRoom(glm::ivec2(2, 0));
+	generatedLayout.AddRoom(glm::ivec2(2, 1));
+
+	generatedLayout.AddRoom(glm::ivec2(0, 1));
+	generatedLayout.AddRoom(glm::ivec2(0, 2));
+	generatedLayout.AddRoom(glm::ivec2(1, 2));
+
+	for (auto& y : generatedLayout.GetRooms())
+	{
+		y->SetRoomType(RoomTypes::ROOMTYPE_TOPFLOOR);
+	}
+
 	// Calculating where the rooms will be and how they connect to each other
-	PickRoomPoints(levelSize);
+	// PickRoomPoints(levelSize);
 	// Adding required special rooms (start and end points) and decorative special rooms (only balcony rooms, if more would be added it would be done here)
-	SetSpecialRooms(levelSize);
+	// SetSpecialRooms(levelSize);
 
 	// Debugging generated level
 	Log::Debug("Level Generated", "LevelGenerator.cpp", 34);

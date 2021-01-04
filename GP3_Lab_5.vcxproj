@@ -278,6 +278,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="RoomPrefab_Corner.cpp" />
     <ClCompile Include="RoomPrefab_Straight.cpp" />
     <ClCompile Include="Room_1Door_Normal.cpp" />
+    <ClCompile Include="Room_1Door_TopFloor.cpp" />
     <ClCompile Include="Room_2DoorCorner_DownLeft_TopFloor.cpp" />
     <ClCompile Include="Room_2DoorCorner_LeftUp_TopFloor.cpp" />
     <ClCompile Include="Room_2DoorCorner_Normal.cpp" />
@@ -378,6 +379,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="RoomPrefab_Straight.h" />
     <ClInclude Include="RoomTypes.h" />
     <ClInclude Include="Room_1Door_Normal.h" />
+    <ClInclude Include="Room_1Door_TopFloor.h" />
     <ClInclude Include="Room_2DoorCorner_DownLeft_TopFloor.h" />
     <ClInclude Include="Room_2DoorCorner_LeftUp_TopFloor.h" />
     <ClInclude Include="Room_2DoorCorner_Normal.h" />

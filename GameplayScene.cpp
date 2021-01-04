@@ -52,7 +52,7 @@ GameplayScene::GameplayScene()
 	Entity* levelManager = new Entity("Level Manager");
 	m_entities.push_back(levelManager);
 	levelManager->AddComponent<LevelManager>();
-	//levelManager->AddComponent<LevelGenerator>();
+	levelManager->AddComponent<LevelGenerator>();
 
 	// UI Parents to enable hiding/ showing many related UI elements at once
 	Entity* gameplayUIParent = new Entity("Gameplay UI");
@@ -68,7 +68,7 @@ GameplayScene::GameplayScene()
 
 	// ---------- Testing out decorated rooms ----------
 	{
-		Entity* testRoom = new Room_2DoorCorner_RightDown_TopFloor("Test Room");
+		/*Entity* testRoom = new Room_2DoorCorner_RightDown_TopFloor("Test Room");
 		int r = 0;
 		testRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI / 2 * r), glm::vec3(0, 1, 0)));
 		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 0));
@@ -79,7 +79,7 @@ GameplayScene::GameplayScene()
 		r = -1;
 		testRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI / 2 * r), glm::vec3(0, 1, 0)));
 		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(-18.5f, 0, 0));
-		m_entities.push_back(testRoom);
+		m_entities.push_back(testRoom);*/
 	}
 
 

@@ -1,6 +1,7 @@
 #include "TopFloorRoomFactory.h"
 
 // 1 Door Room Prefabs
+#include "Room_1Door_TopFloor.h"
 
 // 2 Door Straight Room Prefabs
 #include "Room_2DoorStraight_TopFloor.h"
@@ -28,7 +29,7 @@ Specific Room Spawning
 */
 Entity* TopFloorRoomFactory::Spawn1DoorRoom(LevelRoom* roomData)
 {
-	return nullptr;
+	return new Room_1Door_TopFloor("");
 }
 
 Entity* TopFloorRoomFactory::Spawn2DoorStraightRoom(LevelRoom* roomData)
@@ -43,19 +44,19 @@ Entity* TopFloorRoomFactory::Spawn2DoorCornerRoom(LevelRoom* roomData)
 	std::vector<Directions> connections = roomData->GetConnectionDirections();
 	if (Utility::VectorContains(Directions::UP, connections) && Utility::VectorContains(Directions::RIGHT, connections))
 	{
-		newRoom = new Room_2DoorCorner_DownLeft_TopFloor("");
+		newRoom = new Room_2DoorCorner_UpRight_TopFloor("");
 	}
 	else if (Utility::VectorContains(Directions::RIGHT, connections) && Utility::VectorContains(Directions::DOWN, connections))
 	{
-		newRoom = new Room_2DoorCorner_LeftUp_TopFloor("");
+		newRoom = new Room_2DoorCorner_RightDown_TopFloor("");
 	}
 	else if (Utility::VectorContains(Directions::DOWN, connections) && Utility::VectorContains(Directions::LEFT, connections))
 	{
-		newRoom = new Room_2DoorCorner_UpRight_TopFloor("");
+		newRoom = new Room_2DoorCorner_DownLeft_TopFloor("");
 	}
 	else if (Utility::VectorContains(Directions::LEFT, connections) && Utility::VectorContains(Directions::UP, connections))
 	{
-		newRoom = new Room_2DoorCorner_RightDown_TopFloor("");
+		newRoom = new Room_2DoorCorner_LeftUp_TopFloor("");
 	}
 
 	return newRoom;

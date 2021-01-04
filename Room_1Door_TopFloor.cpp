@@ -1,26 +1,26 @@
-#include "Room_2DoorCorner_DownLeft_TopFloor.h"
+#include "Room_1Door_TopFloor.h"
 
 // Required Components
 #include "DecorationSpawner.h"
 #include "RoomController.h"
 
 // Required Prefabs
-#include "RoomPrefab_Corner.h"
+#include "RoomPrefab_1Door.h"
 #include "TallPillar_Half_Prefab.h"
 #include "TallPillar_Quarter_Prefab.h"
 #include "ShortPillar_Full_Prefab.h"
 #include "ShortPillar_Half_Prefab.h"
 #include "ShortPillar_Quarter_Prefab.h"
-#include "TopFloor_Corner_Prefab.h"
+#include "TopFloor_Straight_Prefab.h"
 
-Room_2DoorCorner_DownLeft_TopFloor::Room_2DoorCorner_DownLeft_TopFloor(std::string name) : Entity(name)
+Room_1Door_TopFloor::Room_1Door_TopFloor(std::string name) : Entity(name)
 {
 	// All Decorated Rooms Require a Controller
 	this->AddComponent<RoomController>();
 
 
 	// Parent Prefab to build off from
-	Entity* parentPrefab = new RoomPrefab_Corner("2DoorCorner_Base");
+	Entity* parentPrefab = new RoomPrefab_1Door("2DoorCorner_Base");
 	this->AddChild(parentPrefab);
 
 
@@ -93,14 +93,10 @@ Room_2DoorCorner_DownLeft_TopFloor::Room_2DoorCorner_DownLeft_TopFloor(std::stri
 	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(-2.5f, 1.75f, 2.5f));
 	this->AddChild(middlePillar);
 
-	middlePillar = new ShortPillar_Full_Prefab("MiddlePillar (4)");
-	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 1.75f, -2.5f));
-	this->AddChild(middlePillar);
-
 
 	// Adding Decorative Top Floor
-	Entity* topFloor = new TopFloor_Corner_Prefab("TopFloor");
+	Entity* topFloor = new TopFloor_Straight_Prefab("TopFloor");
 	topFloor->GetTransform()->SetLocalPosition(glm::vec3(0.0f, 3.0f, 0.0f));
-	topFloor->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+	topFloor->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * -0.5f), glm::vec3(0, 1, 0)));
 	this->AddChild(topFloor);
 }

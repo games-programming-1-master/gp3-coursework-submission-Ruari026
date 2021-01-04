@@ -11,7 +11,7 @@
 #include "ShortPillar_Full_Prefab.h"
 #include "ShortPillar_Half_Prefab.h"
 #include "ShortPillar_Quarter_Prefab.h"
-#include "TopFloor_Corner_Prefab.h"
+#include "TopFloor_Straight_Prefab.h"
 
 Room_2DoorCorner_RightDown_TopFloor::Room_2DoorCorner_RightDown_TopFloor(std::string name) : Entity(name)
 {
@@ -86,21 +86,17 @@ Room_2DoorCorner_RightDown_TopFloor::Room_2DoorCorner_RightDown_TopFloor(std::st
 
 	// Adding Center Pillars
 	Entity* middlePillar = new ShortPillar_Full_Prefab("MiddlePillar (1)");
-	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 1.75f, 2.5f));
+	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 1.75f, -2.5f));
 	this->AddChild(middlePillar);
 
 	middlePillar = new ShortPillar_Full_Prefab("MiddlePillar (2)");
-	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(-2.5f, 1.75f, 2.5f));
-	this->AddChild(middlePillar);
-
-	middlePillar = new ShortPillar_Full_Prefab("MiddlePillar (4)");
-	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 1.75f, -2.5f));
+	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(-2.5f, 1.75f, -2.5f));
 	this->AddChild(middlePillar);
 
 
 	// Adding Decorative Top Floor
-	Entity* topFloor = new TopFloor_Corner_Prefab("TopFloor");
+	Entity* topFloor = new TopFloor_Straight_Prefab("TopFloor");
 	topFloor->GetTransform()->SetLocalPosition(glm::vec3(0.0f, 3.0f, 0.0f));
-	topFloor->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+	topFloor->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
 	this->AddChild(topFloor);
 }

@@ -85,6 +85,11 @@ void RoomFactory::RotateRoom(Entity* newRoom, LevelRoom* roomData)
 				int rotationAmount = 1;
 				newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
 			}
+			else
+			{
+				int rotationAmount = 2;
+				newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
+			}
 		}
 		else
 		{
