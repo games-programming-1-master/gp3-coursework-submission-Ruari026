@@ -528,6 +528,30 @@
     <ClCompile Include="HedgeMimic_Small_Prefab.cpp">
       <Filter>Source Files\Prefabs\Mimics</Filter>
     </ClCompile>
+    <ClCompile Include="Room_1Door_Entrance.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\1Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorCorner_Entrance.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\2Door-Corner</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorStraight_Entrance.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\2Door-Straight</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_3Door_Entrance.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\3Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_1DoorExit.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\1Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorCorner_Exit.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\2Door-Corner</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorStraight_Exit.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\2Door-Straight</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_3Door_Exit.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\3Door</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -844,6 +868,30 @@
     </ClInclude>
     <ClInclude Include="HedgeMimic_Small_Prefab.h">
       <Filter>Header Files\Prefabs\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_1Door_Entrance.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\1Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_1DoorExit.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\1Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorCorner_Entrance.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\2Door-Corner</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorCorner_Exit.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\2Door-Corner</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorStraight_Entrance.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\2Door-Straight</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorStraight_Exit.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\2Door-Straight</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_3Door_Entrance.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\3Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_3Door_Exit.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\3Door</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

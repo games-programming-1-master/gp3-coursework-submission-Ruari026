@@ -97,4 +97,128 @@ Room_1Door_Normal::Room_1Door_Normal(std::string name) : Entity(name)
 	middlePillar = new TallPillar_Full_Prefab("MiddlePillar (4)");
 	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 3.5f, -2.5f));
 	this->AddChild(middlePillar);
+
+
+	// Adding Decoration/ Mimic Spawn Points
+	// Hedge Walls 1
+	{
+		Entity* newSpawnPoint = new Entity("Spawn Point (1)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(2.5f, 0, 5.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_LARGEHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+
+		newSpawnPoint = new Entity("Spawn Point (2)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(2.5f, 0, -5.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_LARGEHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+	}
+
+	// Hedge Walls 2
+	{
+		Entity* newSpawnPoint = new Entity("Spawn Point (1)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(-2.5f, 0, 5.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_LARGEHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+
+		newSpawnPoint = new Entity("Spawn Point (2)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(-2.5f, 0, -5.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_LARGEHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+	}
+
+	// Small Hedges
+	{
+		Entity* newSpawnPoint = new Entity("Spawn Point (1)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(-8.5f, 0, 0.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_SMALLHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (2)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(-8.5f, 0, -0.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_SMALLHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (3)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(8.5f, 0, 0.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_SMALLHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (4)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(8.5f, 0, -0.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_SMALLHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+	}
+
+	// Side Tables
+	{
+		Entity* newSpawnPoint = new Entity("Spawn Point (1)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(-5.75f, 0, 5.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_TABLE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (2)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(-5.75f, 0, -5.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_TABLE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (3)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(5.75f, 0, 5.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_TABLE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (4)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(5.75f, 0, -5.75f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_TABLE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+	}
 }

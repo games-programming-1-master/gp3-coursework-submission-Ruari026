@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "PersistantData.h"
 #include "LevelGenerator.h"
 #include "Entity.h"
 #include "Utility.h"
@@ -18,7 +19,7 @@ LevelGenerator::~LevelGenerator()
 void LevelGenerator::OnStart()
 {
 	// Gets the level size based on level number in persistant data
-	int levelSize = 12;
+	int levelSize = PersistantData::GetInstance()->GetCurrentLevel() + 7;
 
 	// Calculating where the rooms will be and how they connect to each other
 	PickRoomPoints(levelSize);

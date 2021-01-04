@@ -36,6 +36,12 @@ Handling Spawning Mimics & Decorations
 */
 bool RoomController::IncreaseMimicsToSpawn()
 {
+	// Can't spawn a mimic if the room doesn't contain any spawn points
+	if (roomDecorationSpawners.size() == 0)
+	{
+		return false;
+	}
+
 	// A room should never have to spawn more than 2 mimics
 	if (mimicsToSpawn == 2)
 	{
