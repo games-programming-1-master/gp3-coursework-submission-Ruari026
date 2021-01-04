@@ -101,4 +101,38 @@ Room_3Door_NoUp_TopFloor::Room_3Door_NoUp_TopFloor(std::string name) : Entity(na
 	topFloor->GetTransform()->SetLocalPosition(glm::vec3(0.0f, 3.0f, 0.0f));
 	topFloor->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * -0.5f), glm::vec3(0, 1, 0)));
 	this->AddChild(topFloor);
+
+
+	// Adding Decoration/ Mimic Spawn Points
+	// Table Set 1
+	{
+		// Main Table
+		Entity* newSpawnPoint = new Entity("Spawn Point (1)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(5.75f, 0, -7.0f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_TABLE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		// Chairs
+		newSpawnPoint = new Entity("Spawn Point (2)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(6.917f, 0, -5.5f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_CHAIR);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (3)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(4.584f, 0, -5.5f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_CHAIR);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+	}
 }

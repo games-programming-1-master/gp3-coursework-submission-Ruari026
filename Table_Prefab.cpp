@@ -20,8 +20,8 @@ Table_Prefab::Table_Prefab(std::string name) : Entity(name)
 
 	// Collider
 	this->AddComponent<RigidBody>();
-	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(1.275f, 0.55f, 2.4f)), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f), RigidBodyLayer::RB_LAYER_DECORATION);
-	//this->GetComponent<RigidBody>()->Get()->setMassProps(1, btVector3());
+	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(1.275f, 0.55f, 2.4f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f), RigidBodyLayer::RB_LAYER_DECORATION);
+	this->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 
 	RigidBody* rb = this->GetComponent<RigidBody>();
 	rb->Get();

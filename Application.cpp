@@ -90,10 +90,13 @@ void Application::GameInit()
 	// Models - Room decorations
 	Resources::GetInstance()->AddModel("Models/TopFloor (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/TopFloor (Corner).obj");
+	Resources::GetInstance()->AddModel("Models/TopFloor (Single).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Corner).obj");
+	Resources::GetInstance()->AddModel("Models/Banner (Single).obj");
 	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Corner).obj");
+	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Single).obj");
 	Resources::GetInstance()->AddModel("Models/ShortPillar (Full).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Full).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Half).obj");
@@ -146,7 +149,7 @@ void Application::GameInit()
 	Log::NewLine();
 
 	// Loading All Scenes
-	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_MAINMENU);
+	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_GAMEPLAY);
 
 	// Can't release unused resources due to the main game scene using procedural generation to create levels
 	//Resources::GetInstance()->ReleaseUnusedResources();

@@ -513,6 +513,9 @@
     <ClCompile Include="Room_1Door_TopFloor.cpp">
       <Filter>Source Files\Prefabs\TopFloorRooms\1Door</Filter>
     </ClCompile>
+    <ClCompile Include="TopFloor_Single_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Floors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -814,6 +817,9 @@
     </ClInclude>
     <ClInclude Include="Room_1Door_TopFloor.h">
       <Filter>Header Files\Prefabs\TopFloorRooms\1Door</Filter>
+    </ClInclude>
+    <ClInclude Include="TopFloor_Single_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Floors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

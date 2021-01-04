@@ -63,7 +63,7 @@ void DecorationSpawner::SpawnDecoration()
 			this->m_entity->AddChild(newTable);
 
 			// Need to adjust y position for table height
-			newTable->GetTransform()->SetLocalPosition(glm::vec3(0, 3.05f, 0));
+			newTable->GetTransform()->SetLocalPosition(glm::vec3(0, 0.55f, 0));
 		}
 		break;
 

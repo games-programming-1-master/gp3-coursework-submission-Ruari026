@@ -19,10 +19,7 @@
 #include "PauseMenuButton_Prefab.h"
 
 // Testing rooms
-#include "Room_2DoorCorner_UpRight_TopFloor.h"
-#include "Room_2DoorCorner_RightDown_TopFloor.h"
-#include "Room_2DoorCorner_DownLeft_TopFloor.h"
-#include "Room_2DoorCorner_LeftUp_TopFloor.h"
+#include "Room_3Door_NoUp_TopFloor.h"
 
 GameplayScene::GameplayScene()
 {
@@ -68,17 +65,7 @@ GameplayScene::GameplayScene()
 
 	// ---------- Testing out decorated rooms ----------
 	{
-		/*Entity* testRoom = new Room_2DoorCorner_RightDown_TopFloor("Test Room");
-		int r = 0;
-		testRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI / 2 * r), glm::vec3(0, 1, 0)));
-		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 0));
-		m_entities.push_back(testRoom);
-
-
-		testRoom = new Room_2DoorCorner_DownLeft_TopFloor("Test Room");
-		r = -1;
-		testRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI / 2 * r), glm::vec3(0, 1, 0)));
-		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(-18.5f, 0, 0));
+		/*Entity* testRoom = new Room_3Door_NoUp_TopFloor("Test Room");
 		m_entities.push_back(testRoom);*/
 	}
 
