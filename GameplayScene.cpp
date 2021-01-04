@@ -18,10 +18,11 @@
 #include "PauseMenuButton.h"
 #include "PauseMenuButton_Prefab.h"
 
-// Testing out prefabs TODO: Remove before final build
-#include "Room_2DoorCorner_TopFloor.h"
-#include "Room_2DoorStraight_TopFloor.h"
-#include "Room_3Door_TopFloor.h"
+// Testing rooms
+#include "Room_2DoorCorner_UpRight_TopFloor.h"
+#include "Room_2DoorCorner_RightDown_TopFloor.h"
+#include "Room_2DoorCorner_DownLeft_TopFloor.h"
+#include "Room_2DoorCorner_LeftUp_TopFloor.h"
 
 GameplayScene::GameplayScene()
 {
@@ -51,7 +52,7 @@ GameplayScene::GameplayScene()
 	Entity* levelManager = new Entity("Level Manager");
 	m_entities.push_back(levelManager);
 	levelManager->AddComponent<LevelManager>();
-	levelManager->AddComponent<LevelGenerator>();
+	//levelManager->AddComponent<LevelGenerator>();
 
 	// UI Parents to enable hiding/ showing many related UI elements at once
 	Entity* gameplayUIParent = new Entity("Gameplay UI");
@@ -67,19 +68,18 @@ GameplayScene::GameplayScene()
 
 	// ---------- Testing out decorated rooms ----------
 	{
-		/*Entity* testRoom = new Room_2DoorStraight_TopFloor("Test Room");
+		Entity* testRoom = new Room_2DoorCorner_RightDown_TopFloor("Test Room");
+		int r = 0;
+		testRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI / 2 * r), glm::vec3(0, 1, 0)));
 		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 0));
 		m_entities.push_back(testRoom);
 
-		testRoom->GetComponent<RoomController>()->IncreaseMimicsToSpawn();*/
 
-		/*testRoom = new Room_3Door_TopFloor("Test Room");
-		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 18.5f));
+		testRoom = new Room_2DoorCorner_DownLeft_TopFloor("Test Room");
+		r = -1;
+		testRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI / 2 * r), glm::vec3(0, 1, 0)));
+		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(-18.5f, 0, 0));
 		m_entities.push_back(testRoom);
-
-		testRoom = new Room_2DoorCorner_TopFloor("Test Room");
-		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 18.5f * 1));
-		m_entities.push_back(testRoom);*/
 	}
 
 

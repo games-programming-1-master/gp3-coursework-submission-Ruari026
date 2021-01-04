@@ -7,7 +7,7 @@
 #include "MainMenuButton_Prefab.h"
 #include "OptionsMenuButton_Normal_Prefab.h"
 #include "OptionsMenuButton_Small_Prefab.h"
-#include "Room_2DoorCorner_TopFloor.h"
+#include "Room_2DoorCorner_RightDown_TopFloor.h"
 #include "DoorPrefab.h"
 
 // Other Required Components
@@ -56,7 +56,7 @@ MainMenuScene::MainMenuScene()
 
 
 	// ---------- Spawning Background Environment ----------
-	Entity* backgroundRoom = new Room_2DoorCorner_TopFloor("Background Room");
+	Entity* backgroundRoom = new Room_2DoorCorner_RightDown_TopFloor("Background Room");
 	m_entities.push_back(backgroundRoom);
 
 	Entity* backgroundDoor = new DoorPrefab("Background Door");

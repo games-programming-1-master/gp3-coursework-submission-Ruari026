@@ -6,10 +6,16 @@
 #include "Room_2DoorStraight_TopFloor.h"
 
 // 2 Door Corner Room Prefabs
-#include "Room_2DoorCorner_TopFloor.h"
+#include "Room_2DoorCorner_UpRight_TopFloor.h"
+#include "Room_2DoorCorner_RightDown_TopFloor.h"
+#include "Room_2DoorCorner_DownLeft_TopFloor.h"
+#include "Room_2DoorCorner_LeftUp_TopFloor.h"
 
 // 3 Door Room Prefabs
-#include "Room_3Door_TopFloor.h"
+#include "Room_3Door_NoLeft_TopFloor.h"
+#include "Room_3Door_NoUp_TopFloor.h"
+#include "Room_3Door_NoRight_TopFloor.h"
+#include "Room_3Door_NoDown_TopFloor.h"
 
 // 4 Door Room Prefabs
 #include "RoomPrefab_4Door.h"
@@ -32,13 +38,52 @@ Entity* TopFloorRoomFactory::Spawn2DoorStraightRoom(LevelRoom* roomData)
 
 Entity* TopFloorRoomFactory::Spawn2DoorCornerRoom(LevelRoom* roomData)
 {
-	return new Room_2DoorCorner_TopFloor("");
+	Entity* newRoom = nullptr;
+
+	std::vector<Directions> connections = roomData->GetConnectionDirections();
+	if (Utility::VectorContains(Directions::UP, connections) && Utility::VectorContains(Directions::RIGHT, connections))
+	{
+		newRoom = new Room_2DoorCorner_DownLeft_TopFloor("");
+	}
+	else if (Utility::VectorContains(Directions::RIGHT, connections) && Utility::VectorContains(Directions::DOWN, connections))
+	{
+		newRoom = new Room_2DoorCorner_LeftUp_TopFloor("");
+	}
+	else if (Utility::VectorContains(Directions::DOWN, connections) && Utility::VectorContains(Directions::LEFT, connections))
+	{
+		newRoom = new Room_2DoorCorner_UpRight_TopFloor("");
+	}
+	else if (Utility::VectorContains(Directions::LEFT, connections) && Utility::VectorContains(Directions::UP, connections))
+	{
+		newRoom = new Room_2DoorCorner_RightDown_TopFloor("");
+	}
+
+	return newRoom;
 }
 
 Entity* TopFloorRoomFactory::Spawn3DoorRoom(LevelRoom* roomData)
 {
-	return nullptr;
-	//return new Room_3Door_TopFloor("");
+	Entity* newRoom = nullptr;
+
+	std::vector<Directions> connections = roomData->GetConnectionDirections();
+	if (!Utility::VectorContains(Directions::UP, connections))
+	{
+		newRoom = new Room_3Door_NoUp_TopFloor("");
+	}
+	else if (!Utility::VectorContains(Directions::RIGHT, connections))
+	{
+		newRoom = new Room_3Door_NoRight_TopFloor("");
+	}
+	else if (!Utility::VectorContains(Directions::DOWN, connections))
+	{
+		newRoom = new Room_3Door_NoDown_TopFloor("");
+	}
+	else if (!Utility::VectorContains(Directions::LEFT, connections))
+	{
+		newRoom = new Room_3Door_NoLeft_TopFloor("");
+	}
+
+	return newRoom;
 }
 
 Entity* TopFloorRoomFactory::Spawn4DoorRoom(LevelRoom* roomData)
