@@ -9,8 +9,6 @@
 #include "TallPillar_Half_Prefab.h"
 #include "TallPillar_Quarter_Prefab.h"
 #include "ShortPillar_Full_Prefab.h"
-#include "ShortPillar_Half_Prefab.h"
-#include "ShortPillar_Quarter_Prefab.h"
 #include "TopFloor_Straight_Prefab.h"
 
 Room_1Door_TopFloor::Room_1Door_TopFloor(std::string name) : Entity(name)

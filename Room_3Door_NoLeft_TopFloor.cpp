@@ -6,10 +6,10 @@
 
 // Required Prefabs
 #include "RoomPrefab_3Door.h"
-#include "TallPillar_Full_Prefab.h"
 #include "TallPillar_Half_Prefab.h"
 #include "TallPillar_Quarter_Prefab.h"
-#include "TopFloor_Corner_Prefab.h"
+#include "ShortPillar_Full_Prefab.h"
+#include "TopFloor_Straight_Prefab.h"
 
 Room_3Door_NoLeft_TopFloor::Room_3Door_NoLeft_TopFloor(std::string name) : Entity(name)
 {
@@ -83,25 +83,17 @@ Room_3Door_NoLeft_TopFloor::Room_3Door_NoLeft_TopFloor(std::string name) : Entit
 
 
 	// Adding Center Pillars
-	Entity* middlePillar = new TallPillar_Full_Prefab("MiddlePillar (1)");
-	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 3.5f, 2.5f));
+	Entity* middlePillar = new ShortPillar_Full_Prefab("MiddlePillar (1)");
+	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 1.75f, 2.5f));
 	this->AddChild(middlePillar);
 
-	middlePillar = new TallPillar_Full_Prefab("MiddlePillar (2)");
-	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(-2.5f, 3.5f, 2.5f));
-	this->AddChild(middlePillar);
-
-	middlePillar = new TallPillar_Full_Prefab("MiddlePillar (3)");
-	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(-2.5f, 3.5f, -2.5f));
-	this->AddChild(middlePillar);
-
-	middlePillar = new TallPillar_Full_Prefab("MiddlePillar (4)");
-	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 3.5f, -2.5f));
+	middlePillar = new ShortPillar_Full_Prefab("MiddlePillar (2)");
+	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 1.75f, -2.5f));
 	this->AddChild(middlePillar);
 
 
 	// Adding Decorative Top Floor
-	Entity* topFloor = new TopFloor_Corner_Prefab("TopFloor");
+	Entity* topFloor = new TopFloor_Straight_Prefab("TopFloor");
 	topFloor->GetTransform()->SetLocalPosition(glm::vec3(0.0f, 3.0f, 0.0f));
 	topFloor->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
 	this->AddChild(topFloor);

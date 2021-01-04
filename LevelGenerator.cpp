@@ -23,12 +23,16 @@ void LevelGenerator::OnStart()
 	generatedLayout.AddRoom(glm::ivec2(0, 0));
 
 	generatedLayout.AddRoom(glm::ivec2(1, 0));
+	generatedLayout.AddRoom(glm::ivec2(1, -1));
 	generatedLayout.AddRoom(glm::ivec2(2, 0));
 	generatedLayout.AddRoom(glm::ivec2(2, 1));
+	generatedLayout.AddRoom(glm::ivec2(3, 0));
 
 	generatedLayout.AddRoom(glm::ivec2(0, 1));
+	generatedLayout.AddRoom(glm::ivec2(-1, 1));
 	generatedLayout.AddRoom(glm::ivec2(0, 2));
 	generatedLayout.AddRoom(glm::ivec2(1, 2));
+	generatedLayout.AddRoom(glm::ivec2(0, 3));
 
 	for (auto& y : generatedLayout.GetRooms())
 	{
