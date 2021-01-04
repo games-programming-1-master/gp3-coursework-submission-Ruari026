@@ -20,6 +20,8 @@
 
 // Testing rooms
 #include "Room_3Door_NoUp_TopFloor.h"
+#include "Hedge_Small_Prefab.h"
+#include "Hedge_Large_Prefab.h"
 
 GameplayScene::GameplayScene()
 {
@@ -49,7 +51,7 @@ GameplayScene::GameplayScene()
 	Entity* levelManager = new Entity("Level Manager");
 	m_entities.push_back(levelManager);
 	levelManager->AddComponent<LevelManager>();
-	levelManager->AddComponent<LevelGenerator>();
+	//levelManager->AddComponent<LevelGenerator>();
 
 	// UI Parents to enable hiding/ showing many related UI elements at once
 	Entity* gameplayUIParent = new Entity("Gameplay UI");
@@ -65,8 +67,16 @@ GameplayScene::GameplayScene()
 
 	// ---------- Testing out decorated rooms ----------
 	{
-		/*Entity* testRoom = new Room_3Door_NoUp_TopFloor("Test Room");
-		m_entities.push_back(testRoom);*/
+		Entity* testRoom = new Room_3Door_NoUp_TopFloor("Test Room");
+		m_entities.push_back(testRoom);
+
+		Entity* hedge = new Hedge_Small_Prefab("");
+		hedge->GetTransform()->SetGlobalPosition(glm::vec3(5, 0.875f, 0));
+		m_entities.push_back(hedge);
+
+		hedge = new Hedge_Large_Prefab("");
+		hedge->GetTransform()->SetGlobalPosition(glm::vec3(-5, 0.875f, 0));
+		m_entities.push_back(hedge);
 	}
 
 

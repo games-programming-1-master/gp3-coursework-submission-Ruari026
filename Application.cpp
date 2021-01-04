@@ -106,6 +106,10 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/Table.obj");
 	Resources::GetInstance()->AddModel("Models/Chair.obj");
 	Resources::GetInstance()->AddModel("Models/Cushion.obj");
+	Resources::GetInstance()->AddModel("Models/Hedge (Small).obj");
+	Resources::GetInstance()->AddModel("Models/Hedge (Large).obj");
+	Resources::GetInstance()->AddModel("Models/HedgeBase (Small).obj");
+	Resources::GetInstance()->AddModel("Models/HedgeBase (Large).obj");
 
 	// Models - Other Level Requirements
 	Resources::GetInstance()->AddModel("Models/Door.obj");
@@ -121,6 +125,7 @@ void Application::GameInit()
 	Resources::GetInstance()->AddTexture("Images/Textures/WoodPlanks (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Tartan.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Chains.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Leaf.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Default.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Small.png");

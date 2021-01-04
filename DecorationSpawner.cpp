@@ -3,10 +3,14 @@
 // Regular Decoration Prefabs
 #include "Chair_Prefab.h"
 #include "Table_Prefab.h"
+#include "Hedge_Small_Prefab.h"
+#include "Hedge_Large_Prefab.h"
 
 // Enemy Mimic Prefabs
 #include "ChairMimic_Prefab.h"
 #include "TableMimic_Prefab.h"
+#include "HedgeMimic_Small_Prefab.h"
+#include "HedgeMimic_Large_Prefab.h"
 
 DecorationSpawner::DecorationSpawner()
 {
@@ -73,6 +77,30 @@ void DecorationSpawner::SpawnDecoration()
 
 		}
 		break;
+
+
+		case (DecorationType::DECORATIONTYPE_SMALLHEDGE):
+		{
+			// Spawning prefab
+			Entity* newHedge = new Hedge_Small_Prefab("Small Hedge Decoration");
+			this->m_entity->AddChild(newHedge);
+
+			// Need to adjust y position for hedge height
+			newHedge->GetTransform()->SetLocalPosition(glm::vec3(0, 0.875f, 0));
+		}
+		break;
+
+
+		case (DecorationType::DECORATIONTYPE_LARGEHEDGE):
+		{
+			// Spawning prefab
+			Entity* newHedge = new Hedge_Large_Prefab("Large Hedge Decoration");
+			this->m_entity->AddChild(newHedge);
+
+			// Need to adjust y position for hedge height
+			newHedge->GetTransform()->SetLocalPosition(glm::vec3(0, 0.875f, 0));
+		}
+		break;
 	}
 }
 
@@ -107,6 +135,30 @@ void DecorationSpawner::SpawnMimic()
 		case (DecorationType::DECORATIONTYPE_CRATE):
 		{
 
+		}
+		break;
+
+
+		case (DecorationType::DECORATIONTYPE_SMALLHEDGE):
+		{
+			// Spawning prefab
+			Entity* newHedge = new HedgeMimic_Small_Prefab("Small Hedge Mimic");
+			this->m_entity->AddChild(newHedge);
+
+			// Need to adjust y position for hedge height
+			newHedge->GetTransform()->SetLocalPosition(glm::vec3(0, 1.125f, 0));
+		}
+		break;
+
+
+		case (DecorationType::DECORATIONTYPE_LARGEHEDGE):
+		{
+			// Spawning prefab
+			Entity* newHedge = new HedgeMimic_Large_Prefab("Large Hedge Mimic");
+			this->m_entity->AddChild(newHedge);
+
+			// Need to adjust y position for hedge height
+			newHedge->GetTransform()->SetLocalPosition(glm::vec3(0, 1.125f, 0));
 		}
 		break;
 	}

@@ -241,6 +241,10 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="GenerationData.cpp" />
+    <ClCompile Include="HedgeMimic_Large_Prefab.cpp" />
+    <ClCompile Include="HedgeMimic_Small_Prefab.cpp" />
+    <ClCompile Include="Hedge_Large_Prefab.cpp" />
+    <ClCompile Include="Hedge_Small_Prefab.cpp" />
     <ClCompile Include="ImageRenderer.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InteractableDoor.cpp" />
@@ -341,6 +345,10 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="GenerationData.h" />
+    <ClInclude Include="HedgeMimic_Large_Prefab.h" />
+    <ClInclude Include="HedgeMimic_Small_Prefab.h" />
+    <ClInclude Include="Hedge_Large_Prefab.h" />
+    <ClInclude Include="Hedge_Small_Prefab.h" />
     <ClInclude Include="ImageRenderer.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputState.h" />
@@ -436,6 +444,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <None Include="Assets\Shaders\simple_VERT.glsl" />
     <None Include="Assets\Shaders\text_FRAG.glsl" />
     <None Include="Assets\Shaders\text_VERT.glsl" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

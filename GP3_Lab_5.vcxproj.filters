@@ -516,6 +516,18 @@
     <ClCompile Include="TopFloor_Single_Prefab.cpp">
       <Filter>Source Files\Prefabs\Decorations\Floors</Filter>
     </ClCompile>
+    <ClCompile Include="Hedge_Large_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations</Filter>
+    </ClCompile>
+    <ClCompile Include="Hedge_Small_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations</Filter>
+    </ClCompile>
+    <ClCompile Include="HedgeMimic_Large_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Mimics</Filter>
+    </ClCompile>
+    <ClCompile Include="HedgeMimic_Small_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Mimics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -821,6 +833,18 @@
     <ClInclude Include="TopFloor_Single_Prefab.h">
       <Filter>Header Files\Prefabs\Decorations\Floors</Filter>
     </ClInclude>
+    <ClInclude Include="Hedge_Large_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="Hedge_Small_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="HedgeMimic_Large_Prefab.h">
+      <Filter>Header Files\Prefabs\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="HedgeMimic_Small_Prefab.h">
+      <Filter>Header Files\Prefabs\Mimics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GP3_Coursework.rc">
@@ -852,5 +876,6 @@
     <None Include="Assets\Shaders\glitch_VERT.glsl">
       <Filter>Resource Files\Shaders</Filter>
     </None>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>
