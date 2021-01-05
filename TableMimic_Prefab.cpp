@@ -5,6 +5,7 @@
 // Required Components
 #include "MeshRenderer.h"
 #include "MimicController.h"
+#include "InteractableMimic.h"
 #include "RigidBody.h"
 // Required Colliders
 #include "BoxShape.h"
@@ -16,7 +17,7 @@ TableMimic_Prefab::TableMimic_Prefab(std::string name) : Entity(name)
 		new MeshRenderer(
 			Resources::GetInstance()->GetModel("Models/Table.obj"),
 			Resources::GetInstance()->GetShader("simple"),
-			Resources::GetInstance()->GetTexture("Images/Textures/Tartan.png"))
+			Resources::GetInstance()->GetTexture("Images/Textures/WoodPlanks (Simple).png"))
 	);
 
 	// Collider
@@ -25,6 +26,11 @@ TableMimic_Prefab::TableMimic_Prefab(std::string name) : Entity(name)
 	this->GetComponent<RigidBody>()->Get()->setLinearFactor(btVector3(0, 1, 0));
 	this->GetComponent<RigidBody>()->Get()->setMassProps(1, btVector3());
 
+
+	// Specific Mimic Behaviour
+	// Player Interaction
+	this->AddComponent<InteractableMimic>();
+	// Mimic Bouncing
 	this->AddComponent<MimicController>();
 	this->GetComponent<MimicController>()->SetMimicRigidBody(this->GetComponent<RigidBody>());
 }

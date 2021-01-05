@@ -1,5 +1,6 @@
 #pragma once
 #include "InteractableObject.h"
+
 class InteractableDoor : public InteractableObject
 {
 private:

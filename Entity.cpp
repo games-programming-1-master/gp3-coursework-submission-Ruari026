@@ -54,6 +54,18 @@ void Entity::RemoveChild(Entity* child)
 	}
 }
 
+Entity* Entity::GetChild(std::string childName)
+{
+	for (auto& a : m_children)
+	{
+		if (a->GetName() == childName)
+		{
+			return a;
+		}
+	}
+	return nullptr;
+}
+
 
 /*
 ========================================================================================================================================================================================================

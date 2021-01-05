@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "PersistantData.h"
 #include "LevelGenerator.h"
+#include "LevelManager.h"
 #include "Entity.h"
 #include "Utility.h"
 #include "SceneManager.h"
@@ -42,6 +43,9 @@ void LevelGenerator::OnStart()
 	PickMimicRooms();
 	// Finally Doors are spawned between each set of rooms
 	SpawnDoorPrefabs();
+
+	// Sets the player's start position to the entrance room position and rotation
+	StartPlayer();
 }
 
 void LevelGenerator::OnUpdate(float deltaTime)
@@ -251,7 +255,25 @@ void LevelGenerator::SpawnRoomPrefabs()
 
 void LevelGenerator::PickMimicRooms()
 {
-	
+	// Calculates the number of mimics to spawn in the level
+	// Every level the number of mimics in the level increases by 2 (game starts off with 6 mimics spawning)
+	int mimicsToSpawn = PersistantData::GetInstance()->GetCurrentLevel() * 2 + 6;
+
+	// Tells the Level Manager how many mimics have been spawned
+	Entity* theLevelManager = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Level Manager");
+	theLevelManager->GetComponent<LevelManager>()->SetLevelMimics(mimicsToSpawn);
+
+	// Picks rooms to spawn mimics in
+	while (mimicsToSpawn > 0)
+	{
+		std::tuple<RoomTypes, RoomController*> randomRoom = Utility::GetRandomFromVector< std::tuple<RoomTypes, RoomController*>>(spawnedRooms);
+		RoomController* theController = std::get<RoomController*>(randomRoom);
+
+		if (theController->IncreaseMimicsToSpawn())
+		{
+			mimicsToSpawn--;
+		}
+	}
 }
 
 void LevelGenerator::SpawnRoomDecorations()
@@ -277,4 +299,37 @@ void LevelGenerator::SpawnDoorPrefabs()
 
 		this->m_entity->AddChild(newDoor);
 	}
+}
+
+void LevelGenerator::StartPlayer()
+{
+	// Gets the player in the scene
+	Entity* thePlayer = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Main Player");
+
+	// Finds the entrance room that should have been just spawned
+	RoomController* startRoomController = GetRoomOfType(RoomTypes::ROOMTYPE_ENTRANCE);
+
+	// Sets the player position and rotation to match the entrance room position and rotation
+	glm::vec3 newPos = startRoomController->GetParent()->GetTransform()->GetGlobalPosition();
+	newPos.y = 3;
+	glm::quat newRot = startRoomController->GetParent()->GetTransform()->GetGlobalRotationQuaternion();
+	newRot = newRot * Utility::GetRotationQuaternion((M_PI * -0.5f), glm::vec3(0, 1, 0));
+
+	thePlayer->GetTransform()->SetGlobalPosition(newPos);
+	thePlayer->GetTransform()->SetGlobalRotationQuaternion(newRot);
+
+	bool b = true;
+}
+
+RoomController* LevelGenerator::GetRoomOfType(RoomTypes type)
+{
+	RoomController* theRoomController = nullptr;
+	for (auto& [roomType, roomController] : spawnedRooms)
+	{
+		if (roomType == type)
+		{
+			theRoomController = roomController;
+		}
+	}
+	return theRoomController;
 }

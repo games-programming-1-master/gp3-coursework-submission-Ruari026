@@ -10,7 +10,7 @@ private:
 	unsigned int ghostsKilled = 0;
 
 	// Game Settings Data
-	unsigned int gameVolume = 10;
+	unsigned int gameVolume = 0;
 	unsigned int mouseSensitivity = 5;
 
 public:

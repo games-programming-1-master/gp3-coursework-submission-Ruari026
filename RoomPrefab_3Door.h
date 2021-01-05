@@ -3,5 +3,5 @@
 class RoomPrefab_3Door : public Entity
 {
 public:
-	RoomPrefab_3Door(std::string name);
+	RoomPrefab_3Door(std::string name, bool normalFloor = true);
 };

@@ -10,8 +10,8 @@ private:
 	glm::quat startRot;
 
 	// Movement Handling
-	float minTimeBetweenJumps = 25;
-	float maxTimeBetweenJumps = 75;
+	float minTimeBetweenJumps = 5;
+	float maxTimeBetweenJumps = 25;
 	float currentTime;
 
 	RigidBody* theRB;

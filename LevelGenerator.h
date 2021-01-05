@@ -22,6 +22,7 @@ private:
 	void PickMimicRooms();
 	void SpawnRoomDecorations();
 	void SpawnDoorPrefabs();
+	void StartPlayer();
 
 	// Individual factorys to delegate room spawning types
 	NormalRoomFactory normalFactory;
@@ -36,4 +37,6 @@ public:
 	virtual void OnStart() override;
 	virtual void OnUpdate(float deltaTime) override;
 	virtual void OnRender() override;
+
+	RoomController* GetRoomOfType(RoomTypes type);
 };

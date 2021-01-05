@@ -9,6 +9,10 @@ private:
 	std::vector<DecorationSpawner*> roomDecorationSpawners;
 	unsigned int mimicsToSpawn = 0;
 
+	// Optimization for large level sizes
+	Entity* thePlayer;
+	bool isDisabled = false;
+
 public:
 	RoomController();
 	virtual ~RoomController() override;

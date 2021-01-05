@@ -238,6 +238,8 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="DoorPrefab.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntranceExitRoomFactory.cpp" />
+    <ClCompile Include="EntranceStairs_Prefab.cpp" />
+    <ClCompile Include="ExitStairs_Prefab.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="GenerationData.cpp" />
@@ -248,6 +250,8 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="ImageRenderer.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InteractableDoor.cpp" />
+    <ClCompile Include="InteractableExit.cpp" />
+    <ClCompile Include="InteractableMimic.cpp" />
     <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="LevelManager.cpp" />
@@ -350,6 +354,8 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="DoorPrefab.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntranceExitRoomFactory.h" />
+    <ClInclude Include="EntranceStairs_Prefab.h" />
+    <ClInclude Include="ExitStairs_Prefab.h" />
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="GenerationData.h" />
@@ -361,6 +367,8 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputState.h" />
     <ClInclude Include="InteractableDoor.h" />
+    <ClInclude Include="InteractableExit.h" />
+    <ClInclude Include="InteractableMimic.h" />
     <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="LevelGenerator.h" />
     <ClInclude Include="LevelManager.h" />
@@ -460,7 +468,6 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <None Include="Assets\Shaders\simple_VERT.glsl" />
     <None Include="Assets\Shaders\text_FRAG.glsl" />
     <None Include="Assets\Shaders\text_VERT.glsl" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

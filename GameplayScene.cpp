@@ -18,8 +18,6 @@
 #include "PauseMenuButton.h"
 #include "PauseMenuButton_Prefab.h"
 
-#include "Room_2DoorStraight_Normal.h"
-
 GameplayScene::GameplayScene()
 {
 	// Setting up player character
@@ -61,17 +59,12 @@ GameplayScene::GameplayScene()
 
 	levelManager->GetComponent<LevelManager>()->SetSceneParents(gameplayUIParent, pauseMenuParent);
 
-
-	// ---------- Testing out decorated rooms ----------
-	{
-
-	}
-
-
 	// ---------- Gameplay UI ----------
 	{
 		// Level Timer
 		{
+			std::vector<TextRenderer*> timerTexts;
+
 			Entity* levelTimer = new Entity("Level Timer");
 			levelTimer->GetTransform()->SetGlobalPosition(glm::vec3(580, 100, 0));
 			levelTimer->AddComponent(
@@ -81,8 +74,9 @@ GameplayScene::GameplayScene()
 					75)
 			);
 
-			levelTimer->GetComponent<TextRenderer>()->SetTextToRender("5");
+			levelTimer->GetComponent<TextRenderer>()->SetTextToRender("XXX");
 			levelTimer->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0, 0, 0, 1));
+			timerTexts.push_back(levelTimer->GetComponent<TextRenderer>());
 			gameplayUIParent->AddChild(levelTimer);
 
 			levelTimer = new Entity("Level Timer");
@@ -93,13 +87,48 @@ GameplayScene::GameplayScene()
 					Resources::GetInstance()->GetShader("text"),
 					75)
 			);
-			levelTimer->GetComponent<TextRenderer>()->SetTextToRender("5");
+			levelTimer->GetComponent<TextRenderer>()->SetTextToRender("XXX");
 			levelTimer->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(1, 1, 1, 1));
+			timerTexts.push_back(levelTimer->GetComponent<TextRenderer>());
 			gameplayUIParent->AddChild(levelTimer);
+
+			levelManager->GetComponent<LevelManager>()->SetSceneTimerUI(timerTexts);
 		}
 
 
 		// Number of enemy's left
+		{
+			std::vector<TextRenderer*> mimicsTexts;
+
+			Entity* levelMimics = new Entity("Ghosts UI");
+			levelMimics->GetTransform()->SetGlobalPosition(glm::vec3(420, 150, 0));
+			levelMimics->AddComponent(
+				new TextRenderer(
+					Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+					Resources::GetInstance()->GetShader("text"),
+					33)
+			);
+
+			levelMimics->GetComponent<TextRenderer>()->SetTextToRender("Mimics Remaining: XX");
+			levelMimics->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0, 0, 0, 1));
+			mimicsTexts.push_back(levelMimics->GetComponent<TextRenderer>());
+			gameplayUIParent->AddChild(levelMimics);
+
+			levelMimics = new Entity("Ghosts UI");
+			levelMimics->GetTransform()->SetGlobalPosition(glm::vec3(425, 155, 0));
+			levelMimics->AddComponent(
+				new TextRenderer(
+					Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+					Resources::GetInstance()->GetShader("text"),
+					33)
+			);
+			levelMimics->GetComponent<TextRenderer>()->SetTextToRender("Mimics Remaining: XX");
+			levelMimics->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(1, 1, 1, 1));
+			mimicsTexts.push_back(levelMimics->GetComponent<TextRenderer>());
+			gameplayUIParent->AddChild(levelMimics);
+
+			levelManager->GetComponent<LevelManager>()->SetSceneGhostsUI(mimicsTexts);
+		}
 	}
 
 
@@ -154,22 +183,12 @@ GameplayScene::GameplayScene()
 			unpauseButton->GetComponent<PauseMenuButton>()->SetButtonType(PauseMenuButtonType::BUTTONTYPE_UNPAUSEGAME);
 		}
 
-		// Settings Button
-		{
-			Entity* settingsButton = new PauseMenuButton_Prefab("Settings Button", "Settings", 38);
-			pauseMenuParent->AddChild(settingsButton);
-
-			settingsButton->GetTransform()->SetGlobalPosition(glm::vec3(475, 490, 1.0f));
-
-			settingsButton->GetComponent<PauseMenuButton>()->SetButtonType(PauseMenuButtonType::BUTTONTYPE_RETURNTOMAINMENU);
-		}
-
 		// Return to main menu button
 		{
 			Entity* mainMenuButton = new PauseMenuButton_Prefab("Main Menu Button", "Main Menu", 12);
 			pauseMenuParent->AddChild(mainMenuButton);
 
-			mainMenuButton->GetTransform()->SetGlobalPosition(glm::vec3(475, 590, 1.0f));
+			mainMenuButton->GetTransform()->SetGlobalPosition(glm::vec3(475, 540, 1.0f));
 
 			mainMenuButton->GetComponent<PauseMenuButton>()->SetButtonType(PauseMenuButtonType::BUTTONTYPE_RETURNTOMAINMENU);
 		}

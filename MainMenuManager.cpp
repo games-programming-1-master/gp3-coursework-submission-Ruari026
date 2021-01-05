@@ -5,6 +5,7 @@
 #include "Input.h"
 #include "Application.h"
 #include "SceneManager.h"
+#include "PersistantData.h"
 
 MainMenuManager::MainMenuManager()
 {
@@ -28,6 +29,9 @@ void MainMenuManager::OnStart()
 	// Ensures that the game only updates for components (prevents physics engine from updating)
 	Application::GetInstance()->SetUpdateTimeScale(1.0f);
 	Application::GetInstance()->SetPhysicsTimeScale(1.0f);
+
+	// Ensures that the persistant data is reset
+	PersistantData::GetInstance()->ResetGameProgression();
 }
 
 void MainMenuManager::OnUpdate(float deltaTime)

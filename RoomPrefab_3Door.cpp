@@ -7,20 +7,32 @@
 // Required Colliders
 #include "BoxShape.h"
 
-RoomPrefab_3Door::RoomPrefab_3Door(std::string name) : Entity(name)
+RoomPrefab_3Door::RoomPrefab_3Door(std::string name, bool normalFloor) : Entity(name)
 {
-	// Spawning Test Floor
+	// Spawning Default Floor or Floor with stairs cutout dependant on passed parameters
 	{
 		Entity* floor = new Entity("Floor");
 		this->AddChild(floor);
-		floor->AddComponent(
-			new MeshRenderer(
-				Resources::GetInstance()->GetModel("Models/Floor.obj"),
-				Resources::GetInstance()->GetShader("simple"),
-				Resources::GetInstance()->GetTexture("Images/Textures/Tile (Simple).png"))
-		);
-		MeshRenderer* m = floor->GetComponent<MeshRenderer>();
+		if (normalFloor)
+		{
+			floor->AddComponent(
+				new MeshRenderer(
+					Resources::GetInstance()->GetModel("Models/Floor.obj"),
+					Resources::GetInstance()->GetShader("simple"),
+					Resources::GetInstance()->GetTexture("Images/Textures/Tile (Simple).png"))
+			);
+		}
+		else
+		{
+			floor->AddComponent(
+				new MeshRenderer(
+					Resources::GetInstance()->GetModel("Models/Floor (Stairs).obj"),
+					Resources::GetInstance()->GetShader("simple"),
+					Resources::GetInstance()->GetTexture("Images/Textures/Tile (Simple).png"))
+			);
+		}
 		floor->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 0));
+		floor->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * -0.5f), glm::vec3(0, 1, 0)));
 		floor->GetTransform()->SetScale(glm::vec3(1.f, 1.f, 1.f));
 
 		floor->AddComponent<RigidBody>();

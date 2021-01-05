@@ -80,6 +80,7 @@ void Application::GameInit()
 	//loading all resources
 	// Models - Room basics
 	Resources::GetInstance()->AddModel("Models/Floor.obj");
+	Resources::GetInstance()->AddModel("Models/Floor (Stairs).obj");
 	Resources::GetInstance()->AddModel("Models/Roof.obj");
 	Resources::GetInstance()->AddModel("Models/Walls (1 Door).obj");
 	Resources::GetInstance()->AddModel("Models/Walls (2 Door - Straight).obj");
@@ -94,6 +95,7 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/Banner (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Corner).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Single).obj");
+	Resources::GetInstance()->AddModel("Models/Banner (Stairs).obj");
 	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Corner).obj");
 	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Single).obj");
@@ -110,6 +112,12 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/Hedge (Large).obj");
 	Resources::GetInstance()->AddModel("Models/HedgeBase (Small).obj");
 	Resources::GetInstance()->AddModel("Models/HedgeBase (Large).obj");
+	Resources::GetInstance()->AddModel("Models/Stairs.obj");
+	Resources::GetInstance()->AddModel("Models/Stair Chains.obj");
+	Resources::GetInstance()->AddModel("Models/StairsFrame.obj");
+	Resources::GetInstance()->AddModel("Models/StairWalls.obj");
+	Resources::GetInstance()->AddModel("Models/StairsPlane.obj");
+
 
 	// Models - Other Level Requirements
 	Resources::GetInstance()->AddModel("Models/Door.obj");
@@ -154,7 +162,7 @@ void Application::GameInit()
 	Log::NewLine();
 
 	// Loading All Scenes
-	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_GAMEPLAY);
+	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_MAINMENU);
 
 	// Can't release unused resources due to the main game scene using procedural generation to create levels
 	//Resources::GetInstance()->ReleaseUnusedResources();

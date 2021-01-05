@@ -7,6 +7,8 @@ class InteractableObject : public Component
 protected:
 	Entity* thePlayer;
 
+	bool isInteractable = true;
+
 	float interactionDistance = 3.0f;
 	float interactionViewRange = 0.5f;
 
@@ -21,4 +23,6 @@ public:
 	virtual void OnStart() override;
 	virtual void OnUpdate(float deltaTime) override;
 	virtual void OnRender() override;
+
+	void SetCanInteract(bool canInteract) { isInteractable = canInteract; }
 };

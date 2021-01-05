@@ -1,5 +1,6 @@
 #include "RoomController.h"
 #include "Utility.h"
+#include "SceneManager.h"
 
 RoomController::RoomController()
 {
@@ -7,6 +8,7 @@ RoomController::RoomController()
 
 RoomController::~RoomController()
 {
+	bool b = true;
 }
 
 
@@ -18,10 +20,45 @@ Inherited Entity Methods
 void RoomController::OnStart()
 {
 	SpawnDecorationsAndMimics();
+	
+	// stores the player's entity from the scene
+	thePlayer = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Main Player");
 }
 
 void RoomController::OnUpdate(float deltaTime)
 {
+	if (thePlayer != nullptr)
+	{
+		// Checks the player's distance from the room
+		// There is no point updating & rendering room children entitys if the player is too far away
+		float dist = glm::distance(m_entity->GetTransform()->GetGlobalPosition(), thePlayer->GetTransform()->GetGlobalPosition());
+		if (dist < (18.5f * 1.75f))
+		{
+			// Player is within range to see the room
+			// Enable children objects if tey are currently disabled
+			if (isDisabled)
+			{
+				for (auto& a : m_entity->GetChildren())
+				{
+					//a->SetEnabled(true);
+				}
+				isDisabled = false;
+			}
+		}
+		else
+		{
+			// Player is too far away to see room
+			// Disable children entitys if they are currently enabled
+			if (!isDisabled)
+			{
+				for (auto& a : m_entity->GetChildren())
+				{
+					//a->SetEnabled(false);
+				}
+				isDisabled = true;
+			}
+		}
+	}
 }
 
 void RoomController::OnRender()

@@ -5,6 +5,7 @@
 // Required Components
 #include "MeshRenderer.h"
 #include "MimicController.h"
+#include "InteractableMimic.h"
 #include "RigidBody.h"
 // Required Colliders
 #include "BoxShape.h"
@@ -16,7 +17,7 @@ ChairMimic_Prefab::ChairMimic_Prefab(std::string name) : Entity(name)
 		new MeshRenderer(
 			Resources::GetInstance()->GetModel("Models/Chair.obj"),
 			Resources::GetInstance()->GetShader("simple"),
-			Resources::GetInstance()->GetTexture("Images/Textures/Tartan.png"))
+			Resources::GetInstance()->GetTexture("Images/Textures/WoodPlanks (Simple).png"))
 	);
 
 	// Collider
@@ -32,10 +33,15 @@ ChairMimic_Prefab::ChairMimic_Prefab(std::string name) : Entity(name)
 		new MeshRenderer(
 			Resources::GetInstance()->GetModel("Models/Cushion.obj"),
 			Resources::GetInstance()->GetShader("simple"),
-			Resources::GetInstance()->GetTexture("Images/Textures/WoodPlanks (Simple).png"))
+			Resources::GetInstance()->GetTexture("Images/Textures/Tartan.png"))
 	);
 	this->AddChild(cushion);
 
+
+	// Specific Mimic Behaviour
+	// Player Interaction
+	this->AddComponent<InteractableMimic>();
+	// Mimic Bouncing
 	this->AddComponent<MimicController>();
 	this->GetComponent<MimicController>()->SetMimicRigidBody(this->GetComponent<RigidBody>());
 }

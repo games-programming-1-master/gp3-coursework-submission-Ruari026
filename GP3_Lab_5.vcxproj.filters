@@ -552,6 +552,18 @@
     <ClCompile Include="Room_3Door_Exit.cpp">
       <Filter>Source Files\Prefabs\EntranceExitRooms\3Door</Filter>
     </ClCompile>
+    <ClCompile Include="EntranceStairs_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitStairs_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableMimic.cpp">
+      <Filter>Source Files\Components\Interactables</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableExit.cpp">
+      <Filter>Source Files\Components\Interactables</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -893,6 +905,18 @@
     <ClInclude Include="Room_3Door_Exit.h">
       <Filter>Header Files\Prefabs\EntranceExitRooms\3Door</Filter>
     </ClInclude>
+    <ClInclude Include="EntranceStairs_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitStairs_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableMimic.h">
+      <Filter>Header Files\Components\Interactables</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableExit.h">
+      <Filter>Header Files\Components\Interactables</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GP3_Coursework.rc">
@@ -924,6 +948,5 @@
     <None Include="Assets\Shaders\glitch_VERT.glsl">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>
