@@ -333,6 +333,9 @@ void LevelManager::OnMimicKilled()
 	// Reduce the number of ghosts left in the scene
 	ghostsRemaining--;
 
+	// Save it to persistant data
+	PersistantData::GetInstance()->IncreaseGhostsKilled();
+
 	// Checks if there are no ghosts left in the scene
 	if (ghostsRemaining <= 0)
 	{
