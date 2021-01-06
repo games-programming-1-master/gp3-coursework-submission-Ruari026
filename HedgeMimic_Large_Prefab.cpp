@@ -12,12 +12,8 @@
 
 HedgeMimic_Large_Prefab::HedgeMimic_Large_Prefab(std::string name) : Entity(name)
 {
-	// Collider
-	this->AddComponent<RigidBody>();
-	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 0.75f, 2.5f)), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f), RigidBodyLayer::RB_LAYER_DECORATION);
-	this->GetComponent<RigidBody>()->Get()->setLinearFactor(btVector3(0, 1, 0));
-	this->GetComponent<RigidBody>()->Get()->setMassProps(1, btVector3());
-
+	Entity* mimicBase = new Entity("Mimic Base");
+	this->AddChild(mimicBase);
 
 	// Base Model
 	Entity* base = new Entity("Hedge Base");
@@ -28,7 +24,7 @@ HedgeMimic_Large_Prefab::HedgeMimic_Large_Prefab(std::string name) : Entity(name
 			Resources::GetInstance()->GetShader("simple"),
 			Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 	);
-	this->AddChild(base);
+	mimicBase->AddChild(base);
 
 
 	// Main Hedge Model
@@ -40,13 +36,20 @@ HedgeMimic_Large_Prefab::HedgeMimic_Large_Prefab(std::string name) : Entity(name
 			Resources::GetInstance()->GetShader("simple"),
 			Resources::GetInstance()->GetTexture("Images/Textures/Leaf.png"))
 	);
-	this->AddChild(leaves);
+	mimicBase->AddChild(leaves);
+
+
+	// Collider
+	mimicBase->AddComponent<RigidBody>();
+	mimicBase->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 0.75f, 2.5f)), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f), RigidBodyLayer::RB_LAYER_DECORATION);
+	mimicBase->GetComponent<RigidBody>()->Get()->setLinearFactor(btVector3(0, 1, 0));
+	mimicBase->GetComponent<RigidBody>()->Get()->setMassProps(1, btVector3());
 
 
 	// Specific Mimic Behaviour
 	// Player Interaction
 	this->AddComponent<InteractableMimic>();
 	// Mimic Bouncing
-	this->AddComponent<MimicController>();
-	this->GetComponent<MimicController>()->SetMimicRigidBody(this->GetComponent<RigidBody>());
+	mimicBase->AddComponent<MimicController>();
+	mimicBase->GetComponent<MimicController>()->SetMimicRigidBody(mimicBase->GetComponent<RigidBody>());
 }

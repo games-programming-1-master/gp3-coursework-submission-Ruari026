@@ -12,6 +12,11 @@
 #include "HedgeMimic_Small_Prefab.h"
 #include "HedgeMimic_Large_Prefab.h"
 
+// Other Prefabs
+#include "Ghost_Prefab.h"
+#include "Bat_Prefab.h"
+#include "GhostController.h"
+
 DecorationSpawner::DecorationSpawner()
 {
 }
@@ -159,6 +164,41 @@ void DecorationSpawner::SpawnMimic()
 
 			// Need to adjust y position for hedge height
 			newHedge->GetTransform()->SetLocalPosition(glm::vec3(0, 1.125f, 0));
+		}
+		break;
+	}
+}
+
+void DecorationSpawner::SpawnGhost()
+{
+	int r = Utility::GetRandomInt(0, 1);
+	switch (r)
+	{
+		case (0):
+		{
+			// Spawns a Ghost
+			Entity* newGhost = new Ghost_Prefab("Ghost");
+			this->m_entity->AddChild(newGhost);
+
+			// Ensures that the ghost stays permenantly in the scene and uses it's idle animation
+			newGhost->GetComponent<GhostController>()->SetAnimationType(true);
+
+			// Need to adjust y position for chair height
+			newGhost->GetTransform()->SetLocalPosition(glm::vec3(0, 3.0f, 0));
+		}
+		break;
+		
+		case (1):
+		{
+			// Spawns a Bat
+			Entity* newBat = new Bat_Prefab("Ghost");
+			this->m_entity->AddChild(newBat);
+
+			// Ensures that the bat stays permenantly in the scene and uses it's idle animation
+			newBat->GetComponent<GhostController>()->SetAnimationType(true);
+
+			// Need to adjust y position for chair height
+			newBat->GetTransform()->SetLocalPosition(glm::vec3(0, 3.0f, 0));
 		}
 		break;
 	}

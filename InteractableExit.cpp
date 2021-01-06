@@ -2,6 +2,7 @@
 #include "Input.h"
 #include "LevelManager.h"
 #include "SceneManager.h"
+#include "PersistantData.h"
 
 InteractableExit::InteractableExit()
 {
@@ -21,10 +22,19 @@ void InteractableExit::OnStart()
 	// Makes sure to call the parent class's start method first
 	InteractableObject::OnStart();
 
-	// Ensures that all exits start as not interactable
-	this->isInteractable = false;
-	// Also slightly increase the interaction range
-	this->interactionDistance = 4.0f;
+	// If the player is on level 6 or above automatically unlock the exit
+	int currentLevel = PersistantData::GetInstance()->GetCurrentLevel();
+	if (currentLevel >= 6)
+	{
+		this->isInteractable = true;
+	}
+	else
+	{
+		// Otherwise the exit will be unlocked when the player defeats all the mimics
+		this->isInteractable = false;
+		// Also slightly increase the interaction range
+		this->interactionDistance = 4.0f;
+	}
 }
 
 void InteractableExit::OnUpdate(float deltaTime)

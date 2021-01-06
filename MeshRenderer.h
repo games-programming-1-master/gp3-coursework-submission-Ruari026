@@ -12,9 +12,10 @@ private:
 	std::shared_ptr <Texture> m_texture;
 
 	// Testing out scene color variations
+	bool changeColor = true;
 	float colorStep = 0;
-	glm::vec3 currentMax;
-	glm::vec3 currentMin;
+	glm::vec3 currentMax = glm::vec3(255, 255, 255);
+	glm::vec3 currentMin = glm::vec3(0, 0, 0);
 
 	// Test color sets
 	glm::vec3 greyscaleMax = glm::vec3((255), (255), (255));
@@ -38,4 +39,6 @@ public:
 	virtual void OnStart() override;
 	virtual void OnUpdate(float deltaTime) override;
 	virtual void OnRender() override;
+
+	void SetCanChangeColor(bool canChange) { changeColor = canChange; }
 };

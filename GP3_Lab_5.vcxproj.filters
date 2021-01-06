@@ -234,9 +234,6 @@
     <ClCompile Include="PlayerController.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -564,6 +561,21 @@
     <ClCompile Include="InteractableExit.cpp">
       <Filter>Source Files\Components\Interactables</Filter>
     </ClCompile>
+    <ClCompile Include="Ghost_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Bat_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="GhostController.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -797,9 +809,6 @@
     <ClInclude Include="TutorialButton_Prefab.h">
       <Filter>Header Files\Prefabs\UI</Filter>
     </ClInclude>
-    <ClInclude Include="PersistantData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OptionsMenuButton_Normal_Prefab.h">
       <Filter>Header Files\Prefabs\UI</Filter>
     </ClInclude>
@@ -916,6 +925,24 @@
     </ClInclude>
     <ClInclude Include="InteractableExit.h">
       <Filter>Header Files\Components\Interactables</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost_Prefab.h">
+      <Filter>Header Files\Prefabs\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat_Prefab.h">
+      <Filter>Header Files\Prefabs\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="PersistantData.h">
+      <Filter>Header Files\Other\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="GhostController.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

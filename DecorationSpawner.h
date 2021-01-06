@@ -28,4 +28,5 @@ public:
 	void SetDecorationType(DecorationType newType) { decorationToSpawn = newType; }
 	void SpawnDecoration();
 	void SpawnMimic();
+	void SpawnGhost();
 };

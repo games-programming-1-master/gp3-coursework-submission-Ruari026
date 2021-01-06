@@ -68,14 +68,5 @@ public:
 
 	// Handling Game/ Level Score
 	void OnMimicKilled();
-	void SetLevelMimics(int numberOfGhosts) 
-	{ 
-		ghostsRemaining = numberOfGhosts; 
-		
-		// Update the UI to show the amount of ghosts remaining
-		for (auto& a : mimicsTextRenderers)
-		{
-			a->SetTextToRender("Mimics Remaining: " + std::to_string(ghostsRemaining));
-		}
-	}
+	void SetLevelMimics(int numberOfGhosts);
 };

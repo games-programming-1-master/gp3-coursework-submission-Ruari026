@@ -89,6 +89,8 @@ void OptionsMenuManager::ChangeVolume(bool isIncreasing)
 	}
 
 	// Setting Audio Listener To new volume value
+	float v = (MIX_MAX_VOLUME * ((float)newVolume / 10));
+	Mix_Volume(-1, v);
 
 	// Storing new value
 	volume = newVolume;
@@ -138,6 +140,8 @@ void OptionsMenuManager::ReturnToMainMenu(bool saveChanges)
 	else
 	{
 		// Reset the audio listener to its previous value
+		float v = (MIX_MAX_VOLUME * ((float)PersistantData::GetInstance()->GetGameVolume() / 10));
+		Mix_Volume(-1, v);
 	}
 
 	// Gets the main menu manager in the scene and tells it to return to the main menu

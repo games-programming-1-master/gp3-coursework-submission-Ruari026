@@ -20,26 +20,29 @@ MeshRenderer::~MeshRenderer()
 
 void MeshRenderer::OnStart()
 {
-	// Model Color based on the player's current level
-	int levelNumber = PersistantData::GetInstance()->GetCurrentLevel();
-	if (levelNumber < 3)
+	if (changeColor)
 	{
-		float colorStep = (1 - (1.0f / (levelNumber + 1)));
+		// Model Color based on the player's current level
+		int levelNumber = PersistantData::GetInstance()->GetCurrentLevel();
+		if (levelNumber < 3)
+		{
+			float colorStep = (1 - (1.0f / (levelNumber + 1)));
 
-		currentMax = Utility::LerpVec3(beigeMax, greenMax, colorStep);
-		currentMin = Utility::LerpVec3(beigeMin, greenMin, colorStep);
-	}
-	else if (levelNumber >= 3 && levelNumber < 6)
-	{
-		float colorStep = (1 - (1.0f / (levelNumber - 2)));
+			currentMax = Utility::LerpVec3(beigeMax, greenMax, colorStep);
+			currentMin = Utility::LerpVec3(beigeMin, greenMin, colorStep);
+		}
+		else if (levelNumber >= 3 && levelNumber < 6)
+		{
+			float colorStep = (1 - (1.0f / (levelNumber - 2)));
 
-		currentMax = Utility::LerpVec3(greenMax, redMax, colorStep);
-		currentMin = Utility::LerpVec3(greenMin, greenMax, colorStep);
-	}
-	else
-	{
-		currentMax = redMax;
-		currentMin = redMin;
+			currentMax = Utility::LerpVec3(greenMax, redMax, colorStep);
+			currentMin = Utility::LerpVec3(greenMin, greenMax, colorStep);
+		}
+		else
+		{
+			currentMax = redMax;
+			currentMin = redMin;
+		}
 	}
 }
 

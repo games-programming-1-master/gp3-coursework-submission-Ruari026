@@ -3,6 +3,8 @@
 #include "Common.h"
 #include "Resources.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
+#include "Sound.h"
 #include "PersistantData.h"
 #include "Input.h"
 #include "Physics.h"
@@ -117,6 +119,7 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/StairsFrame.obj");
 	Resources::GetInstance()->AddModel("Models/StairWalls.obj");
 	Resources::GetInstance()->AddModel("Models/StairsPlane.obj");
+	Resources::GetInstance()->AddModel("Models/Plane.obj");
 
 
 	// Models - Other Level Requirements
@@ -124,7 +127,6 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/DoorFrame.obj");
 	Resources::GetInstance()->AddModel("Models/DecorativeFlashing.obj");
 
-	// Models - Player
 	Log::NewLine();
 
 	// Textures
@@ -134,6 +136,8 @@ void Application::GameInit()
 	Resources::GetInstance()->AddTexture("Images/Textures/Tartan.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Chains.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Leaf.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Ghost.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Bat.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Default.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Small.png");
@@ -160,6 +164,12 @@ void Application::GameInit()
 	Resources::GetInstance()->AddFont("Fonts/Pixel Musketeer.ttf");
 	Resources::GetInstance()->AddFont("Fonts/PixelNoise_erc_2007.ttf");
 	Log::NewLine();
+
+	// Sounds
+	if (SoundManager::GetInstance()->InitMixer())
+	{
+		Resources::GetInstance()->AddSound("Audio/buttonClick.wav", SoundType::SOUNDTYPE_SFX);
+	}
 
 	// Loading All Scenes
 	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_MAINMENU);
@@ -211,6 +221,8 @@ void Application::Loop()
 		// Updating time between frames
 		auto currentTicks = std::chrono::high_resolution_clock::now();
 		float deltaTime = (float)std::chrono::duration_cast<std::chrono::microseconds>(currentTicks - prevTicks).count() / 100000;
+		if (deltaTime > 0.5f)
+			deltaTime = 0.5f;
 		prevTicks = currentTicks;
 		m_worldDeltaTime = deltaTime;
 		

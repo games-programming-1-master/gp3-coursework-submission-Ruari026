@@ -79,6 +79,7 @@ void Scene::AddAndRemoveEntitys()
 	{
 		// Defaults to adding entity to scene root
 		m_entities.push_back(e);
+		e->OnStart();
 	}
 	entitysToAdd = std::vector<Entity*>();
 

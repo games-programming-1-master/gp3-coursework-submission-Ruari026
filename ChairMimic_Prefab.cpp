@@ -12,8 +12,11 @@
 
 ChairMimic_Prefab::ChairMimic_Prefab(std::string name) : Entity(name)
 {
+	Entity* mimicBase = new Entity("Mimic Base");
+	this->AddChild(mimicBase);
+
 	// Main Model
-	this->AddComponent(
+	mimicBase->AddComponent(
 		new MeshRenderer(
 			Resources::GetInstance()->GetModel("Models/Chair.obj"),
 			Resources::GetInstance()->GetShader("simple"),
@@ -21,10 +24,10 @@ ChairMimic_Prefab::ChairMimic_Prefab(std::string name) : Entity(name)
 	);
 
 	// Collider
-	this->AddComponent<RigidBody>();
-	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.625f, 1.05f, 0.625f)), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f), RigidBodyLayer::RB_LAYER_DECORATION);
-	this->GetComponent<RigidBody>()->Get()->setLinearFactor(btVector3(0, 1, 0));
-	this->GetComponent<RigidBody>()->Get()->setMassProps(1, btVector3());
+	mimicBase->AddComponent<RigidBody>();
+	mimicBase->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.625f, 1.05f, 0.625f)), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f), RigidBodyLayer::RB_LAYER_DECORATION);
+	mimicBase->GetComponent<RigidBody>()->Get()->setLinearFactor(btVector3(0, 1, 0));
+	mimicBase->GetComponent<RigidBody>()->Get()->setMassProps(1, btVector3());
 
 
 	// Decorative Cushion Model
@@ -35,13 +38,13 @@ ChairMimic_Prefab::ChairMimic_Prefab(std::string name) : Entity(name)
 			Resources::GetInstance()->GetShader("simple"),
 			Resources::GetInstance()->GetTexture("Images/Textures/Tartan.png"))
 	);
-	this->AddChild(cushion);
+	mimicBase->AddChild(cushion);
 
 
 	// Specific Mimic Behaviour
 	// Player Interaction
 	this->AddComponent<InteractableMimic>();
 	// Mimic Bouncing
-	this->AddComponent<MimicController>();
-	this->GetComponent<MimicController>()->SetMimicRigidBody(this->GetComponent<RigidBody>());
+	mimicBase->AddComponent<MimicController>();
+	mimicBase->GetComponent<MimicController>()->SetMimicRigidBody(mimicBase->GetComponent<RigidBody>());
 }

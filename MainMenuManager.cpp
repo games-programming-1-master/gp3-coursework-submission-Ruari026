@@ -31,7 +31,7 @@ void MainMenuManager::OnStart()
 	Application::GetInstance()->SetPhysicsTimeScale(1.0f);
 
 	// Ensures that the persistant data is reset
-	PersistantData::GetInstance()->ResetGameProgression();
+	//PersistantData::GetInstance()->ResetGameProgression();
 }
 
 void MainMenuManager::OnUpdate(float deltaTime)

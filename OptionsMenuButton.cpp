@@ -1,6 +1,7 @@
 #include "OptionsMenuButton.h"
 #include "OptionsMenuManager.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
 #include "Scene.h"
 #include "Entity.h"
 
@@ -27,12 +28,16 @@ void OptionsMenuButton::OnClick()
 		case (OptionsMenuButtonType::BUTTONTYPE_DECREASEVOLUME):
 		{
 			menuManager->ChangeVolume(false);
+
+			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
 		}
 		break;
 
 		case (OptionsMenuButtonType::BUTTONTYPE_INCREASEVOLUME):
 		{
 			menuManager->ChangeVolume(true);
+
+			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
 		}
 		break;
 
@@ -40,12 +45,16 @@ void OptionsMenuButton::OnClick()
 		case (OptionsMenuButtonType::BUTTONTYPE_DECREASESENSITIVITY):
 		{
 			menuManager->ChangeSensitivity(false);
+
+			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
 		}
 		break;
 
 		case (OptionsMenuButtonType::BUTTONTYPE_INCREASESENSITIVITY):
 		{
 			menuManager->ChangeSensitivity(true);
+
+			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
 		}
 		break;
 
@@ -53,12 +62,16 @@ void OptionsMenuButton::OnClick()
 		case (OptionsMenuButtonType::BUTTONTYPE_CANCELOPTIONS):
 		{
 			menuManager->ReturnToMainMenu(false);
+
+			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
 		}
 		break;
 
 		case (OptionsMenuButtonType::BUTTONTYPE_SAVEOPTIONS):
 		{
 			menuManager->ReturnToMainMenu(true);
+
+			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
 		}
 		break;
 		}

@@ -48,10 +48,21 @@ void LevelManager::OnStart()
 	{
 		timeRemaining = 90.0f;
 	}
-	// Levels 7 onwards to give the player 60 seconds
+	// Levels 7 onwards to give the player 60 seconds minus 5 seconds for every level after that
 	else
 	{
-		timeRemaining = 60.0f;
+		timeRemaining = 60.0f - (10 * (levelNumber - 6));
+
+		for (auto& a : mimicsTextRenderers)
+		{
+			// Updating text
+			a->SetTextToRender("Just Run... Get To The Exit!!!");
+
+			// Updating Position
+			glm::vec3 newPos = a->GetParent()->GetTransform()->GetGlobalPosition();
+			newPos.x -= 45;
+			a->GetParent()->GetTransform()->SetGlobalPosition(newPos);
+		}
 	}
 
 	// Update timer UI to show time left
@@ -302,7 +313,21 @@ void LevelManager::ReturnToMenu()
 ========================================================================================================================================================================================================
 Handling Game/ Level Score
 ========================================================================================================================================================================================================
-*/
+*/ 
+void LevelManager::SetLevelMimics(int numberOfGhosts)
+{
+	ghostsRemaining = numberOfGhosts;
+
+	// Update the UI to show the amount of ghosts remaining (on if on level 6 or below)
+	if (PersistantData::GetInstance()->GetCurrentLevel() < 6)
+	{
+		for (auto& a : mimicsTextRenderers)
+		{
+			a->SetTextToRender("Mimics Remaining: " + std::to_string(ghostsRemaining));
+		}
+	}
+}
+
 void LevelManager::OnMimicKilled()
 {
 	// Reduce the number of ghosts left in the scene

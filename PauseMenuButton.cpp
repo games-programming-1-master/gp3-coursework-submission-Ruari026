@@ -1,6 +1,7 @@
 #include "PauseMenuButton.h"
 #include "LevelManager.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
 #include "Scene.h"
 #include "Entity.h"
 
@@ -26,12 +27,16 @@ void PauseMenuButton::OnClick()
 		case (PauseMenuButtonType::BUTTONTYPE_UNPAUSEGAME):
 		{
 			theManager->UnpauseGame();
+
+			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
 		}
 		break;
 
 		case (PauseMenuButtonType::BUTTONTYPE_RETURNTOMAINMENU):
 		{
 			theManager->ReturnToMenu();
+
+			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
 		}
 		break;
 		}

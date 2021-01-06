@@ -1,6 +1,7 @@
 #include "RoomController.h"
 #include "Utility.h"
 #include "SceneManager.h"
+#include "PersistantData.h"
 
 RoomController::RoomController()
 {
@@ -108,10 +109,23 @@ void RoomController::SpawnDecorationsAndMimics()
 		}
 	}
 
-	// Spawns the mimics
-	for (auto a : mimicSpawners)
+	// If the player is on level 6 or above mimics dont get spawned instead decorative ghosts are spawned
+	int currentLevel = PersistantData::GetInstance()->GetCurrentLevel();
+	if (currentLevel < 6)
 	{
-		a->SpawnMimic();
+		// Spawns the mimics
+		for (auto a : mimicSpawners)
+		{
+			a->SpawnMimic();
+		}
+	}
+	else
+	{
+		// Spawns decorative ghosts
+		for (auto a : mimicSpawners)
+		{
+			a->SpawnGhost();
+		}
 	}
 
 	// Spawns the rest of the decorations

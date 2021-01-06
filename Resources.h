@@ -5,6 +5,7 @@
 #include "Model.h"
 #include "ShaderProgram.h"
 #include "Texture.h"
+#include "Sound.h"
 
 #include "freetype/include/ft2build.h"
 #include FT_FREETYPE_H
@@ -19,6 +20,7 @@ private:
 	std::unordered_map<std::string, std::shared_ptr<Model>> m_models;
 	std::unordered_map<std::string, std::shared_ptr<Texture>> m_textures;
 	std::unordered_map<std::string, std::shared_ptr<FT_Face>> m_fontFaces;
+	std::unordered_map<std::string, std::shared_ptr<Sound>> m_sounds;
 
 	FT_Library m_ftLibrary;
 
@@ -44,6 +46,11 @@ public:
 	void AddFont(const std::string& directory);
 	void AddFont(const std::string& name, std::shared_ptr<FT_Face> f) { m_fontFaces[name] = f; };
 	std::shared_ptr<FT_Face> GetFont(const std::string& name);
+
+	// Sound Handling
+	void AddSound(const std::string& directory, SoundType type);
+	void AddSound(const std::string& name, std::shared_ptr <Sound> s) { m_sounds[name] = s; };
+	std::shared_ptr<Sound> GetSound(const std::string& name);
 
 	// Deletes all the things!
 	void ReleaseResources();
