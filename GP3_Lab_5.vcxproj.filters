@@ -576,6 +576,15 @@
     <ClCompile Include="SoundManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="GameOverButton.cpp">
+      <Filter>Source Files\Components\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverButton_Prefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverManager.cpp">
+      <Filter>Source Files\Components\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -943,6 +952,15 @@
     </ClInclude>
     <ClInclude Include="SoundManager.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverButton.h">
+      <Filter>Header Files\Components\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverButton_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverManager.h">
+      <Filter>Header Files\Components\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

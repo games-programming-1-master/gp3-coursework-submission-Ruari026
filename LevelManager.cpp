@@ -339,7 +339,7 @@ void LevelManager::OnMimicKilled()
 	// Checks if there are no ghosts left in the scene
 	if (ghostsRemaining <= 0)
 	{
-		// Gets the level exit in the scene
+		// Gets the level exit in the scene 
 		Entity* exitRoom = m_entity->GetComponent<LevelGenerator>()->GetRoomOfType(RoomTypes::ROOMTYPE_EXIT)->GetParent();
 		// Unlock the level exit
 		exitRoom->GetChild("Stairs")->GetComponent<InteractableExit>()->SetCanInteract(true);

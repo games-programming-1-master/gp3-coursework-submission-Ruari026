@@ -240,6 +240,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="EntranceExitRoomFactory.cpp" />
     <ClCompile Include="EntranceStairs_Prefab.cpp" />
     <ClCompile Include="ExitStairs_Prefab.cpp" />
+    <ClCompile Include="GameOverButton.cpp" />
+    <ClCompile Include="GameOverButton_Prefab.cpp" />
+    <ClCompile Include="GameOverManager.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="GenerationData.cpp" />
@@ -361,6 +364,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="EntranceExitRoomFactory.h" />
     <ClInclude Include="EntranceStairs_Prefab.h" />
     <ClInclude Include="ExitStairs_Prefab.h" />
+    <ClInclude Include="GameOverButton.h" />
+    <ClInclude Include="GameOverButton_Prefab.h" />
+    <ClInclude Include="GameOverManager.h" />
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="GenerationData.h" />

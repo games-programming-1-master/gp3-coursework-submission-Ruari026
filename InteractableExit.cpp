@@ -31,7 +31,7 @@ void InteractableExit::OnStart()
 	else
 	{
 		// Otherwise the exit will be unlocked when the player defeats all the mimics
-		this->isInteractable = false;
+		this->isInteractable = true;
 		// Also slightly increase the interaction range
 		this->interactionDistance = 4.0f;
 	}

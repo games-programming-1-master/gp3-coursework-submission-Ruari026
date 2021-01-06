@@ -43,9 +43,9 @@ TutorialScene::TutorialScene()
 
 	Entity* story3Parent = new Entity("Story (3)");
 	this->m_entities.push_back(story3Parent);
-	story3Parent->SetEnabled(true);
+	story3Parent->SetEnabled(false);
 
-	sceneController->GetComponent<TutorialManager>()->SetSceneParents(controlsParent, story3Parent);
+	sceneController->GetComponent<TutorialManager>()->SetSceneParents(controlsParent, story1Parent, story2Parent, story3Parent);
 
 	// ---------- Tutorial UI ----------
 
@@ -206,7 +206,7 @@ TutorialScene::TutorialScene()
 				Resources::GetInstance()->GetShader("text"),
 				110)
 		);
-		objectiveText->GetComponent<TextRenderer>()->SetTextToRender("- Run Run Run Run Run Run Run Run");
+		objectiveText->GetComponent<TextRenderer>()->SetTextToRender("- Continue to explore the Mansion");
 		objectiveText->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.88f, 0.88f, 0.88f, 1.0f));
 
 		objectiveText = new Entity("Objective Text (2)");
@@ -219,7 +219,7 @@ TutorialScene::TutorialScene()
 				Resources::GetInstance()->GetShader("text"),
 				110)
 		);
-		objectiveText->GetComponent<TextRenderer>()->SetTextToRender("- Run Run Run Run Run Run Run Run");
+		objectiveText->GetComponent<TextRenderer>()->SetTextToRender("- There are even more ghosts now, so be careful");
 		objectiveText->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0.88f, 0.88f, 0.88f, 1.0f));
 	}
 
@@ -313,7 +313,7 @@ TutorialScene::TutorialScene()
 	// Continue Button
 	{
 		Entity* gameButton = new TutorialButton_Prefab("Button", "->", -15);
-		story3Parent->AddChild(gameButton);
+		this->m_entities.push_back(gameButton);
 
 		gameButton->GetTransform()->SetGlobalPosition(glm::vec3(1100, 640, 1.0f));
 

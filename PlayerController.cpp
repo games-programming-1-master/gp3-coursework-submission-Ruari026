@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "PlayerController.h"
+#include "PersistantData.h"
 #include "Entity.h"
 #include "Input.h"
 #include "RigidBody.h"
@@ -133,7 +134,16 @@ void PlayerController::RotatePlayer(float deltaTime)
 	glm::quat currentRotation = this->m_entity->GetTransform()->GetGlobalRotationQuaternion();
 	glm::quat additionRotation = glm::quat(1, 0, 0, 0);
 
-	additionRotation = Utility::GetRotationQuaternion((this->maxRotationSpeed * deltaTime * mouseMovement.x), glm::vec3(0, 1, 0));
+	// Calculating rotation speed
+	// Rotation speed is scaled against delta time
+	float rotationSpeed = this->maxRotationSpeed * deltaTime * mouseMovement.x;
+	// Also scales rotation speed against saved user options (range of 1 - 10, defaulted at 5)
+	float savedSensitivityScale = PersistantData::GetInstance()->GetMouseSensitivity();
+	// Puts the sensitivity scale into a range of (0.5 - 1.5)
+	savedSensitivityScale = (savedSensitivityScale) / 10;
+	savedSensitivityScale = (savedSensitivityScale - 0.5f) + 1;
+	
+	additionRotation = Utility::GetRotationQuaternion((rotationSpeed * savedSensitivityScale), glm::vec3(0, 1, 0));
 	this->m_entity->GetTransform()->SetGlobalRotationQuaternion(additionRotation * currentRotation);
 }
 

@@ -20,6 +20,8 @@ private:
 
 	Entity* controlsParent = nullptr;
 	Entity* story1Parent = nullptr;
+	Entity* story2Parent = nullptr;
+	Entity* story3Parent = nullptr;
 
 	TransitionRenderer* theTransitionController;
 
@@ -36,7 +38,7 @@ public:
 	void MoveToGame();
 
 	// Assigning Scene Specific Objects
-	void SetSceneParents(Entity* controls, Entity* story) { controlsParent = controls; story1Parent = story; }
+	void SetSceneParents(Entity* controls, Entity* story1, Entity* story2, Entity* story3) { controlsParent = controls; story1Parent = story1;  story2Parent = story2; story3Parent = story3;}
 	void SetTransitionController(TransitionRenderer* sceneController) { theTransitionController = sceneController; }
 
 	// Controlling Scene State
