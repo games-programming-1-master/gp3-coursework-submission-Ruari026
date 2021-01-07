@@ -585,6 +585,9 @@
     <ClCompile Include="GameOverManager.cpp">
       <Filter>Source Files\Components\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="AltCameraController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -961,6 +964,9 @@
     </ClInclude>
     <ClInclude Include="GameOverManager.h">
       <Filter>Header Files\Components\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="AltCameraController.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

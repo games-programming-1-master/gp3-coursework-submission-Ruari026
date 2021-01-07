@@ -127,6 +127,9 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/DoorFrame.obj");
 	Resources::GetInstance()->AddModel("Models/DecorativeFlashing.obj");
 
+	// Models - Player
+	Resources::GetInstance()->AddModel("Models/Pan.obj");
+
 	Log::NewLine();
 
 	// Textures
@@ -170,6 +173,7 @@ void Application::GameInit()
 	{
 		Resources::GetInstance()->AddSound("Audio/SFX/buttonClick.wav", SoundType::SOUNDTYPE_SFX);
 		Resources::GetInstance()->AddSound("Audio/SFX/doorOpen.wav", SoundType::SOUNDTYPE_SFX);
+		Resources::GetInstance()->AddSound("Audio/SFX/fryingPan.wav", SoundType::SOUNDTYPE_SFX);
 		Resources::GetInstance()->AddSound("Audio/Music/Loyalty_Freak_Music_-_01_-_Monster_Parade.mp3", SoundType::SOUNDTYPE_MUSIC);
 	}
 

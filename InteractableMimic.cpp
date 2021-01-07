@@ -5,6 +5,7 @@
 #include "LevelManager.h"
 #include "Ghost_Prefab.h"
 #include "Bat_Prefab.h"
+#include "SoundManager.h"
 
 InteractableMimic::InteractableMimic()
 {
@@ -50,6 +51,9 @@ void InteractableMimic::OnInteract()
 	{
 		// Prevent multiple interactions
 		hasTriggered = true;
+
+		// Play sound effect
+		SoundManager::GetInstance()->PlaySound("Audio/SFX/fryingPan.wav", 0);
 
 		// Spawns a ghost or bat prefab
 		int r = Utility::GetRandomInt(0, 1);

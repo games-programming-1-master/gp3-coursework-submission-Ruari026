@@ -36,6 +36,18 @@ GameplayScene::GameplayScene()
 		this->SetCamera(new Camera(camera->GetTransform()));
 		camera->GetTransform()->SetLocalPosition(glm::vec3(0, 0.75f, 0));
 
+		// Adding "Player Weapon"
+		Entity* playerPan = new Entity("The Pan");
+		camera->AddChild(playerPan);
+		playerPan->GetTransform()->SetLocalPosition(glm::vec3(0.1f, -0.15f, -0.125f));
+
+		playerPan->AddComponent(
+			new MeshRenderer(
+				Resources::GetInstance()->GetModel("Models/Pan.obj"),
+				Resources::GetInstance()->GetShader("simple"),
+				Resources::GetInstance()->GetTexture("Images/Textures/Tartan.png"))
+		);
+
 		// Setting up the controller for the player
 		player->AddComponent<PlayerController>();
 		player->GetComponent<PlayerController>()->SetCameraMount(camera);

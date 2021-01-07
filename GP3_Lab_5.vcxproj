@@ -224,6 +224,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AltCameraController.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Bat_Prefab.cpp" />
     <ClCompile Include="BoxShape.cpp" />
@@ -345,6 +346,7 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AltCameraController.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Bat_Prefab.h" />
     <ClInclude Include="BoxShape.h" />
