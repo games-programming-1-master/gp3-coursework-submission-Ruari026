@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Application">
+    <Position X="11.75" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>DAAIAIEKABgABAAAoAAAAAAABAACABAAAEgiAAAIIQI=</HashCode>
+      <FileName>Application.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utility">
+    <Position X="15.25" Y="5.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAggAIAAAAACAAAQABAAAAAAAAEBAAAAAAAAAAA=</HashCode>
+      <FileName>Utility.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverScene">
+    <Position X="8.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>GameOverScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameplayScene">
+    <Position X="6.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameplayScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuScene">
+    <Position X="1.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainMenuScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene">
+    <Position X="2.5" Y="6.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAACAAAAAIAAADIAAASgAAAQAAUhAAAAAAAAA=</HashCode>
+      <FileName>Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManager">
+    <Position X="6" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAggAAAAAAAAFCAAAAAIAAACAAAEAAQ=</HashCode>
+      <FileName>SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialScene">
+    <Position X="4" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TutorialScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera">
+    <Position X="33" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAGIIAAQAAAIAhAAAAAAASgBBQAAAEAAAABgAAAAEA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Input">
+    <Position X="22.25" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAAgBBEAAAAQIABQCNAIAAAAIAAAAAAQCAAE=</HashCode>
+      <FileName>Input.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Log">
+    <Position X="15.25" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAYAAAAAAABACAAgAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Log.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mesh">
+    <Position X="17" Y="26" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAABAAAAAAAAAAQEAAAAAAAAAAAAWAAAAAAAAA=</HashCode>
+      <FileName>Mesh.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model">
+    <Position X="17" Y="23" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAAAAAAAAgAAAASAAAAAAAAAAAAAgAgAAAAAAAA=</HashCode>
+      <FileName>Model.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Physics">
+    <Position X="29.25" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAEACAAAAIIAAgAABAAAJAAIAAALAAGAAQA=</HashCode>
+      <FileName>Physics.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources">
+    <Position X="22.25" Y="17" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAASAAACIACABAAAAAAAAAQARAgAAAAKAARCABGAICg=</HashCode>
+      <FileName>Resources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shader">
+    <Position X="24" Y="26.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAABAAAAAAAAAAAAAAAAABAAAAADAAQQ=</HashCode>
+      <FileName>Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShaderProgram">
+    <Position X="24" Y="23" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAABAAAAAAABAIAAECAAAAAABQAAQAAA=</HashCode>
+      <FileName>ShaderProgram.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture">
+    <Position X="20.5" Y="23" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAgQAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transform">
+    <Position X="18.75" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAGABKoAIABAIBYAIAxEAgAAIABAAoAAgEA=</HashCode>
+      <FileName>Transform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sound">
+    <Position X="27.5" Y="23" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAIgAAAAAAAAAAAAAAAAMAAAACIAAAABAAAAAAAIAA=</HashCode>
+      <FileName>Sound.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager">
+    <Position X="27.5" Y="26.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAQAAAAAgABAAAAAAIAIAAAAAAAAA=</HashCode>
+      <FileName>SoundManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoxShape">
+    <Position X="2.5" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoxShape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapsuleShape">
+    <Position X="6" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAIAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CapsuleShape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollisionShape">
+    <Position X="4.25" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAgIAAAAAAAAABAAAAAAAAAAAgAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CollisionShape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DirectionsUtility">
+    <Position X="29.25" Y="14" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAIAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Directions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelRoom">
+    <Position X="29.25" Y="10" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAggIAiAgAAAAAAAAAAAAAAIAgAACAAAAAAAAAAIAgA=</HashCode>
+      <FileName>GenerationData.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelLayout">
+    <Position X="29.25" Y="16" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAAISAACABAACAQACAAAAAABQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GenerationData.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PersistantData">
+    <Position X="25.75" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ABAAgAAAAAAQAAKAAAEAEAAgBAAAAAgIhEQAAQAAAAA=</HashCode>
+      <FileName>PersistantData.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntranceExitRoomFactory">
+    <Position X="4" Y="17.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAEAAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntranceExitRoomFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NormalRoomFactory">
+    <Position X="0.5" Y="17.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAEAAAAAAAABAAAAgAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>NormalRoomFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomFactory">
+    <Position X="4" Y="14" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAEAEAAAAAABAAAAAAAAAAgAAAAAAAAAAkAA=</HashCode>
+      <FileName>RoomFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopFloorRoomFactory">
+    <Position X="7.5" Y="17.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAACACAAEAAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>TopFloorRoomFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Character">
+    <Position X="12.25" Y="17" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAACAAAAAIAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>TextRenderer.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="InputState">
+    <Position X="22.25" Y="8.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAICQAEAAAAgBEAABAAEAAAA=</HashCode>
+      <FileName>InputState.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GameFilterCallback">
+    <Position X="15.75" Y="17" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Physics.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Vertex">
+    <Position X="17" Y="29.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAIgAAAAAAgCAAAAAAAAAAAA=</HashCode>
+      <FileName>Vertex.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

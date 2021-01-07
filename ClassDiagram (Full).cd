@@ -1,0 +1,991 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Application" Collapsed="true">
+    <Position X="135.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAIAIEKABgABAAAoAAAAAAABAACABAAAEgiAAAIIQI=</HashCode>
+      <FileName>Application.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utility" Collapsed="true">
+    <Position X="142.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAggAIAAAAACAAAQABAAAAAAAAEBAAAAAAAAAAA=</HashCode>
+      <FileName>Utility.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component" Collapsed="true">
+    <Position X="28.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAEAAAAAAAAAAAAAAAAABAIAUAAAg=</HashCode>
+      <FileName>Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecorationSpawner" Collapsed="true">
+    <Position X="30" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAgAAIECAAQAAAAAIAAAAAAgAAIAEAAAA=</HashCode>
+      <FileName>DecorationSpawner.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator" Collapsed="true">
+    <Position X="34.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAiAAAQIAAQIAAFAKAAAAAAAAIAAEEAAACIBEAAAA=</HashCode>
+      <FileName>LevelGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MimicController" Collapsed="true">
+    <Position X="39" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAIAAAAAAAEIAAAAAAAAAAAACAAAAEIgECCAI=</HashCode>
+      <FileName>MimicController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController" Collapsed="true">
+    <Position X="41.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAMAAAAgAAAYAAAEAQAACCEABAAAAAIAACAKAEAAAQ=</HashCode>
+      <FileName>PlayerController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RigidBody" Collapsed="true">
+    <Position X="50.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAIAEIAAAAAAABAEAAAAEIUAAAAEAAAQAACMAEACAA=</HashCode>
+      <FileName>RigidBody.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomController" Collapsed="true">
+    <Position X="52.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAACAAAECAAAAAQAAAAAAAAAAABIAUIAEA=</HashCode>
+      <FileName>RoomController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GhostController" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAhAEAAAAgQwAAAAgAAAIAQAIAMQAAI=</HashCode>
+      <FileName>GhostController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button" Collapsed="true">
+    <Position X="14.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAABAABAAAMAAAAAACAAAAAADAAARAICFAAAA=</HashCode>
+      <FileName>Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuButton" Collapsed="true">
+    <Position X="12" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAACAAAAAAEAAAAACAEAAAA=</HashCode>
+      <FileName>MainMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptionsMenuButton" Collapsed="true">
+    <Position X="14.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAFAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>OptionsMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseMenuButton" Collapsed="true">
+    <Position X="16.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgAAAEAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>PauseMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialMenuButton" Collapsed="true">
+    <Position X="18.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAEAAAAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>TutorialMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverButton" Collapsed="true">
+    <Position X="9.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAQAgAAAAAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>GameOverButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImageRenderer" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAAAAgAEAAAAAAAAEgAAAABCAAIAAAAAAAAgICEUAAA=</HashCode>
+      <FileName>ImageRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshRenderer" Collapsed="true">
+    <Position X="21" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AggEAQAAAAAAQAAOEAIAEAIAAAARAAAAAiAAIEEQAQA=</HashCode>
+      <FileName>MeshRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextRenderer" Collapsed="true">
+    <Position X="25.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAoBAIAEAAAAAFAAACAAIAAAAAAAIAAAAMAGUAAA=</HashCode>
+      <FileName>TextRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransitionRenderer" Collapsed="true">
+    <Position X="32.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIgAAgAAAAAAAAAAEAAAAAACAAAAAAAAAAAAIAEcAAA=</HashCode>
+      <FileName>TransitionRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractableDoor" Collapsed="true">
+    <Position X="43.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQgAAAAAABAAEAAAAAAAAVAAAACAAAABICEAAAA=</HashCode>
+      <FileName>InteractableDoor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractableExit" Collapsed="true">
+    <Position X="45.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAEAQAAAEAAAAAAAAAAAABIAEAAAA=</HashCode>
+      <FileName>InteractableExit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractableMimic" Collapsed="true">
+    <Position X="48" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAGAAAAAAAAAAAAACAAAABIAkAAAA=</HashCode>
+      <FileName>InteractableMimic.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractableObject" Collapsed="true">
+    <Position X="45.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAYAAAAAAAAAAFAAAAAAQAEAAAAAAAAAgIAUAAAA=</HashCode>
+      <FileName>InteractableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelManager" Collapsed="true">
+    <Position X="54.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAABAACBAgkAEAAMBAIAAICSAIAIAIEAAAEMCEgAAA=</HashCode>
+      <FileName>LevelManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuManager" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACABgAQAAAAgCAMBIAAIAjQQAAIAIAABCAYCEAAAA=</HashCode>
+      <FileName>MainMenuManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptionsMenuManager" Collapsed="true">
+    <Position X="23.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAAAEAAgAAgBAEAAKAAACgAgAAAAAAACAIAECBAA=</HashCode>
+      <FileName>OptionsMenuManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialManager" Collapsed="true">
+    <Position X="27.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAQAAAMFAQAAACQAAAAAIAAAgAMCEEAAA=</HashCode>
+      <FileName>TutorialManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverManager" Collapsed="true">
+    <Position X="36.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAMFAAQAACQAAAAAIAAAABMiEAAKA=</HashCode>
+      <FileName>GameOverManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomPrefab_1Door" Collapsed="true">
+    <Position X="78.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RoomPrefab_1Door.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomPrefab_3Door" Collapsed="true">
+    <Position X="90" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RoomPrefab_3Door.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomPrefab_4Door" Collapsed="true">
+    <Position X="101.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RoomPrefab_4Door.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomPrefab_Corner" Collapsed="true">
+    <Position X="112.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RoomPrefab_Corner.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomPrefab_Straight" Collapsed="true">
+    <Position X="123.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RoomPrefab_Straight.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chair_Prefab" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chair_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntranceStairs_Prefab" Collapsed="true">
+    <Position X="18" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntranceStairs_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExitStairs_Prefab" Collapsed="true">
+    <Position X="29.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ExitStairs_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hedge_Large_Prefab" Collapsed="true">
+    <Position X="40.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Hedge_Large_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hedge_Small_Prefab" Collapsed="true">
+    <Position X="51.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Hedge_Small_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Table_Prefab" Collapsed="true">
+    <Position X="60.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Table_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortPillar_Full_Prefab" Collapsed="true">
+    <Position X="69.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShortPillar_Full_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortPillar_Half_Prefab" Collapsed="true">
+    <Position X="81" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ShortPillar_Half_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortPillar_Quarter_Prefab" Collapsed="true">
+    <Position X="92.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShortPillar_Quarter_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortPillar_Single_Prefab" Collapsed="true">
+    <Position X="103.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShortPillar_Single_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallPillar_Full_Prefab" Collapsed="true">
+    <Position X="114.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TallPillar_Full_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallPillar_Half_Prefab" Collapsed="true">
+    <Position X="126" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>TallPillar_Half_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallPillar_Quarter_Prefab" Collapsed="true">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TallPillar_Quarter_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TallPillar_Single_Prefab" Collapsed="true">
+    <Position X="20.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>TallPillar_Single_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopFloor_Corner_Prefab" Collapsed="true">
+    <Position X="31.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TopFloor_Corner_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopFloor_Single_Prefab" Collapsed="true">
+    <Position X="42.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TopFloor_Single_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopFloor_Straight_Prefab" Collapsed="true">
+    <Position X="54" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>TopFloor_Straight_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bat_Prefab" Collapsed="true">
+    <Position X="63" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bat_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoorPrefab" Collapsed="true">
+    <Position X="72" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DoorPrefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ghost_Prefab" Collapsed="true">
+    <Position X="83.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Ghost_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuButton_Prefab" Collapsed="true">
+    <Position X="94.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>MainMenuButton_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptionsMenuButton_Normal_Prefab" Collapsed="true">
+    <Position X="105.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OptionsMenuButton_Normal_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptionsMenuButton_Small_Prefab" Collapsed="true">
+    <Position X="117" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OptionsMenuButton_Small_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseMenuButton_Prefab" Collapsed="true">
+    <Position X="128.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PauseMenuButton_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialButton_Prefab" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TutorialButton_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverButton_Prefab" Collapsed="true">
+    <Position X="22.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameOverButton_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChairMimic_Prefab" Collapsed="true">
+    <Position X="33.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChairMimic_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HedgeMimic_Large_Prefab" Collapsed="true">
+    <Position X="45" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HedgeMimic_Large_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HedgeMimic_Small_Prefab" Collapsed="true">
+    <Position X="56.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HedgeMimic_Small_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TableMimic_Prefab" Collapsed="true">
+    <Position X="65.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>TableMimic_Prefab.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_1Door_Normal" Collapsed="true">
+    <Position X="74.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Room_1Door_Normal.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorCorner_Normal" Collapsed="true">
+    <Position X="85.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_2DoorCorner_Normal.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorStraight_Normal" Collapsed="true">
+    <Position X="96.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Room_2DoorStraight_Normal.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_3Door_Normal" Collapsed="true">
+    <Position X="108" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Room_3Door_Normal.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_1Door_TopFloor" Collapsed="true">
+    <Position X="119.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_1Door_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorCorner_DownLeft_TopFloor" Collapsed="true">
+    <Position X="130.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_2DoorCorner_DownLeft_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorCorner_LeftUp_TopFloor" Collapsed="true">
+    <Position X="13.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Room_2DoorCorner_LeftUp_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorCorner_RightDown_TopFloor" Collapsed="true">
+    <Position X="24.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_2DoorCorner_RightDown_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorCorner_UpRight_TopFloor" Collapsed="true">
+    <Position X="36" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Room_2DoorCorner_UpRight_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorStraight_TopFloor" Collapsed="true">
+    <Position X="47.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Room_2DoorStraight_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_3Door_NoDown_TopFloor" Collapsed="true">
+    <Position X="58.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_3Door_NoDown_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_3Door_NoLeft_TopFloor" Collapsed="true">
+    <Position X="67.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_3Door_NoLeft_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_3Door_NoRight_TopFloor" Collapsed="true">
+    <Position X="76.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_3Door_NoRight_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_3Door_NoUp_TopFloor" Collapsed="true">
+    <Position X="87.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_3Door_NoUp_TopFloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_1DoorExit" Collapsed="true">
+    <Position X="99" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Room_1DoorExit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_1Door_Entrance" Collapsed="true">
+    <Position X="110.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_1Door_Entrance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorCorner_Entrance" Collapsed="true">
+    <Position X="121.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_2DoorCorner_Entrance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorCorner_Exit" Collapsed="true">
+    <Position X="132.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Room_2DoorCorner_Exit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorStraight_Entrance" Collapsed="true">
+    <Position X="15.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Room_2DoorStraight_Entrance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_2DoorStraight_Exit" Collapsed="true">
+    <Position X="27" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_2DoorStraight_Exit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_3Door_Entrance" Collapsed="true">
+    <Position X="38.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room_3Door_Entrance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room_3Door_Exit" Collapsed="true">
+    <Position X="49.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Room_3Door_Exit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverScene" Collapsed="true">
+    <Position X="0.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>GameOverScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameplayScene" Collapsed="true">
+    <Position X="3" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameplayScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuScene" Collapsed="true">
+    <Position X="5.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainMenuScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAACAAAAAIAAADIAAASgAAAQAAUhAAAAAAAAA=</HashCode>
+      <FileName>Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManager" Collapsed="true">
+    <Position X="138.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAggAAAAAAAAFCAAAAAIAAACAAAEAAQ=</HashCode>
+      <FileName>SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialScene" Collapsed="true">
+    <Position X="7.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TutorialScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="137" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGIIAAQAAAIAhAAAAAAASgBBQAAAEAAAABgAAAAEA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity" Collapsed="true">
+    <Position X="69.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAIAAAIEQAAEAJABAAAACKAYAIAAAAAIAUABIA=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Input" Collapsed="true">
+    <Position X="140.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAAgBBEAAAAQIABQCNAIAAAAIAAAAAAQCAAE=</HashCode>
+      <FileName>Input.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Log" Collapsed="true">
+    <Position X="137" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAYAAAAAAABACAAgAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Log.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mesh" Collapsed="true">
+    <Position X="138.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAABAAAAAAAAAAQEAAAAAAAAAAAAWAAAAAAAAA=</HashCode>
+      <FileName>Mesh.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model" Collapsed="true">
+    <Position X="140.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAAAAAAAAgAAAASAAAAAAAAAAAAAgAgAAAAAAAA=</HashCode>
+      <FileName>Model.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Physics" Collapsed="true">
+    <Position X="135.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAEACAAAAIIAAgAABAAAJAAIAAALAAGAAQA=</HashCode>
+      <FileName>Physics.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources" Collapsed="true">
+    <Position X="137" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAAACIACABAAAAAAAAAQARAgAAAAKAARCABGAICg=</HashCode>
+      <FileName>Resources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shader" Collapsed="true">
+    <Position X="140.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAABAAAAAAAAAAAAAAAAABAAAAADAAQQ=</HashCode>
+      <FileName>Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShaderProgram" Collapsed="true">
+    <Position X="142.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAABAAAAAAABAIAAECAAAAAABQAAQAAA=</HashCode>
+      <FileName>ShaderProgram.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture" Collapsed="true">
+    <Position X="138.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgQAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transform" Collapsed="true">
+    <Position X="140.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAGABKoAIABAIBYAIAxEAgAAIABAAoAAgEA=</HashCode>
+      <FileName>Transform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sound" Collapsed="true">
+    <Position X="135.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAIgAAAAAAAAAAAAAAAAMAAAACIAAAABAAAAAAAIAA=</HashCode>
+      <FileName>Sound.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="137" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAQAAAAAgABAAAAAAIAIAAAAAAAAA=</HashCode>
+      <FileName>SoundManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoxShape" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoxShape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapsuleShape" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAIAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CapsuleShape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollisionShape" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgIAAAAAAAAABAAAAAAAAAAAgAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CollisionShape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DirectionsUtility" Collapsed="true">
+    <Position X="138.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAIAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Directions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelRoom" Collapsed="true">
+    <Position X="135.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAggIAiAgAAAAAAAAAAAAAAIAgAACAAAAAAAAAAIAgA=</HashCode>
+      <FileName>GenerationData.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelLayout" Collapsed="true">
+    <Position X="142.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAISAACABAACAQACAAAAAABQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GenerationData.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PersistantData" Collapsed="true">
+    <Position X="142.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAgAAAAAAQAAKAAAEAEAAgBAAAAAgIhEQAAQAAAAA=</HashCode>
+      <FileName>PersistantData.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntranceExitRoomFactory" Collapsed="true">
+    <Position X="0.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAEAAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntranceExitRoomFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NormalRoomFactory" Collapsed="true">
+    <Position X="3" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAEAAAAAAAABAAAAgAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>NormalRoomFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomFactory" Collapsed="true">
+    <Position X="3" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAEAEAAAAAABAAAAAAAAAAgAAAAAAAAAAkAA=</HashCode>
+      <FileName>RoomFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TopFloorRoomFactory" Collapsed="true">
+    <Position X="5.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACACAAEAAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>TopFloorRoomFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Character" Collapsed="true">
+    <Position X="135.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAACAAAAAIAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>TextRenderer.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="InputState" Collapsed="true">
+    <Position X="138.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAICQAEAAAAgBEAABAAEAAAA=</HashCode>
+      <FileName>InputState.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GameFilterCallback" Collapsed="true">
+    <Position X="137" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Physics.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Vertex" Collapsed="true">
+    <Position X="140.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAIgAAAAAAgCAAAAAAAAAAAA=</HashCode>
+      <FileName>Vertex.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="AppState" Collapsed="true">
+    <Position X="135.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAIAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Application.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DecorationType" Collapsed="true">
+    <Position X="142.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAABAAAABCAQAAAAAAAAQAAAA=</HashCode>
+      <FileName>DecorationSpawner.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RigidBodyLayer" Collapsed="true">
+    <Position X="142.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAgAAAAAAQAAAAAAgAAAAAA=</HashCode>
+      <FileName>RigidBody.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ButtonState" Collapsed="true">
+    <Position X="137" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAgAABIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Button.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MainMenuButtonType" Collapsed="true">
+    <Position X="135.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAABAAAAAAAAAEAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OptionsMenuButtonType" Collapsed="true">
+    <Position X="138.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAABIAABAAAAAAAEAAAAAAAAEAAAAAAAAACA=</HashCode>
+      <FileName>OptionsMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PauseMenuButtonType" Collapsed="true">
+    <Position X="140.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAQAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PauseMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TutorialButtonType" Collapsed="true">
+    <Position X="140.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TutorialMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameOverButtonType" Collapsed="true">
+    <Position X="137" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>GameOverButton.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameplayState" Collapsed="true">
+    <Position X="140.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA0AAIIAA=</HashCode>
+      <FileName>LevelManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MainMenuState" Collapsed="true">
+    <Position X="137" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAKAAAQAAAAEAAAAAAAAAAAAAAQQCAAAAAAABAAA=</HashCode>
+      <FileName>MainMenuManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TutorialState" Collapsed="true">
+    <Position X="142.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAIBgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TutorialManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameOverState" Collapsed="true">
+    <Position X="138.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAICAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>GameOverManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameScenes" Collapsed="true">
+    <Position X="142.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CameraType" Collapsed="true">
+    <Position X="138.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAQAAAAA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SHADER_TYPE" Collapsed="true">
+    <Position X="137" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Shader.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SoundType" Collapsed="true">
+    <Position X="138.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Sound.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CShapeType" Collapsed="true">
+    <Position X="140.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEIAIAAAAAAABAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>CollisionShape.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Directions" Collapsed="true">
+    <Position X="135.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Directions.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RoomTypes" Collapsed="true">
+    <Position X="135.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAABAAAAAAgAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RoomTypes.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

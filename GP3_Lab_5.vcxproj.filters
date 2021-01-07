@@ -226,6 +226,9 @@
     <Filter Include="Header Files\Prefabs\EntranceExitRooms\3Door">
       <UniqueIdentifier>{a3dc2157-4438-4ee1-96a8-75d9ad5555e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Class Diagrams">
+      <UniqueIdentifier>{6a47cf12-7f06-4b06-900d-63966b03b766}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RigidBody.cpp">
@@ -291,9 +294,6 @@
     <ClCompile Include="MainMenuScene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="TestComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -301,12 +301,6 @@
       <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="CapsuleShape.cpp">
-      <Filter>Source Files\Engine\Colliders</Filter>
-    </ClCompile>
-    <ClCompile Include="CylinderShape.cpp">
-      <Filter>Source Files\Engine\Colliders</Filter>
-    </ClCompile>
-    <ClCompile Include="SphereShape.cpp">
       <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="RoomPrefab_Corner.cpp">
@@ -585,9 +579,6 @@
     <ClCompile Include="GameOverManager.cpp">
       <Filter>Source Files\Components\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="AltCameraController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RigidBody.h">
@@ -665,9 +656,6 @@
     <ClInclude Include="MainMenuScene.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="TestComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -681,12 +669,6 @@
       <Filter>Header Files\Engine\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="CollisionShape.h">
-      <Filter>Header Files\Engine\Colliders</Filter>
-    </ClInclude>
-    <ClInclude Include="CylinderShape.h">
-      <Filter>Header Files\Engine\Colliders</Filter>
-    </ClInclude>
-    <ClInclude Include="SphereShape.h">
       <Filter>Header Files\Engine\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="LevelGenerator.h">
@@ -965,9 +947,6 @@
     <ClInclude Include="GameOverManager.h">
       <Filter>Header Files\Components\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="AltCameraController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GP3_Coursework.rc">
@@ -998,6 +977,15 @@
     </None>
     <None Include="Assets\Shaders\glitch_VERT.glsl">
       <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="ClassDiagram (Components).cd">
+      <Filter>Resource Files\Class Diagrams</Filter>
+    </None>
+    <None Include="ClassDiagram (Engine).cd">
+      <Filter>Resource Files\Class Diagrams</Filter>
+    </None>
+    <None Include="ClassDiagram (Prefabs).cd">
+      <Filter>Resource Files\Class Diagrams</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -224,7 +224,6 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AltCameraController.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Bat_Prefab.cpp" />
     <ClCompile Include="BoxShape.cpp" />
@@ -233,7 +232,6 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="CapsuleShape.cpp" />
     <ClCompile Include="ChairMimic_Prefab.cpp" />
     <ClCompile Include="Chair_Prefab.cpp" />
-    <ClCompile Include="CylinderShape.cpp" />
     <ClCompile Include="DecorationSpawner.cpp" />
     <ClCompile Include="Directions.cpp" />
     <ClCompile Include="DoorPrefab.cpp" />
@@ -323,14 +321,12 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="ShortPillar_Single_Prefab.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="SphereShape.cpp" />
     <ClCompile Include="TableMimic_Prefab.cpp" />
     <ClCompile Include="Table_Prefab.cpp" />
     <ClCompile Include="TallPillar_Full_Prefab.cpp" />
     <ClCompile Include="TallPillar_Half_Prefab.cpp" />
     <ClCompile Include="TallPillar_Quarter_Prefab.cpp" />
     <ClCompile Include="TallPillar_Single_Prefab.cpp" />
-    <ClCompile Include="TestComponent.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TopFloorRoomFactory.cpp" />
@@ -346,7 +342,6 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AltCameraController.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Bat_Prefab.h" />
     <ClInclude Include="BoxShape.h" />
@@ -358,7 +353,6 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="CollisionShape.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Component.h" />
-    <ClInclude Include="CylinderShape.h" />
     <ClInclude Include="DecorationSpawner.h" />
     <ClInclude Include="Directions.h" />
     <ClInclude Include="DoorPrefab.h" />
@@ -450,14 +444,12 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <ClInclude Include="ShortPillar_Single_Prefab.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="SphereShape.h" />
     <ClInclude Include="TableMimic_Prefab.h" />
     <ClInclude Include="Table_Prefab.h" />
     <ClInclude Include="TallPillar_Full_Prefab.h" />
     <ClInclude Include="TallPillar_Half_Prefab.h" />
     <ClInclude Include="TallPillar_Quarter_Prefab.h" />
     <ClInclude Include="TallPillar_Single_Prefab.h" />
-    <ClInclude Include="TestComponent.h" />
     <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TopFloorRoomFactory.h" />
@@ -485,6 +477,9 @@ xcopy /Y "bullet\Lib\*.dll" "$(OutDir)"</Command>
     <None Include="Assets\Shaders\simple_VERT.glsl" />
     <None Include="Assets\Shaders\text_FRAG.glsl" />
     <None Include="Assets\Shaders\text_VERT.glsl" />
+    <None Include="ClassDiagram (Components).cd" />
+    <None Include="ClassDiagram (Engine).cd" />
+    <None Include="ClassDiagram (Prefabs).cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
