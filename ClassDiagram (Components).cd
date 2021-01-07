@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Component">
+    <Position X="27.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAEAAAAAAAAAAAAAAAAABAIAUAAAg=</HashCode>
+      <FileName>Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecorationSpawner">
+    <Position X="34" Y="21.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAgAAIECAAQAAAAAIAAAAAAgAAIAEAAAA=</HashCode>
+      <FileName>DecorationSpawner.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator">
+    <Position X="30.25" Y="15.5" Width="3" />
+    <InheritanceLine Type="Component" FixedFromPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="15.125" />
+        <Point X="31.75" Y="15.125" />
+        <Point X="31.75" Y="15.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAiAAAQIAAQIAAFAKAAAAAAAAIAAEEAAACIBEAAAA=</HashCode>
+      <FileName>LevelGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MimicController">
+    <Position X="37.75" Y="15.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAIAAAAAAAEIAAAAAAAAAAAACAAAAEIgECCAI=</HashCode>
+      <FileName>MimicController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController">
+    <Position X="34" Y="15.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AIAMAAAAgAAAYAAAEAQAACCEABAAAAAIAACAKAEAAAQ=</HashCode>
+      <FileName>PlayerController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RigidBody">
+    <Position X="44.75" Y="15.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AIAIAEIAAAAAAABAEAAAAEIUAAAAEAAAQAACMAEACAA=</HashCode>
+      <FileName>RigidBody.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomController">
+    <Position X="30.25" Y="21.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAACAAAECAAAAAQAAAAAAAAAAABIAUIAEA=</HashCode>
+      <FileName>RoomController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GhostController">
+    <Position X="41.25" Y="15.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAhAEAAAAgQwAAAAgAAAIAQAIAMQAAI=</HashCode>
+      <FileName>GhostController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button">
+    <Position X="21.25" Y="5" Width="3.25" />
+    <InheritanceLine Type="Component" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="4.142" />
+        <Point X="22.875" Y="4.142" />
+        <Point X="22.875" Y="5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAABAABAAAMAAAAAACAAAAAADAAARAICFAAAA=</HashCode>
+      <FileName>Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuButton">
+    <Position X="18" Y="10" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAACAAAAAAEAAAAACAEAAAA=</HashCode>
+      <FileName>MainMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptionsMenuButton">
+    <Position X="19.75" Y="12.75" Width="3" />
+    <InheritanceLine Type="Button" ManuallyRouted="true">
+      <Path>
+        <Point X="22.875" Y="9.184" />
+        <Point X="22.875" Y="9.54" />
+        <Point X="21.25" Y="9.54" />
+        <Point X="21.25" Y="12.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAFAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>OptionsMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseMenuButton">
+    <Position X="23.25" Y="12.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>BAgAAAEAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>PauseMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialMenuButton">
+    <Position X="21.5" Y="10" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAEAAAAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>TutorialMenuButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverButton">
+    <Position X="25" Y="10" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAQAgAAAAAACAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>GameOverButton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImageRenderer">
+    <Position X="37.75" Y="6.25" Width="3" />
+    <InheritanceLine Type="Component" FixedFromPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="5.625" />
+        <Point X="39.25" Y="5.625" />
+        <Point X="39.25" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>wAAAAgAEAAAAAAAAEgAAAABCAAIAAAAAAAAgICEUAAA=</HashCode>
+      <FileName>ImageRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshRenderer">
+    <Position X="34.25" Y="6.25" Width="3" />
+    <InheritanceLine Type="Component" FixedFromPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="5.625" />
+        <Point X="35.75" Y="5.625" />
+        <Point X="35.75" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AggEAQAAAAAAQAAOEAIAEAIAAAARAAAAAiAAIEEQAQA=</HashCode>
+      <FileName>MeshRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextRenderer">
+    <Position X="30.75" Y="6.25" Width="3" />
+    <InheritanceLine Type="Component" FixedFromPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="5.625" />
+        <Point X="32.25" Y="5.625" />
+        <Point X="32.25" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAoBAIAEAAAAAFAAACAAIAAAAAAAIAAAAMAGUAAA=</HashCode>
+      <FileName>TextRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransitionRenderer">
+    <Position X="41.25" Y="6.25" Width="3" />
+    <InheritanceLine Type="Component" FixedFromPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="5.625" />
+        <Point X="42.75" Y="5.625" />
+        <Point X="42.75" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>gIgAAgAAAAAAAAAAEAAAAAACAAAAAAAAAAAAIAEcAAA=</HashCode>
+      <FileName>TransitionRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractableDoor">
+    <Position X="46.75" Y="10.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQgAAAAAABAAEAAAAAAAAVAAAACAAAABICEAAAA=</HashCode>
+      <FileName>InteractableDoor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractableExit">
+    <Position X="50.25" Y="10.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAEAQAAAEAAAAAAAAAAAABIAEAAAA=</HashCode>
+      <FileName>InteractableExit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractableMimic">
+    <Position X="53.75" Y="10.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAGAAAAAAAAAAAAACAAAABIAkAAAA=</HashCode>
+      <FileName>InteractableMimic.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractableObject">
+    <Position X="50.25" Y="6" Width="3" />
+    <InheritanceLine Type="Component" FixedFromPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="5.625" />
+        <Point X="51.75" Y="5.625" />
+        <Point X="51.75" Y="6" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAYAAAAAAAAAAFAAAAAAQAEAAAAAAAAAgIAUAAAA=</HashCode>
+      <FileName>InteractableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelManager">
+    <Position X="10.75" Y="11.75" Width="3.25" />
+    <InheritanceLine Type="Component" ManuallyRouted="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="4.137" />
+        <Point X="12.375" Y="4.137" />
+        <Point X="12.375" Y="11.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>ABAABAACBAgkAEAAMBAIAAICSAIAIAIEAAAEMCEgAAA=</HashCode>
+      <FileName>LevelManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuManager">
+    <Position X="4" Y="5" Width="3.25" />
+    <InheritanceLine Type="Component" FixedFromPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="4.142" />
+        <Point X="5.625" Y="4.142" />
+        <Point X="5.625" Y="5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>IAACABgAQAAAAgCAMBIAAIAjQQAAIAIAABCAYCEAAAA=</HashCode>
+      <FileName>MainMenuManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptionsMenuManager">
+    <Position X="8.5" Y="5" Width="3.25" />
+    <InheritanceLine Type="Component" FixedFromPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="4.142" />
+        <Point X="10.125" Y="4.142" />
+        <Point X="10.125" Y="5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>YAAAAAAEAAgAAgBAEAAKAAACgAgAAAAAAACAIAECBAA=</HashCode>
+      <FileName>OptionsMenuManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialManager">
+    <Position X="6.25" Y="11.75" Width="3.25" />
+    <InheritanceLine Type="Component" ManuallyRouted="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="4.142" />
+        <Point X="7.875" Y="4.142" />
+        <Point X="7.875" Y="11.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAQAAAMFAQAAACQAAAAAIAAAgAMCEEAAA=</HashCode>
+      <FileName>TutorialManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverManager">
+    <Position X="13" Y="5" Width="3.25" />
+    <InheritanceLine Type="Component" FixedFromPoint="true">
+      <Path>
+        <Point X="29.25" Y="3.017" />
+        <Point X="29.25" Y="4.142" />
+        <Point X="14.625" Y="4.142" />
+        <Point X="14.625" Y="5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAMFAAQAACQAAAAAIAAAABMiEAAKA=</HashCode>
+      <FileName>GameOverManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -22,13 +22,19 @@ private:
 	float stateTimer = 0;
 	float transitionTime = 15.0f;
 
-	// UI Parents
+	// Handling main timer
+	float timeRemaining;
+
+	// Handling Level Score
+	int ghostsRemaining;
+
+	// UI Handling
+	// Parents
 	Entity* gameplayUIParent = nullptr;
 	Entity* pauseUIParent = nullptr;
-
-	// Specific Gameplay UI elements
-	TextRenderer* sceneUITimer;
-	TextRenderer* ghostsUIAmount;
+	// Texts
+	std::vector<TextRenderer*> timerTextRenderers;
+	std::vector<TextRenderer*> mimicsTextRenderers;
 
 	// Specific pause menu UI elements
 	std::vector<Button*> pauseUIButtons;
@@ -50,8 +56,8 @@ public:
 	// Parents
 	void SetSceneParents(Entity* gameplayUI, Entity* pauseUI) { gameplayUIParent = gameplayUI; pauseUIParent = pauseUI; }
 	// Gameplay UI Elements
-	void SetSceneTimerUI(TextRenderer* timerRenderer) { sceneUITimer = timerRenderer; }
-	void SetSceneGhostsUI(TextRenderer* ghostsRenderer) { ghostsUIAmount = ghostsRenderer; }
+	void SetSceneTimerUI(std::vector<TextRenderer*> timerRenderers) { timerTextRenderers = timerRenderers; }
+	void SetSceneGhostsUI(std::vector<TextRenderer*> ghostsRenderers) { mimicsTextRenderers = ghostsRenderers; }
 	// Pause Menu UI Elements
 	void SetPauseScreenButtons(std::vector<Button*> pauseButtons) { pauseUIButtons = pauseButtons; }
 	void SetTransitionController(TransitionRenderer* sceneController) { theTransitionController = sceneController; }
@@ -59,4 +65,8 @@ public:
 	// Controlling Scene State
 	void ChangeSceneState(GameplayState newState);
 	GameplayState GetCurrentState() { return currentState; }
+
+	// Handling Game/ Level Score
+	void OnMimicKilled();
+	void SetLevelMimics(int numberOfGhosts);
 };

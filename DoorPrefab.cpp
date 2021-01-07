@@ -22,7 +22,6 @@ DoorPrefab::DoorPrefab(std::string name) : Entity(name)
 			Resources::GetInstance()->GetTexture("Images/Textures/Brick (Simple).png"))
 	);
 
-
 	// Adding Doors
 	Entity* leftDoor = new Entity("Left Door");
 	leftDoor->GetTransform()->SetLocalPosition(glm::vec3(0.5f, 1.25f, 0));
@@ -35,7 +34,7 @@ DoorPrefab::DoorPrefab(std::string name) : Entity(name)
 	);
 	leftDoor->AddComponent<RigidBody>();
 	leftDoor->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 1.25f, 0.125f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-	leftDoor->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+	leftDoor->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3(0.0f, 0.0f, 0.0f));
 
 	Entity* rightDoor = new Entity("Right Door");
 	rightDoor->GetTransform()->SetLocalPosition(glm::vec3(-0.5f, 1.25f, 0));
@@ -49,7 +48,7 @@ DoorPrefab::DoorPrefab(std::string name) : Entity(name)
 	);
 	rightDoor->AddComponent<RigidBody>();
 	rightDoor->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 1.25f, 0.125f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-	rightDoor->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
+	rightDoor->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3(0.0f, 0.0f, 0.0f));
 
 
 	// Adding Decoration

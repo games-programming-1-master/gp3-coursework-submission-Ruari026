@@ -32,6 +32,7 @@ public:
 	// Handling Parent Children Relationships
 	void AddChild(Entity* newChild);
 	void RemoveChild(Entity* child);
+	std::vector<Entity*> GetChildren() { return m_children; }
 	inline Entity* GetParent() { return m_parent; };
 
 	// Handling Game Loop
@@ -42,6 +43,7 @@ public:
 	// Other Getters
 	Transform* GetTransform() { return m_transform; };
 	std::string GetName() { return m_name; }
+	Entity* GetChild(std::string childName);
 
 	// Other Setters
 	inline void SetEnabled(bool enabled) { isEnabled = enabled; }

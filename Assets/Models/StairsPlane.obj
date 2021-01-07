@@ -1,0 +1,34 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 04.01.2021 20:17:57
+
+mtllib StairsPlane.mtl
+
+#
+# object Plane003
+#
+
+v  -1.9401 1.3467 0.0550
+v  1.9401 1.3467 0.0550
+v  -1.9401 -1.6783 0.0550
+v  1.9401 -1.6783 0.0550
+# 4 vertices
+
+vn 0.0000 -0.0000 -1.0000
+vn 0.0000 -0.0000 -1.0000
+vn 0.0000 -0.0000 -1.0000
+vn 0.0000 -0.0000 -1.0000
+# 4 vertex normals
+
+vt 0.0000 0.0000 0.0000
+vt 1.0000 0.0000 0.0000
+vt 0.0000 1.0000 0.0000
+vt 1.0000 1.0000 0.0000
+# 4 texture coords
+
+o Plane003
+g Plane003
+usemtl wire_228184153
+s 1
+f 3/3/1 1/1/2 2/2/3 4/4/4 
+# 1 polygons
+

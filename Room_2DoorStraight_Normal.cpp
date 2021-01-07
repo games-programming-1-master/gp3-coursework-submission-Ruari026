@@ -1,5 +1,10 @@
 #include "Room_2DoorStraight_Normal.h"
 
+// Required Components
+#include "DecorationSpawner.h"
+#include "RoomController.h"
+
+// Required Prefabs
 #include "RoomPrefab_Straight.h"
 #include "TallPillar_Full_Prefab.h"
 #include "TallPillar_Half_Prefab.h"
@@ -7,6 +12,10 @@
 
 Room_2DoorStraight_Normal::Room_2DoorStraight_Normal(std::string name) : Entity(name)
 {
+	// All Decorated Rooms Require a Controller
+	this->AddComponent<RoomController>();
+
+
 	// Parent Prefab to build off from
 	Entity* parentPrefab = new RoomPrefab_Straight("2DoorStraight_Base");
 	this->AddChild(parentPrefab);
@@ -88,4 +97,44 @@ Room_2DoorStraight_Normal::Room_2DoorStraight_Normal(std::string name) : Entity(
 	middlePillar = new TallPillar_Full_Prefab("MiddlePillar (4)");
 	middlePillar->GetTransform()->SetLocalPosition(glm::vec3(2.5f, 3.5f, -2.5f));
 	this->AddChild(middlePillar);
+
+
+	// Center Hedges
+	{
+		Entity* newSpawnPoint = new Entity("Spawn Point (1)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(0.0f, 0, 2.5f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_LARGEHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (2)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(0.0f, 0, -2.5f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_LARGEHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (3)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(2.5f, 0, 0.0f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_LARGEHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+
+		newSpawnPoint = new Entity("Spawn Point (4)");
+		newSpawnPoint->GetTransform()->SetGlobalPosition(glm::vec3(-2.5f, 0, -0.0f));
+		newSpawnPoint->GetTransform()->SetLocalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.0f), glm::vec3(0, 1, 0)));
+		this->AddChild(newSpawnPoint);
+
+		newSpawnPoint->AddComponent<DecorationSpawner>();
+		newSpawnPoint->GetComponent<DecorationSpawner>()->SetDecorationType(DecorationType::DECORATIONTYPE_LARGEHEDGE);
+		this->GetComponent<RoomController>()->AddDecorationSpawner(newSpawnPoint->GetComponent<DecorationSpawner>());
+	}
 }

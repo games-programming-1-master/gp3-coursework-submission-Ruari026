@@ -5,6 +5,8 @@
 #include "Input.h"
 #include "Application.h"
 #include "SceneManager.h"
+#include "PersistantData.h"
+#include "SoundManager.h"
 
 MainMenuManager::MainMenuManager()
 {
@@ -28,6 +30,12 @@ void MainMenuManager::OnStart()
 	// Ensures that the game only updates for components (prevents physics engine from updating)
 	Application::GetInstance()->SetUpdateTimeScale(1.0f);
 	Application::GetInstance()->SetPhysicsTimeScale(1.0f);
+
+	// Ensures that the persistant data is reset
+	PersistantData::GetInstance()->ResetGameProgression();
+
+	// Starts the background music
+	SoundManager::GetInstance()->PlaySound("Audio/Music/Loyalty_Freak_Music_-_01_-_Monster_Parade.mp3", -1);
 }
 
 void MainMenuManager::OnUpdate(float deltaTime)

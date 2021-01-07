@@ -20,7 +20,7 @@ Chair_Prefab::Chair_Prefab(std::string name) : Entity(name)
 
 	// Collider
 	this->AddComponent<RigidBody>();
-	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(1.0f, 1.75f, 1.0f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.625f, 1.05f, 0.625f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f), RigidBodyLayer::RB_LAYER_DECORATION);
 	this->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 
 
@@ -32,4 +32,5 @@ Chair_Prefab::Chair_Prefab(std::string name) : Entity(name)
 			Resources::GetInstance()->GetShader("simple"),
 			Resources::GetInstance()->GetTexture("Images/Textures/Tartan.png"))
 	);
+	this->AddChild(cushion);
 }

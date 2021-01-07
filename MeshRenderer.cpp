@@ -4,7 +4,7 @@
 #include "Common.h"
 #include "SceneManager.h"
 #include "Camera.h"
-#include "Input.h"
+#include "PersistantData.h"
 
 MeshRenderer::MeshRenderer(std::shared_ptr<Model> model, std::shared_ptr<ShaderProgram> program, std::shared_ptr<Texture> texture)
 {
@@ -20,42 +20,34 @@ MeshRenderer::~MeshRenderer()
 
 void MeshRenderer::OnStart()
 {
-	currentMax = beigeMax;
-	currentMin = beigeMin;
+	if (changeColor)
+	{
+		// Model Color based on the player's current level
+		int levelNumber = PersistantData::GetInstance()->GetCurrentLevel();
+		if (levelNumber < 3)
+		{
+			float colorStep = (1 - (1.0f / (levelNumber + 1)));
+
+			currentMax = Utility::LerpVec3(beigeMax, greenMax, colorStep);
+			currentMin = Utility::LerpVec3(beigeMin, greenMin, colorStep);
+		}
+		else if (levelNumber >= 3 && levelNumber < 6)
+		{
+			float colorStep = (1 - (1.0f / (levelNumber - 2)));
+
+			currentMax = Utility::LerpVec3(greenMax, redMax, colorStep);
+			currentMin = Utility::LerpVec3(greenMin, greenMax, colorStep);
+		}
+		else
+		{
+			currentMax = redMax;
+			currentMin = redMin;
+		}
+	}
 }
 
 void MeshRenderer::OnUpdate(float deltaTime)
 {
-	// Checking Input
-	if (Input::GetInstance()->GetKeyDown(SDLK_RIGHT))
-	{
-		colorStep += 0.1f;
-		if (colorStep > 2.0f)
-		{
-			colorStep = 2;
-		}
-	}
-	if (Input::GetInstance()->GetKeyDown(SDLK_LEFT))
-	{
-		colorStep -= 0.1f;
-		if (colorStep < 0)
-		{
-			colorStep = 0;
-		}
-	}
-
-
-	// Handling color changes
-	if (colorStep >= 0.0f && colorStep < 1.0f)
-	{
-		currentMin = Utility::LerpVec3(beigeMin, greenMin, colorStep);
-		currentMax = Utility::LerpVec3(beigeMax, greenMax, colorStep);
-	}
-	else if (colorStep >= 1.0f && colorStep <= 2.0f)
-	{
-		currentMin = Utility::LerpVec3(greenMin, redMin, (colorStep - 1));
-		currentMax = Utility::LerpVec3(greenMax, redMax, (colorStep - 1));
-	}
 }
 
 void MeshRenderer::OnRender()

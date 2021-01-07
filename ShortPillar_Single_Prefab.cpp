@@ -21,6 +21,6 @@ ShortPillar_Single_Prefab::ShortPillar_Single_Prefab(std::string name) : Entity(
 
 	// Collider
 	this->AddComponent<RigidBody>();
-	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 1.75f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+	this->GetComponent<RigidBody>()->Init(new BoxShape(glm::vec3(0.5f, 1.75f, 0.5f)), 0.0f, glm::vec3(0.0f, 0.0f, 0.0f), RigidBodyLayer::RB_LAYER_DECORATION);
 	this->GetComponent<RigidBody>()->Get()->setMassProps(0, btVector3());
 }

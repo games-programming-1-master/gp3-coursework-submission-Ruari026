@@ -67,6 +67,12 @@ void SceneManager::SetStartScene(GameScenes startScene)
 			currentScene = new GameplayScene();
 		}
 		break;
+
+		case (GameScenes::GAMESCENE_GAMEOVER):
+		{
+			currentScene = new GameOverScene();
+		}
+		break;
 	}
 
 	// Ensures the new scene starts all of it's entity's
@@ -100,6 +106,12 @@ void SceneManager::CheckForSceneChange()
 			case (GameScenes::GAMESCENE_GAMEPLAY):
 			{
 				currentScene = new GameplayScene();
+			}
+			break;
+
+			case (GameScenes::GAMESCENE_GAMEOVER):
+			{
+				currentScene = new GameOverScene();
 			}
 			break;
 			}

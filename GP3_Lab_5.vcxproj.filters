@@ -49,50 +49,14 @@
     <Filter Include="Source Files\Prefabs\EmptyRooms">
       <UniqueIdentifier>{8dd4b3f5-f0d5-4acf-8743-3256fea7eb2c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Prefabs\DecoratedRooms">
-      <UniqueIdentifier>{0e4c15e3-0138-4d02-bced-f5a67a61cda1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Other">
       <UniqueIdentifier>{81901913-b56d-4c65-aa8b-aa416ba1a3d6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Other">
       <UniqueIdentifier>{b15fd00b-6744-4ddb-9919-b635e1351152}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Prefabs\DecoratedRooms\1Door">
-      <UniqueIdentifier>{fd9cecc8-9b70-4123-bd26-05b8573ac366}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Prefabs\DecoratedRooms\2Door-Straight">
-      <UniqueIdentifier>{7496d4b9-a1c9-4585-8cdf-0f2e1c0df331}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Prefabs\DecoratedRooms\3Door">
-      <UniqueIdentifier>{d33b1ddb-1734-4a1c-9339-3db471f0ea2b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Prefabs\DecoratedRooms\4Door">
-      <UniqueIdentifier>{c298aefb-df09-4933-b1d4-aad4bcbb289b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Prefabs\DecoratedRooms">
-      <UniqueIdentifier>{30b607f6-a2a5-4963-9407-ffd517cce049}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Prefabs\EmptyRooms">
       <UniqueIdentifier>{c78913bd-bdec-4d86-8d3f-f2337e83ed1d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Prefabs\DecoratedRooms\1Door">
-      <UniqueIdentifier>{08b5ba62-47e4-4d10-9cdb-fe0fb2e4645d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Prefabs\DecoratedRooms\2Door-Corner">
-      <UniqueIdentifier>{6cb004b7-3db3-4167-ba9d-27dc38c8de90}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Prefabs\DecoratedRooms\2Door-Corner">
-      <UniqueIdentifier>{c066b10e-7429-4b81-8c45-2716e4c6f531}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Prefabs\DecoratedRooms\2Door-Straight">
-      <UniqueIdentifier>{50cabe0b-6b5a-495f-b789-d6ca73ddc335}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Prefabs\DecoratedRooms\3Door">
-      <UniqueIdentifier>{af2b363a-a23b-4b46-a4be-e1dca2c9bee4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Prefabs\DecoratedRooms\4Door">
-      <UniqueIdentifier>{ef799375-a1f9-4d9b-ad0a-e5ee36bc0346}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Prefabs\Decorations">
       <UniqueIdentifier>{cd08a49f-3d2e-4c8c-ae09-9e676fdda28f}</UniqueIdentifier>
@@ -166,11 +130,104 @@
     <Filter Include="Source Files\Components\Managers">
       <UniqueIdentifier>{86011938-ba7a-4e1f-b8dc-6886dbd50e89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Prefabs\Decorations\Mimics">
+    <Filter Include="Header Files\Prefabs\Mimics">
+      <UniqueIdentifier>{8530d92c-c224-458a-ade0-cf30f2d8728f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\Mimics">
       <UniqueIdentifier>{1c8eb571-7a15-450a-be83-822ce80b2a0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Prefabs\Decorations\Mimics">
-      <UniqueIdentifier>{8530d92c-c224-458a-ade0-cf30f2d8728f}</UniqueIdentifier>
+    <Filter Include="Source Files\Prefabs\NormalRooms">
+      <UniqueIdentifier>{0e4c15e3-0138-4d02-bced-f5a67a61cda1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\NormalRooms\1Door">
+      <UniqueIdentifier>{fd9cecc8-9b70-4123-bd26-05b8573ac366}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\NormalRooms\2Door-Straight">
+      <UniqueIdentifier>{7496d4b9-a1c9-4585-8cdf-0f2e1c0df331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\NormalRooms\3Door">
+      <UniqueIdentifier>{d33b1ddb-1734-4a1c-9339-3db471f0ea2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\NormalRooms\2Door-Corner">
+      <UniqueIdentifier>{6cb004b7-3db3-4167-ba9d-27dc38c8de90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\TopFloorRooms">
+      <UniqueIdentifier>{563ffd78-7497-4b3b-bd75-3a011bd37bc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\EntranceExitRooms">
+      <UniqueIdentifier>{8a29d5ae-4f66-4c85-8a87-7126aa7d1eb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\EntranceExitRooms\1Door">
+      <UniqueIdentifier>{a996d875-7247-4d41-8979-ecf882d88669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\EntranceExitRooms\2Door-Corner">
+      <UniqueIdentifier>{58f29a1d-1019-4776-a93e-d02a6100039e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\EntranceExitRooms\2Door-Straight">
+      <UniqueIdentifier>{2f6531a6-1e94-41a8-90bc-4f708175f134}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\EntranceExitRooms\3Door">
+      <UniqueIdentifier>{831d92fe-55e4-49bf-8cee-fe8ef38a7f77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\NormalRooms">
+      <UniqueIdentifier>{30b607f6-a2a5-4963-9407-ffd517cce049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\NormalRooms\1Door">
+      <UniqueIdentifier>{08b5ba62-47e4-4d10-9cdb-fe0fb2e4645d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\NormalRooms\2Door-Corner">
+      <UniqueIdentifier>{c066b10e-7429-4b81-8c45-2716e4c6f531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\NormalRooms\2Door-Straight">
+      <UniqueIdentifier>{50cabe0b-6b5a-495f-b789-d6ca73ddc335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\NormalRooms\3Door">
+      <UniqueIdentifier>{af2b363a-a23b-4b46-a4be-e1dca2c9bee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\TopFloorRooms\1Door">
+      <UniqueIdentifier>{bb23eb50-f326-40db-a637-f5b5f24c7362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\TopFloorRooms\2Door-Corner">
+      <UniqueIdentifier>{3c5d18fc-7cba-4715-a2da-214559750c65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\TopFloorRooms\2Door-Straight">
+      <UniqueIdentifier>{622b95e7-76e8-400a-ac08-631f1cd75a41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\TopFloorRooms\3Door">
+      <UniqueIdentifier>{bcefcefc-1b02-451b-addc-3d72f2663805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\TopFloorRooms">
+      <UniqueIdentifier>{b9b8f991-219e-4d55-94b5-9b0bbdd28808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\EntranceExitRooms">
+      <UniqueIdentifier>{06224622-ceaf-4f5b-9271-4935c397a868}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\TopFloorRooms\1Door">
+      <UniqueIdentifier>{79275b42-e4e1-4efa-9336-536ea3c5069b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\TopFloorRooms\2Door-Corner">
+      <UniqueIdentifier>{17e9d9f6-13aa-45d7-940c-05d29d0ccdac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\TopFloorRooms\2Door-Straight">
+      <UniqueIdentifier>{551a18da-2028-4533-a475-8f171190c4b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\TopFloorRooms\3Door">
+      <UniqueIdentifier>{a2dbc2f0-356d-427b-9291-97a2bf6294d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\EntranceExitRooms\1Door">
+      <UniqueIdentifier>{47ae5a2e-6803-4154-85f9-a870a8d70fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\EntranceExitRooms\2Door-Corner">
+      <UniqueIdentifier>{373f2b02-7f4f-40ad-b0e2-afe6cd793f02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\EntranceExitRooms\2Door-Straight">
+      <UniqueIdentifier>{622f0710-c5ca-4036-bee4-5150a4d12f36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\EntranceExitRooms\3Door">
+      <UniqueIdentifier>{a3dc2157-4438-4ee1-96a8-75d9ad5555e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Class Diagrams">
+      <UniqueIdentifier>{6a47cf12-7f06-4b06-900d-63966b03b766}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -178,9 +235,6 @@
       <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Component.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
@@ -240,9 +294,6 @@
     <ClCompile Include="MainMenuScene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="TestComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -250,12 +301,6 @@
       <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="CapsuleShape.cpp">
-      <Filter>Source Files\Engine\Colliders</Filter>
-    </ClCompile>
-    <ClCompile Include="CylinderShape.cpp">
-      <Filter>Source Files\Engine\Colliders</Filter>
-    </ClCompile>
-    <ClCompile Include="SphereShape.cpp">
       <Filter>Source Files\Engine\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="RoomPrefab_Corner.cpp">
@@ -277,31 +322,19 @@
       <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="Room_1Door_Normal.cpp">
-      <Filter>Source Files\Prefabs\DecoratedRooms\1Door</Filter>
+      <Filter>Source Files\Prefabs\NormalRooms\1Door</Filter>
     </ClCompile>
     <ClCompile Include="Room_2DoorCorner_Normal.cpp">
-      <Filter>Source Files\Prefabs\DecoratedRooms\2Door-Corner</Filter>
+      <Filter>Source Files\Prefabs\NormalRooms\2Door-Corner</Filter>
     </ClCompile>
     <ClCompile Include="Room_2DoorStraight_Normal.cpp">
-      <Filter>Source Files\Prefabs\DecoratedRooms\2Door-Straight</Filter>
+      <Filter>Source Files\Prefabs\NormalRooms\2Door-Straight</Filter>
     </ClCompile>
     <ClCompile Include="Room_3Door_Normal.cpp">
-      <Filter>Source Files\Prefabs\DecoratedRooms\3Door</Filter>
-    </ClCompile>
-    <ClCompile Include="Room_4Door_Normal.cpp">
-      <Filter>Source Files\Prefabs\DecoratedRooms\4Door</Filter>
+      <Filter>Source Files\Prefabs\NormalRooms\3Door</Filter>
     </ClCompile>
     <ClCompile Include="DoorPrefab.cpp">
       <Filter>Source Files\Prefabs\Other</Filter>
-    </ClCompile>
-    <ClCompile Include="Room_2DoorCorner_TopFloor.cpp">
-      <Filter>Source Files\Prefabs\DecoratedRooms\2Door-Corner</Filter>
-    </ClCompile>
-    <ClCompile Include="Room_2DoorStraight_TopFloor.cpp">
-      <Filter>Source Files\Prefabs\DecoratedRooms\2Door-Straight</Filter>
-    </ClCompile>
-    <ClCompile Include="Room_3Door_TopFloor.cpp">
-      <Filter>Source Files\Prefabs\DecoratedRooms\3Door</Filter>
     </ClCompile>
     <ClCompile Include="TallPillar_Single_Prefab.cpp">
       <Filter>Source Files\Prefabs\Decorations\Pillars</Filter>
@@ -423,14 +456,128 @@
     <ClCompile Include="RoomController.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="DecorationSpawner.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
     <ClCompile Include="Chair_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations\Mimics</Filter>
+      <Filter>Source Files\Prefabs\Decorations</Filter>
     </ClCompile>
     <ClCompile Include="Table_Prefab.cpp">
-      <Filter>Source Files\Prefabs\Decorations\Mimics</Filter>
+      <Filter>Source Files\Prefabs\Decorations</Filter>
     </ClCompile>
-    <ClCompile Include="DecorationSpawner.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="TableMimic_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Mimics</Filter>
+    </ClCompile>
+    <ClCompile Include="ChairMimic_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Mimics</Filter>
+    </ClCompile>
+    <ClCompile Include="MimicController.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorStraight_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\2Door-Straight</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorCorner_UpRight_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\2Door-Corner</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorCorner_DownLeft_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\2Door-Corner</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorCorner_LeftUp_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\2Door-Corner</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorCorner_RightDown_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\2Door-Corner</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_3Door_NoDown_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\3Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_3Door_NoLeft_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\3Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_3Door_NoRight_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\3Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_3Door_NoUp_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\3Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_1Door_TopFloor.cpp">
+      <Filter>Source Files\Prefabs\TopFloorRooms\1Door</Filter>
+    </ClCompile>
+    <ClCompile Include="TopFloor_Single_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations\Floors</Filter>
+    </ClCompile>
+    <ClCompile Include="Hedge_Large_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations</Filter>
+    </ClCompile>
+    <ClCompile Include="Hedge_Small_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations</Filter>
+    </ClCompile>
+    <ClCompile Include="HedgeMimic_Large_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Mimics</Filter>
+    </ClCompile>
+    <ClCompile Include="HedgeMimic_Small_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Mimics</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_1Door_Entrance.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\1Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorCorner_Entrance.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\2Door-Corner</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorStraight_Entrance.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\2Door-Straight</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_3Door_Entrance.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\3Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_1DoorExit.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\1Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorCorner_Exit.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\2Door-Corner</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_2DoorStraight_Exit.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\2Door-Straight</Filter>
+    </ClCompile>
+    <ClCompile Include="Room_3Door_Exit.cpp">
+      <Filter>Source Files\Prefabs\EntranceExitRooms\3Door</Filter>
+    </ClCompile>
+    <ClCompile Include="EntranceStairs_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitStairs_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Decorations</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableMimic.cpp">
+      <Filter>Source Files\Components\Interactables</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableExit.cpp">
+      <Filter>Source Files\Components\Interactables</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Bat_Prefab.cpp">
+      <Filter>Source Files\Prefabs\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="GhostController.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverButton.cpp">
+      <Filter>Source Files\Components\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverButton_Prefab.cpp">
+      <Filter>Source Files\Prefabs\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverManager.cpp">
+      <Filter>Source Files\Components\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -509,9 +656,6 @@
     <ClInclude Include="MainMenuScene.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="TestComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -525,12 +669,6 @@
       <Filter>Header Files\Engine\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="CollisionShape.h">
-      <Filter>Header Files\Engine\Colliders</Filter>
-    </ClInclude>
-    <ClInclude Include="CylinderShape.h">
-      <Filter>Header Files\Engine\Colliders</Filter>
-    </ClInclude>
-    <ClInclude Include="SphereShape.h">
       <Filter>Header Files\Engine\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="LevelGenerator.h">
@@ -552,31 +690,19 @@
       <Filter>Header Files\Prefabs\EmptyRooms</Filter>
     </ClInclude>
     <ClInclude Include="Room_1Door_Normal.h">
-      <Filter>Header Files\Prefabs\DecoratedRooms\1Door</Filter>
+      <Filter>Header Files\Prefabs\NormalRooms\1Door</Filter>
     </ClInclude>
     <ClInclude Include="Room_2DoorCorner_Normal.h">
-      <Filter>Header Files\Prefabs\DecoratedRooms\2Door-Corner</Filter>
+      <Filter>Header Files\Prefabs\NormalRooms\2Door-Corner</Filter>
     </ClInclude>
     <ClInclude Include="Room_2DoorStraight_Normal.h">
-      <Filter>Header Files\Prefabs\DecoratedRooms\2Door-Straight</Filter>
+      <Filter>Header Files\Prefabs\NormalRooms\2Door-Straight</Filter>
     </ClInclude>
     <ClInclude Include="Room_3Door_Normal.h">
-      <Filter>Header Files\Prefabs\DecoratedRooms\3Door</Filter>
-    </ClInclude>
-    <ClInclude Include="Room_4Door_Normal.h">
-      <Filter>Header Files\Prefabs\DecoratedRooms\4Door</Filter>
+      <Filter>Header Files\Prefabs\NormalRooms\3Door</Filter>
     </ClInclude>
     <ClInclude Include="DoorPrefab.h">
       <Filter>Header Files\Prefabs\Other</Filter>
-    </ClInclude>
-    <ClInclude Include="Room_2DoorCorner_TopFloor.h">
-      <Filter>Header Files\Prefabs\DecoratedRooms\2Door-Corner</Filter>
-    </ClInclude>
-    <ClInclude Include="Room_2DoorStraight_TopFloor.h">
-      <Filter>Header Files\Prefabs\DecoratedRooms\2Door-Straight</Filter>
-    </ClInclude>
-    <ClInclude Include="Room_3Door_TopFloor.h">
-      <Filter>Header Files\Prefabs\DecoratedRooms\3Door</Filter>
     </ClInclude>
     <ClInclude Include="ShortPillar_Full_Prefab.h">
       <Filter>Header Files\Prefabs\Decorations\Pillars</Filter>
@@ -677,9 +803,6 @@
     <ClInclude Include="TutorialButton_Prefab.h">
       <Filter>Header Files\Prefabs\UI</Filter>
     </ClInclude>
-    <ClInclude Include="PersistantData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OptionsMenuButton_Normal_Prefab.h">
       <Filter>Header Files\Prefabs\UI</Filter>
     </ClInclude>
@@ -698,14 +821,131 @@
     <ClInclude Include="RoomController.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Table_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations\Mimics</Filter>
+    <ClInclude Include="DecorationSpawner.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="Chair_Prefab.h">
-      <Filter>Header Files\Prefabs\Decorations\Mimics</Filter>
+      <Filter>Header Files\Prefabs\Decorations</Filter>
     </ClInclude>
-    <ClInclude Include="DecorationSpawner.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Table_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="TableMimic_Prefab.h">
+      <Filter>Header Files\Prefabs\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="ChairMimic_Prefab.h">
+      <Filter>Header Files\Prefabs\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="MimicController.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorStraight_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\2Door-Straight</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorCorner_UpRight_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\2Door-Corner</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorCorner_DownLeft_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\2Door-Corner</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorCorner_LeftUp_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\2Door-Corner</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorCorner_RightDown_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\2Door-Corner</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_3Door_NoDown_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\3Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_3Door_NoLeft_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\3Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_3Door_NoRight_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\3Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_3Door_NoUp_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\3Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_1Door_TopFloor.h">
+      <Filter>Header Files\Prefabs\TopFloorRooms\1Door</Filter>
+    </ClInclude>
+    <ClInclude Include="TopFloor_Single_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations\Floors</Filter>
+    </ClInclude>
+    <ClInclude Include="Hedge_Large_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="Hedge_Small_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="HedgeMimic_Large_Prefab.h">
+      <Filter>Header Files\Prefabs\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="HedgeMimic_Small_Prefab.h">
+      <Filter>Header Files\Prefabs\Mimics</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_1Door_Entrance.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\1Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_1DoorExit.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\1Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorCorner_Entrance.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\2Door-Corner</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorCorner_Exit.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\2Door-Corner</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorStraight_Entrance.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\2Door-Straight</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_2DoorStraight_Exit.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\2Door-Straight</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_3Door_Entrance.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\3Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Room_3Door_Exit.h">
+      <Filter>Header Files\Prefabs\EntranceExitRooms\3Door</Filter>
+    </ClInclude>
+    <ClInclude Include="EntranceStairs_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitStairs_Prefab.h">
+      <Filter>Header Files\Prefabs\Decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableMimic.h">
+      <Filter>Header Files\Components\Interactables</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableExit.h">
+      <Filter>Header Files\Components\Interactables</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost_Prefab.h">
+      <Filter>Header Files\Prefabs\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat_Prefab.h">
+      <Filter>Header Files\Prefabs\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="PersistantData.h">
+      <Filter>Header Files\Other\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="GhostController.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverButton.h">
+      <Filter>Header Files\Components\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverButton_Prefab.h">
+      <Filter>Header Files\Prefabs\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverManager.h">
+      <Filter>Header Files\Components\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -731,6 +971,21 @@
     </None>
     <None Include="Assets\Shaders\mask_VERT.glsl">
       <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\glitch_FRAG.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\glitch_VERT.glsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="ClassDiagram (Components).cd">
+      <Filter>Resource Files\Class Diagrams</Filter>
+    </None>
+    <None Include="ClassDiagram (Engine).cd">
+      <Filter>Resource Files\Class Diagrams</Filter>
+    </None>
+    <None Include="ClassDiagram (Prefabs).cd">
+      <Filter>Resource Files\Class Diagrams</Filter>
     </None>
   </ItemGroup>
 </Project>

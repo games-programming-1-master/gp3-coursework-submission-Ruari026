@@ -3,6 +3,8 @@
 #include "Common.h"
 #include "Resources.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
+#include "Sound.h"
 #include "PersistantData.h"
 #include "Input.h"
 #include "Physics.h"
@@ -80,6 +82,7 @@ void Application::GameInit()
 	//loading all resources
 	// Models - Room basics
 	Resources::GetInstance()->AddModel("Models/Floor.obj");
+	Resources::GetInstance()->AddModel("Models/Floor (Stairs).obj");
 	Resources::GetInstance()->AddModel("Models/Roof.obj");
 	Resources::GetInstance()->AddModel("Models/Walls (1 Door).obj");
 	Resources::GetInstance()->AddModel("Models/Walls (2 Door - Straight).obj");
@@ -90,10 +93,14 @@ void Application::GameInit()
 	// Models - Room decorations
 	Resources::GetInstance()->AddModel("Models/TopFloor (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/TopFloor (Corner).obj");
+	Resources::GetInstance()->AddModel("Models/TopFloor (Single).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/Banner (Corner).obj");
+	Resources::GetInstance()->AddModel("Models/Banner (Single).obj");
+	Resources::GetInstance()->AddModel("Models/Banner (Stairs).obj");
 	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Straight).obj");
 	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Corner).obj");
+	Resources::GetInstance()->AddModel("Models/TopFloor Chains (Single).obj");
 	Resources::GetInstance()->AddModel("Models/ShortPillar (Full).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Full).obj");
 	Resources::GetInstance()->AddModel("Models/TallPillar (Half).obj");
@@ -103,6 +110,17 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/Table.obj");
 	Resources::GetInstance()->AddModel("Models/Chair.obj");
 	Resources::GetInstance()->AddModel("Models/Cushion.obj");
+	Resources::GetInstance()->AddModel("Models/Hedge (Small).obj");
+	Resources::GetInstance()->AddModel("Models/Hedge (Large).obj");
+	Resources::GetInstance()->AddModel("Models/HedgeBase (Small).obj");
+	Resources::GetInstance()->AddModel("Models/HedgeBase (Large).obj");
+	Resources::GetInstance()->AddModel("Models/Stairs.obj");
+	Resources::GetInstance()->AddModel("Models/Stair Chains.obj");
+	Resources::GetInstance()->AddModel("Models/StairsFrame.obj");
+	Resources::GetInstance()->AddModel("Models/StairWalls.obj");
+	Resources::GetInstance()->AddModel("Models/StairsPlane.obj");
+	Resources::GetInstance()->AddModel("Models/Plane.obj");
+
 
 	// Models - Other Level Requirements
 	Resources::GetInstance()->AddModel("Models/Door.obj");
@@ -110,6 +128,8 @@ void Application::GameInit()
 	Resources::GetInstance()->AddModel("Models/DecorativeFlashing.obj");
 
 	// Models - Player
+	Resources::GetInstance()->AddModel("Models/Pan.obj");
+
 	Log::NewLine();
 
 	// Textures
@@ -118,6 +138,9 @@ void Application::GameInit()
 	Resources::GetInstance()->AddTexture("Images/Textures/WoodPlanks (Simple).png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Tartan.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Chains.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Leaf.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Ghost.png");
+	Resources::GetInstance()->AddTexture("Images/Textures/Bat.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Border 2.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Default.png");
 	Resources::GetInstance()->AddTexture("Images/Textures/Button Small.png");
@@ -145,8 +168,17 @@ void Application::GameInit()
 	Resources::GetInstance()->AddFont("Fonts/PixelNoise_erc_2007.ttf");
 	Log::NewLine();
 
+	// Sounds
+	if (SoundManager::GetInstance()->InitMixer())
+	{
+		Resources::GetInstance()->AddSound("Audio/SFX/buttonClick.wav", SoundType::SOUNDTYPE_SFX);
+		Resources::GetInstance()->AddSound("Audio/SFX/doorOpen.wav", SoundType::SOUNDTYPE_SFX);
+		Resources::GetInstance()->AddSound("Audio/SFX/fryingPan.wav", SoundType::SOUNDTYPE_SFX);
+		Resources::GetInstance()->AddSound("Audio/Music/Loyalty_Freak_Music_-_01_-_Monster_Parade.mp3", SoundType::SOUNDTYPE_MUSIC);
+	}
+
 	// Loading All Scenes
-	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_GAMEPLAY);
+	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_MAINMENU);
 
 	// Can't release unused resources due to the main game scene using procedural generation to create levels
 	//Resources::GetInstance()->ReleaseUnusedResources();
@@ -195,6 +227,8 @@ void Application::Loop()
 		// Updating time between frames
 		auto currentTicks = std::chrono::high_resolution_clock::now();
 		float deltaTime = (float)std::chrono::duration_cast<std::chrono::microseconds>(currentTicks - prevTicks).count() / 100000;
+		if (deltaTime > 0.5f)
+			deltaTime = 0.5f;
 		prevTicks = currentTicks;
 		m_worldDeltaTime = deltaTime;
 		

@@ -27,9 +27,6 @@ void OptionsMenuManager::OnStart()
 
 void OptionsMenuManager::OnUpdate(float deltaTime)
 {
-	//glm::ivec2 mousePos = Input::GetInstance()->GetMousePos();
-	//SDL_GetMouseState(&mousePos.x, &mousePos.y);
-	//Log::Debug(std::to_string(mousePos.x) + ", " + std::to_string(mousePos.y), "", 0);
 }
 
 void OptionsMenuManager::OnRender()
@@ -89,6 +86,12 @@ void OptionsMenuManager::ChangeVolume(bool isIncreasing)
 	}
 
 	// Setting Audio Listener To new volume value
+	if (!PersistantData::GetInstance()->IsGameMuted())
+	{
+		float v = (MIX_MAX_VOLUME * ((float)newVolume / 10));
+		Mix_Volume(-1, v);
+		Mix_VolumeMusic((v / 4.0f)); // Halfs music volume since music tracks are too loud
+	}
 
 	// Storing new value
 	volume = newVolume;
@@ -138,6 +141,12 @@ void OptionsMenuManager::ReturnToMainMenu(bool saveChanges)
 	else
 	{
 		// Reset the audio listener to its previous value
+		if (!PersistantData::GetInstance()->IsGameMuted())
+		{
+			float v = (MIX_MAX_VOLUME * ((float)PersistantData::GetInstance()->GetGameVolume() / 10));
+			Mix_Volume(-1, v);
+			Mix_VolumeMusic((v / 4.0f)); // Halfs music volume since music tracks are too loud
+		}
 	}
 
 	// Gets the main menu manager in the scene and tells it to return to the main menu

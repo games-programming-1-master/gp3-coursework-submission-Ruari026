@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "TutorialManager.h"
+#include "PersistantData.h"
 #include "Input.h"
 #include "Application.h"
 #include "SceneManager.h"
@@ -27,12 +28,22 @@ void TutorialManager::OnStart()
 	Application::GetInstance()->SetUpdateTimeScale(1.0f);
 	Application::GetInstance()->SetPhysicsTimeScale(0.0f);
 
-	// Picks what variation of the tutorial scene to show based on the players last level
-
-	// Gets the games persistant data
+	// Picks what variation of the tutorial scene to show based on the players last level (Stored in persistant data)
+	int currentLevel = PersistantData::GetInstance()->GetCurrentLevel();
 	// If current level is 0 then the player has started a new game - show the controls first
-
+	if (currentLevel < 3)
+	{
+		story1Parent->SetEnabled(true);
+	}
 	// Otherwise show other story scenes (triggered after level 5 and 10)
+	else if (currentLevel >= 3 && currentLevel < 6)
+	{
+		story2Parent->SetEnabled(true);
+	}
+	else
+	{
+		story3Parent->SetEnabled(true);
+	}
 
 	// Scene always starts in fade in state
 	ChangeSceneState(TutorialState::STATE_TRANSITIONIN);

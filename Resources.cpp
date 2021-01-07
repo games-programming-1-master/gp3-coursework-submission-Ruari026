@@ -104,6 +104,26 @@ std::shared_ptr<FT_Face> Resources::GetFont(const std::string& name)
 
 /*
 ========================================================================================================================================================================================================
+Sound Resources
+========================================================================================================================================================================================================
+*/
+void Resources::AddSound(const std::string& directory, SoundType type)
+{
+	if (m_sounds.find(ASSET_PATH + directory) == m_sounds.end())
+	{
+		m_sounds[ASSET_PATH + directory] = std::make_shared <Sound>(ASSET_PATH + directory, type);
+		LOG_DEBUG("Sound Loaded from " + ASSET_PATH + directory);
+	}
+}
+
+std::shared_ptr<Sound> Resources::GetSound(const std::string& name)
+{
+	return m_sounds[ASSET_PATH + name];
+}
+
+
+/*
+========================================================================================================================================================================================================
 Resources Releasing
 ========================================================================================================================================================================================================
 */
@@ -133,6 +153,13 @@ void Resources::ReleaseResources()
 
 	// Releasing Fonts
 	for (auto iter = m_fontFaces.begin(); iter != m_fontFaces.end();)
+	{
+		iter->second.reset();
+		iter++;
+	}
+
+	// Releasing Sounds
+	for (auto iter = m_sounds.begin(); iter != m_sounds.end();)
 	{
 		iter->second.reset();
 		iter++;
@@ -177,7 +204,7 @@ void Resources::ReleaseUnusedResources()
 		if (iter != m_textures.end()) iter++;
 	}
 
-	// Checking Textures for usage
+	// Checking Fonts for usage
 	for (auto iter = m_fontFaces.begin(); iter != m_fontFaces.end();)
 	{
 		if (iter->second.use_count() <= 1)
@@ -187,5 +214,17 @@ void Resources::ReleaseUnusedResources()
 		}
 
 		if (iter != m_fontFaces.end()) iter++;
+	}
+
+	// Checking Sounds for usage
+	for (auto iter = m_sounds.begin(); iter != m_sounds.end();)
+	{
+		if (iter->second.use_count() <= 1)
+		{
+			iter->second.reset();
+			iter = m_sounds.erase(iter);
+		}
+
+		if (iter != m_sounds.end()) iter++;
 	}
 }

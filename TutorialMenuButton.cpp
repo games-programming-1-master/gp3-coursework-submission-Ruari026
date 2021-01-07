@@ -1,6 +1,7 @@
 #include "TutorialMenuButton.h"
 #include "TutorialManager.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
 #include "Scene.h"
 #include "Entity.h"
 
@@ -26,12 +27,16 @@ void TutorialMenuButton::OnClick()
 		case (TutorialButtonType::BUTTONTYPE_SHOWCONTROLS):
 		{
 			menuManager->OpenControls();
+
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 
 		case (TutorialButtonType::BUTTONTYPE_STARTNEXTLEVEL):
 		{
 			menuManager->MoveToGame();
+
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 		}

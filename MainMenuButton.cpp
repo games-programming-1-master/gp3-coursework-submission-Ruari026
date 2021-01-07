@@ -1,6 +1,7 @@
 #include "MainMenuButton.h"
 #include "MainMenuManager.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
 #include "Scene.h"
 #include "Entity.h"
 
@@ -26,18 +27,24 @@ void MainMenuButton::OnClick()
 			case (MainMenuButtonType::BUTTONTYPE_STARTGAME):
 			{
 				menuManager->StartGame();
+
+				SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 			}
 			break;
 
 			case (MainMenuButtonType::BUTTONTYPE_OPENOPTIONS):
 			{
 				menuManager->OpenOptions();
+
+				SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 			}
 			break;
 
 			case (MainMenuButtonType::BUTTONTYPE_QUITGAME):
 			{
 				menuManager->QuitGame();
+
+				SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 			}
 			break;
 		}

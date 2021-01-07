@@ -16,5 +16,7 @@ public:
 	virtual void OnStart() = 0;
 	virtual void OnUpdate(float deltaTime) = 0;
 	virtual void OnRender() = 0;
+
+	Entity* GetParent() { return m_entity; }
 };
 

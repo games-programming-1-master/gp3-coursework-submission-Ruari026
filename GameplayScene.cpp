@@ -18,11 +18,6 @@
 #include "PauseMenuButton.h"
 #include "PauseMenuButton_Prefab.h"
 
-// Testing out prefabs TODO: Remove before final build
-#include "Room_2DoorCorner_TopFloor.h"
-#include "Room_2DoorStraight_TopFloor.h"
-#include "Room_3Door_TopFloor.h"
-
 GameplayScene::GameplayScene()
 {
 	// Setting up player character
@@ -39,7 +34,19 @@ GameplayScene::GameplayScene()
 		Entity* camera = new Entity("The Camera");
 		player->AddChild(camera);
 		this->SetCamera(new Camera(camera->GetTransform()));
-		camera->GetTransform()->SetLocalPosition(glm::vec3(0, 0.5f, 0));
+		camera->GetTransform()->SetLocalPosition(glm::vec3(0, 0.75f, 0));
+
+		// Adding "Player Weapon"
+		Entity* playerPan = new Entity("The Pan");
+		camera->AddChild(playerPan);
+		playerPan->GetTransform()->SetLocalPosition(glm::vec3(0.1f, -0.15f, -0.125f));
+
+		playerPan->AddComponent(
+			new MeshRenderer(
+				Resources::GetInstance()->GetModel("Models/Pan.obj"),
+				Resources::GetInstance()->GetShader("simple"),
+				Resources::GetInstance()->GetTexture("Images/Textures/Tartan.png"))
+		);
 
 		// Setting up the controller for the player
 		player->AddComponent<PlayerController>();
@@ -51,7 +58,7 @@ GameplayScene::GameplayScene()
 	Entity* levelManager = new Entity("Level Manager");
 	m_entities.push_back(levelManager);
 	levelManager->AddComponent<LevelManager>();
-	//levelManager->AddComponent<LevelGenerator>();
+	levelManager->AddComponent<LevelGenerator>();
 
 	// UI Parents to enable hiding/ showing many related UI elements at once
 	Entity* gameplayUIParent = new Entity("Gameplay UI");
@@ -64,27 +71,12 @@ GameplayScene::GameplayScene()
 
 	levelManager->GetComponent<LevelManager>()->SetSceneParents(gameplayUIParent, pauseMenuParent);
 
-
-	// ---------- Testing out decorated rooms ----------
-	{
-		Entity* testRoom = new Room_2DoorStraight_TopFloor("Test Room");
-		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 0));
-		m_entities.push_back(testRoom);
-
-		/*testRoom = new Room_3Door_TopFloor("Test Room");
-		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 18.5f));
-		m_entities.push_back(testRoom);*/
-
-		testRoom = new Room_2DoorCorner_TopFloor("Test Room");
-		testRoom->GetTransform()->SetGlobalPosition(glm::vec3(0, 0, 18.5f * 1));
-		m_entities.push_back(testRoom);
-	}
-
-
 	// ---------- Gameplay UI ----------
 	{
 		// Level Timer
 		{
+			std::vector<TextRenderer*> timerTexts;
+
 			Entity* levelTimer = new Entity("Level Timer");
 			levelTimer->GetTransform()->SetGlobalPosition(glm::vec3(580, 100, 0));
 			levelTimer->AddComponent(
@@ -94,8 +86,9 @@ GameplayScene::GameplayScene()
 					75)
 			);
 
-			levelTimer->GetComponent<TextRenderer>()->SetTextToRender("5");
+			levelTimer->GetComponent<TextRenderer>()->SetTextToRender("XXX");
 			levelTimer->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0, 0, 0, 1));
+			timerTexts.push_back(levelTimer->GetComponent<TextRenderer>());
 			gameplayUIParent->AddChild(levelTimer);
 
 			levelTimer = new Entity("Level Timer");
@@ -106,13 +99,48 @@ GameplayScene::GameplayScene()
 					Resources::GetInstance()->GetShader("text"),
 					75)
 			);
-			levelTimer->GetComponent<TextRenderer>()->SetTextToRender("5");
+			levelTimer->GetComponent<TextRenderer>()->SetTextToRender("XXX");
 			levelTimer->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(1, 1, 1, 1));
+			timerTexts.push_back(levelTimer->GetComponent<TextRenderer>());
 			gameplayUIParent->AddChild(levelTimer);
+
+			levelManager->GetComponent<LevelManager>()->SetSceneTimerUI(timerTexts);
 		}
 
 
 		// Number of enemy's left
+		{
+			std::vector<TextRenderer*> mimicsTexts;
+
+			Entity* levelMimics = new Entity("Ghosts UI");
+			levelMimics->GetTransform()->SetGlobalPosition(glm::vec3(420, 150, 0));
+			levelMimics->AddComponent(
+				new TextRenderer(
+					Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+					Resources::GetInstance()->GetShader("text"),
+					33)
+			);
+
+			levelMimics->GetComponent<TextRenderer>()->SetTextToRender("Mimics Remaining: XX");
+			levelMimics->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(0, 0, 0, 1));
+			mimicsTexts.push_back(levelMimics->GetComponent<TextRenderer>());
+			gameplayUIParent->AddChild(levelMimics);
+
+			levelMimics = new Entity("Ghosts UI");
+			levelMimics->GetTransform()->SetGlobalPosition(glm::vec3(425, 155, 0));
+			levelMimics->AddComponent(
+				new TextRenderer(
+					Resources::GetInstance()->GetFont("Fonts/JMH Cthulhumbus Arcade UG.ttf"),
+					Resources::GetInstance()->GetShader("text"),
+					33)
+			);
+			levelMimics->GetComponent<TextRenderer>()->SetTextToRender("Mimics Remaining: XX");
+			levelMimics->GetComponent<TextRenderer>()->SetTextColor(glm::vec4(1, 1, 1, 1));
+			mimicsTexts.push_back(levelMimics->GetComponent<TextRenderer>());
+			gameplayUIParent->AddChild(levelMimics);
+
+			levelManager->GetComponent<LevelManager>()->SetSceneGhostsUI(mimicsTexts);
+		}
 	}
 
 
@@ -167,22 +195,12 @@ GameplayScene::GameplayScene()
 			unpauseButton->GetComponent<PauseMenuButton>()->SetButtonType(PauseMenuButtonType::BUTTONTYPE_UNPAUSEGAME);
 		}
 
-		// Settings Button
-		{
-			Entity* settingsButton = new PauseMenuButton_Prefab("Settings Button", "Settings", 38);
-			pauseMenuParent->AddChild(settingsButton);
-
-			settingsButton->GetTransform()->SetGlobalPosition(glm::vec3(475, 490, 1.0f));
-
-			settingsButton->GetComponent<PauseMenuButton>()->SetButtonType(PauseMenuButtonType::BUTTONTYPE_RETURNTOMAINMENU);
-		}
-
 		// Return to main menu button
 		{
 			Entity* mainMenuButton = new PauseMenuButton_Prefab("Main Menu Button", "Main Menu", 12);
 			pauseMenuParent->AddChild(mainMenuButton);
 
-			mainMenuButton->GetTransform()->SetGlobalPosition(glm::vec3(475, 590, 1.0f));
+			mainMenuButton->GetTransform()->SetGlobalPosition(glm::vec3(475, 540, 1.0f));
 
 			mainMenuButton->GetComponent<PauseMenuButton>()->SetButtonType(PauseMenuButtonType::BUTTONTYPE_RETURNTOMAINMENU);
 		}
@@ -190,12 +208,14 @@ GameplayScene::GameplayScene()
 
 
 	// ---------- Fade In/ Out Controller ----------
-	Entity* transitionController = new Entity("Transition Controller");
-	transitionController->AddComponent(
-		new TransitionRenderer(
-			Resources::GetInstance()->GetTexture("Images/Textures/transition.png"),
-			Resources::GetInstance()->GetShader("mask"))
-	);
-	m_entities.push_back(transitionController);
-	levelManager->GetComponent<LevelManager>()->SetTransitionController(transitionController->GetComponent<TransitionRenderer>());
+	{
+		Entity* transitionController = new Entity("Transition Controller");
+		transitionController->AddComponent(
+			new TransitionRenderer(
+				Resources::GetInstance()->GetTexture("Images/Textures/transition.png"),
+				Resources::GetInstance()->GetShader("mask"))
+		);
+		m_entities.push_back(transitionController);
+		levelManager->GetComponent<LevelManager>()->SetTransitionController(transitionController->GetComponent<TransitionRenderer>());
+	}
 }

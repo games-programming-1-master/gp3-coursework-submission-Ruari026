@@ -1,14 +1,10 @@
 #include "pch.h"
+#include "PersistantData.h"
 #include "LevelGenerator.h"
+#include "LevelManager.h"
 #include "Entity.h"
 #include "Utility.h"
 #include "SceneManager.h"
-
-#include "Room_1Door_Normal.h"
-#include "Room_2DoorCorner_Normal.h"
-#include "Room_2DoorStraight_Normal.h"
-#include "Room_3Door_Normal.h"
-#include "Room_4Door_Normal.h"
 
 #include "DoorPrefab.h"
 
@@ -24,7 +20,7 @@ LevelGenerator::~LevelGenerator()
 void LevelGenerator::OnStart()
 {
 	// Gets the level size based on level number in persistant data
-	int levelSize = 12;
+	int levelSize = PersistantData::GetInstance()->GetCurrentLevel() + 7;
 
 	// Calculating where the rooms will be and how they connect to each other
 	PickRoomPoints(levelSize);
@@ -41,8 +37,15 @@ void LevelGenerator::OnStart()
 	std::cout << "====================================================================================================" << std::endl << std::endl;
 
 	// Spawning level into game scene
+	// First Spawns each room
 	SpawnRoomPrefabs();
+	// Then picks what rooms need to have mimics spawn in them
+	PickMimicRooms();
+	// Finally Doors are spawned between each set of rooms
 	SpawnDoorPrefabs();
+
+	// Sets the player's start position to the entrance room position and rotation
+	StartPlayer();
 }
 
 void LevelGenerator::OnUpdate(float deltaTime)
@@ -212,94 +215,72 @@ void LevelGenerator::SpawnRoomPrefabs()
 		// Delegating room spawning behaviour to individual factorys based on roomtype (rooms with top floors have very specific behaviour)
 		switch (r->GetRoomType())
 		{
+			case (RoomTypes::ROOMTYPE_NORMAL):
+			{
+				newRoom = normalFactory.CreateRoom(r);
+			}
+			break;
 
+			case (RoomTypes::ROOMTYPE_TOPFLOOR):
+			{
+				newRoom = topFloorFactory.CreateRoom(r);
+			}
+			break;
+
+			case (RoomTypes::ROOMTYPE_ENTRANCE):
+			{
+				newRoom = entranceExitFactory.CreateRoom(r);
+			}
+			break;
+
+			case (RoomTypes::ROOMTYPE_EXIT):
+			{
+				newRoom = entranceExitFactory.CreateRoom(r);
+			}
+			break;
 		}
 
-
-		// Determining what room to spawn & orientation
-		std::vector<Directions> connectionDirections = r->GetConnectionDirections();
-		switch (connectionDirections.size())
+		// Checking if any rooms weren't spawned properly
+		if (newRoom == nullptr)
 		{
-			case(1):
-			{
-				newRoom = new Room_1Door_Normal("Room_1Door");
-
-				int rotationAmount = (int)connectionDirections[0] - (int)Directions::DOWN;
-				newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-			}
-			break;
-
-			case(2):
-			{
-				// Special Case for 2 door rooms (connections can be opposite or next to each other)
-				if (connectionDirections[0] == DirectionsUtility::GetOppositeDirection(connectionDirections[1]))
-				{
-					newRoom = new Room_2DoorStraight_Normal("Room_Straight");
-
-					if (Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::LEFT, connectionDirections))
-					{
-						int rotationAmount = 1;
-						newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-					}
-				}
-				else
-				{
-					newRoom = new Room_2DoorCorner_Normal("Room_Corner");
-					
-					if (Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::DOWN, connectionDirections))
-					{
-						int rotationAmount = 1;
-						newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-					}
-					else if (Utility::VectorContains(Directions::DOWN, connectionDirections) && Utility::VectorContains(Directions::LEFT, connectionDirections))
-					{
-						int rotationAmount = 2;
-						newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-					}
-					else if (Utility::VectorContains(Directions::LEFT, connectionDirections) && Utility::VectorContains(Directions::UP, connectionDirections))
-					{
-						int rotationAmount = 3;
-						newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-					}
-				}
-			}
-			break;
-
-			case(3):
-			{
-				newRoom = new Room_3Door_Normal("Room_3Door");
-
-				if (Utility::VectorContains(Directions::LEFT, connectionDirections) && Utility::VectorContains(Directions::UP, connectionDirections) && Utility::VectorContains(Directions::RIGHT, connectionDirections))
-				{
-					int rotationAmount = 1;
-					newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-				}
-				else if (Utility::VectorContains(Directions::UP, connectionDirections) && Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::DOWN, connectionDirections))
-				{
-					int rotationAmount = 2;
-					newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-				}
-				else if (Utility::VectorContains(Directions::RIGHT, connectionDirections) && Utility::VectorContains(Directions::DOWN, connectionDirections) && Utility::VectorContains(Directions::LEFT, connectionDirections))
-				{
-					int rotationAmount = 3;
-					newRoom->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion(M_PI / 2 * rotationAmount, glm::vec3(0, 1, 0)));
-				}
-			}
-			break;
-
-			case(4):
-			{
-				newRoom = new Room_4Door_Normal("Room_4Door");
-
-				// No specific rotation required for a 4 door room, can give it a random rotation
-			}
-			break;
+			
 		}
+		else
+		{
+			spawnedRooms.push_back(std::tuple<RoomTypes, RoomController*>(r->GetRoomType(), newRoom->GetComponent<RoomController>()));
+			this->m_entity->AddChild(newRoom);
+		}
+	}
+}
 
-		// Handling room positioning
-		newRoom->GetTransform()->SetGlobalPosition(glm::vec3(r->GetRoomPos().x * 18.5f, 0.0f, r->GetRoomPos().y * 18.5f));
+void LevelGenerator::PickMimicRooms()
+{
+	// Calculates the number of mimics to spawn in the level
+	// Every level the number of mimics in the level increases by 2 (game starts off with 6 mimics spawning)
+	int mimicsToSpawn = PersistantData::GetInstance()->GetCurrentLevel() * 2 + 6;
 
-		this->m_entity->AddChild(newRoom);
+	// Tells the Level Manager how many mimics have been spawned
+	Entity* theLevelManager = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Level Manager");
+	theLevelManager->GetComponent<LevelManager>()->SetLevelMimics(mimicsToSpawn);
+
+	// Picks rooms to spawn mimics in
+	while (mimicsToSpawn > 0)
+	{
+		std::tuple<RoomTypes, RoomController*> randomRoom = Utility::GetRandomFromVector< std::tuple<RoomTypes, RoomController*>>(spawnedRooms);
+		RoomController* theController = std::get<RoomController*>(randomRoom);
+
+		if (theController->IncreaseMimicsToSpawn())
+		{
+			mimicsToSpawn--;
+		}
+	}
+}
+
+void LevelGenerator::SpawnRoomDecorations()
+{
+	for (auto [type, controller] : spawnedRooms)
+	{
+		controller->SpawnDecorationsAndMimics();
 	}
 }
 
@@ -318,4 +299,37 @@ void LevelGenerator::SpawnDoorPrefabs()
 
 		this->m_entity->AddChild(newDoor);
 	}
+}
+
+void LevelGenerator::StartPlayer()
+{
+	// Gets the player in the scene
+	Entity* thePlayer = SceneManager::GetInstance()->GetCurrentScene()->GetEntity("Main Player");
+
+	// Finds the entrance room that should have been just spawned
+	RoomController* startRoomController = GetRoomOfType(RoomTypes::ROOMTYPE_ENTRANCE);
+
+	// Sets the player position and rotation to match the entrance room position and rotation
+	glm::vec3 newPos = startRoomController->GetParent()->GetTransform()->GetGlobalPosition();
+	newPos.y = 3;
+	glm::quat newRot = startRoomController->GetParent()->GetTransform()->GetGlobalRotationQuaternion();
+	newRot = newRot * Utility::GetRotationQuaternion((M_PI * -0.5f), glm::vec3(0, 1, 0));
+
+	thePlayer->GetTransform()->SetGlobalPosition(newPos);
+	thePlayer->GetTransform()->SetGlobalRotationQuaternion(newRot);
+
+	bool b = true;
+}
+
+RoomController* LevelGenerator::GetRoomOfType(RoomTypes type)
+{
+	RoomController* theRoomController = nullptr;
+	for (auto& [roomType, roomController] : spawnedRooms)
+	{
+		if (roomType == type)
+		{
+			theRoomController = roomController;
+		}
+	}
+	return theRoomController;
 }
