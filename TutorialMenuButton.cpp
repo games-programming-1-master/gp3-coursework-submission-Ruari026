@@ -28,7 +28,7 @@ void TutorialMenuButton::OnClick()
 		{
 			menuManager->OpenControls();
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 
@@ -36,7 +36,7 @@ void TutorialMenuButton::OnClick()
 		{
 			menuManager->MoveToGame();
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 		}

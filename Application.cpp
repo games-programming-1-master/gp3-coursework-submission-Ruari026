@@ -168,11 +168,13 @@ void Application::GameInit()
 	// Sounds
 	if (SoundManager::GetInstance()->InitMixer())
 	{
-		Resources::GetInstance()->AddSound("Audio/buttonClick.wav", SoundType::SOUNDTYPE_SFX);
+		Resources::GetInstance()->AddSound("Audio/SFX/buttonClick.wav", SoundType::SOUNDTYPE_SFX);
+		Resources::GetInstance()->AddSound("Audio/SFX/doorOpen.wav", SoundType::SOUNDTYPE_SFX);
+		Resources::GetInstance()->AddSound("Audio/Music/Loyalty_Freak_Music_-_01_-_Monster_Parade.mp3", SoundType::SOUNDTYPE_MUSIC);
 	}
 
 	// Loading All Scenes
-	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_GAMEOVER);
+	SceneManager::GetInstance()->SetStartScene(GameScenes::GAMESCENE_MAINMENU);
 
 	// Can't release unused resources due to the main game scene using procedural generation to create levels
 	//Resources::GetInstance()->ReleaseUnusedResources();

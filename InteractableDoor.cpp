@@ -2,6 +2,7 @@
 #include "Input.h"
 #include "SceneManager.h"
 #include "RigidBody.h"
+#include "SoundManager.h"
 
 InteractableDoor::InteractableDoor()
 {
@@ -68,5 +69,8 @@ void InteractableDoor::OnInteract()
 	{
 		// Prevent multiple interactions
 		hasTriggered = true;
+
+		// Play sound effect
+		SoundManager::GetInstance()->PlaySound("Audio/SFX/doorOpen.wav", 0);
 	}
 }

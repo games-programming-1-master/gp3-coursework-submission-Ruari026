@@ -30,4 +30,5 @@ public:
 	virtual void OnRender();
 
 	void SetAnimationType(bool isIdleAnimation) { isIdle = isIdleAnimation; }
+	void SetIdleHeight(float newHeight) { idleAnimationHeight = newHeight; }
 };

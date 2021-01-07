@@ -29,7 +29,7 @@ void GameOverButton::OnClick()
 		{
 			menuManager->ReplayGame();
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 
@@ -37,7 +37,7 @@ void GameOverButton::OnClick()
 		{
 			menuManager->MoveToMenu();
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 		}

@@ -37,11 +37,16 @@ bool SoundManager::InitMixer()
 		return false;
 	}
 
+	// Sets the volume levels to their max volume (Halfs music volume since music tracks are too loud)
+	float v = MIX_MAX_VOLUME;
+	Mix_Volume(-1, v);
+	Mix_VolumeMusic((v / 2.0f));
+
 	return true;
 }
 
 void SoundManager::PlaySound(std::string name, int loop)
 {
-	std::shared_ptr<Sound> theSound = Resources::GetInstance()->GetSound("Audio/buttonClick.wav");
+	std::shared_ptr<Sound> theSound = Resources::GetInstance()->GetSound(name);
 	theSound->play(loop);
 }

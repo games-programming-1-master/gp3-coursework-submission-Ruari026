@@ -157,6 +157,13 @@ void Resources::ReleaseResources()
 		iter->second.reset();
 		iter++;
 	}
+
+	// Releasing Sounds
+	for (auto iter = m_sounds.begin(); iter != m_sounds.end();)
+	{
+		iter->second.reset();
+		iter++;
+	}
 }
 
 void Resources::ReleaseUnusedResources()
@@ -197,7 +204,7 @@ void Resources::ReleaseUnusedResources()
 		if (iter != m_textures.end()) iter++;
 	}
 
-	// Checking Textures for usage
+	// Checking Fonts for usage
 	for (auto iter = m_fontFaces.begin(); iter != m_fontFaces.end();)
 	{
 		if (iter->second.use_count() <= 1)
@@ -207,5 +214,17 @@ void Resources::ReleaseUnusedResources()
 		}
 
 		if (iter != m_fontFaces.end()) iter++;
+	}
+
+	// Checking Sounds for usage
+	for (auto iter = m_sounds.begin(); iter != m_sounds.end();)
+	{
+		if (iter->second.use_count() <= 1)
+		{
+			iter->second.reset();
+			iter = m_sounds.erase(iter);
+		}
+
+		if (iter != m_sounds.end()) iter++;
 	}
 }

@@ -28,7 +28,7 @@ void MainMenuButton::OnClick()
 			{
 				menuManager->StartGame();
 
-				SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+				SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 			}
 			break;
 
@@ -36,7 +36,7 @@ void MainMenuButton::OnClick()
 			{
 				menuManager->OpenOptions();
 
-				SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+				SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 			}
 			break;
 
@@ -44,7 +44,7 @@ void MainMenuButton::OnClick()
 			{
 				menuManager->QuitGame();
 
-				SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+				SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 			}
 			break;
 		}

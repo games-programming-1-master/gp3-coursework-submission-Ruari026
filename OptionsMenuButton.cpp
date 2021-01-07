@@ -29,7 +29,7 @@ void OptionsMenuButton::OnClick()
 		{
 			menuManager->ChangeVolume(false);
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 
@@ -37,7 +37,7 @@ void OptionsMenuButton::OnClick()
 		{
 			menuManager->ChangeVolume(true);
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 
@@ -46,7 +46,7 @@ void OptionsMenuButton::OnClick()
 		{
 			menuManager->ChangeSensitivity(false);
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 
@@ -54,7 +54,7 @@ void OptionsMenuButton::OnClick()
 		{
 			menuManager->ChangeSensitivity(true);
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 
@@ -63,7 +63,7 @@ void OptionsMenuButton::OnClick()
 		{
 			menuManager->ReturnToMainMenu(false);
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 
@@ -71,7 +71,7 @@ void OptionsMenuButton::OnClick()
 		{
 			menuManager->ReturnToMainMenu(true);
 
-			SoundManager::GetInstance()->PlaySound("Audio/buttonClick.wav", 0);
+			SoundManager::GetInstance()->PlaySound("Audio/SFX/buttonClick.wav", 0);
 		}
 		break;
 		}

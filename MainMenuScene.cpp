@@ -9,6 +9,8 @@
 #include "OptionsMenuButton_Small_Prefab.h"
 #include "Room_2DoorCorner_DownLeft_TopFloor.h"
 #include "DoorPrefab.h"
+#include "Ghost_Prefab.h"
+#include "Bat_Prefab.h"
 
 // Other Required Components
 #include "TextRenderer.h"
@@ -17,6 +19,7 @@
 #include "OptionsMenuManager.h"
 #include "OptionsMenuButton.h"
 #include "TransitionRenderer.h"
+#include "GhostController.h"
 
 #include "RigidBody.h"
 #include "BoxShape.h"
@@ -26,7 +29,7 @@ MainMenuScene::MainMenuScene()
 {
 	// ---------- General Scene Details ----------
 	// Every Scene Needs A Camera
-	Entity* camera = new Entity("The Camera");
+	Entity* camera = new Entity("Main Player");
 	m_entities.push_back(camera);
 	this->SetCamera(new Camera(camera->GetTransform()));
 	camera->GetTransform()->SetLocalPosition(glm::vec3(-0.5f, 1.5f, -3.0f));
@@ -63,6 +66,28 @@ MainMenuScene::MainMenuScene()
 	backgroundDoor->GetTransform()->SetGlobalPosition(glm::vec3(-9.25f, 0, 0));
 	backgroundDoor->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
 	m_entities.push_back(backgroundDoor);
+
+	Entity* newGhost = new Ghost_Prefab("Ghost (1)");
+	newGhost->GetTransform()->SetGlobalPosition(glm::vec3(-4.0f, 1.2f, 0));
+	//newGhost->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+	newGhost->GetComponent<GhostController>()->SetAnimationType(true);
+	newGhost->GetComponent<GhostController>()->SetIdleHeight(0.45f);
+	m_entities.push_back(newGhost);
+
+	Entity* newBat = new Bat_Prefab("Bat (1)");
+	newBat->GetTransform()->SetGlobalPosition(glm::vec3(7.75f, 1.6f, 2.25f));
+	//newBat->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+	newBat->GetComponent<GhostController>()->SetAnimationType(true);
+	newBat->GetComponent<GhostController>()->SetIdleHeight(0.45f);
+	m_entities.push_back(newBat);
+
+	newBat = new Bat_Prefab("Bat (2)");
+	newBat->GetTransform()->SetGlobalPosition(glm::vec3(7.75f, 1.6f, -2.25f));
+	//newBat->GetTransform()->SetGlobalRotationQuaternion(Utility::GetRotationQuaternion((M_PI * 0.5f), glm::vec3(0, 1, 0)));
+	newBat->GetComponent<GhostController>()->SetAnimationType(true);
+	newBat->GetComponent<GhostController>()->SetIdleHeight(0.45f);
+	m_entities.push_back(newBat);
+
 
 	// ---------- Main Menu Specific UI Entitys ----------
 	{
