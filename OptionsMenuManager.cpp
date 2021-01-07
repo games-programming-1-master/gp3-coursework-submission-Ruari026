@@ -86,9 +86,12 @@ void OptionsMenuManager::ChangeVolume(bool isIncreasing)
 	}
 
 	// Setting Audio Listener To new volume value
-	float v = (MIX_MAX_VOLUME * ((float)newVolume / 10));
-	Mix_Volume(-1, v);
-	Mix_VolumeMusic((v / 2.0f)); // Halfs music volume since music tracks are too loud
+	if (!PersistantData::GetInstance()->IsGameMuted())
+	{
+		float v = (MIX_MAX_VOLUME * ((float)newVolume / 10));
+		Mix_Volume(-1, v);
+		Mix_VolumeMusic((v / 4.0f)); // Halfs music volume since music tracks are too loud
+	}
 
 	// Storing new value
 	volume = newVolume;
@@ -138,9 +141,12 @@ void OptionsMenuManager::ReturnToMainMenu(bool saveChanges)
 	else
 	{
 		// Reset the audio listener to its previous value
-		float v = (MIX_MAX_VOLUME * ((float)PersistantData::GetInstance()->GetGameVolume() / 10));
-		Mix_Volume(-1, v);
-		Mix_VolumeMusic(v);
+		if (!PersistantData::GetInstance()->IsGameMuted())
+		{
+			float v = (MIX_MAX_VOLUME * ((float)PersistantData::GetInstance()->GetGameVolume() / 10));
+			Mix_Volume(-1, v);
+			Mix_VolumeMusic((v / 4.0f)); // Halfs music volume since music tracks are too loud
+		}
 	}
 
 	// Gets the main menu manager in the scene and tells it to return to the main menu

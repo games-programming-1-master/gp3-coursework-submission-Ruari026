@@ -60,6 +60,16 @@ void PlayerController::OnUpdate(float deltaTime)
 			movementDirection.x += -1;
 		}
 
+		// Cheat keys for progressing the level forward or moving to the game over screen
+		if (Input::GetInstance()->GetKeyDown(SDLK_BACKSPACE))
+		{
+			PersistantData::GetInstance()->MuteGame(!PersistantData::GetInstance()->IsGameMuted());
+		}
+		if (Input::GetInstance()->GetKeyDown(SDLK_RETURN))
+		{
+			SceneManager::GetInstance()->QueueSceneChange(GameScenes::GAMESCENE_GAMEOVER);
+		}
+
 		// Handling player movement & rotation
 		AcceleratePlayer(movementDirection, deltaTime);
 		MovePlayer(movementDirection, deltaTime);
